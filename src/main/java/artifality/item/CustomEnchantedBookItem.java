@@ -4,8 +4,8 @@ import net.minecraft.item.ItemStack;
 
 public class CustomEnchantedBookItem extends BaseItem{
 
-    public CustomEnchantedBookItem(Settings settings) {
-        super(settings);
+    public CustomEnchantedBookItem(Settings settings, String name) {
+        super(settings, name);
     }
 
     @Override

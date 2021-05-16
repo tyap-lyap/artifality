@@ -21,8 +21,8 @@ public class ArtifalityItems {
     private static final FabricItemSettings NOT_STACKABLE = new FabricItemSettings().group(ArtifalityMod.GENERAL).maxCount(1);
 
 
-    public static final Item UKULELE = add("ukulele", new BaseItem(NOT_STACKABLE, "custom"));
-    public static final Item ENCHANTED_BOOK = add("enchanted_book", new CustomEnchantedBookItem(NOT_STACKABLE));
+    public static final Item UKULELE = add("ukulele", new UkuleleItem(NOT_STACKABLE, "custom", "Ukulele"));
+    public static final Item ENCHANTED_BOOK = add("enchanted_book", new CustomEnchantedBookItem(NOT_STACKABLE, "Enchanted Book"));
 
 
 

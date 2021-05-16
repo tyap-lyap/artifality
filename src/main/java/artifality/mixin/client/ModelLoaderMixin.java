@@ -1,5 +1,6 @@
 package artifality.mixin.client;
 
+import artifality.api.client.item.TwoModelsItemRegistry;
 import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.render.model.ModelLoader;
 import net.minecraft.client.util.ModelIdentifier;
@@ -19,7 +20,9 @@ public abstract class ModelLoaderMixin {
 
     @Inject(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/registry/DefaultedRegistry;getIds()Ljava/util/Set;", shift = At.Shift.AFTER))
     void init(ResourceManager resourceManager, BlockColors blockColors, Profiler profiler, int i, CallbackInfo ci){
-        addModel(new ModelIdentifier("artifality:ukulele_in_hand#inventory"));
+
+        TwoModelsItemRegistry.getEntries().forEach((id, item) -> addModel(new ModelIdentifier(id + "_in_hand#inventory")));
+
     }
 
 }

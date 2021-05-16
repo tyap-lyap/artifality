@@ -1,6 +1,6 @@
 package artifality.mixin.client;
 
-import artifality.item.ArtifalityItems;
+import artifality.api.client.item.TwoModelsItemRegistry;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.item.ItemModels;
 import net.minecraft.client.render.item.ItemRenderer;
@@ -9,7 +9,6 @@ import net.minecraft.client.render.model.json.ModelTransformation;
 import net.minecraft.client.util.ModelIdentifier;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Final;
@@ -17,8 +16,6 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 
 @Mixin(ItemRenderer.class)
 public abstract class ItemRendererMixin {
@@ -32,14 +29,18 @@ public abstract class ItemRendererMixin {
             method = "renderItem(Lnet/minecraft/entity/LivingEntity;Lnet/minecraft/item/ItemStack;Lnet/minecraft/client/render/model/json/ModelTransformation$Mode;ZLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;Lnet/minecraft/world/World;II)V",
             at = @At("HEAD"), cancellable = true
     )
-    void renderUkuleleInHand(LivingEntity entity, ItemStack item, ModelTransformation.Mode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, World world, int light, int overlay, CallbackInfo ci){
-        if(!item.isEmpty() && item.getItem().equals(ArtifalityItems.UKULELE) && entity != null){
-            BakedModel bakedModel = models.getModelManager().getModel(new ModelIdentifier("artifality:ukulele_in_hand#inventory"));
-            renderItem(item, renderMode, leftHanded, matrices, vertexConsumers, light, overlay, bakedModel);
+    void renderModelInHand(LivingEntity entity, ItemStack item, ModelTransformation.Mode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, World world, int light, int overlay, CallbackInfo ci){
+        TwoModelsItemRegistry.getEntries().forEach((id, entryItem) ->{
+            if(!item.isEmpty() && item.getItem().equals(entryItem) && entity != null){
 
-            ci.cancel();
+                BakedModel bakedModel = models.getModelManager().getModel(new ModelIdentifier(id + "_in_hand#inventory"));
+                renderItem(entryItem.getDefaultStack(), renderMode, leftHanded, matrices, vertexConsumers, light, overlay, bakedModel);
 
-        }
+                ci.cancel();
+            }
+
+        });
+
     }
 
 }

@@ -23,6 +23,9 @@
   "entrypoints": {
     "main": [
       "artifality.ArtifalityMod"
+    ],
+    "client": [
+      "artifality.client.ArtifalityClient"
     ]
   },
   "mixins": [

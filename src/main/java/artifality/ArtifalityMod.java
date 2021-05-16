@@ -1,6 +1,7 @@
 package artifality;
 
 import artifality.data.ArtifalityResources;
+import artifality.event.ArtifalityEvents;
 import artifality.item.ArtifalityItems;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
@@ -21,6 +22,7 @@ public class ArtifalityMod implements ModInitializer {
     public void onInitialize() {
 
         ArtifalityItems.register();
+        ArtifalityEvents.register();
 
         ArtifalityResources.init();
 
