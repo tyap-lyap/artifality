@@ -11,7 +11,7 @@ import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.util.Identifier;
 
-public class LootTables {
+public class ArtifalityLootTables {
 
 
     public static void init(){

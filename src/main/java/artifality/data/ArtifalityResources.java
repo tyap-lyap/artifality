@@ -13,6 +13,9 @@ public class ArtifalityResources {
 
     public static final RuntimeResourcePack RESOURCES = RuntimeResourcePack.create(ArtifalityMod.MODID + ":resources");
 
+    private static final Identifier EN_US = new Identifier(ArtifalityMod.MODID, "en_us");
+    private static final JLang LANG = JLang.lang();
+
     public static void init(){
 
         ArtifalityItems.getItems().forEach((id, item) -> {
@@ -25,11 +28,16 @@ public class ArtifalityResources {
                             new Identifier(ArtifalityMod.MODID + ":item/" + id.getPath()));
 
                 }
-                RESOURCES.addLang(new Identifier(ArtifalityMod.MODID, "en_us"), JLang.lang().item(item, ((IArtifalityItem) item).getTranslation()));
+                RESOURCES.addLang(EN_US, LANG.item(item, ((IArtifalityItem) item).getTranslation()));
             }
         });
+        miscTranslations();
 
         RRPCallback.EVENT.register(resources -> resources.add(RESOURCES));
 
+    }
+
+    private static void miscTranslations(){
+        RESOURCES.addLang(EN_US, LANG.itemGroup(new Identifier(ArtifalityMod.MODID, "general"), "Artifality Items"));
     }
 }

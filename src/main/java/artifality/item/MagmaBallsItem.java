@@ -7,8 +7,8 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class MagmaBall extends BaseItem {
-    public MagmaBall(Settings settings, String name) {
+public class MagmaBallsItem extends BaseItem {
+    public MagmaBallsItem(Settings settings, String name) {
         super(settings, name);
     }
     @Override
@@ -16,8 +16,10 @@ public class MagmaBall extends BaseItem {
 
         if(entity instanceof PlayerEntity){
             if(!selected){
-                ((PlayerEntity) entity).addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 20, 0, false, false));
-            } //болс))
+                if(!((PlayerEntity) entity).hasStatusEffect(StatusEffects.FIRE_RESISTANCE)){
+                    ((PlayerEntity) entity).addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 200, 0, false, false));
+                }
+            }
         }
 
     }

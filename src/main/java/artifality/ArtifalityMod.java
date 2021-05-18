@@ -1,7 +1,7 @@
 package artifality;
 
 import artifality.data.ArtifalityResources;
-import artifality.data.LootTables;
+import artifality.data.ArtifalityLootTables;
 import artifality.event.ArtifalityEvents;
 import artifality.item.ArtifalityItems;
 import net.fabricmc.api.ModInitializer;
@@ -26,6 +26,6 @@ public class ArtifalityMod implements ModInitializer {
         ArtifalityEvents.register();
 
         ArtifalityResources.init();
-        LootTables.init();
+        ArtifalityLootTables.init();
     }
 }

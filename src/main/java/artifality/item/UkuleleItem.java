@@ -7,8 +7,8 @@ import dev.emi.trinkets.api.Trinket;
 
 public class UkuleleItem extends BaseItem implements Trinket {
 
-    public UkuleleItem(Settings settings, String modelParent, String name) {
-        super(settings, modelParent, name);
+    public UkuleleItem(Settings settings, String name) {
+        super(settings, name);
     }
 
 
