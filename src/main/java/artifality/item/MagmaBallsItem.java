@@ -15,10 +15,8 @@ public class MagmaBallsItem extends BaseItem {
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
 
         if(entity instanceof PlayerEntity){
-            if(!selected){
-                if(!((PlayerEntity) entity).hasStatusEffect(StatusEffects.FIRE_RESISTANCE)){
-                    ((PlayerEntity) entity).addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 200, 0, false, false));
-                }
+            if(!((PlayerEntity) entity).hasStatusEffect(StatusEffects.FIRE_RESISTANCE)){
+                ((PlayerEntity) entity).addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 200, 0, false, false));
             }
         }
 
