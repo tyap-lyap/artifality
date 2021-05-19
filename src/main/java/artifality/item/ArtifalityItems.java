@@ -20,11 +20,11 @@ public class ArtifalityItems {
 
     public static final Item UKULELE = add("ukulele", new UkuleleItem(NOT_STACKABLE, "Ukulele"));
     public static final Item ENCHANTED_BOOK = add("enchanted_book", new CustomEnchantedBookItem(NOT_STACKABLE, "Enchanted Book"));
-    public static final Item MAGMA_BALLS = add("magma_balls", new MagmaBallsItem(NOT_STACKABLE,"Magma Balls"));
+    public static final Item MAGMA_BALLS = add("magma_balls", new MagmaBallsItem(NOT_STACKABLE, "Magma Balls"));
 
 
-    private static <I extends Item> I add(String name, I item) {
-        ITEMS.put(new Identifier(ArtifalityMod.MODID, name), item);
+    private static Item add(String id, Item item) {
+        ITEMS.put(new Identifier(ArtifalityMod.MODID, id), item);
         return item;
     }
 
