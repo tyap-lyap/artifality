@@ -20,6 +20,7 @@ public class ArtifalityItems {
 
     public static final Item UKULELE = add("ukulele", new UkuleleItem(NOT_STACKABLE, "Ukulele"));
     public static final Item MAGMA_BALLS = add("magma_balls", new MagmaBallsItem(NOT_STACKABLE, "Magma Balls"));
+    public static final Item INVISIBILITY_CAPE = add("cape_of_invisibility", new InvisibilityCape(NOT_STACKABLE, "Cape of Invisibility"));
 
 
     private static Item add(String id, Item item) {
