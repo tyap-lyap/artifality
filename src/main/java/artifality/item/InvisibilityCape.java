@@ -17,8 +17,10 @@ public class InvisibilityCape extends BaseItem implements Trinket {
     }
     @Override
     public void tick(PlayerEntity player, ItemStack stack) {
-        if(player.isSneaking()){
-            player.addStatusEffect(new StatusEffectInstance(StatusEffects.INVISIBILITY, 10,0,false,false));
+        if(player.isSneaking()) {
+            if (!player.hasStatusEffect(StatusEffects.INVISIBILITY)) {
+                player.addStatusEffect(new StatusEffectInstance(StatusEffects.INVISIBILITY, 20, 0, false, false));
+            }
         }
     }
 
