@@ -4,6 +4,7 @@
   "package": "artifality.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "common.LivingEntityMixin"
   ],
   "client": [
     "client.ItemRendererMixin",

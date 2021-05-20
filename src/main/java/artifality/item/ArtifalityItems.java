@@ -19,7 +19,6 @@ public class ArtifalityItems {
 
 
     public static final Item UKULELE = add("ukulele", new UkuleleItem(NOT_STACKABLE, "Ukulele"));
-    public static final Item ENCHANTED_BOOK = add("enchanted_book", new CustomEnchantedBookItem(NOT_STACKABLE, "Enchanted Book"));
     public static final Item MAGMA_BALLS = add("magma_balls", new MagmaBallsItem(NOT_STACKABLE, "Magma Balls"));
 
 
