@@ -2,9 +2,11 @@ package artifality;
 
 import artifality.data.ArtifalityResources;
 import artifality.data.ArtifalityLootTables;
+import artifality.effect.ArtifalityEffects;
 import artifality.enchantment.ArtifalityEnchantments;
 import artifality.event.ArtifalityEvents;
 import artifality.item.ArtifalityItems;
+import artifality.item.ArtifalityPotions;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
@@ -48,7 +50,8 @@ public class ArtifalityMod implements ModInitializer {
 
     @Override
     public void onInitialize() {
-
+        ArtifalityPotions.register();
+        ArtifalityEffects.register();
         ArtifalityItems.register();
         ArtifalityEvents.register();
         ArtifalityEnchantments.register();

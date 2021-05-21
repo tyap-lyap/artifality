@@ -4,7 +4,8 @@
   "package": "artifality.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "common.LivingEntityMixin"
+    "common.LivingEntityMixin",
+    "common.ServerPlayerEntityMixin"
   ],
   "client": [
     "client.ArmorFeatureRendererMixin",
