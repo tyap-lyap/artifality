@@ -14,6 +14,7 @@ public class ArtifalityClient implements ClientModInitializer {
         ArtifalityEvents.registerClient();
 
         TwoModelsItemRegistry.register(new Identifier("artifality:ukulele"), ArtifalityItems.UKULELE);
+        TwoModelsItemRegistry.register(new Identifier("artifality:zeus_wand"), ArtifalityItems.ZEUS_WAND);
 
     }
 
