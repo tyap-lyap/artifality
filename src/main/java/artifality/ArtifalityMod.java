@@ -1,5 +1,6 @@
 package artifality;
 
+import artifality.block.ArtifalityBlocks;
 import artifality.data.ArtifalityResources;
 import artifality.data.ArtifalityLootTables;
 import artifality.effect.ArtifalityEffects;
@@ -33,6 +34,12 @@ public class ArtifalityMod implements ModInitializer {
                 }
             }));
 
+            ArtifalityBlocks.getBlocks().forEach((id, block) -> {
+                if(block.asItem().getGroup().equals(GENERAL)){
+                    itemStacks.add(block.asItem().getDefaultStack());
+                }
+            });
+
             ArtifalityEnchantments.getEnchantments().forEach(((id, enchantment) -> {
                 ItemStack book = new ItemStack(Items.ENCHANTED_BOOK);
                 book.addEnchantment(enchantment, enchantment.getMaxLevel());
@@ -53,6 +60,7 @@ public class ArtifalityMod implements ModInitializer {
         ArtifalityPotions.register();
         ArtifalityEffects.register();
         ArtifalityItems.register();
+        ArtifalityBlocks.register();
         ArtifalityEvents.register();
         ArtifalityEnchantments.register();
         ArtifalityResources.init();

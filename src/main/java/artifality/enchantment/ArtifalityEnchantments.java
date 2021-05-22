@@ -10,7 +10,7 @@ import net.minecraft.util.registry.Registry;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-@SuppressWarnings("all")
+@SuppressWarnings("unused")
 public class ArtifalityEnchantments {
 
     private static final Map<Identifier, Enchantment> ENCHANTMENTS = new LinkedHashMap<>();

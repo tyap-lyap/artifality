@@ -1,7 +1,9 @@
 package artifality.data;
 
 import artifality.ArtifalityMod;
+import artifality.block.ArtifalityBlocks;
 import artifality.enchantment.ArtifalityEnchantments;
+import artifality.interfaces.IArtifalityBlock;
 import artifality.interfaces.IArtifalityEnchantment;
 import artifality.interfaces.IArtifalityItem;
 import artifality.item.ArtifalityItems;
@@ -33,6 +35,7 @@ public class ArtifalityResources {
                 RESOURCES.addLang(EN_US, LANG.item(item, ((IArtifalityItem) item).getTranslation()));
             }
         });
+
         ArtifalityEnchantments.getEnchantments().forEach((id, enchantment) -> {
 
             if(enchantment instanceof IArtifalityEnchantment){
@@ -40,7 +43,16 @@ public class ArtifalityResources {
             }
 
         });
+
+        ArtifalityBlocks.getBlocks().forEach((id, block) -> {
+            if(block instanceof IArtifalityBlock){
+                RESOURCES.addLang(EN_US, LANG.block(block, ((IArtifalityBlock) block).getTranslation()));
+            }
+        });
+
         miscTranslations();
+
+        ArtifalityBlockResources.init(RESOURCES);
 
         RRPCallback.EVENT.register(resources -> resources.add(RESOURCES));
 

@@ -9,7 +9,7 @@ import net.minecraft.util.registry.Registry;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-@SuppressWarnings("all")
+@SuppressWarnings("unused")
 public class ArtifalityItems {
 
     private static final Map<Identifier, Item> ITEMS = new LinkedHashMap<>();
@@ -23,6 +23,7 @@ public class ArtifalityItems {
     public static final Item INVISIBILITY_CAPE = add("cape_of_invisibility", new InvisibilityCapeItem(NOT_STACKABLE, "Cape of Invisibility"));
 
     public static final Item ZEUS_WAND = add("zeus_wand", new BaseItem(NOT_STACKABLE, "Zeus Wand"));
+    public static final Item INCREMENTAL = add("incremental", new BaseItem(DEFAULT, "Incremental"));
 
 
     private static Item add(String id, Item item) {
