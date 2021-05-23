@@ -10,6 +10,8 @@ import artifality.item.ArtifalityItems;
 import artifality.item.ArtifalityPotions;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.minecraft.enchantment.EnchantmentLevelEntry;
+import net.minecraft.item.EnchantedBookItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -42,7 +44,7 @@ public class ArtifalityMod implements ModInitializer {
 
             ArtifalityEnchantments.getEnchantments().forEach(((id, enchantment) -> {
                 ItemStack book = new ItemStack(Items.ENCHANTED_BOOK);
-                book.addEnchantment(enchantment, enchantment.getMaxLevel());
+                EnchantedBookItem.addEnchantment(book, new EnchantmentLevelEntry(enchantment, enchantment.getMaxLevel()));
                 itemStacks.add(book);
             }));
 
