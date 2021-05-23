@@ -4,6 +4,7 @@ import artifality.api.client.item.TwoModelsItemRegistry;
 import artifality.block.ArtifalityBlocks;
 import artifality.event.ArtifalityEvents;
 import artifality.item.ArtifalityItems;
+import artifality.particle.ArtifalityParticles;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.minecraft.client.render.RenderLayer;
@@ -19,6 +20,7 @@ public class ArtifalityClient implements ClientModInitializer {
         TwoModelsItemRegistry.register(new Identifier("artifality:ukulele"), ArtifalityItems.UKULELE);
         TwoModelsItemRegistry.register(new Identifier("artifality:zeus_wand"), ArtifalityItems.ZEUS_WAND);
 
+        ArtifalityParticles.register();
 
         BlockRenderLayerMap.INSTANCE.putBlock(ArtifalityBlocks.INCREMENTAL_CRYSTAL, RenderLayer.getCutout());
 

@@ -1,5 +1,6 @@
 package artifality.block;
 
+import artifality.particle.ArtifalityParticles;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
@@ -13,6 +14,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
+import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class CrystalBlock extends BaseBlock {
     public static final DirectionProperty FACING = Properties.FACING;
@@ -71,4 +75,13 @@ public class CrystalBlock extends BaseBlock {
         builder.add(FACING);
     }
 
+    @Override
+    public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
+        super.randomDisplayTick(state, world, pos, random);
+
+        if(random.nextFloat() > 0.5){
+
+            world.addParticle(ArtifalityParticles.CRYSTAL_SPARKLE, pos.getX() + random.nextFloat(), pos.getY() + random.nextFloat(), pos.getZ() + random.nextFloat(), 0, 0, 0);
+        }
+    }
 }
