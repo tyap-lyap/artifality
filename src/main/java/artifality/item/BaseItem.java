@@ -1,6 +1,7 @@
 package artifality.item;
 
 import artifality.interfaces.IArtifalityItem;
+import artifality.interfaces.ITearableItem;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.screen.Screen;
@@ -44,15 +45,6 @@ public class BaseItem extends Item implements IArtifalityItem {
         return name;
     }
     
-    //TODO: tiers
-    public boolean hasTiers(){
-        return true;
-    }
-    
-    public int getCurrentTier(ItemStack stack){
-        return 1;
-    }
-    
     @Environment(EnvType.CLIENT)
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
@@ -63,8 +55,8 @@ public class BaseItem extends Item implements IArtifalityItem {
             tooltip.add(new TranslatableText(""));
             tooltip.add(new LiteralText("Press Shift for More Information").formatted(Formatting.GRAY));
         }else{
-            if(this.hasTiers()){
-                tooltip.add(new LiteralText("Tier " + this.getCurrentTier(stack)));
+            if(this instanceof ITearableItem){
+                tooltip.add(new LiteralText("Tier " + ((ITearableItem) this).getCurrentTier(stack)));
             }
             tooltip.add(new TranslatableText(""));
             tooltip.add(new LiteralText("Description: ").formatted(Formatting.GRAY));

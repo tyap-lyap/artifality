@@ -66,6 +66,6 @@ public class ArtifalityMod implements ModInitializer {
         ArtifalityEvents.register();
         ArtifalityEnchantments.register();
         ArtifalityResources.init();
-        ArtifalityLootTables.init();
+        ArtifalityLootTables.register();
     }
 }

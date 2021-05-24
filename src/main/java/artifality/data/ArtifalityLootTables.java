@@ -13,18 +13,25 @@ import net.minecraft.util.Identifier;
 
 public class ArtifalityLootTables {
 
+    public static FabricLootSupplierBuilder supplier;
+    public static Identifier id;
 
-    public static void init(){
+
+    public static void register(){
 
         LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, supplier, setter) -> {
-            fillLoottable(ArtifalityItems.MAGMA_BALLS, "minecraft:chests/nether_bridge", supplier, id, 0.01F);
-            fillLoottable(ArtifalityItems.MAGMA_BALLS, "minecraft:chests/bastion_treasure", supplier, id, 0.05F);
+
+            ArtifalityLootTables.id = id;
+            ArtifalityLootTables.supplier = supplier;
+
+            singleItemInChest(ArtifalityItems.MAGMA_BALLS, "nether_bridge", 0.01F);
+            singleItemInChest(ArtifalityItems.MAGMA_BALLS, "bastion_treasure", 0.05F);
         });
     }
 
-    static void fillLoottable(Item item, String loottableToFill, FabricLootSupplierBuilder supplier, Identifier id, Float chance){
+    static void singleItemInChest(Item item, String chests, Float chance){
 
-        if (new Identifier(loottableToFill).equals(id)) {
+        if (new Identifier("minecraft:chests/" + chests).equals(id)) {
             FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
                     .rolls(ConstantLootTableRange.create(1)).withCondition(RandomChanceLootCondition.builder(chance).build())
                     .withEntry(ItemEntry.builder(item).build());

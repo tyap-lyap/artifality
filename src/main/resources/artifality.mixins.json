@@ -8,6 +8,7 @@
     "common.ServerPlayerEntityMixin"
   ],
   "client": [
+    "client.EnchantedBookItemMixin",
     "client.ArmorFeatureRendererMixin",
     "client.ItemRendererMixin",
     "client.ModelLoaderMixin"

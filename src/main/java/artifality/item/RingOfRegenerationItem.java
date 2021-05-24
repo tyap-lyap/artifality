@@ -1,5 +1,6 @@
 package artifality.item;
 
+import artifality.interfaces.ITearableItem;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -7,7 +8,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class RingOfRegenerationItem extends BaseItem {
+public class RingOfRegenerationItem extends BaseItem implements ITearableItem {
     public RingOfRegenerationItem(Settings settings, String name) {
         super(settings, name);
     }
