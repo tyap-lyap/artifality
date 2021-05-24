@@ -3,6 +3,7 @@ package artifality.item;
 import artifality.ArtifalityMod;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -23,6 +24,7 @@ public class ArtifalityItems {
     public static final Item RING_OF_REGENERATION = add("ring_of_regeneration", new RingOfRegenerationItem(NOT_STACKABLE, "Ring Of Regeneration"));
     public static final Item ZEUS_WAND = add("zeus_wand", new BaseItem(NOT_STACKABLE, "Zeus Wand"));
     public static final Item INCREMENTAL = add("incremental", new BaseItem(DEFAULT, "Incremental"));
+    public static final Item ENCHANTED_ARROW = add("enchanted_arrow", new EnchantedArrow(DEFAULT, "Enchanted arrow"));
     public static final Item INVISIBILITY_CAPE = add("cape_of_invisibility", new InvisibilityCapeItem(NOT_STACKABLE, "Cape of Invisibility"));
 
 
