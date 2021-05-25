@@ -16,6 +16,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.collection.DefaultedList;
 
 import java.util.List;
 import java.util.function.Consumer;
@@ -31,15 +32,11 @@ public class ArtifalityMod implements ModInitializer {
         public void accept(List<ItemStack> itemStacks) {
 
             ArtifalityItems.getItems().forEach(((id, item) -> {
-                if(item.getGroup().equals(GENERAL)){
-                    itemStacks.add(item.getDefaultStack());
-                }
+                item.appendStacks(GENERAL, (DefaultedList<ItemStack>) itemStacks);
             }));
 
             ArtifalityBlocks.getBlocks().forEach((id, block) -> {
-                if(block.asItem().getGroup().equals(GENERAL)){
-                    itemStacks.add(block.asItem().getDefaultStack());
-                }
+                block.asItem().appendStacks(GENERAL, (DefaultedList<ItemStack>) itemStacks);
             });
 
             ArtifalityEnchantments.getEnchantments().forEach(((id, enchantment) -> {
