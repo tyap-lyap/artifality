@@ -1,7 +1,7 @@
 package artifality.item;
 
 import artifality.interfaces.IArtifalityItem;
-import artifality.interfaces.ITearableItem;
+import artifality.interfaces.ITierableItem;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.screen.Screen;
@@ -55,8 +55,8 @@ public class BaseItem extends Item implements IArtifalityItem {
             tooltip.add(new TranslatableText(""));
             tooltip.add(new LiteralText("Press Shift for More Information").formatted(Formatting.GRAY));
         }else{
-            if(this instanceof ITearableItem){
-                tooltip.add(new LiteralText("Tier " + ((ITearableItem) this).getCurrentTier(stack)));
+            if(this instanceof ITierableItem){
+                tooltip.add(new LiteralText("Tier " + TierableItem.getCurrentTier(stack)));
             }
             tooltip.add(new TranslatableText(""));
             tooltip.add(new LiteralText("Description: ").formatted(Formatting.GRAY));

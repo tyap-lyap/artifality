@@ -5,7 +5,7 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
 
-public class RingOfRegenerationItem extends BaseTearableItem {
+public class RingOfRegenerationItem extends TierableItem {
 
     public RingOfRegenerationItem(Settings settings, String name) {
         super(settings, name);

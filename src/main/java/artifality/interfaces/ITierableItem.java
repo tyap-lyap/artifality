@@ -4,12 +4,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public interface ITearableItem {
-
-    default int getCurrentTier(ItemStack stack){
-
-        return stack.getOrCreateTag().getInt("ArtifactLevel");
-    }
+public interface ITierableItem {
 
     default int getMaxTears(){
         return 3;

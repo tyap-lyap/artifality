@@ -1,7 +1,8 @@
 package artifality.util;
 
-import artifality.interfaces.ITearableItem;
+import artifality.interfaces.ITierableItem;
 import artifality.item.ArtifalityItems;
+import artifality.item.TierableItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 
@@ -35,13 +36,13 @@ public class TrinketEffectsManager {
         server.getWorlds().forEach((serverWorld -> serverWorld.getPlayers().forEach((player) -> {
 
             ArtifalityItems.getItems().forEach((id, item) -> {
-                if(item instanceof ITearableItem){
+                if(item instanceof ITierableItem){
                     for(int i = 0; i <= player.inventory.size(); i++){
 
                         ItemStack itemStack = player.inventory.getStack(i);
 
                         if(!itemStack.isEmpty() && itemStack.getItem().equals(item)){
-                            ((ITearableItem) item).applyEffects(serverWorld, player, ((ITearableItem) item).getCurrentTier(itemStack));
+                            ((ITierableItem) item).applyEffects(serverWorld, player, TierableItem.getCurrentTier(itemStack));
                         }
 
                     }
