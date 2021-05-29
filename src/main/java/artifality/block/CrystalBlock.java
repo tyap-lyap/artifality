@@ -21,14 +21,12 @@ import java.util.Random;
 public class CrystalBlock extends BaseBlock {
     public static final DirectionProperty FACING = Properties.FACING;
 
-    protected static final VoxelShape SHAPE_UP = Block.createCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D);
-    protected static final VoxelShape SHAPE_DOWN = Block.createCuboidShape(2.0D, 4.0D, 2.0D, 14.0D, 16.0D, 14.0D);
-
-    protected static final VoxelShape SHAPE_SOUTH = Block.createCuboidShape(2.0D, 2.0D, 0.0D, 14.0D, 14.0D, 12.0D);
-    protected static final VoxelShape SHAPE_NORTH = Block.createCuboidShape(2.0D, 2.0D, 4.0D, 14.0D, 14.0D, 16.0D);
-
-    protected static final VoxelShape SHAPE_EAST = Block.createCuboidShape(0.0D, 2.0D, 14.0D, 12.0D, 14.0D, 2.0D);
-    protected static final VoxelShape SHAPE_WEST = Block.createCuboidShape(4.0D, 2.0D, 14.0D, 16.0D, 14.0D, 2.0D);
+    protected static final VoxelShape NORTH_SHAPE = createCuboidShape(3, 3, 9, 13, 13, 16);
+    protected static final VoxelShape SOUTH_SHAPE = createCuboidShape(3, 3, 0, 13, 13, 7);
+    protected static final VoxelShape EAST_SHAPE = createCuboidShape(0, 3, 3, 7, 13, 13);
+    protected static final VoxelShape WEST_SHAPE = createCuboidShape(9, 3, 3, 16, 13, 13);
+    protected static final VoxelShape UP_SHAPE = createCuboidShape(3, 0, 3, 13, 7, 13);
+    protected static final VoxelShape DOWN_SHAPE = createCuboidShape(3, 9, 3, 13, 16, 13);
 
     public CrystalBlock(Settings settings, String name) {
         super(settings, "cross", name);
@@ -50,17 +48,17 @@ public class CrystalBlock extends BaseBlock {
         switch((state.get(FACING))) {
             case UP:
             default:
-                return SHAPE_UP;
+                return UP_SHAPE;
             case DOWN:
-                return SHAPE_DOWN;
+                return DOWN_SHAPE;
             case SOUTH:
-                return SHAPE_SOUTH;
+                return SOUTH_SHAPE;
             case NORTH:
-                return SHAPE_NORTH;
+                return NORTH_SHAPE;
             case EAST:
-                return SHAPE_EAST;
+                return EAST_SHAPE;
             case WEST:
-                return SHAPE_WEST;
+                return WEST_SHAPE;
         }
     }
 

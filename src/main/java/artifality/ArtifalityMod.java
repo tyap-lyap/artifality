@@ -6,6 +6,7 @@ import artifality.data.ArtifalityLootTables;
 import artifality.effect.ArtifalityEffects;
 import artifality.enchantment.ArtifalityEnchantments;
 import artifality.event.ArtifalityEvents;
+import artifality.interfaces.ITierableItem;
 import artifality.item.ArtifalityItems;
 import artifality.item.ArtifalityPotions;
 import net.fabricmc.api.ModInitializer;
@@ -27,16 +28,28 @@ public class ArtifalityMod implements ModInitializer {
 
     public static final String MODID = "artifality";
 
-    public static final ItemGroup GENERAL = FabricItemGroupBuilder.create(new Identifier(MODID, "general")).appendItems(new Consumer<List<ItemStack>>() {
+    @Override
+    public void onInitialize() {
+        ArtifalityPotions.register();
+        ArtifalityEffects.register();
+        ArtifalityItems.register();
+        ArtifalityBlocks.register();
+        ArtifalityEvents.register();
+        ArtifalityEnchantments.register();
+        ArtifalityResources.init();
+        ArtifalityLootTables.register();
+    }
+
+    public static final ItemGroup ITEMS = FabricItemGroupBuilder.create(new Identifier(MODID, "items")).appendItems(new Consumer<List<ItemStack>>() {
         @Override
         public void accept(List<ItemStack> itemStacks) {
 
             ArtifalityItems.getItems().forEach(((id, item) -> {
-                item.appendStacks(GENERAL, (DefaultedList<ItemStack>) itemStacks);
+                item.appendStacks(ITEMS, (DefaultedList<ItemStack>) itemStacks);
             }));
 
             ArtifalityBlocks.getBlocks().forEach((id, block) -> {
-                block.asItem().appendStacks(GENERAL, (DefaultedList<ItemStack>) itemStacks);
+                block.asItem().appendStacks(ITEMS, (DefaultedList<ItemStack>) itemStacks);
             });
 
             ArtifalityEnchantments.getEnchantments().forEach(((id, enchantment) -> {
@@ -53,16 +66,23 @@ public class ArtifalityMod implements ModInitializer {
         }
     }).build();
 
-
-    @Override
-    public void onInitialize() {
-        ArtifalityPotions.register();
-        ArtifalityEffects.register();
-        ArtifalityItems.register();
-        ArtifalityBlocks.register();
-        ArtifalityEvents.register();
-        ArtifalityEnchantments.register();
-        ArtifalityResources.init();
-        ArtifalityLootTables.register();
-    }
+    public static final ItemGroup TIERABLE_ITEMS = FabricItemGroupBuilder.create(new Identifier(MODID, "tierable_items")).appendItems(new Consumer<List<ItemStack>>() {
+        @Override
+        public void accept(List<ItemStack> itemStacks) {
+            ArtifalityItems.getItems().forEach(((id, item) -> {
+                if(item instanceof ITierableItem){
+                    for(int i = 1; i <= ((ITierableItem) item).getMaxTiers(); i++){
+                        ItemStack itemStack = new ItemStack(item);
+                        itemStack.getOrCreateTag().putInt("ArtifactLevel", i);
+                        itemStacks.add(itemStack);
+                    }
+                }
+            }));
+        }
+    }).icon(new Supplier<ItemStack>() {
+        @Override
+        public ItemStack get() {
+            return ArtifalityItems.ZEUS_WAND.getDefaultStack();
+        }
+    }).build();
 }

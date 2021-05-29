@@ -52,13 +52,24 @@ public class BaseItem extends Item implements IArtifalityItem {
 
         
         if(!Screen.hasShiftDown()){
-            tooltip.add(new TranslatableText(""));
+            tooltip.add(new LiteralText(""));
             tooltip.add(new LiteralText("Press Shift for More Information").formatted(Formatting.GRAY));
         }else{
             if(this instanceof ITierableItem){
-                tooltip.add(new LiteralText("Tier " + TierableItem.getCurrentTier(stack)));
+                switch (TierableItem.getCurrentTier(stack)){
+                    case 1:
+                        tooltip.add(new LiteralText("Tier " + TierableItem.getCurrentTier(stack)));
+                        break;
+                    case 2:
+                        tooltip.add(new LiteralText("Tier " + TierableItem.getCurrentTier(stack)).formatted(Formatting.GREEN));
+                        break;
+                    case 3:
+                    default:
+                        tooltip.add(new LiteralText("Tier " + TierableItem.getCurrentTier(stack)).formatted(Formatting.LIGHT_PURPLE));
+                        break;
+                }
             }
-            tooltip.add(new TranslatableText(""));
+            tooltip.add(new LiteralText(""));
             tooltip.add(new LiteralText("Description: ").formatted(Formatting.GRAY));
             tooltip.add(new TranslatableText(this.getTranslationKey() + ".description").formatted(Formatting.GRAY));
         }

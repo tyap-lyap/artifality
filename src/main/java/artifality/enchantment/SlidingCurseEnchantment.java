@@ -21,4 +21,9 @@ public class SlidingCurseEnchantment extends Enchantment implements IArtifalityE
     public String getTranslation() {
         return "Curse Of Sliding";
     }
+
+    @Override
+    public String getDescription() {
+        return "Makes you slide on all\nblocks like on ice.";
+    }
 }

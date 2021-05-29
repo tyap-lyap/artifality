@@ -9,9 +9,9 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Language;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
@@ -36,12 +36,20 @@ public abstract class EnchantedBookItemMixin {
 
                 if(enchantment instanceof IArtifalityEnchantment){
                     if(!Screen.hasShiftDown()){
-                        tooltip.add(new TranslatableText(""));
+                        tooltip.add(new LiteralText(""));
                         tooltip.add(new LiteralText("Press Shift for More Information").formatted(Formatting.GRAY));
                     }else{
-                        tooltip.add(new TranslatableText(""));
+                        String description = Language.getInstance().get(enchantment.getTranslationKey() + ".description");
+
+                        tooltip.add(new LiteralText(""));
                         tooltip.add(new LiteralText("Description: ").formatted(Formatting.GRAY));
-                        tooltip.add(new TranslatableText(enchantment.getTranslationKey() + ".description").formatted(Formatting.GRAY));
+                        for(String line : description.split("\n")) {
+                            tooltip.add(new LiteralText(line.trim()).formatted(Formatting.GRAY));
+                        }
+                        if(enchantment.getMaxLevel() > 1){
+                            tooltip.add(new LiteralText(""));
+                            tooltip.add(new LiteralText("Max Level: " + enchantment.getMaxLevel()).formatted(Formatting.GRAY));
+                        }
                     }
                 }
             });

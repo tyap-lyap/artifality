@@ -25,7 +25,7 @@ public class ArtifalityBlocks {
 
     private static Block add(String name, Block block) {
         Item.Settings settings = new Item.Settings();
-        settings.group(ArtifalityMod.GENERAL);
+        settings.group(ArtifalityMod.ITEMS);
         return addBlockItem(name, block, new BlockItem(block, settings));
     }
 
