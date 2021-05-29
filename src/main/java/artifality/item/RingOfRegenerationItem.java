@@ -12,7 +12,7 @@ public class RingOfRegenerationItem extends TierableItem {
     }
 
     @Override
-    public int getMaxTears() {
+    public int getMaxTiers() {
         return 3;
     }
 

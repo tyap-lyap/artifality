@@ -29,7 +29,7 @@ public class TierableItem extends BaseItem implements ITierableItem {
     @Override
     public void appendStacks(ItemGroup group, DefaultedList<ItemStack> stacks) {
         if (this.isIn(group)) {
-            for(int i = 1; i <= getMaxTears(); i++){
+            for(int i = 1; i <= getMaxTiers(); i++){
                 ItemStack itemStack = new ItemStack(this);
                 itemStack.getOrCreateTag().putInt("ArtifactLevel", i);
                 stacks.add(itemStack);
