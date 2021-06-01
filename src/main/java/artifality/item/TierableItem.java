@@ -2,6 +2,7 @@ package artifality.item;
 
 import artifality.interfaces.ITierableItem;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
@@ -22,6 +23,12 @@ public class TierableItem extends BaseItem implements ITierableItem {
 
     public static int getCurrentTier(ItemStack stack){
         return stack.getOrCreateTag().getInt("ArtifactLevel");
+    }
+
+    public static ItemStack withTier(Item item, int tier){
+        ItemStack itemStack = new ItemStack(item);
+        itemStack.getOrCreateTag().putInt("ArtifactLevel", tier);
+        return itemStack;
     }
 
     @Override

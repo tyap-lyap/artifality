@@ -8,4 +8,8 @@ public interface IArtifalityItem {
     }
 
     String getTranslation();
+
+    default String getDescription(){
+        return null;
+    }
 }

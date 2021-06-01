@@ -38,4 +38,9 @@ public class RingOfRegenerationItem extends TierableItem {
         playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, duration, amplifier, false, false));
     }
 
+    @Override
+    public String getDescription() {
+        return "регенерация\nго бррр";
+    }
+
 }

@@ -5,8 +5,11 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "common.BrewingRecipeRegistryMixin",
+    "common.EntityMixin",
     "common.LivingEntityMixin",
     "common.ServerPlayerEntityMixin",
+    "common.ZombieEntityMixin",
+    "common.extension.LightningEntityExtension",
     "common.extension.PlayerEntityExtension"
   ],
   "client": [

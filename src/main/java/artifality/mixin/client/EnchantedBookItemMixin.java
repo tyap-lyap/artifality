@@ -37,7 +37,7 @@ public abstract class EnchantedBookItemMixin {
                 if(enchantment instanceof IArtifalityEnchantment){
                     if(!Screen.hasShiftDown()){
                         tooltip.add(new LiteralText(""));
-                        tooltip.add(new LiteralText("Press Shift for More Information").formatted(Formatting.GRAY));
+                        tooltip.add(new LiteralText("<Press Shift>").formatted(Formatting.GRAY));
                     }else{
                         String description = Language.getInstance().get(enchantment.getTranslationKey() + ".description");
 

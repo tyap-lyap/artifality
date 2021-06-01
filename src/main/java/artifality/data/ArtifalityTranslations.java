@@ -18,7 +18,12 @@ public class ArtifalityTranslations {
 
     public static void init(RuntimeResourcePack pack){
 
-        ArtifalityItems.getItems().forEach((id, item) -> pack.addLang(EN_US, LANG.item(item, ((IArtifalityItem) item).getTranslation())));
+        ArtifalityItems.getItems().forEach((id, item) -> {
+            pack.addLang(EN_US, LANG.item(item, ((IArtifalityItem) item).getTranslation()));
+            if (((IArtifalityItem) item).getDescription() != null){
+                pack.addLang(EN_US, LANG.entry(item.getTranslationKey() + ".description", ((IArtifalityItem) item).getDescription()));
+            }
+        });
         ArtifalityEnchantments.getEnchantments().forEach((id, enchantment) -> {
             pack.addLang(EN_US, LANG.enchantment(enchantment, ((IArtifalityEnchantment) enchantment).getTranslation()));
             pack.addLang(EN_US, LANG.entry(enchantment.getTranslationKey() + ".description", ((IArtifalityEnchantment) enchantment).getDescription()));

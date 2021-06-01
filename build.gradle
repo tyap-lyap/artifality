@@ -26,18 +26,16 @@ dependencies {
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-	modCompile "dev.emi:trinkets:${project.trinkets_version}"
-	modImplementation "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-base:2.8.2"
-	modImplementation "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-entity:2.8.2"
+//	modCompile "dev.emi:trinkets:${project.trinkets_version}"
+//	modImplementation "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-base:2.8.2"
+//	modImplementation "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-entity:2.8.2"
 	
 	modImplementation group: 'net.devtech', name: 'arrp', version: '0.3.11'
 	include group: 'net.devtech', name: 'arrp', version: '0.3.11'
 	
 	modRuntime "me.shedaniel:RoughlyEnoughItems:5.9.170"
 	modRuntime "com.terraformersmc:modmenu:1.16.6"
-	modRuntime ("com.github.SuperCoder7979:databreaker:0.2.6") {
-		exclude module: "fabric-loader"
-	}
+	modRuntime "com.github.SuperCoder7979:databreaker:0.2.6"
 	modRuntime "com.ptsmods:devlogin:1.0.0"
 
 }
