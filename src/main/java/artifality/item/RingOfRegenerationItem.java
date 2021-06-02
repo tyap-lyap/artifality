@@ -16,22 +16,22 @@ public class RingOfRegenerationItem extends TierableItem {
         return 3;
     }
 
-    //выполняется раз в минуту
     @Override
     public void applyEffects(World world, PlayerEntity playerEntity, int tier){
 
-        switch (tier) {
-            case 3:
-                giveRegeneration(playerEntity, 400, 1);
-                break;
-            case 2:
-                giveRegeneration(playerEntity, 300, 1);
-                break;
-            case 1:
-                giveRegeneration(playerEntity, 200, 0);
-                break;
+        if(!world.isClient){
+            switch (tier) {
+                case 3:
+                    giveRegeneration(playerEntity, 400, 1);
+                    break;
+                case 2:
+                    giveRegeneration(playerEntity, 300, 1);
+                    break;
+                case 1:
+                    giveRegeneration(playerEntity, 200, 0);
+                    break;
+            }
         }
-
     }
 
     static void giveRegeneration(PlayerEntity playerEntity, int duration, int amplifier){
@@ -40,7 +40,7 @@ public class RingOfRegenerationItem extends TierableItem {
 
     @Override
     public String getDescription() {
-        return "регенерация\nго бррр";
+        return "Gives the wearer regeneration\nonce per minute.";
     }
 
 }

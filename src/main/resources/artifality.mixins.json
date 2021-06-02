@@ -7,12 +7,14 @@
     "common.BrewingRecipeRegistryMixin",
     "common.EntityMixin",
     "common.LivingEntityMixin",
+    "common.PlayerEntityMixin",
     "common.ServerPlayerEntityMixin",
     "common.ZombieEntityMixin",
     "common.extension.LightningEntityExtension",
     "common.extension.PlayerEntityExtension"
   ],
   "client": [
+    "client.ItemStackMixin",
     "client.ArmorFeatureRendererMixin",
     "client.EnchantedBookItemMixin",
     "client.ItemRendererMixin",

@@ -3,6 +3,7 @@ package artifality.enchantment;
 import artifality.interfaces.IArtifalityEnchantment;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
+import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
@@ -19,6 +20,11 @@ public class LunarDamageEnchantment extends Enchantment implements IArtifalityEn
     @Override
     public int getMaxLevel() {
         return 3;
+    }
+
+    @Override
+    public float getAttackDamage(int level, EntityGroup group) {
+        return level + 1;
     }
 
     @Override

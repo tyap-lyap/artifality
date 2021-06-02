@@ -12,4 +12,9 @@ public class EnchantedArrow extends BaseItem {
     public boolean hasGlint(ItemStack stack) {
         return true;
     }
+
+    @Override
+    public String getDescription() {
+        return "Used to create a rebound effect\nthat gives protection against projectiles.";
+    }
 }

@@ -8,9 +8,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class MagmaBallsItem extends BaseItem {
+
     public MagmaBallsItem(Settings settings, String name) {
         super(settings, name);
     }
+
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
 
@@ -19,7 +21,10 @@ public class MagmaBallsItem extends BaseItem {
                 ((PlayerEntity) entity).addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 200, 0, false, false));
             }
         }
-
     }
 
+    @Override
+    public String getDescription() {
+        return "Gives the wearer infinite\nfire resistance.";
+    }
 }
