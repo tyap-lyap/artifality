@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#T#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "artifality:incremental"
+    },
+    "T": {
+      "item": "artifality:zeus_wand",
+      "data": {
+        "require": {
+          "ArtifactLevel": 1
+        }
+      }
+    }
+  },
+  "result": {
+    "item": "artifality:zeus_wand",
+    "data": {
+      "ArtifactLevel": 2
+    }
+  }
+}

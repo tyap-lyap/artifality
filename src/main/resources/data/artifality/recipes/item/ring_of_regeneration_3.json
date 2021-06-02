@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "artifality:ring_of_regeneration",
+      "data": {
+        "require": {
+          "ArtifactLevel": 2
+        }
+      }
+    },
+    {
+      "item": "minecraft:nether_star"
+    }
+  ],
+  "result": {
+    "item": "artifality:ring_of_regeneration",
+    "data": {
+      "ArtifactLevel": 3
+    }
+  }
+}

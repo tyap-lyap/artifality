@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "artifality:zeus_wand",
+      "data": {
+        "require": {
+          "ArtifactLevel": 2
+        }
+      }
+    },
+    {
+      "item": "minecraft:nether_star"
+    }
+  ],
+  "result": {
+    "item": "artifality:zeus_wand",
+    "data": {
+      "ArtifactLevel": 3
+    }
+  }
+}

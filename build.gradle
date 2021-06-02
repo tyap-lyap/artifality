@@ -11,7 +11,7 @@ version = "mc" + project.minecraft_version + "-" + project.mod_version + "-" + p
 //group = project.maven_group
 
 repositories {
-
+	maven { url "https://maven.siphalor.de" }
 	maven { url "https://maven.terraformersmc.com" }
 	maven { url "https://maven.shedaniel.me" }
 	mavenCentral()
@@ -32,6 +32,9 @@ dependencies {
 	
 	modImplementation group: 'net.devtech', name: 'arrp', version: '0.3.11'
 	include group: 'net.devtech', name: 'arrp', version: '0.3.11'
+
+	modImplementation "de.siphalor:nbtcrafting-1.16:2+"
+	include "de.siphalor:nbtcrafting-1.16:2+"
 	
 	modRuntime "me.shedaniel:RoughlyEnoughItems:5.9.170"
 	modRuntime "com.terraformersmc:modmenu:1.16.6"
