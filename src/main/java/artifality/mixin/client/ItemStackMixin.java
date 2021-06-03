@@ -21,7 +21,7 @@ public class ItemStackMixin {
         if(entityAttributeModifier.getId().equals(UUID.fromString("FA233E1C-4180-4865-B01B-BCCE9785ACA3"))){
             if (EnchantmentHelper.get(self).containsKey(ArtifalityEnchantments.LUNAR_DAMAGE)){
                 int level = EnchantmentHelper.getLevel(ArtifalityEnchantments.LUNAR_DAMAGE, self);
-                return entityAttributeModifier.getValue() + (level + 2) / 20.0F;
+                return entityAttributeModifier.getValue() - (level + 2) / 20.0F;
             }
         }
 
