@@ -8,7 +8,7 @@ import net.minecraft.world.BlockView;
 
 public class IncrementalLensBlock extends BaseBlock{
 
-    private static final VoxelShape SHAPE = createCuboidShape(0, 0, 0, 16, 8.0D, 16);
+    private static final VoxelShape SHAPE = createCuboidShape(0, 0, 0, 16, 8, 16);
 
     public IncrementalLensBlock(Settings settings, String name) {
         super(settings, "custom_model", name);
