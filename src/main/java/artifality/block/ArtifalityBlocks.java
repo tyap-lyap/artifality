@@ -1,10 +1,10 @@
 package artifality.block;
 
 import artifality.ArtifalityMod;
+import artifality.item.BaseBlockItem;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
@@ -16,7 +16,7 @@ import java.util.Map;
 @SuppressWarnings("unused")
 public class ArtifalityBlocks {
 
-    private static final Map<Identifier, BlockItem> ITEMS = new LinkedHashMap<>();
+    private static final Map<Identifier, BaseBlockItem> ITEMS = new LinkedHashMap<>();
     private static final Map<Identifier, Block> BLOCKS = new LinkedHashMap<>();
 
 
@@ -28,16 +28,16 @@ public class ArtifalityBlocks {
     public static final Block LUNAR_CRYSTAL_BLOCK = add("lunar_crystal_block", new BaseBlock(FabricBlockSettings.copyOf(Blocks.STONE).sounds(BlockSoundGroup.GLASS), "Lunar Crystal Block"));
     public static final Block LUNAR_CRYSTAL_GLASS = add("lunar_crystal_glass", new BaseGlassBlock(FabricBlockSettings.copyOf(Blocks.GLASS).sounds(BlockSoundGroup.GLASS).nonOpaque(), "Lunar Crystal Glass"));
 
-    public static final Block INCREMENTAL_LENS = add("incremental_lens", new IncrementalLensBlock(FabricBlockSettings.copyOf(Blocks.STONE).sounds(BlockSoundGroup.NETHERITE).nonOpaque(), "Incremental Lens"));
+    public static final Block INCREMENTAL_LENS = add("incremental_lens", new IncrementalLensBlock(FabricBlockSettings.copyOf(Blocks.NETHERITE_BLOCK).sounds(BlockSoundGroup.NETHERITE).nonOpaque(), "Incremental Lens"));
 
 
     private static Block add(String name, Block block) {
         Item.Settings settings = new Item.Settings();
         settings.group(ArtifalityMod.ITEMS);
-        return addBlockItem(name, block, new BlockItem(block, settings));
+        return addBlockItem(name, block, new BaseBlockItem(block, settings));
     }
 
-    private static Block addBlockItem(String name, Block block, BlockItem item) {
+    private static Block addBlockItem(String name, Block block, BaseBlockItem item) {
         addBlock(name, block);
         if (item != null) {
             item.appendBlocks(Item.BLOCK_ITEMS, item);
@@ -65,7 +65,7 @@ public class ArtifalityBlocks {
         return BLOCKS;
     }
 
-    public static Map<Identifier, BlockItem> getBlockItems() {
+    public static Map<Identifier, BaseBlockItem> getBlockItems() {
         return ITEMS;
     }
 }

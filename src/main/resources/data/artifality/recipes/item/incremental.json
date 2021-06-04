@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "artifality:incremental_crystal_block"
+    }
+  ],
+  "result": {
+    "item": "artifality:incremental",
+    "count": 9
+  }
+}

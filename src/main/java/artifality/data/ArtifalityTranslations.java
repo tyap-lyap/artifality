@@ -28,7 +28,10 @@ public class ArtifalityTranslations {
             pack.addLang(EN_US, LANG.enchantment(enchantment, ((IArtifalityEnchantment) enchantment).getTranslation()));
             pack.addLang(EN_US, LANG.entry(enchantment.getTranslationKey() + ".description", ((IArtifalityEnchantment) enchantment).getDescription()));
         });
-        ArtifalityBlocks.getBlocks().forEach((id, block) -> pack.addLang(EN_US, LANG.block(block, ((IArtifalityBlock) block).getTranslation())));
+        ArtifalityBlocks.getBlocks().forEach((id, block) -> {
+            pack.addLang(EN_US, LANG.block(block, ((IArtifalityBlock) block).getTranslation()));
+            pack.addLang(EN_US, LANG.entry(block.getTranslationKey() + ".description", ((IArtifalityBlock) block).getDescription()));
+        });
 
         miscTranslations(pack);
 

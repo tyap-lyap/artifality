@@ -4,6 +4,7 @@
   "package": "artifality.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "common.BeaconBlockEntityMixin",
     "common.BrewingRecipeRegistryMixin",
     "common.EntityMixin",
     "common.LivingEntityMixin",
@@ -14,10 +15,10 @@
     "common.extension.PlayerEntityExtension"
   ],
   "client": [
-    "client.ItemStackMixin",
     "client.ArmorFeatureRendererMixin",
     "client.EnchantedBookItemMixin",
     "client.ItemRendererMixin",
+    "client.ItemStackMixin",
     "client.ModelLoaderMixin"
   ],
   "injectors": {

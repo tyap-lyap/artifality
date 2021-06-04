@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#D#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:glass"
+    },
+    "D": {
+      "item": "artifality:incremental"
+    }
+  },
+  "result": {
+    "item": "artifality:incremental_glass",
+    "count": 8
+  }
+}

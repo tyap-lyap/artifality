@@ -6,4 +6,8 @@ public interface IArtifalityBlock {
 
     String getTranslation();
 
+    default String getDescription(){
+        return null;
+    }
+
 }

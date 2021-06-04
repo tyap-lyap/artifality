@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "artifality:lunar_crystal_block"
+    }
+  ],
+  "result": {
+    "item": "artifality:lunar_crystal",
+    "count": 9
+  }
+}

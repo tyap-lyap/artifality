@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "n#n"
+  ],
+  "key": {
+    "#": {
+      "item": "artifality:incremental"
+    },
+    "n": {
+      "item": "minecraft:netherite_ingot"
+    }
+  },
+  "result": {
+    "item": "artifality:incremental_lens",
+    "count": 1
+  }
+}

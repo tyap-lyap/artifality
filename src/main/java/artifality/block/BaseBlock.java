@@ -3,6 +3,7 @@ package artifality.block;
 import artifality.interfaces.IArtifalityBlock;
 import net.minecraft.block.Block;
 
+
 public class BaseBlock extends Block implements IArtifalityBlock {
 
     private final String parentModel;
@@ -29,5 +30,4 @@ public class BaseBlock extends Block implements IArtifalityBlock {
     public String getTranslation() {
         return name;
     }
-
 }

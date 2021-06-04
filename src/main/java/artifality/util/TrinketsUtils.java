@@ -6,9 +6,7 @@ import net.minecraft.item.Item;
 
 public class TrinketsUtils {
 
-    protected TrinketsUtils(){
-
-    }
+    protected TrinketsUtils(){}
 
     public static boolean containsTrinket(PlayerEntity playerEntity, Item item){
 
