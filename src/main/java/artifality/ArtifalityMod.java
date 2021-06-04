@@ -1,7 +1,6 @@
 package artifality;
 
 import artifality.block.ArtifalityBlocks;
-import artifality.data.ArtifalityResources;
 import artifality.data.ArtifalityLootTables;
 import artifality.effect.ArtifalityEffects;
 import artifality.enchantment.ArtifalityEnchantments;
@@ -37,7 +36,6 @@ public class ArtifalityMod implements ModInitializer {
         ArtifalityBlocks.register();
         ArtifalityEvents.register();
         ArtifalityEnchantments.register();
-        ArtifalityResources.init();
         ArtifalityLootTables.register();
         ArtifalityConfiguredFeatures.register();
     }

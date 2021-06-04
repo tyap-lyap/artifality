@@ -21,6 +21,14 @@ public class ArtifalityBlocks {
 
 
     public static final Block INCREMENTAL_CRYSTAL = add("incremental_crystal", new CrystalBlock(FabricBlockSettings.copyOf(Blocks.STONE).sounds(BlockSoundGroup.GLASS), "Incremental Crystal"));
+    public static final Block INCREMENTAL_CRYSTAL_BLOCK = add("incremental_crystal_block", new BaseBlock(FabricBlockSettings.copyOf(Blocks.STONE).sounds(BlockSoundGroup.GLASS), "cube_all", "Incremental Crystal Block"));
+    public static final Block INCREMENTAL_GLASS = add("incremental_glass", new BaseGlassBlock(FabricBlockSettings.copyOf(Blocks.GLASS).sounds(BlockSoundGroup.GLASS).nonOpaque(), "cube_all", "Incremental Glass"));
+
+    //public static final Block LUNAR_CRYSTAL_CRYSTAL = add("lunar_crystal_crystal", new CrystalBlock(FabricBlockSettings.copyOf(Blocks.STONE).sounds(BlockSoundGroup.GLASS), "Lunar Crystal"));
+    public static final Block LUNAR_CRYSTAL_BLOCK = add("lunar_crystal_block", new BaseBlock(FabricBlockSettings.copyOf(Blocks.STONE).sounds(BlockSoundGroup.GLASS), "Lunar Crystal Block"));
+    public static final Block LUNAR_CRYSTAL_GLASS = add("lunar_crystal_glass", new BaseGlassBlock(FabricBlockSettings.copyOf(Blocks.GLASS).sounds(BlockSoundGroup.GLASS).nonOpaque(), "Lunar Crystal Glass"));
+
+    public static final Block INCREMENTAL_LENS = add("incremental_lens", new IncrementalLensBlock(FabricBlockSettings.copyOf(Blocks.STONE).sounds(BlockSoundGroup.NETHERITE).nonOpaque(), "Incremental Lens"));
 
 
     private static Block add(String name, Block block) {

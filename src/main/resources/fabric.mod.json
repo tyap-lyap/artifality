@@ -4,7 +4,7 @@
   "version": "${version}",
 
   "name": "Artifality",
-  "description": "description",
+  "description": "Collection of useful artifacts, blocks, enchantments and more.",
   "authors": [
     "PinkGoosik",
 	"DoctorNight",
