@@ -1,0 +1,34 @@
+package artifality.worldgen.feature;
+
+import artifality.ArtifalityMod;
+import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.BuiltinRegistries;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.gen.GenerationStep;
+import net.minecraft.world.gen.decorator.Decorator;
+import net.minecraft.world.gen.decorator.DecoratorConfig;
+import net.minecraft.world.gen.feature.*;
+
+
+public class ArtifalityConfiguredFeatures {
+
+    public static final Feature<CrystalFeatureConfig> PATCH_CRYSTAL = new CrystalFeature();
+
+    public static final ConfiguredFeature<?, ?> PATCH_CRYSTAL_CONFIG = PATCH_CRYSTAL
+            .configure(new CrystalFeatureConfig(40))
+            .decorate(Decorator.NOPE.configure(DecoratorConfig.DEFAULT));
+
+    public static void register(){
+
+        Registry.register(Registry.FEATURE, new Identifier(ArtifalityMod.MODID, "patch_crystal"), PATCH_CRYSTAL);
+
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ArtifalityMod.MODID, "patch_crystal"), PATCH_CRYSTAL_CONFIG);
+
+        if(BuiltinRegistries.CONFIGURED_FEATURE.getKey(PATCH_CRYSTAL_CONFIG).isPresent()){
+            BiomeModifications.addFeature(ctx -> ctx.getBiome().getCategory() != Biome.Category.THEEND, GenerationStep.Feature.UNDERGROUND_DECORATION,
+                    BuiltinRegistries.CONFIGURED_FEATURE.getKey(PATCH_CRYSTAL_CONFIG).get());
+        }
+    }
+}

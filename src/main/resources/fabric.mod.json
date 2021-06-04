@@ -8,15 +8,14 @@
   "authors": [
     "PinkGoosik",
 	"DoctorNight",
-	"Space1",
-	"aSomik"
+	"Space1"
   ],
   "contact": {
-    "homepage": "",
-    "sources": ""
+    "homepage": "www.curseforge.com/minecraft/mc-mods/artifality",
+    "sources": "https://github.com/PinkGoosik/artifality"
   },
 
-  "license": "CC0-1.0",
+  "license": "MIT",
   "icon": "assets/artifality/icon.png",
 
   "environment": "*",

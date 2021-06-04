@@ -9,6 +9,7 @@ import artifality.event.ArtifalityEvents;
 import artifality.interfaces.ITierableItem;
 import artifality.item.ArtifalityItems;
 import artifality.item.ArtifalityPotions;
+import artifality.worldgen.feature.ArtifalityConfiguredFeatures;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.enchantment.EnchantmentLevelEntry;
@@ -38,6 +39,7 @@ public class ArtifalityMod implements ModInitializer {
         ArtifalityEnchantments.register();
         ArtifalityResources.init();
         ArtifalityLootTables.register();
+        ArtifalityConfiguredFeatures.register();
     }
 
     public static final ItemGroup ITEMS = FabricItemGroupBuilder.create(new Identifier(MODID, "items")).appendItems(new Consumer<List<ItemStack>>() {
