@@ -23,6 +23,7 @@ public class ArtifalityItems {
     public static final Item RING_OF_REGENERATION = add("ring_of_regeneration", new RingOfRegenerationItem(NOT_STACKABLE, "Ring Of Regeneration"));
     public static final Item ZEUS_WAND = add("zeus_wand", new ZeusWandItem(NOT_STACKABLE, "Zeus Wand"));
     public static final Item INVISIBILITY_CAPE = add("cape_of_invisibility", new InvisibilityCapeItem(NOT_STACKABLE, "Cape of Invisibility"));
+    public static final Item CAT_EARS = add("cat_ears", new CatEarsItem(NOT_STACKABLE, "Cat Ears"));
     public static final Item ENCHANTED_ARROW = add("enchanted_arrow", new EnchantedArrow(DEFAULT, "Enchanted Arrow"));
 
     public static final Item INCREMENTAL = add("incremental", new BaseItem(DEFAULT, "Incremental"));
