@@ -20,7 +20,7 @@ public class ArtifalityBlocks {
     private static final Map<Identifier, Block> BLOCKS = new LinkedHashMap<>();
 
 
-    public static final Block INCREMENTAL_CRYSTAL = add("incremental_crystal", new CrystalBlock(FabricBlockSettings.copyOf(Blocks.STONE).sounds(BlockSoundGroup.GLASS), "Incremental Crystal"));
+    public static final Block INCREMENTAL_CRYSTAL = add("incremental_crystal", new CrystalBlock(FabricBlockSettings.copyOf(Blocks.STONE).sounds(BlockSoundGroup.GLASS).luminance(value -> 6), "Incremental Crystal"));
     public static final Block INCREMENTAL_CRYSTAL_BLOCK = add("incremental_crystal_block", new BaseBlock(FabricBlockSettings.copyOf(Blocks.STONE).sounds(BlockSoundGroup.GLASS), "cube_all", "Incremental Crystal Block"));
     public static final Block INCREMENTAL_GLASS = add("incremental_glass", new BaseGlassBlock(FabricBlockSettings.copyOf(Blocks.GLASS).sounds(BlockSoundGroup.GLASS).nonOpaque(), "cube_all", "Incremental Glass"));
 

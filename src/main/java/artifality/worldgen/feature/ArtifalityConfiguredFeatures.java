@@ -14,10 +14,10 @@ import net.minecraft.world.gen.feature.*;
 
 public class ArtifalityConfiguredFeatures {
 
-    public static final Feature<CrystalFeatureConfig> PATCH_CRYSTAL = new CrystalFeature();
+    public static final Feature<DefaultFeatureConfig> PATCH_CRYSTAL = new CrystalFeature();
 
     public static final ConfiguredFeature<?, ?> PATCH_CRYSTAL_CONFIG = PATCH_CRYSTAL
-            .configure(new CrystalFeatureConfig(40))
+            .configure(new DefaultFeatureConfig())
             .decorate(Decorator.NOPE.configure(DecoratorConfig.DEFAULT));
 
     public static void register(){
