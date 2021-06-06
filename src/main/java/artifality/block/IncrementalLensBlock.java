@@ -21,6 +21,6 @@ public class IncrementalLensBlock extends BaseBlock{
 
     @Override
     public String getDescription() {
-        return "Increases the level of effect\ngiven by the beacon if\nplaced on top of the beacon.";
+        return "Increases the level of effect\ngiven by the beacon if placed\non top of the beacon.";
     }
 }

@@ -38,10 +38,8 @@ public class UkuleleItem extends BaseItem {
         return slot == EquipmentSlot.MAINHAND ? this.attributeModifiers : super.getAttributeModifiers(slot);
     }
 
-
-//    @Override
-//    public boolean canWearInSlot(String group, String slot) {
-//        return (group.equals(SlotGroups.CHEST) && slot.equals(Slots.CAPE));
-//    }
-
+    @Override
+    public boolean isWip() {
+        return true;
+    }
 }

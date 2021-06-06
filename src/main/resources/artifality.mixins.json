@@ -7,13 +7,13 @@
     "common.BeaconBlockEntityMixin",
     "common.BrewingRecipeRegistryMixin",
     "common.EntityMixin",
+    "common.ExplosionMixin",
     "common.LivingEntityMixin",
     "common.PlayerEntityMixin",
     "common.ServerPlayerEntityMixin",
     "common.ZombieEntityMixin",
     "common.extension.LightningEntityExtension",
-    "common.extension.PlayerEntityExtension",
-    "common.ExplosionMixin"
+    "common.extension.PlayerEntityExtension"
   ],
   "client": [
     "client.ArmorFeatureRendererMixin",

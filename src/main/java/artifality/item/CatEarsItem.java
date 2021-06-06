@@ -7,7 +7,12 @@ public class CatEarsItem extends BaseItem {
 
     @Override
     public String getDescription() {
-        return "Decreased explosion damage, when active all creepers in zone will run away from u.";
+        return "Decreased explosion damage,\nwhen active all creepers in\nzone will run away from you.";
+    }
+
+    @Override
+    public boolean isWip() {
+        return true;
     }
 }
 

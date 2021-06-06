@@ -1,7 +1,6 @@
 package artifality.mixin.common;
 
 import artifality.item.ArtifalityItems;
-import artifality.item.CatEarsItem;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.CreeperEntity;

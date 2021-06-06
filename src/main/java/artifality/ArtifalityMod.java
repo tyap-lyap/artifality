@@ -5,6 +5,7 @@ import artifality.data.ArtifalityLootTables;
 import artifality.effect.ArtifalityEffects;
 import artifality.enchantment.ArtifalityEnchantments;
 import artifality.event.ArtifalityEvents;
+import artifality.interfaces.IArtifalityItem;
 import artifality.interfaces.ITierableItem;
 import artifality.item.ArtifalityItems;
 import artifality.item.ArtifalityPotions;
@@ -45,7 +46,7 @@ public class ArtifalityMod implements ModInitializer {
         public void accept(List<ItemStack> itemStacks) {
 
             ArtifalityItems.getItems().forEach(((id, item) -> {
-                item.appendStacks(ITEMS, (DefaultedList<ItemStack>) itemStacks);
+                if (!((IArtifalityItem)item).isWip()) item.appendStacks(ITEMS, (DefaultedList<ItemStack>) itemStacks);
             }));
 
             ArtifalityBlocks.getBlocks().forEach((id, block) -> {
@@ -83,6 +84,20 @@ public class ArtifalityMod implements ModInitializer {
         @Override
         public ItemStack get() {
             return ArtifalityItems.ZEUS_WAND.getDefaultStack();
+        }
+    }).build();
+
+    public static final ItemGroup WIP_ITEMS = FabricItemGroupBuilder.create(new Identifier(MODID, "wip_items")).appendItems(new Consumer<List<ItemStack>>() {
+        @Override
+        public void accept(List<ItemStack> itemStacks) {
+            ArtifalityItems.getItems().forEach(((id, item) -> {
+                if (((IArtifalityItem)item).isWip()) item.appendStacks(ITEMS, (DefaultedList<ItemStack>) itemStacks);
+            }));
+        }
+    }).icon(new Supplier<ItemStack>() {
+        @Override
+        public ItemStack get() {
+            return ArtifalityItems.MAGMA_BALLS.getDefaultStack();
         }
     }).build();
 }

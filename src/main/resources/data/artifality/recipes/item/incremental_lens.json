@@ -1,15 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "###",
-    "n#n"
+    "nWn",
+    "WWW",
+    "nWn"
   ],
   "key": {
-    "#": {
-      "item": "artifality:incremental"
-    },
     "n": {
       "item": "minecraft:netherite_ingot"
+    },
+    "W": {
+      "item": "artifality:incremental_crystal_block"
     }
   },
   "result": {

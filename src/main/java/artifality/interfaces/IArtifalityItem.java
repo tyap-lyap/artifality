@@ -17,4 +17,8 @@ public interface IArtifalityItem {
     default String getDescription(){
         return null;
     }
+
+    default boolean isWip(){
+        return false;
+    }
 }

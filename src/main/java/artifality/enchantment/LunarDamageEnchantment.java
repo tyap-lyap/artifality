@@ -1,8 +1,10 @@
 package artifality.enchantment;
 
 import artifality.interfaces.IArtifalityEnchantment;
+import net.minecraft.enchantment.DamageEnchantment;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
+import net.minecraft.enchantment.MendingEnchantment;
 import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.text.MutableText;
@@ -25,6 +27,10 @@ public class LunarDamageEnchantment extends Enchantment implements IArtifalityEn
     @Override
     public float getAttackDamage(int level, EntityGroup group) {
         return level + 1;
+    }
+
+    public boolean canAccept(Enchantment other) {
+        return !(other instanceof DamageEnchantment);
     }
 
     @Override

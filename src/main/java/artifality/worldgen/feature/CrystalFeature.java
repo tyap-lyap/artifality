@@ -15,7 +15,7 @@ import java.util.Random;
 
 public class CrystalFeature extends Feature<DefaultFeatureConfig> {
 
-    private static final ArrayList<BlockState> CRYSTALS = new ArrayList<>();
+    public static final ArrayList<BlockState> CRYSTALS = new ArrayList<>();
 
     public CrystalFeature() {
         super(DefaultFeatureConfig.CODEC);
@@ -23,41 +23,47 @@ public class CrystalFeature extends Feature<DefaultFeatureConfig> {
 
     @Override
     public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos pos, DefaultFeatureConfig config) {
-        boolean any = false;
-        for (int i = 0; i < 20; i++) {
-            int x = pos.getX() + random.nextInt(8);
-            int z = pos.getZ() + random.nextInt(8);
+        boolean generated = false;
+
+        BlockState crystal = CRYSTALS.get(random.nextInt(CRYSTALS.size()));
+        for (int i = 0; i < 8; i++) {
+            int x = pos.getX() + random.nextInt(6);
+            int z = pos.getZ() + random.nextInt(6);
             int y = random.nextInt(8) + 11;
             BlockPos spawnPos = new BlockPos(x, y, z);
-            BlockState crystal = ArtifalityBlocks.INCREMENTAL_CRYSTAL.getDefaultState();
             if(world.isAir(spawnPos)){
 
                 if (isStone(world.getBlockState(spawnPos.down()).getBlock())) {
                     setBlockState(world, spawnPos, crystal);
-                    any = true;
+                    generated = true;
 
                 }else if(isStone(world.getBlockState(spawnPos.add(0, 0, -1)).getBlock())){
                     setBlockState(world, spawnPos, crystal.with(Properties.FACING, Direction.SOUTH));
-                    any = true;
+                    generated = true;
 
                 }else if(isStone(world.getBlockState(spawnPos.add(0, 0, 1)).getBlock())){
                     setBlockState(world, spawnPos, crystal.with(Properties.FACING, Direction.NORTH));
-                    any = true;
+                    generated = true;
 
                 }else if(isStone(world.getBlockState(spawnPos.add(-1, 0, 0)).getBlock())){
                     setBlockState(world, spawnPos, crystal.with(Properties.FACING, Direction.EAST));
-                    any = true;
+                    generated = true;
 
                 }else if(isStone(world.getBlockState(spawnPos.add(1, 0, 0)).getBlock())){
                     setBlockState(world, spawnPos, crystal.with(Properties.FACING, Direction.WEST));
-                    any = true;
+                    generated = true;
 
                 }else if(isStone(world.getBlockState(spawnPos.up()).getBlock())){
                     setBlockState(world, spawnPos, crystal.with(Properties.FACING, Direction.DOWN));
-                    any = true;
+                    generated = true;
                 }
             }
         }
-        return any;
+        return generated;
+    }
+
+    static {
+        CRYSTALS.add(ArtifalityBlocks.INCREMENTAL_CRYSTAL.getDefaultState());
+        CRYSTALS.add(ArtifalityBlocks.LUNAR_CRYSTAL_CRYSTAL.getDefaultState());
     }
 }

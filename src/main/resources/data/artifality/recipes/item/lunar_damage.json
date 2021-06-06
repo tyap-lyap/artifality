@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#B#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "artifality:lunar_crystal"
+    },
+    "B": {
+      "item": "minecraft:book"
+    }
+  },
+  "result": {
+    "item": "minecraft:enchanted_book",
+    "count": 1,
+    "data": {
+      "StoredEnchantments": [
+        {
+          "id": "artifality:lunar_damage",
+          "lvl": 1
+        }
+      ]
+    }
+  }
+}

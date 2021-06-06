@@ -28,6 +28,8 @@ public class ArtifalityLootTables {
             singleItemInChest(ArtifalityItems.MAGMA_BALLS, "nether_bridge", 0.01F);
             singleItemInChest(ArtifalityItems.MAGMA_BALLS, "bastion_treasure", 0.05F);
             killByPlayer(ArtifalityItems.ENCHANTED_ARROW, "skeleton", 0.05F);
+
+            singleItemInEveryChest(ArtifalityItems.INVISIBILITY_CAPE, 0.05F);
         });
     }
 
@@ -41,6 +43,17 @@ public class ArtifalityLootTables {
         }
 
     }
+
+    static void singleItemInEveryChest(Item item, Float chance){
+
+        if (id.toString().contains("minecraft:chests/")) {
+            FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
+                    .rolls(ConstantLootTableRange.create(1)).withCondition(RandomChanceLootCondition.builder(chance).build())
+                    .withEntry(ItemEntry.builder(item).build());
+            supplier.withPool(poolBuilder.build());
+        }
+    }
+
     static void killByPlayer(Item item, String entities, Float chance){
 
         if (new Identifier("minecraft:entities/" + entities).equals(id)) {
@@ -50,6 +63,5 @@ public class ArtifalityLootTables {
                     .withCondition(KilledByPlayerLootCondition.builder().build());
             supplier.withPool(poolBuilder.build());
         }
-
     }
 }

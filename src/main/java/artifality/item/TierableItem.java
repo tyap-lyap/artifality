@@ -32,6 +32,11 @@ public class TierableItem extends BaseItem implements ITierableItem {
     }
 
     @Override
+    public ItemStack getDefaultStack() {
+        return withTier(this, 1);
+    }
+
+    @Override
     public void applyEffects(World world, PlayerEntity playerEntity, int tier) {
 
     }

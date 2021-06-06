@@ -19,7 +19,8 @@ public class ArtifalityTranslations {
     public static void init(RuntimeResourcePack pack){
 
         ArtifalityItems.getItems().forEach((id, item) -> {
-            pack.addLang(EN_US, LANG.item(item, ((IArtifalityItem) item).getTranslation()));
+            if(((IArtifalityItem) item).isWip())pack.addLang(EN_US, LANG.item(item, ((IArtifalityItem) item).getTranslation() + " WIP"));
+            else pack.addLang(EN_US, LANG.item(item, ((IArtifalityItem) item).getTranslation()));
             if (((IArtifalityItem) item).getDescription() != null){
                 pack.addLang(EN_US, LANG.entry(item.getTranslationKey() + ".description", ((IArtifalityItem) item).getDescription()));
             }
@@ -34,11 +35,11 @@ public class ArtifalityTranslations {
         });
 
         miscTranslations(pack);
-
     }
 
     private static void miscTranslations(RuntimeResourcePack pack){
         pack.addLang(EN_US, LANG.itemGroup(new Identifier(ArtifalityMod.MODID, "items"), "Artifality: Items"));
         pack.addLang(EN_US, LANG.itemGroup(new Identifier(ArtifalityMod.MODID, "tierable_items"), "Artifality: Tierable Items"));
+        pack.addLang(EN_US, LANG.itemGroup(new Identifier(ArtifalityMod.MODID, "wip_items"), "Artifality: Work In Progress"));
     }
 }
