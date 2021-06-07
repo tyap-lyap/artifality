@@ -21,7 +21,7 @@ public class ArtifalityClient implements ClientModInitializer {
         ArtifalityParticles.register();
 
         TwoModelsItemRegistry.register(new Identifier("artifality:ukulele"), ArtifalityItems.UKULELE);
-        TwoModelsItemRegistry.register(new Identifier("artifality:zeus_wand"), ArtifalityItems.ZEUS_WAND);
+        TwoModelsItemRegistry.register(new Identifier("artifality:zeus_staff"), ArtifalityItems.ZEUS_STAFF);
 
         BlockRenderLayerMap.INSTANCE.putBlock(ArtifalityBlocks.INCREMENTAL_CRYSTAL, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ArtifalityBlocks.LUNAR_CRYSTAL_CRYSTAL, RenderLayer.getCutout());

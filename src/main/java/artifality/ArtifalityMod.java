@@ -72,7 +72,8 @@ public class ArtifalityMod implements ModInitializer {
         public void accept(List<ItemStack> itemStacks) {
             ArtifalityItems.getItems().forEach(((id, item) -> {
                 if(item instanceof ITierableItem){
-                    for(int i = 1; i <= ((ITierableItem) item).getMaxTiers(); i++){
+                    itemStacks.add(new ItemStack(item));
+                    for(int i = 2; i <= ((ITierableItem) item).getMaxTiers(); i++){
                         ItemStack itemStack = new ItemStack(item);
                         itemStack.getOrCreateTag().putInt("ArtifactLevel", i);
                         itemStacks.add(itemStack);
@@ -83,7 +84,7 @@ public class ArtifalityMod implements ModInitializer {
     }).icon(new Supplier<ItemStack>() {
         @Override
         public ItemStack get() {
-            return ArtifalityItems.ZEUS_WAND.getDefaultStack();
+            return ArtifalityItems.ZEUS_STAFF.getDefaultStack();
         }
     }).build();
 

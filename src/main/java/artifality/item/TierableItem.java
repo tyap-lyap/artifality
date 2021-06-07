@@ -22,18 +22,16 @@ public class TierableItem extends BaseItem implements ITierableItem {
     }
 
     public static int getCurrentTier(ItemStack stack){
-        return stack.getOrCreateTag().getInt("ArtifactLevel");
+        if(stack.getOrCreateTag().getInt("ArtifactLevel") >= 2) return stack.getOrCreateTag().getInt("ArtifactLevel");
+        else return 1;
     }
 
     public static ItemStack withTier(Item item, int tier){
         ItemStack itemStack = new ItemStack(item);
-        itemStack.getOrCreateTag().putInt("ArtifactLevel", tier);
+        if (tier >= 2){
+            itemStack.getOrCreateTag().putInt("ArtifactLevel", tier);
+        }
         return itemStack;
-    }
-
-    @Override
-    public ItemStack getDefaultStack() {
-        return withTier(this, 1);
     }
 
     @Override
@@ -58,7 +56,6 @@ public class TierableItem extends BaseItem implements ITierableItem {
     public void appendStacks(ItemGroup group, DefaultedList<ItemStack> stacks) {
         if(isIn(group)){
             ItemStack itemStack = new ItemStack(this);
-            itemStack.getOrCreateTag().putInt("ArtifactLevel", 1);
             stacks.add(itemStack);
         }
     }

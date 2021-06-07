@@ -1,7 +1,7 @@
 package artifality.mixin.common;
 
 import artifality.item.ArtifalityItems;
-import artifality.item.ZeusWandItem;
+import artifality.item.ZeusStaffItem;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LightningEntity;
@@ -20,9 +20,9 @@ public class ZombieEntityMixin {
 
     @Inject(method = "tryAttack", at = @At("RETURN"))
     void tryAttack(Entity target, CallbackInfoReturnable<Boolean> cir){
-        if(self.getStackInHand(Hand.MAIN_HAND).getItem().equals(ArtifalityItems.ZEUS_WAND)){
+        if(self.getStackInHand(Hand.MAIN_HAND).getItem().equals(ArtifalityItems.ZEUS_STAFF)){
             if(target.world.random.nextFloat() > 0.7F){
-                ZeusWandItem.createLighting(target.world, target.getBlockPos(), new LightningEntity(EntityType.LIGHTNING_BOLT, target.world));
+                ZeusStaffItem.createLighting(target.world, target.getBlockPos(), new LightningEntity(EntityType.LIGHTNING_BOLT, target.world));
             }
         }
     }

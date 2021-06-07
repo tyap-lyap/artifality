@@ -29,7 +29,8 @@ public class ArtifalityLootTables {
             singleItemInChest(ArtifalityItems.MAGMA_BALLS, "bastion_treasure", 0.05F);
             killByPlayer(ArtifalityItems.ENCHANTED_ARROW, "skeleton", 0.05F);
 
-            singleItemInEveryChest(ArtifalityItems.INVISIBILITY_CAPE, 0.05F);
+            singleItemInEveryChest(ArtifalityItems.INVISIBILITY_CAPE, 0.07F);
+            singleItemInEveryChest(ArtifalityItems.REGENERATION_RING, 0.06F);
         });
     }
 

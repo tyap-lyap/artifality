@@ -10,16 +10,11 @@
       "item": "artifality:incremental"
     },
     "T": {
-      "item": "artifality:ring_of_regeneration",
-      "data": {
-        "require": {
-          "ArtifactLevel": 1
-        }
-      }
+      "item": "artifality:regeneration_ring"
     }
   },
   "result": {
-    "item": "artifality:ring_of_regeneration",
+    "item": "artifality:regeneration_ring",
     "data": {
       "ArtifactLevel": 2
     }

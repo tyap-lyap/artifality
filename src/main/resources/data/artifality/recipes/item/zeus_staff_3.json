@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "artifality:ring_of_regeneration",
+      "item": "artifality:zeus_staff",
       "data": {
         "require": {
           "ArtifactLevel": 2
@@ -14,7 +14,7 @@
     }
   ],
   "result": {
-    "item": "artifality:ring_of_regeneration",
+    "item": "artifality:zeus_staff",
     "data": {
       "ArtifactLevel": 3
     }

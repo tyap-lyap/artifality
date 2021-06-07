@@ -10,16 +10,11 @@
       "item": "artifality:incremental"
     },
     "T": {
-      "item": "artifality:zeus_wand",
-      "data": {
-        "require": {
-          "ArtifactLevel": 1
-        }
-      }
+      "item": "artifality:zeus_staff"
     }
   },
   "result": {
-    "item": "artifality:zeus_wand",
+    "item": "artifality:zeus_staff",
     "data": {
       "ArtifactLevel": 2
     }

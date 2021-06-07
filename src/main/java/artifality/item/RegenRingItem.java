@@ -5,9 +5,9 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
 
-public class RingOfRegenerationItem extends TierableItem {
+public class RegenRingItem extends TierableItem {
 
-    public RingOfRegenerationItem(Settings settings, String name) {
+    public RegenRingItem(Settings settings, String name) {
         super(settings, name);
     }
 

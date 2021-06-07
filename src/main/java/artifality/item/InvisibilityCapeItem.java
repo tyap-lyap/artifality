@@ -37,6 +37,6 @@ public class InvisibilityCapeItem extends BaseItem{
 
     @Override
     public String getDescription() {
-        return "Makes the wearer invisible while sneaking,\nalso hides the worn armor.";
+        return "Makes the wearer invisible\nwhile sneaking, also\nhides the worn armor.";
     }
 }

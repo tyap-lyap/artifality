@@ -26,7 +26,7 @@ public abstract class EntityMixin {
         if(lightning instanceof ILightningEntity){
             if(!((ILightningEntity) lightning).canSpawnFire()){
                 if(self instanceof LivingEntity){
-                    if(!((LivingEntity) self).getStackInHand(Hand.MAIN_HAND).getItem().equals(ArtifalityItems.ZEUS_WAND)){
+                    if(!((LivingEntity) self).getStackInHand(Hand.MAIN_HAND).getItem().equals(ArtifalityItems.ZEUS_STAFF)){
                         damage(DamageSource.LIGHTNING_BOLT, 6.0F);
                     }
                 }

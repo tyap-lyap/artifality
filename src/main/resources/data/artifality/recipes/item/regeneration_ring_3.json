@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "artifality:zeus_wand",
+      "item": "artifality:regeneration_ring",
       "data": {
         "require": {
           "ArtifactLevel": 2
@@ -14,7 +14,7 @@
     }
   ],
   "result": {
-    "item": "artifality:zeus_wand",
+    "item": "artifality:regeneration_ring",
     "data": {
       "ArtifactLevel": 3
     }
