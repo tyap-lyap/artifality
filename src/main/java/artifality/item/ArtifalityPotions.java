@@ -17,7 +17,7 @@ public class ArtifalityPotions {
 
 
     public static final Potion REBOUND = add("rebound", ArtifalityEffects.REBOUND, 3600);
-    public static final Potion LONG_REBOUND = add("rebound", ArtifalityEffects.REBOUND, 9600);
+    public static final Potion LONG_REBOUND = add("long_rebound", ArtifalityEffects.REBOUND, 9600);
 
 
     private static Potion add(String id, StatusEffect statusEffect, int duration) {
