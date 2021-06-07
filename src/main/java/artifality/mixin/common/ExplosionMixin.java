@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 public class ExplosionMixin {
     @Redirect(method = "collectBlocksAndDamageEntities", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;damage(Lnet/minecraft/entity/damage/DamageSource;F)Z"))
     boolean damage(Entity entity, DamageSource source, float amount){
-        if(entity instanceof PlayerEntity && ((PlayerEntity) entity).inventory.contains(ArtifalityItems.CAT_EARS.getDefaultStack())){
+        if(entity instanceof PlayerEntity && ((PlayerEntity) entity).getInventory().contains(ArtifalityItems.CAT_EARS.getDefaultStack())){
             if(source.getAttacker() instanceof CreeperEntity) {
                 entity.damage(source, amount / 2);
                 return false;

@@ -10,7 +10,7 @@ public class TrinketsUtils {
 
     public static boolean containsTrinket(PlayerEntity playerEntity, Item item){
 
-        return playerEntity.inventory.contains(item.getDefaultStack());
+        return playerEntity.getInventory().contains(item.getDefaultStack());
 
     }
 

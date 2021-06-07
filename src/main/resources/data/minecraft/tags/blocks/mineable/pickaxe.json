@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "artifality:incremental_crystal",
+    "artifality:incremental_crystal_block",
+    "artifality:lunar_crystal_crystal",
+    "artifality:lunar_crystal_block",
+    "artifality:incremental_lens"
+  ]
+}

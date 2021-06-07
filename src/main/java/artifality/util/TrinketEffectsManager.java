@@ -29,8 +29,8 @@ public class TrinketEffectsManager {
 
         ArtifalityItems.getItems().forEach((id, item) -> {
             if(item instanceof ITierableItem){
-                for (int i = 0; i <= player.inventory.size(); i++){
-                    ItemStack itemStack = player.inventory.getStack(i);
+                for (int i = 0; i <= player.getInventory().size(); i++){
+                    ItemStack itemStack = player.getInventory().getStack(i);
 
                     if(!itemStack.isEmpty() && itemStack.getItem().equals(item)){
                         ((ITierableItem) item).applyEffects(player.world, player, TierableItem.getCurrentTier(itemStack));

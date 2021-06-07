@@ -9,8 +9,8 @@ import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.item.EnchantedBookItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtList;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
@@ -50,11 +50,11 @@ public class TooltipUtils {
             return ((BaseBlockItem) stack.getItem()).getDescription() != null;
 
         }else if(stack.getItem() instanceof EnchantedBookItem){
-            ListTag enchantments = EnchantedBookItem.getEnchantmentTag(stack);
+            NbtList enchantments = EnchantedBookItem.getEnchantmentNbt(stack);
             for(int i = 0; i < enchantments.size(); ++i) {
-                CompoundTag compoundTag = enchantments.getCompound(i);
-                if(Registry.ENCHANTMENT.getOrEmpty(Identifier.tryParse(compoundTag.getString("id"))).isPresent()){
-                    if(Registry.ENCHANTMENT.getOrEmpty(Identifier.tryParse(compoundTag.getString("id"))).get() instanceof IArtifalityEnchantment){
+                NbtCompound nbtCompound = enchantments.getCompound(i);
+                if(Registry.ENCHANTMENT.getOrEmpty(Identifier.tryParse(nbtCompound.getString("id"))).isPresent()){
+                    if(Registry.ENCHANTMENT.getOrEmpty(Identifier.tryParse(nbtCompound.getString("id"))).get() instanceof IArtifalityEnchantment){
                         return true;
                     }
                 }
@@ -103,12 +103,12 @@ public class TooltipUtils {
 
     private static void appendEnchantmentDesc(ItemStack stack, List<Text> tooltip){
 
-        ListTag enchantments = EnchantedBookItem.getEnchantmentTag(stack);
+        NbtList enchantments = EnchantedBookItem.getEnchantmentNbt(stack);
 
         for(int i = 0; i < enchantments.size(); ++i) {
-            CompoundTag compoundTag = enchantments.getCompound(i);
+            NbtCompound nbtCompound = enchantments.getCompound(i);
 
-            Registry.ENCHANTMENT.getOrEmpty(Identifier.tryParse(compoundTag.getString("id"))).ifPresent((enchantment) -> {
+            Registry.ENCHANTMENT.getOrEmpty(Identifier.tryParse(nbtCompound.getString("id"))).ifPresent((enchantment) -> {
 
                 if(enchantment instanceof IArtifalityEnchantment){
                     String description = Language.getInstance().get(enchantment.getTranslationKey() + ".description");
