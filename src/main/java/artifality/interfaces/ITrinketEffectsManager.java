@@ -4,9 +4,7 @@ import artifality.util.TrinketEffectsManager;
 
 public interface ITrinketEffectsManager {
 
-    TrinketEffectsManager trinketEffectsManager = new TrinketEffectsManager();
+    TrinketEffectsManager getTrinketEffectsManager();
 
-    default TrinketEffectsManager getTrinketEffectsManager(){
-        return trinketEffectsManager;
-    }
+    void setTrinketEffectsManager(TrinketEffectsManager trinketEffectsManager);
 }

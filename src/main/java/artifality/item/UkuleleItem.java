@@ -3,6 +3,7 @@ package artifality.item;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
+import dev.emi.trinkets.api.Trinket;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttribute;
@@ -12,7 +13,7 @@ import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 
-public class UkuleleItem extends BaseItem {
+public class UkuleleItem extends BaseItem implements Trinket {
 
     private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
 

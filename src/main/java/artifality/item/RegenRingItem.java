@@ -22,13 +22,13 @@ public class RegenRingItem extends TierableItem {
         if(!world.isClient){
             switch (tier) {
                 case 3:
-                    giveRegeneration(playerEntity, 400, 1);
+                    giveRegeneration(playerEntity, 400, 2);
                     break;
                 case 2:
-                    giveRegeneration(playerEntity, 300, 1);
+                    giveRegeneration(playerEntity, 400, 1);
                     break;
                 case 1:
-                    giveRegeneration(playerEntity, 200, 0);
+                    giveRegeneration(playerEntity, 400, 0);
                     break;
             }
         }
