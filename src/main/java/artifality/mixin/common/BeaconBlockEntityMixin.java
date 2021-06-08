@@ -20,6 +20,7 @@ public class BeaconBlockEntityMixin{
 
     /**
      * @author жопа гусика
+     * @reason mojank made it static (sad face)
      */
     @Overwrite
     private static void applyPlayerEffects(World world, BlockPos pos, int beaconLevel, @Nullable StatusEffect primaryEffect, @Nullable StatusEffect secondaryEffect) {
