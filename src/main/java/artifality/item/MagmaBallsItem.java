@@ -7,7 +7,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class MagmaBallsItem extends BaseItem {
+public class MagmaBallsItem extends BaseTrinketItem {
 
     public MagmaBallsItem(Settings settings, String name) {
         super(settings, name);

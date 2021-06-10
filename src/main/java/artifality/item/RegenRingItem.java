@@ -5,7 +5,7 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
 
-public class RegenRingItem extends TierableItem {
+public class RegenRingItem extends TierableTrinketItem {
 
     public RegenRingItem(Settings settings, String name) {
         super(settings, name);
