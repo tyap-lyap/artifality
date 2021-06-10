@@ -1,10 +1,8 @@
 package artifality.util;
 
-import artifality.interfaces.ITierableItem;
-import artifality.item.ArtifalityItems;
 import artifality.item.TierableItem;
+import artifality.item.TierableTrinketItem;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
 
 public class TrinketEffectsManager {
 
@@ -27,15 +25,9 @@ public class TrinketEffectsManager {
 
     public void activateEffectsPerMinute(PlayerEntity player){
 
-        ArtifalityItems.getItems().forEach((id, item) -> {
-            if(item instanceof ITierableItem){
-                for (int i = 0; i <= player.getInventory().size(); i++){
-                    ItemStack itemStack = player.getInventory().getStack(i);
-
-                    if(!itemStack.isEmpty() && itemStack.getItem().equals(item)){
-                        ((ITierableItem) item).applyEffects(player.world, player, TierableItem.getCurrentTier(itemStack));
-                    }
-                }
+        TrinketsUtils.getTrinketsAsArray(player).forEach(itemStack -> {
+            if(itemStack.getItem() instanceof TierableTrinketItem item){
+                item.applyEffects(player.world, player, TierableItem.getCurrentTier(itemStack));
             }
         });
     }

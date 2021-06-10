@@ -1,11 +1,11 @@
 package artifality.item;
 
-import net.minecraft.entity.Entity;
+import dev.emi.trinkets.api.SlotReference;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
 
 public class MagmaBallsItem extends BaseTrinketItem {
 
@@ -14,11 +14,11 @@ public class MagmaBallsItem extends BaseTrinketItem {
     }
 
     @Override
-    public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
+    public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
 
         if(entity instanceof PlayerEntity){
-            if(!((PlayerEntity) entity).hasStatusEffect(StatusEffects.FIRE_RESISTANCE)){
-                ((PlayerEntity) entity).addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 200, 0, false, false));
+            if(!entity.hasStatusEffect(StatusEffects.FIRE_RESISTANCE)){
+                entity.addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 200, 0, false, false));
             }
         }
     }

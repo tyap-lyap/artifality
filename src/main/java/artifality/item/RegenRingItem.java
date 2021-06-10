@@ -21,15 +21,9 @@ public class RegenRingItem extends TierableTrinketItem {
 
         if(!world.isClient){
             switch (tier) {
-                case 3:
-                    giveRegeneration(playerEntity, 400, 2);
-                    break;
-                case 2:
-                    giveRegeneration(playerEntity, 400, 1);
-                    break;
-                case 1:
-                    giveRegeneration(playerEntity, 400, 0);
-                    break;
+                case 3 -> giveRegeneration(playerEntity, 400, 2);
+                case 2 -> giveRegeneration(playerEntity, 400, 1);
+                case 1 -> giveRegeneration(playerEntity, 400, 0);
             }
         }
     }

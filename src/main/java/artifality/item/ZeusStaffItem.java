@@ -40,19 +40,22 @@ public class ZeusStaffItem extends TierableItem {
         BlockHitResult blockHitResult = longRaycast(world, user);
 
         if(!world.isClient){
-            switch (TierableItem.getCurrentTier(user.getStackInHand(hand))){
-                case 1:
+            switch (TierableItem.getCurrentTier(user.getStackInHand(hand))) {
+                case 1 -> {
                     createLighting(world, blockHitResult.getBlockPos(), new LightningEntity(EntityType.LIGHTNING_BOLT, world));
                     user.getItemCooldownManager().set(this, 200);
                     return TypedActionResult.success(user.getStackInHand(hand));
-                case 2:
+                }
+                case 2 -> {
                     createLighting(world, blockHitResult.getBlockPos(), new LightningEntity(EntityType.LIGHTNING_BOLT, world));
                     user.getItemCooldownManager().set(this, 150);
                     return TypedActionResult.success(user.getStackInHand(hand));
-                case 3:
+                }
+                case 3 -> {
                     createLighting(world, blockHitResult.getBlockPos(), new LightningEntity(EntityType.LIGHTNING_BOLT, world));
                     user.getItemCooldownManager().set(this, 100);
                     return TypedActionResult.success(user.getStackInHand(hand));
+                }
             }
         }
         return TypedActionResult.pass(user.getStackInHand(hand));

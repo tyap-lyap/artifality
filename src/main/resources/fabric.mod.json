@@ -10,6 +10,9 @@
 	"DoctorNight",
 	"Space1"
   ],
+  "contributors": [
+    "matthewperiut"
+  ],
   "contact": {
     "homepage": "https://curseforge.com/minecraft/mc-mods/artifality",
     "sources": "https://github.com/PinkGoosik/artifality"
