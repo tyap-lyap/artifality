@@ -55,8 +55,8 @@ public class ArtifalityBlockResources {
         pack.addModel(JModel.model().parent("minecraft:block/cube_bottom_top")
                         .textures(JModel.textures()
                                 .var("top", ArtifalityMod.MODID + ":block/" + id.getPath() + "_top")
-                                .var("bottom", ArtifalityMod.MODID + ":block/" + id.getPath() + "_top")
-                                .var("side", ArtifalityMod.MODID + ":block/" + id.getPath())),
+                                .var("bottom", ArtifalityMod.MODID + ":block/" + id.getPath() + "_bottom")
+                                .var("side", ArtifalityMod.MODID + ":block/" + id.getPath() + "_side")),
                 new Identifier(ArtifalityMod.MODID + ":block/" + id.getPath()));
 
         addItemAndBlockstate(pack, id);

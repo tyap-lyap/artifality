@@ -30,6 +30,9 @@ public class ArtifalityBlocks {
 
     public static final Block INCREMENTAL_LENS = add("incremental_lens", new IncrementalLensBlock(FabricBlockSettings.copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.NETHERITE).nonOpaque(), "Incremental Lens"));
 
+    public static final Block ARTIFACT_UPGRADER = add("artifact_upgrader", new ArtifactUpgraderBlock(FabricBlockSettings.copyOf(Blocks.COBBLESTONE), "cube_bottom_top", "Artifact Upgrader"));
+
+
 
     private static Block add(String name, Block block) {
         Item.Settings settings = new Item.Settings();

@@ -14,6 +14,6 @@ public class ArtifalityResources {
         ArtifalityBlockResources.init(RESOURCES);
         ArtifalityTranslations.init(RESOURCES);
 
-        RRPCallback.EVENT.register(resources -> resources.add(RESOURCES));
+        RRPCallback.BEFORE_VANILLA.register(resources -> resources.add(RESOURCES));
     }
 }

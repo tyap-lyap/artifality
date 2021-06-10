@@ -19,8 +19,7 @@
     "client.ArmorFeatureRendererMixin",
     "client.EnchantedBookItemMixin",
     "client.ItemRendererMixin",
-    "client.ItemStackMixin",
-    "client.ModelLoaderMixin"
+    "client.ItemStackMixin"
   ],
   "injectors": {
     "defaultRequire": 1

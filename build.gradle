@@ -12,7 +12,6 @@ version = "mc" + project.minecraft_version + "-" + project.mod_version + "-" + p
 
 repositories {
 	maven { url "https://maven.gegy.dev" } //databreaker
-	maven { url "https://maven.siphalor.de" } //nbt crafting
 	maven { url "https://maven.terraformersmc.com" } //modmenu
 	maven { url "https://maven.shedaniel.me" } //rei
 	maven { url "https://storage.googleapis.com/devan-maven" } //arrp
@@ -29,11 +28,6 @@ dependencies {
 
 	modImplementation "net.devtech:arrp:0.4.3"
 	include "net.devtech:arrp:0.4.3"
-
-//	modImplementation ("de.siphalor:nbtcrafting-1.17:2.0.15+mc1.17-rc1") {
-//		exclude group: "de.siphalor", module: 'modsoftheworld-1.17'
-//	}
-//	include "de.siphalor:nbtcrafting-1.17:2.0.15+mc1.17-rc1"
 	
 	modRuntime "me.shedaniel:RoughlyEnoughItems-fabric:6.0.249-alpha"
 	modRuntime "com.terraformersmc:modmenu:2.0.0-beta.7"
