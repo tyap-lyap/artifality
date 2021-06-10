@@ -1,42 +1,33 @@
 package artifality.item;
 
-import net.minecraft.entity.Entity;
+import dev.emi.trinkets.api.SlotReference;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
 
-public class InvisibilityCapeItem extends BaseItem{
+public class InvisibilityCapeItem extends BaseTrinketItem {
 
     public InvisibilityCapeItem(Settings settings, String name) {
         super(settings, name);
     }
 
     @Override
-    public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        super.inventoryTick(stack, world, entity, slot, selected);
-
-        if(entity instanceof PlayerEntity){
-            PlayerEntity player = ((PlayerEntity) entity);
-            if(player.isSneaking()) {
-
-                if (!player.hasStatusEffect(StatusEffects.INVISIBILITY)) {
-
-                    player.addStatusEffect(new StatusEffectInstance(StatusEffects.INVISIBILITY, 10, 0, false, false));
-                }else{
-                    if(player.getActiveStatusEffects().get(StatusEffects.INVISIBILITY).getDuration() == 1){
-
-                        player.addStatusEffect(new StatusEffectInstance(StatusEffects.INVISIBILITY, 10, 0, false, false));
-                    }
+    public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
+        if (entity.isSneaking()) {
+            if (!entity.hasStatusEffect(StatusEffects.INVISIBILITY)) {
+                entity.addStatusEffect(new StatusEffectInstance(StatusEffects.INVISIBILITY, 10, 0, false, false));
+            } else {
+                if (entity.getActiveStatusEffects().get(StatusEffects.INVISIBILITY).getDuration() == 1) {
+                    entity.addStatusEffect(new StatusEffectInstance(StatusEffects.INVISIBILITY, 10, 0, false, false));
                 }
             }
-
         }
     }
 
     @Override
-    public String getDescription() {
+    public String getDescription()
+    {
         return "Makes the wearer invisible\nwhile sneaking, also\nhides the worn armor.";
     }
 }

@@ -13,7 +13,7 @@ import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 
-public class UkuleleItem extends BaseItem implements Trinket {
+public class UkuleleItem extends BaseTrinketItem {
 
     private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
 
