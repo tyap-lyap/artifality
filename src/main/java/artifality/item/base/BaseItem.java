@@ -1,10 +1,12 @@
-package artifality.item;
+package artifality.item.base;
 
-import artifality.interfaces.IArtifalityItem;
+import artifality.interfaces.ModelProvider;
+import artifality.interfaces.Translatable;
 import artifality.util.TooltipUtils;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
@@ -13,7 +15,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class BaseItem extends Item implements IArtifalityItem {
+public class BaseItem extends Item implements ModelProvider, Translatable {
 
     private final String parentModel;
 
@@ -31,14 +33,20 @@ public class BaseItem extends Item implements IArtifalityItem {
         this.name = name;
     }
 
+    public void onEntityLoad(Entity entity, World world) {}
+
     @Override
     public String getParentModel() {
         return parentModel;
     }
 
     @Override
-    public String getTranslation() {
+    public String getOriginName() {
         return name;
+    }
+
+    public boolean isWip(){
+        return false;
     }
     
     @Environment(EnvType.CLIENT)

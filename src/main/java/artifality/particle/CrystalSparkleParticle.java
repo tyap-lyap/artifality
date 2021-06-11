@@ -37,12 +37,7 @@ public class CrystalSparkleParticle extends SpriteBillboardParticle {
     }
 
     @Environment(EnvType.CLIENT)
-    public static class Factory implements ParticleFactory<DefaultParticleType> {
-        private final SpriteProvider spriteProvider;
-
-        public Factory(SpriteProvider spriteProvider) {
-            this.spriteProvider = spriteProvider;
-        }
+    public record Factory(SpriteProvider spriteProvider) implements ParticleFactory<DefaultParticleType> {
 
         public Particle createParticle(DefaultParticleType defaultParticleType, ClientWorld clientWorld, double d, double e, double f, double g, double h, double i) {
 

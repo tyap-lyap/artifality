@@ -1,4 +1,4 @@
-package artifality.item;
+package artifality.item.base;
 
 import dev.emi.trinkets.TrinketSlot;
 import dev.emi.trinkets.api.*;
@@ -10,9 +10,10 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 
-public class TierableTrinketItem extends TierableItem implements Trinket {
-    public TierableTrinketItem(Settings settings, String name)
-    {
+// This hackiness is due to how the structure of the mod is already done
+public class BaseTrinketItem extends BaseItem implements Trinket {
+
+    public BaseTrinketItem(Settings settings, String name) {
         super(settings, name);
         TrinketsApi.registerTrinket(this, this);
     }

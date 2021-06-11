@@ -5,10 +5,10 @@ import artifality.data.ArtifalityLootTables;
 import artifality.effect.ArtifalityEffects;
 import artifality.enchantment.ArtifalityEnchantments;
 import artifality.event.ArtifalityEvents;
-import artifality.interfaces.IArtifalityItem;
-import artifality.interfaces.ITierableItem;
 import artifality.item.ArtifalityItems;
 import artifality.item.ArtifalityPotions;
+import artifality.item.base.BaseItem;
+import artifality.item.base.TierableItem;
 import artifality.worldgen.feature.ArtifalityConfiguredFeatures;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
@@ -46,7 +46,7 @@ public class ArtifalityMod implements ModInitializer {
         public void accept(List<ItemStack> itemStacks) {
 
             ArtifalityItems.getItems().forEach(((id, item) -> {
-                if (!((IArtifalityItem)item).isWip()) item.appendStacks(ITEMS, (DefaultedList<ItemStack>) itemStacks);
+                if (!((BaseItem)item).isWip()) item.appendStacks(ITEMS, (DefaultedList<ItemStack>) itemStacks);
             }));
 
             ArtifalityBlocks.getBlocks().forEach((id, block) -> {
@@ -71,9 +71,9 @@ public class ArtifalityMod implements ModInitializer {
         @Override
         public void accept(List<ItemStack> itemStacks) {
             ArtifalityItems.getItems().forEach(((id, item) -> {
-                if(item instanceof ITierableItem){
+                if(item instanceof TierableItem){
                     itemStacks.add(new ItemStack(item));
-                    for(int i = 2; i <= ((ITierableItem) item).getMaxTiers(); i++){
+                    for(int i = 2; i <= 3; i++){
                         ItemStack itemStack = new ItemStack(item);
                         itemStack.getOrCreateTag().putInt("ArtifactLevel", i);
                         itemStacks.add(itemStack);
@@ -92,7 +92,7 @@ public class ArtifalityMod implements ModInitializer {
         @Override
         public void accept(List<ItemStack> itemStacks) {
             ArtifalityItems.getItems().forEach(((id, item) -> {
-                if (((IArtifalityItem)item).isWip()) item.appendStacks(ITEMS, (DefaultedList<ItemStack>) itemStacks);
+                if (((BaseItem)item).isWip()) item.appendStacks(ITEMS, (DefaultedList<ItemStack>) itemStacks);
             }));
         }
     }).icon(new Supplier<ItemStack>() {

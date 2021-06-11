@@ -1,7 +1,9 @@
 package artifality.block;
 
 import artifality.ArtifalityMod;
-import artifality.item.BaseBlockItem;
+import artifality.block.base.BaseBlock;
+import artifality.block.base.BaseGlassBlock;
+import artifality.item.base.BaseBlockItem;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;

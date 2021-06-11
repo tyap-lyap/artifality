@@ -1,6 +1,7 @@
 package artifality.item;
 
 import artifality.enchantment.ArtifalityEnchantments;
+import artifality.item.base.BaseItem;
 import net.minecraft.enchantment.EnchantmentLevelEntry;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.EnchantedBookItem;

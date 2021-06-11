@@ -1,13 +1,10 @@
 package artifality.interfaces;
 
-public interface IArtifalityBlock {
+public interface Translatable {
 
-    String getParentModel();
-
-    String getTranslation();
+    String getOriginName();
 
     default String getDescription(){
         return null;
     }
-
 }

@@ -7,7 +7,6 @@ import net.minecraft.item.ItemStack;
 
 import java.util.ArrayList;
 
-
 public class TrinketsUtils {
 
     protected TrinketsUtils(){}
@@ -20,15 +19,9 @@ public class TrinketsUtils {
     public static boolean containsTrinket(PlayerEntity playerEntity, Item item){
 
         for(ItemStack itemStack : getTrinketsAsArray(playerEntity)){
-
-            if(itemStack.getItem().equals(item)){
-
-                return true;
-            }
-
+            if(itemStack.getItem().equals(item))return true;
         }
         return false;
-
     }
 
     public static ArrayList<ItemStack> getTrinketsAsArray(PlayerEntity playerEntity) {
@@ -37,7 +30,6 @@ public class TrinketsUtils {
         if (TrinketsApi.getTrinketComponent(playerEntity).isPresent()){
             TrinketsApi.getTrinketComponent(playerEntity).get().forEach((slotReference, itemStack) -> stacks.add(itemStack));
         }
-
         return stacks;
     }
 }

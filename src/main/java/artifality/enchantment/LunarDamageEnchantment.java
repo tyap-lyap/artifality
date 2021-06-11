@@ -1,10 +1,9 @@
 package artifality.enchantment;
 
-import artifality.interfaces.IArtifalityEnchantment;
+import artifality.interfaces.Translatable;
 import net.minecraft.enchantment.DamageEnchantment;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
-import net.minecraft.enchantment.MendingEnchantment;
 import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.text.MutableText;
@@ -12,8 +11,7 @@ import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 
-public class LunarDamageEnchantment extends Enchantment implements IArtifalityEnchantment {
-
+public class LunarDamageEnchantment extends Enchantment implements Translatable {
 
     public LunarDamageEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
@@ -46,7 +44,7 @@ public class LunarDamageEnchantment extends Enchantment implements IArtifalityEn
     }
 
     @Override
-    public String getTranslation() {
+    public String getOriginName() {
         return "Lunar Damage";
     }
 

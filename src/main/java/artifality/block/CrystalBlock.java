@@ -1,5 +1,6 @@
 package artifality.block;
 
+import artifality.block.base.BaseBlock;
 import artifality.particle.ArtifalityParticles;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

@@ -1,6 +1,6 @@
-package artifality.item;
+package artifality.item.base;
 
-import artifality.interfaces.IArtifalityBlock;
+import artifality.interfaces.Translatable;
 import artifality.util.TooltipUtils;
 import net.minecraft.block.Block;
 import net.minecraft.client.item.TooltipContext;
@@ -19,10 +19,8 @@ public class BaseBlockItem extends BlockItem {
         super(block, settings);
     }
 
-    public @Nullable String getDescription(){
-        if(getBlock() instanceof IArtifalityBlock){
-            return ((IArtifalityBlock) getBlock()).getDescription();
-        }else return null;
+    public String getDescription(){
+        return ((Translatable) getBlock()).getDescription();
     }
 
     @Override

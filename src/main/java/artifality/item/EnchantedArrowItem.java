@@ -1,11 +1,12 @@
 package artifality.item;
 
+import artifality.item.base.BaseItem;
 import net.minecraft.item.ItemStack;
 
-public class EnchantedArrow extends BaseItem {
+public class EnchantedArrowItem extends BaseItem {
 
 
-    public EnchantedArrow(Settings settings, String name) {
+    public EnchantedArrowItem(Settings settings, String name) {
         super(settings, "custom", name);
     }
 

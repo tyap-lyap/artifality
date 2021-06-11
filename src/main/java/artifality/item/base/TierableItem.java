@@ -1,6 +1,5 @@
-package artifality.item;
+package artifality.item.base;
 
-import artifality.interfaces.ITierableItem;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -11,7 +10,7 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 
-public class TierableItem extends BaseItem implements ITierableItem {
+public class TierableItem extends BaseItem {
 
     public TierableItem(Settings settings, String name) {
         super(settings, name);
@@ -34,22 +33,15 @@ public class TierableItem extends BaseItem implements ITierableItem {
         return itemStack;
     }
 
-    @Override
-    public void applyEffects(World world, PlayerEntity playerEntity, int tier) {
-
-    }
+    public void applyEffects(World world, PlayerEntity playerEntity, int tier) {}
 
     @Override
     public Text getName(ItemStack stack) {
-        switch (TierableItem.getCurrentTier(stack)){
-            case 1:
-                return new TranslatableText(this.getTranslationKey(stack));
-            case 2:
-                return new TranslatableText(this.getTranslationKey(stack)).formatted(Formatting.YELLOW);
-            case 3:
-            default:
-                return new TranslatableText(this.getTranslationKey(stack)).formatted(Formatting.AQUA);
-        }
+        return switch (TierableItem.getCurrentTier(stack)) {
+            default -> new TranslatableText(this.getTranslationKey(stack));
+            case 2 -> new TranslatableText(this.getTranslationKey(stack)).formatted(Formatting.YELLOW);
+            case 3 -> new TranslatableText(this.getTranslationKey(stack)).formatted(Formatting.AQUA);
+        };
     }
 
     @Override

@@ -1,6 +1,7 @@
 package artifality.block;
 
-import artifality.item.TierableItem;
+import artifality.block.base.BaseBlock;
+import artifality.item.base.TierableItem;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;

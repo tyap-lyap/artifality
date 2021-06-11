@@ -14,7 +14,6 @@ public class ArtifalityParticles {
     public static void register() {
 
         ParticleFactoryRegistry.getInstance().register(CRYSTAL_SPARKLE, CrystalSparkleParticle.Factory::new);
-
     }
 
     private static DefaultParticleType register(String name) {

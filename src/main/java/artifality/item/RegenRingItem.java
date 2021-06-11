@@ -1,5 +1,6 @@
 package artifality.item;
 
+import artifality.item.base.TierableTrinketItem;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
@@ -9,11 +10,6 @@ public class RegenRingItem extends TierableTrinketItem {
 
     public RegenRingItem(Settings settings, String name) {
         super(settings, name);
-    }
-
-    @Override
-    public int getMaxTiers() {
-        return 3;
     }
 
     @Override

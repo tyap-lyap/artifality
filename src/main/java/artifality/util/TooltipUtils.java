@@ -1,10 +1,8 @@
 package artifality.util;
 
-import artifality.interfaces.IArtifalityEnchantment;
-import artifality.interfaces.IArtifalityItem;
-import artifality.interfaces.ITierableItem;
-import artifality.item.BaseBlockItem;
-import artifality.item.TierableItem;
+import artifality.interfaces.Translatable;
+import artifality.item.base.BaseBlockItem;
+import artifality.item.base.TierableItem;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.item.EnchantedBookItem;
 import net.minecraft.item.Item;
@@ -29,8 +27,8 @@ public class TooltipUtils {
         Item item = stack.getItem();
 
         if(hasDescription(stack) && shiftPressed(tooltip)){
-            if(item instanceof IArtifalityItem || item instanceof BaseBlockItem){
-                if(item instanceof ITierableItem){
+            if(item instanceof Translatable || item instanceof BaseBlockItem){
+                if(item instanceof TierableItem){
                     appendTier(stack, tooltip);
                 }
                 appendItemDescription(stack, tooltip);
@@ -39,12 +37,11 @@ public class TooltipUtils {
                 appendEnchantmentDesc(stack, tooltip);
             }
         }
-
     }
 
     private static boolean hasDescription(ItemStack stack){
-        if(stack.getItem() instanceof IArtifalityItem){
-            return ((IArtifalityItem) stack.getItem()).getDescription() != null;
+        if(stack.getItem() instanceof Translatable){
+            return ((Translatable) stack.getItem()).getDescription() != null;
 
         }else if(stack.getItem() instanceof BaseBlockItem){
             return ((BaseBlockItem) stack.getItem()).getDescription() != null;
@@ -54,7 +51,7 @@ public class TooltipUtils {
             for(int i = 0; i < enchantments.size(); ++i) {
                 NbtCompound nbtCompound = enchantments.getCompound(i);
                 if(Registry.ENCHANTMENT.getOrEmpty(Identifier.tryParse(nbtCompound.getString("id"))).isPresent()){
-                    if(Registry.ENCHANTMENT.getOrEmpty(Identifier.tryParse(nbtCompound.getString("id"))).get() instanceof IArtifalityEnchantment){
+                    if(Registry.ENCHANTMENT.getOrEmpty(Identifier.tryParse(nbtCompound.getString("id"))).get() instanceof Translatable){
                         return true;
                     }
                 }
@@ -73,21 +70,14 @@ public class TooltipUtils {
 
     private static void appendTier(ItemStack stack, List<Text> tooltip){
 
-        if(stack.getItem() instanceof ITierableItem){
-            switch (TierableItem.getCurrentTier(stack)){
-                case 1:
-                    tooltip.add(new LiteralText("Tier " + TierableItem.getCurrentTier(stack)));
-                    break;
-                case 2:
-                    tooltip.add(new LiteralText("Tier " + TierableItem.getCurrentTier(stack)).formatted(Formatting.GREEN));
-                    break;
-                case 3:
-                default:
-                    tooltip.add(new LiteralText("Tier " + TierableItem.getCurrentTier(stack)).formatted(Formatting.LIGHT_PURPLE));
-                    break;
+        if(stack.getItem() instanceof Translatable){
+            LiteralText tierString = new LiteralText("Tier " + TierableItem.getCurrentTier(stack));
+            switch (TierableItem.getCurrentTier(stack)) {
+                default -> tooltip.add(tierString);
+                case 2 -> tooltip.add(tierString.formatted(Formatting.GREEN));
+                case 3 -> tooltip.add(tierString.formatted(Formatting.LIGHT_PURPLE));
             }
         }
-
     }
 
     private static void appendItemDescription(ItemStack stack, List<Text> tooltip){
@@ -110,18 +100,16 @@ public class TooltipUtils {
 
             Registry.ENCHANTMENT.getOrEmpty(Identifier.tryParse(nbtCompound.getString("id"))).ifPresent((enchantment) -> {
 
-                if(enchantment instanceof IArtifalityEnchantment){
-                    String description = Language.getInstance().get(enchantment.getTranslationKey() + ".description");
+                String description = Language.getInstance().get(enchantment.getTranslationKey() + ".description");
 
+                tooltip.add(new LiteralText(""));
+                tooltip.add(new LiteralText("Description: ").formatted(Formatting.GRAY));
+                for(String line : description.split("\n")) {
+                    tooltip.add(new LiteralText(line.trim()).formatted(Formatting.GRAY));
+                }
+                if(enchantment.getMaxLevel() > 1){
                     tooltip.add(new LiteralText(""));
-                    tooltip.add(new LiteralText("Description: ").formatted(Formatting.GRAY));
-                    for(String line : description.split("\n")) {
-                        tooltip.add(new LiteralText(line.trim()).formatted(Formatting.GRAY));
-                    }
-                    if(enchantment.getMaxLevel() > 1){
-                        tooltip.add(new LiteralText(""));
-                        tooltip.add(new LiteralText("Max Level: " + enchantment.getMaxLevel()).formatted(Formatting.GRAY));
-                    }
+                    tooltip.add(new LiteralText("Max Level: " + enchantment.getMaxLevel()).formatted(Formatting.GRAY));
                 }
             });
         }

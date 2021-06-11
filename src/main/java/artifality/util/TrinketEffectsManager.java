@@ -1,7 +1,7 @@
 package artifality.util;
 
-import artifality.item.TierableItem;
-import artifality.item.TierableTrinketItem;
+import artifality.item.base.TierableItem;
+import artifality.item.base.TierableTrinketItem;
 import net.minecraft.entity.player.PlayerEntity;
 
 public class TrinketEffectsManager {
@@ -20,7 +20,6 @@ public class TrinketEffectsManager {
         }
 
         ticks = ticks + 1;
-
     }
 
     public void activateEffectsPerMinute(PlayerEntity player){

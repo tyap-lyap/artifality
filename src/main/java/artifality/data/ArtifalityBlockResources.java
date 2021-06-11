@@ -2,7 +2,7 @@ package artifality.data;
 
 import artifality.ArtifalityMod;
 import artifality.block.ArtifalityBlocks;
-import artifality.interfaces.IArtifalityBlock;
+import artifality.interfaces.ModelProvider;
 import net.devtech.arrp.api.RuntimeResourcePack;
 import net.devtech.arrp.json.blockstate.JState;
 import net.devtech.arrp.json.models.JModel;
@@ -15,30 +15,15 @@ public class ArtifalityBlockResources {
 
         ArtifalityBlocks.getBlocks().forEach((id, block) -> {
 
-            if (block instanceof IArtifalityBlock) {
-                String parent = ((IArtifalityBlock) block).getParentModel();
-
-                switch (parent) {
-                    case "cube_all":
-                        cubeAllBlock(pack, id);
-                        break;
-                    case "cube_bottom_top":
-                        cubeBottomTopBlock(pack, id);
-                        break;
-                    case "custom_model":
-                        addItemAndBlockstate(pack, id);
-                        break;
-                    case "cross":
-                        crossBlock(pack, id);
-                        break;
-                    case "cube_column":
-                        cubeColumnBlock(pack, id);
-                        break;
-                }
+            String parent = ((ModelProvider) block).getParentModel();
+            switch (parent) {
+                case "cube_all" -> cubeAllBlock(pack, id);
+                case "cube_bottom_top" -> cubeBottomTopBlock(pack, id);
+                case "custom_model" -> addItemAndBlockstate(pack, id);
+                case "cross" -> crossBlock(pack, id);
+                case "cube_column" -> cubeColumnBlock(pack, id);
             }
-
         });
-
     }
 
     static void cubeAllBlock(RuntimeResourcePack pack, Identifier id){

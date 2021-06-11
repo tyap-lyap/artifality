@@ -1,6 +1,7 @@
 package artifality.item;
 
 import artifality.interfaces.ILightningEntity;
+import artifality.item.base.TierableItem;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.entity.Entity;

@@ -1,9 +1,10 @@
 package artifality.item;
 
 
+import artifality.item.base.BaseTrinketItem;
+import artifality.item.base.TierableItem;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
-import dev.emi.trinkets.api.Trinket;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttribute;

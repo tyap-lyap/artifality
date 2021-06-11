@@ -3,10 +3,9 @@ package artifality.data;
 import artifality.ArtifalityMod;
 import artifality.block.ArtifalityBlocks;
 import artifality.enchantment.ArtifalityEnchantments;
-import artifality.interfaces.IArtifalityBlock;
-import artifality.interfaces.IArtifalityEnchantment;
-import artifality.interfaces.IArtifalityItem;
+import artifality.interfaces.Translatable;
 import artifality.item.ArtifalityItems;
+import artifality.item.base.BaseItem;
 import net.devtech.arrp.api.RuntimeResourcePack;
 import net.devtech.arrp.json.lang.JLang;
 import net.minecraft.util.Identifier;
@@ -15,31 +14,39 @@ public class ArtifalityTranslations {
 
     private static final Identifier EN_US = new Identifier(ArtifalityMod.MODID, "en_us");
     private static final JLang LANG = JLang.lang();
+    private static RuntimeResourcePack pack;
 
     public static void init(RuntimeResourcePack pack){
+        ArtifalityTranslations.pack = pack;
 
         ArtifalityItems.getItems().forEach((id, item) -> {
-            if(((IArtifalityItem) item).isWip())pack.addLang(EN_US, LANG.item(item, ((IArtifalityItem) item).getTranslation() + " WIP"));
-            else pack.addLang(EN_US, LANG.item(item, ((IArtifalityItem) item).getTranslation()));
-            if (((IArtifalityItem) item).getDescription() != null){
-                pack.addLang(EN_US, LANG.entry(item.getTranslationKey() + ".description", ((IArtifalityItem) item).getDescription()));
+            if(((BaseItem) item).isWip()) add(LANG.itemRespect(item, ((Translatable) item).getOriginName() + " WIP"));
+            else add(LANG.itemRespect(item, ((Translatable) item).getOriginName()));
+            if (((Translatable) item).getDescription() != null){
+                add(LANG.entry(item.getTranslationKey() + ".description", ((Translatable) item).getDescription()));
             }
         });
+
         ArtifalityEnchantments.getEnchantments().forEach((id, enchantment) -> {
-            pack.addLang(EN_US, LANG.enchantment(enchantment, ((IArtifalityEnchantment) enchantment).getTranslation()));
-            pack.addLang(EN_US, LANG.entry(enchantment.getTranslationKey() + ".description", ((IArtifalityEnchantment) enchantment).getDescription()));
-        });
-        ArtifalityBlocks.getBlocks().forEach((id, block) -> {
-            pack.addLang(EN_US, LANG.block(block, ((IArtifalityBlock) block).getTranslation()));
-            pack.addLang(EN_US, LANG.entry(block.getTranslationKey() + ".description", ((IArtifalityBlock) block).getDescription()));
+            add(LANG.enchantmentRespect(enchantment, ((Translatable) enchantment).getOriginName()));
+            add(LANG.entry(enchantment.getTranslationKey() + ".description", ((Translatable) enchantment).getDescription()));
         });
 
-        miscTranslations(pack);
+        ArtifalityBlocks.getBlocks().forEach((id, block) -> {
+            add(LANG.blockRespect(block, ((Translatable) block).getOriginName()));
+            add(LANG.entry(block.getTranslationKey() + ".description", ((Translatable) block).getDescription()));
+        });
+
+        miscTranslations();
     }
 
-    private static void miscTranslations(RuntimeResourcePack pack){
-        pack.addLang(EN_US, LANG.itemGroup(new Identifier(ArtifalityMod.MODID, "items"), "Artifality: Items"));
-        pack.addLang(EN_US, LANG.itemGroup(new Identifier(ArtifalityMod.MODID, "tierable_items"), "Artifality: Tierable Items"));
-        pack.addLang(EN_US, LANG.itemGroup(new Identifier(ArtifalityMod.MODID, "wip_items"), "Artifality: Work In Progress"));
+    private static void miscTranslations(){
+        add(LANG.itemGroup(new Identifier(ArtifalityMod.MODID, "items"), "Artifality: Items"));
+        add(LANG.itemGroup(new Identifier(ArtifalityMod.MODID, "tierable_items"), "Artifality: Tierable Items"));
+        add(LANG.itemGroup(new Identifier(ArtifalityMod.MODID, "wip_items"), "Artifality: Work In Progress"));
+    }
+
+    static void add(JLang entry){
+        pack.addLang(EN_US, entry);
     }
 }

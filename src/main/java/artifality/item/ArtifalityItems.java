@@ -1,6 +1,7 @@
 package artifality.item;
 
 import artifality.ArtifalityMod;
+import artifality.item.base.BaseItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
@@ -24,7 +25,7 @@ public class ArtifalityItems {
     public static final Item ZEUS_STAFF = add("zeus_staff", new ZeusStaffItem(NOT_STACKABLE, "Zeus Staff"));
     public static final Item INVISIBILITY_CAPE = add("invisibility_cape", new InvisibilityCapeItem(NOT_STACKABLE, "Invisibility Cape"));
     public static final Item CAT_EARS = add("cat_ears", new CatEarsItem(NOT_STACKABLE, "Cat Ears"));
-    public static final Item ENCHANTED_ARROW = add("enchanted_arrow", new EnchantedArrow(DEFAULT, "Enchanted Arrow"));
+    public static final Item ENCHANTED_ARROW = add("enchanted_arrow", new EnchantedArrowItem(DEFAULT, "Enchanted Arrow"));
     public static final Item LUNAR_KNOWLEDGE_BOOK = add("lunar_knowledge_book", new LunarKnowledgeBookItem(NOT_STACKABLE, "Lunar Knowledge Book"));
 
     public static final Item INCREMENTAL = add("incremental", new BaseItem(DEFAULT, "Incremental"));

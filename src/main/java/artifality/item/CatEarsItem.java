@@ -1,5 +1,7 @@
 package artifality.item;
 
+import artifality.item.base.BaseItem;
+
 public class CatEarsItem extends BaseItem {
     public CatEarsItem(Settings settings, String name) {
         super(settings, name);
