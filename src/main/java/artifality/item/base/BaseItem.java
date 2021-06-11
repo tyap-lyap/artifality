@@ -2,7 +2,7 @@ package artifality.item.base;
 
 import artifality.interfaces.ModelProvider;
 import artifality.interfaces.Translatable;
-import artifality.util.TooltipUtils;
+import artifality.util.TooltipAppender;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.item.TooltipContext;
@@ -54,6 +54,6 @@ public class BaseItem extends Item implements ModelProvider, Translatable {
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         super.appendTooltip(stack, world, tooltip, context);
 
-        TooltipUtils.appendDescription(stack, tooltip);
+        TooltipAppender.appendDescription(stack, tooltip);
     }
 }

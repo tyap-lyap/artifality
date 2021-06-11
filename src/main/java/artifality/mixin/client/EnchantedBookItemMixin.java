@@ -1,6 +1,6 @@
 package artifality.mixin.client;
 
-import artifality.util.TooltipUtils;
+import artifality.util.TooltipAppender;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.EnchantedBookItem;
 import net.minecraft.item.ItemStack;
@@ -19,6 +19,6 @@ public abstract class EnchantedBookItemMixin {
     @Inject(method = "appendTooltip", at = @At("TAIL"))
     void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context, CallbackInfo ci){
 
-        TooltipUtils.appendDescription(stack, tooltip);
+        TooltipAppender.appendDescription(stack, tooltip);
     }
 }

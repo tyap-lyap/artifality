@@ -1,7 +1,7 @@
 package artifality.item.base;
 
 import artifality.interfaces.Translatable;
-import artifality.util.TooltipUtils;
+import artifality.util.TooltipAppender;
 import net.minecraft.block.Block;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.BlockItem;
@@ -26,6 +26,6 @@ public class BaseBlockItem extends BlockItem {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         super.appendTooltip(stack, world, tooltip, context);
-        TooltipUtils.appendDescription(stack, tooltip);
+        TooltipAppender.appendDescription(stack, tooltip);
     }
 }

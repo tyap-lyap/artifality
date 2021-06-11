@@ -18,9 +18,9 @@ import net.minecraft.util.registry.Registry;
 
 import java.util.List;
 
-public class TooltipUtils {
+public class TooltipAppender {
 
-    protected TooltipUtils(){}
+    protected TooltipAppender(){}
 
     public static void appendDescription(ItemStack stack, List<Text> tooltip){
 
@@ -63,7 +63,7 @@ public class TooltipUtils {
     private static boolean shiftPressed(List<Text> tooltip){
         if(!Screen.hasShiftDown()){
             tooltip.add(new LiteralText(""));
-            tooltip.add(new LiteralText("<Press Shift>").formatted(Formatting.GRAY));
+            tooltip.add(new LiteralText(ofKey("press_shift")).formatted(Formatting.GRAY));
             return false;
         }else return true;
     }
@@ -71,7 +71,7 @@ public class TooltipUtils {
     private static void appendTier(ItemStack stack, List<Text> tooltip){
 
         if(stack.getItem() instanceof Translatable){
-            LiteralText tierString = new LiteralText("Tier " + TierableItem.getCurrentTier(stack));
+            LiteralText tierString = new LiteralText(ofKey("tier") + " " + TierableItem.getCurrentTier(stack));
             switch (TierableItem.getCurrentTier(stack)) {
                 default -> tooltip.add(tierString);
                 case 2 -> tooltip.add(tierString.formatted(Formatting.GREEN));
@@ -85,7 +85,7 @@ public class TooltipUtils {
         String description = Language.getInstance().get(stack.getItem().getTranslationKey() + ".description");
 
         tooltip.add(new LiteralText(""));
-        tooltip.add(new LiteralText("Description: ").formatted(Formatting.GRAY));
+        tooltip.add(new LiteralText(ofKey("description") + " ").formatted(Formatting.GRAY));
         for(String line : description.split("\n")) {
             tooltip.add(new LiteralText(line.trim()).formatted(Formatting.GRAY));
         }
@@ -103,15 +103,19 @@ public class TooltipUtils {
                 String description = Language.getInstance().get(enchantment.getTranslationKey() + ".description");
 
                 tooltip.add(new LiteralText(""));
-                tooltip.add(new LiteralText("Description: ").formatted(Formatting.GRAY));
+                tooltip.add(new LiteralText(ofKey("description") + " ").formatted(Formatting.GRAY));
                 for(String line : description.split("\n")) {
                     tooltip.add(new LiteralText(line.trim()).formatted(Formatting.GRAY));
                 }
                 if(enchantment.getMaxLevel() > 1){
                     tooltip.add(new LiteralText(""));
-                    tooltip.add(new LiteralText("Max Level: " + enchantment.getMaxLevel()).formatted(Formatting.GRAY));
+                    tooltip.add(new LiteralText(ofKey("max_level") + " " + enchantment.getMaxLevel()).formatted(Formatting.GRAY));
                 }
             });
         }
+    }
+
+    public static String ofKey(String name){
+        return Language.getInstance().get("misc.artifality." + name);
     }
 }

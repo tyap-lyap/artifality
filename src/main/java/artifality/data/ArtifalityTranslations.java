@@ -44,6 +44,12 @@ public class ArtifalityTranslations {
         add(LANG.itemGroup(new Identifier(ArtifalityMod.MODID, "items"), "Artifality: Items"));
         add(LANG.itemGroup(new Identifier(ArtifalityMod.MODID, "tierable_items"), "Artifality: Tierable Items"));
         add(LANG.itemGroup(new Identifier(ArtifalityMod.MODID, "wip_items"), "Artifality: Work In Progress"));
+
+        String key = "misc.artifality.";
+        add(LANG.entry(key + "press_shift", "<Press Shift>"));
+        add(LANG.entry(key + "description", "Description:"));
+        add(LANG.entry(key + "tier", "Tier"));
+        add(LANG.entry(key + "max_level", "Max Level:"));
     }
 
     static void add(JLang entry){
