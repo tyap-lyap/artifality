@@ -5,7 +5,6 @@ import artifality.block.ArtifalityBlocks;
 import artifality.enchantment.ArtifalityEnchantments;
 import artifality.interfaces.Translatable;
 import artifality.item.ArtifalityItems;
-import artifality.item.base.BaseItem;
 import net.devtech.arrp.api.RuntimeResourcePack;
 import net.devtech.arrp.json.lang.JLang;
 import net.minecraft.util.Identifier;
@@ -20,8 +19,7 @@ public class ArtifalityTranslations {
         ArtifalityTranslations.pack = pack;
 
         ArtifalityItems.getItems().forEach((id, item) -> {
-            if(((BaseItem) item).isWip()) add(LANG.itemRespect(item, ((Translatable) item).getOriginName() + " WIP"));
-            else add(LANG.itemRespect(item, ((Translatable) item).getOriginName()));
+            add(LANG.itemRespect(item, ((Translatable) item).getOriginName()));
             if (((Translatable) item).getDescription() != null){
                 add(LANG.entry(item.getTranslationKey() + ".description", ((Translatable) item).getDescription()));
             }

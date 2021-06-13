@@ -11,7 +11,6 @@ import net.minecraft.world.gen.feature.util.FeatureContext;
 
 import java.util.ArrayList;
 
-
 public class CrystalFeature extends Feature<DefaultFeatureConfig> {
 
     public static final ArrayList<BlockState> CRYSTALS = new ArrayList<>();
@@ -25,7 +24,7 @@ public class CrystalFeature extends Feature<DefaultFeatureConfig> {
         boolean generated = false;
 
         BlockState crystal = CRYSTALS.get(context.getRandom().nextInt(CRYSTALS.size()));
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < 12; i++) {
             int x = context.getOrigin().getX() + context.getRandom().nextInt(6);
             int z = context.getOrigin().getZ() + context.getRandom().nextInt(6);
             int y = context.getRandom().nextInt(8) + 11;

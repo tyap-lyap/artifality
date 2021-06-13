@@ -33,7 +33,7 @@ public class BaseItem extends Item implements ModelProvider, Translatable {
         this.name = name;
     }
 
-    public void onEntityLoad(Entity entity, World world) {}
+    public void onZombieInit(Entity entity) {}
 
     @Override
     public String getParentModel() {
@@ -43,10 +43,6 @@ public class BaseItem extends Item implements ModelProvider, Translatable {
     @Override
     public String getOriginName() {
         return name;
-    }
-
-    public boolean isWip(){
-        return false;
     }
     
     @Environment(EnvType.CLIENT)

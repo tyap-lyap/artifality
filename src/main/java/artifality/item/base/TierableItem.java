@@ -1,14 +1,10 @@
 package artifality.item.base;
 
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
-import net.minecraft.util.collection.DefaultedList;
-import net.minecraft.world.World;
 
 public class TierableItem extends BaseItem {
 
@@ -33,8 +29,6 @@ public class TierableItem extends BaseItem {
         return itemStack;
     }
 
-    public void applyEffects(World world, PlayerEntity playerEntity, int tier) {}
-
     @Override
     public Text getName(ItemStack stack) {
         return switch (TierableItem.getCurrentTier(stack)) {
@@ -42,13 +36,5 @@ public class TierableItem extends BaseItem {
             case 2 -> new TranslatableText(this.getTranslationKey(stack)).formatted(Formatting.YELLOW);
             case 3 -> new TranslatableText(this.getTranslationKey(stack)).formatted(Formatting.AQUA);
         };
-    }
-
-    @Override
-    public void appendStacks(ItemGroup group, DefaultedList<ItemStack> stacks) {
-        if(isIn(group)){
-            ItemStack itemStack = new ItemStack(this);
-            stacks.add(itemStack);
-        }
     }
 }
