@@ -1,4 +1,4 @@
-package artifality.particle;
+package artifality.client.particle;
 
 import artifality.ArtifalityMod;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;

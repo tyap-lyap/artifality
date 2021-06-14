@@ -28,9 +28,4 @@ public class MagmaBallsItem extends BaseTrinketItem {
     public String getDescription() {
         return "Gives the wearer infinite\nfire resistance.";
     }
-
-    @Override
-    public boolean isWip() {
-        return true;
-    }
 }

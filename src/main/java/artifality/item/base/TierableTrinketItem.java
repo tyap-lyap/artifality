@@ -11,8 +11,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 
 public class TierableTrinketItem extends TierableItem implements Trinket {
-    public TierableTrinketItem(Settings settings, String name)
-    {
+
+    public TierableTrinketItem(Settings settings, String name) {
         super(settings, name);
         TrinketsApi.registerTrinket(this, this);
     }

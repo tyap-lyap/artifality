@@ -13,16 +13,17 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(Explosion.class)
 public class ExplosionMixin {
-    @Redirect(method = "collectBlocksAndDamageEntities", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;damage(Lnet/minecraft/entity/damage/DamageSource;F)Z"))
-    boolean damage(Entity entity, DamageSource source, float amount){
-        if(entity instanceof PlayerEntity && TrinketsUtils.containsItem((PlayerEntity)entity, ArtifalityItems.CAT_EARS)){
-            if(source.getAttacker() instanceof CreeperEntity) {
-                entity.damage(source, amount / 2);
-                return false;
-            }
-        } else{
-            entity.damage(source, amount);
-        }
-        return false;
-    }
+
+//    @Redirect(method = "collectBlocksAndDamageEntities", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;damage(Lnet/minecraft/entity/damage/DamageSource;F)Z"))
+//    boolean damage(Entity entity, DamageSource source, float amount){
+//        if(entity instanceof PlayerEntity && TrinketsUtils.containsItem((PlayerEntity)entity, ArtifalityItems.CAT_EARS)){
+//            if(source.getAttacker() instanceof CreeperEntity) {
+//                entity.damage(source, amount / 2);
+//                return false;
+//            }
+//        } else{
+//            entity.damage(source, amount);
+//        }
+//        return false;
+//    }
 }

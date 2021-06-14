@@ -1,7 +1,7 @@
 package artifality.block;
 
 import artifality.block.base.BaseBlock;
-import artifality.particle.ArtifalityParticles;
+import artifality.client.particle.ArtifalityParticles;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
