@@ -18,7 +18,7 @@ public class ArtifalityPotions {
 
     public static final Potion REBOUND = add("rebound", new Potion(new StatusEffectInstance(ArtifalityEffects.REBOUND, 3600)));
     public static final Potion LONG_REBOUND = add("long_rebound", new Potion(new StatusEffectInstance(ArtifalityEffects.REBOUND, 9600)));
-    public static final Potion BERSERK_TIER_1 = add("berserk_tier_1", new Potion(new StatusEffectInstance(ArtifalityEffects.SUFFOCATION, 80),new StatusEffectInstance(StatusEffects.STRENGTH, 80, 1),new StatusEffectInstance(StatusEffects.SPEED, 80, 1)));
+    public static final Potion BERSERK_TIER_1 = add("berserk_tier_1", new Potion(new StatusEffectInstance(ArtifalityEffects.SUFFOCATION, 160),new StatusEffectInstance(StatusEffects.STRENGTH, 160, 1),new StatusEffectInstance(StatusEffects.SPEED, 160, 1)));
     public static final Potion BERSERK_TIER_2 = add("berserk_tier_2", new Potion(new StatusEffectInstance(ArtifalityEffects.SUFFOCATION, 100, 1),new StatusEffectInstance(StatusEffects.STRENGTH, 100, 2),new StatusEffectInstance(StatusEffects.SPEED, 100, 2)));
     public static final Potion SHORT_SUFFOCATION = add("short_suffocation", new Potion(new StatusEffectInstance(ArtifalityEffects.SUFFOCATION, 100)));
     public static final Potion LONG_SUFFOCATION = add("long_suffocation", new Potion(new StatusEffectInstance(ArtifalityEffects.SUFFOCATION, 170)));
