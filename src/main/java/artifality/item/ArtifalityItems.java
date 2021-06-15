@@ -26,6 +26,7 @@ public class ArtifalityItems {
 //    public static final Item CAT_EARS = add("cat_ears", new CatEarsItem(NOT_STACKABLE, "Cat Ears [WIP]"));
     public static final Item ENCHANTED_ARROW = add("enchanted_arrow", new EnchantedArrowItem(DEFAULT, "Enchanted Arrow"));
     public static final Item HEART_SHARD = add("heart_shard", new HeartShardItem(DEFAULT, "Heart Shard"));
+    public static final Item LIVING_HEART = add("living_heart", new LivingHeartItem(DEFAULT, "Living Heart"));
     public static final Item LUNAR_KNOWLEDGE_BOOK = add("lunar_knowledge_book", new LunarKnowledgeBookItem(NOT_STACKABLE, "Lunar Knowledge Book"));
     public static final Item INCREMENTAL = add("incremental", new BaseItem(DEFAULT, "Incremental"));
     public static final Item LUNAR_CRYSTAL = add("lunar_crystal", new BaseItem(DEFAULT, "Lunar Crystal"));

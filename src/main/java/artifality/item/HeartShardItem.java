@@ -9,10 +9,6 @@ public class HeartShardItem extends BaseItem {
         super(settings, "custom", name);
     }
 
-    public boolean hasGlint(ItemStack stack) {
-        return true;
-    }
-
     @Override
     public String getDescription() {
         return "Used to create full heart.";
