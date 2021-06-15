@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#D#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:glass"
+    },
+    "D": {
+      "item": "artifality:crystal_heart_shard"
+    }
+  },
+  "result": {
+    "item": "artifality:crystal_heart_glass",
+    "count": 8
+  }
+}

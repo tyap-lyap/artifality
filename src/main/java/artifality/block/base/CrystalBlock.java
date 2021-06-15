@@ -1,6 +1,5 @@
-package artifality.block;
+package artifality.block.base;
 
-import artifality.block.base.BaseBlock;
 import artifality.client.particle.ArtifalityParticles;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -46,21 +45,14 @@ public class CrystalBlock extends BaseBlock {
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        switch((state.get(FACING))) {
-            case UP:
-            default:
-                return UP_SHAPE;
-            case DOWN:
-                return DOWN_SHAPE;
-            case SOUTH:
-                return SOUTH_SHAPE;
-            case NORTH:
-                return NORTH_SHAPE;
-            case EAST:
-                return EAST_SHAPE;
-            case WEST:
-                return WEST_SHAPE;
-        }
+        return switch ((state.get(FACING))) {
+            default -> UP_SHAPE;
+            case DOWN -> DOWN_SHAPE;
+            case SOUTH -> SOUTH_SHAPE;
+            case NORTH -> NORTH_SHAPE;
+            case EAST -> EAST_SHAPE;
+            case WEST -> WEST_SHAPE;
+        };
     }
 
     @Override

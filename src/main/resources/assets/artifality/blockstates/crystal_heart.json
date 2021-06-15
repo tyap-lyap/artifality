@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "artifality:block/crystal_heart",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "artifality:block/crystal_heart",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "artifality:block/crystal_heart",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "artifality:block/crystal_heart",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "artifality:block/crystal_heart"
+    },
+    "facing=west": {
+      "model": "artifality:block/crystal_heart",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

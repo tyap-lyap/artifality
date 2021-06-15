@@ -1,0 +1,7 @@
+{
+  "parent": "artifality:block/lens",
+  "textures": {
+    "top": "artifality:block/crystal_heart_lens_top",
+    "side": "artifality:block/crystal_heart_lens_side"
+  }
+}

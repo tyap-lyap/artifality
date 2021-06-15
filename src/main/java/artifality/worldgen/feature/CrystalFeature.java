@@ -24,7 +24,7 @@ public class CrystalFeature extends Feature<DefaultFeatureConfig> {
         boolean generated = false;
 
         BlockState crystal = CRYSTALS.get(context.getRandom().nextInt(CRYSTALS.size()));
-        for (int i = 0; i < 12; i++) {
+        for (int i = 0; i < 16; i++) {
             int x = context.getOrigin().getX() + context.getRandom().nextInt(6);
             int z = context.getOrigin().getZ() + context.getRandom().nextInt(6);
             int y = context.getRandom().nextInt(8) + 11;
@@ -63,5 +63,6 @@ public class CrystalFeature extends Feature<DefaultFeatureConfig> {
     static {
         CRYSTALS.add(ArtifalityBlocks.INCREMENTAL_CRYSTAL.getDefaultState());
         CRYSTALS.add(ArtifalityBlocks.LUNAR_CRYSTAL_CRYSTAL.getDefaultState());
+        CRYSTALS.add(ArtifalityBlocks.CRYSTAL_HEART.getDefaultState());
     }
 }

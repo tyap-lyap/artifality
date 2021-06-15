@@ -23,8 +23,8 @@ public class ArtifalityLootTables {
             ArtifalityLootTables.id = id;
             ArtifalityLootTables.supplier = supplier;
 
-            singleItemInChest(ArtifalityItems.MAGMA_BALLS, "nether_bridge", 0.01F);
-            singleItemInChest(ArtifalityItems.MAGMA_BALLS, "bastion_treasure", 0.05F);
+//            singleItemInChest(ArtifalityItems.MAGMA_BALLS, "nether_bridge", 0.01F);
+//            singleItemInChest(ArtifalityItems.MAGMA_BALLS, "bastion_treasure", 0.05F);
             killByPlayer(ArtifalityItems.ENCHANTED_ARROW, "skeleton", 0.05F);
 
             singleItemInEveryChest(ArtifalityItems.INVISIBILITY_CAPE, 0.09F);

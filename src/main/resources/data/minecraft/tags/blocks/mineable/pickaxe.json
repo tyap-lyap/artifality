@@ -6,6 +6,10 @@
     "artifality:lunar_crystal_crystal",
     "artifality:lunar_crystal_block",
     "artifality:incremental_lens",
-    "artifality:artifact_upgrader"
+    "artifality:artifact_upgrader",
+    "artifality:lunar_crystal_lens",
+    "artifality:crystal_heart_lens",
+    "artifality:crystal_heart",
+    "artifality:crystal_heart_block"
   ]
 }

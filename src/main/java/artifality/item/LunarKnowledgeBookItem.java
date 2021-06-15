@@ -19,7 +19,6 @@ public class LunarKnowledgeBookItem extends BaseItem {
         super(settings, name);
     }
 
-
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if(!world.isClient){

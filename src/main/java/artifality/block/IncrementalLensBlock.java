@@ -1,23 +1,11 @@
 package artifality.block;
 
-import artifality.block.base.BaseBlock;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.ShapeContext;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.world.BlockView;
+import artifality.block.base.LensBlock;
 
-public class IncrementalLensBlock extends BaseBlock {
-
-    private static final VoxelShape SHAPE = createCuboidShape(0, 0, 0, 16, 8, 16);
+public class IncrementalLensBlock extends LensBlock {
 
     public IncrementalLensBlock(Settings settings, String name) {
-        super(settings, "custom_model", name);
-    }
-
-    @Override
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return SHAPE;
+        super(settings, name);
     }
 
     @Override

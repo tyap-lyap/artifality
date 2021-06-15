@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "artifality:crystal_heart_block"
+    }
+  ],
+  "result": {
+    "item": "artifality:crystal_heart_shard",
+    "count": 4
+  }
+}

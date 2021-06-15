@@ -1,14 +1,10 @@
 package artifality.item;
 
-import artifality.enchantment.ArtifalityEnchantments;
 import artifality.item.base.BaseItem;
-import net.minecraft.enchantment.EnchantmentLevelEntry;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.EnchantedBookItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
@@ -27,7 +23,7 @@ public class LivingHeartItem extends BaseItem {
         if(!world.isClient){
             if(hand.equals(Hand.MAIN_HAND)){
                 user.getStackInHand(hand).decrement(1);
-                Objects.requireNonNull(user.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH)).addTemporaryModifier(new EntityAttributeModifier( "HealthUp", 1, EntityAttributeModifier.Operation.ADDITION));
+                Objects.requireNonNull(user.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH)).addTemporaryModifier(new EntityAttributeModifier( "HealthUp", 2, EntityAttributeModifier.Operation.ADDITION));
                 world.playSound(null, user.getX() + 0.5D, user.getY() + 0.5D, user.getZ() + 0.5D, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, SoundCategory.BLOCKS, 1.0F, 1.0F);
                 return TypedActionResult.success(user.getStackInHand(hand));
             }

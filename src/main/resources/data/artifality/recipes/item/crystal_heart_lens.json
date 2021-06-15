@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "nWn",
+    "WWW",
+    "nWn"
+  ],
+  "key": {
+    "n": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "W": {
+      "item": "artifality:crystal_heart_block"
+    }
+  },
+  "result": {
+    "item": "artifality:crystal_heart_lens",
+    "count": 1
+  }
+}
