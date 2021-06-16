@@ -24,7 +24,7 @@
                   }
                 }
               ],
-              "name": "artifality:lunar_crystal_crystal"
+              "name": "artifality:crystal_heart_cluster"
             },
             {
               "type": "minecraft:item",
@@ -33,7 +33,7 @@
                   "condition": "minecraft:survives_explosion"
                 }
               ],
-              "name": "artifality:lunar_crystal"
+              "name": "artifality:crystal_heart_shard"
             }
           ]
         }

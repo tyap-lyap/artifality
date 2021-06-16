@@ -61,8 +61,8 @@ public class CrystalFeature extends Feature<DefaultFeatureConfig> {
     }
 
     static {
-        CRYSTALS.add(ArtifalityBlocks.INCREMENTAL_CRYSTAL.getDefaultState());
-        CRYSTALS.add(ArtifalityBlocks.LUNAR_CRYSTAL_CRYSTAL.getDefaultState());
-        CRYSTALS.add(ArtifalityBlocks.CRYSTAL_HEART.getDefaultState());
+        CRYSTALS.add(ArtifalityBlocks.INCREMENTAL_CLUSTER.getDefaultState());
+        CRYSTALS.add(ArtifalityBlocks.LUNAR_CRYSTAL_CLUSTER.getDefaultState());
+        CRYSTALS.add(ArtifalityBlocks.CRYSTAL_HEART_CLUSTER.getDefaultState());
     }
 }

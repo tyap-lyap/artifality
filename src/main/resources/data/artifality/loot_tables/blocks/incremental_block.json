@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "artifality:incremental_crystal_block"
+          "name": "artifality:incremental_block"
         }
       ],
       "conditions": [

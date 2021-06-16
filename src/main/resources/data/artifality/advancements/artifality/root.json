@@ -1,0 +1,26 @@
+{
+    "display": {
+        "title": {
+            "text": "Artifality"
+        },
+        "description": {
+            "text": "Welcome to Artifality Mod"
+        },
+        "icon": {
+            "item": "artifality:ukulele"
+        },
+        "frame": "task",
+        "show_toast": false,
+        "announce_to_chat": false,
+        "hidden": false,
+        "background": "artifality:textures/block/lunar_crystal_block.png"
+    },
+    "criteria": {
+    "start": {
+      "trigger": "minecraft:enter_block",
+      "conditions": {
+        "block": "minecraft:air"
+          }
+        }
+    }
+}

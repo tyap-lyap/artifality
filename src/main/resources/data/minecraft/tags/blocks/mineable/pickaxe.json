@@ -1,15 +1,15 @@
 {
   "replace": false,
   "values": [
-    "artifality:incremental_crystal",
-    "artifality:incremental_crystal_block",
-    "artifality:lunar_crystal_crystal",
+    "artifality:incremental_cluster",
+    "artifality:incremental_block",
+    "artifality:lunar_crystal_cluster",
     "artifality:lunar_crystal_block",
     "artifality:incremental_lens",
     "artifality:artifact_upgrader",
     "artifality:lunar_crystal_lens",
     "artifality:crystal_heart_lens",
-    "artifality:crystal_heart",
+    "artifality:crystal_heart_cluster",
     "artifality:crystal_heart_block"
   ]
 }

@@ -24,7 +24,7 @@
                   }
                 }
               ],
-              "name": "artifality:incremental_crystal"
+              "name": "artifality:incremental_cluster"
             },
             {
               "type": "minecraft:item",
