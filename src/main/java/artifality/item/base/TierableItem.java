@@ -30,11 +30,17 @@ public class TierableItem extends BaseItem {
     }
 
     @Override
+    public boolean hasGlint(ItemStack stack) {
+        return getCurrentTier(stack) == 3;
+    }
+
+    @Override
     public Text getName(ItemStack stack) {
-        return switch (TierableItem.getCurrentTier(stack)) {
-            default -> new TranslatableText(this.getTranslationKey(stack));
-            case 2 -> new TranslatableText(this.getTranslationKey(stack)).formatted(Formatting.YELLOW);
-            case 3 -> new TranslatableText(this.getTranslationKey(stack)).formatted(Formatting.AQUA);
+        TranslatableText name = new TranslatableText(this.getTranslationKey(stack));
+        return switch (getCurrentTier(stack)) {
+            default -> name;
+            case 2 -> name.formatted(Formatting.YELLOW);
+            case 3 -> name.formatted(Formatting.AQUA);
         };
     }
 }
