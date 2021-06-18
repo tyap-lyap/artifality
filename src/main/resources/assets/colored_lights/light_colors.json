@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "colors": {
+    "artifality:incremental_cluster": "#26cddb",
+    "artifality:lunar_crystal_cluster": "#55acff",
+    "artifality:crystal_heart_cluster": "#ff3648"
+  }
+}
