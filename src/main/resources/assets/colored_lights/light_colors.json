@@ -2,7 +2,10 @@
   "replace": false,
   "colors": {
     "artifality:incremental_cluster": "#26cddb",
+    "artifality:incremental_block": "#26cddb",
     "artifality:lunar_crystal_cluster": "#55acff",
-    "artifality:crystal_heart_cluster": "#ff3648"
+    "artifality:lunar_crystal_block": "#55acff",
+    "artifality:crystal_heart_cluster": "#ff3648",
+    "artifality:crystal_heart_block": "#ff3648"
   }
 }

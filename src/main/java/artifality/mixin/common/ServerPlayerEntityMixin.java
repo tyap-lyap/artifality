@@ -19,11 +19,11 @@ public abstract class ServerPlayerEntityMixin extends PlayerEntity {
         super(world, pos, yaw, profile);
     }
 
-    @Inject(at = @At("HEAD"), method = "damage", cancellable = true)
-    public void damage(DamageSource source, float amount,CallbackInfoReturnable<Boolean> ret) {
-
-        if (this.hasStatusEffect(ArtifalityEffects.REBOUND) && source.isProjectile()) {
-            ret.setReturnValue(Boolean.FALSE);
-        }
-    }
+//    @Inject(at = @At("HEAD"), method = "damage", cancellable = true)
+//    public void damage(DamageSource source, float amount,CallbackInfoReturnable<Boolean> ret) {
+//
+//        if (this.hasStatusEffect(ArtifalityEffects.REBOUND) && source.isProjectile()) {
+//            ret.setReturnValue(Boolean.FALSE);
+//        }
+//    }
 }

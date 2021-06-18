@@ -16,7 +16,9 @@
   ],
   "contact": {
     "homepage": "https://curseforge.com/minecraft/mc-mods/artifality",
-    "sources": "https://github.com/PinkGoosik/artifality"
+    "sources": "https://github.com/PinkGoosik/artifality",
+    "issues": "https://github.com/PinkGoosik/artifality/issues",
+    "discord": "https://discord.gg/DcemWeskeZ"
   },
 
   "license": "MIT",
@@ -41,5 +43,8 @@
     "minecraft": "1.17.x",
 	"java": ">=16",
     "trinkets": "*"
+  },
+  "suggests": {
+    "colored_lights": "*"
   }
 }

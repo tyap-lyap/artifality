@@ -17,9 +17,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class BrewingRecipeRegistryMixin {
     @Shadow private static void registerPotionRecipe(Potion input, Item item, Potion output) {}
 
-    @Inject(method = "registerDefaults", at = @At("HEAD"))
-    private static void register(CallbackInfo ci) {
-        registerPotionRecipe(Potions.AWKWARD, ArtifalityItems.ENCHANTED_ARROW, ArtifalityPotions.REBOUND);
-        registerPotionRecipe(ArtifalityPotions.REBOUND, Items.REDSTONE, ArtifalityPotions.LONG_REBOUND);
-    }
+//    @Inject(method = "registerDefaults", at = @At("HEAD"))
+//    private static void register(CallbackInfo ci) {
+//        registerPotionRecipe(Potions.AWKWARD, ArtifalityItems.ENCHANTED_ARROW, ArtifalityPotions.REBOUND);
+//        registerPotionRecipe(ArtifalityPotions.REBOUND, Items.REDSTONE, ArtifalityPotions.LONG_REBOUND);
+//    }
 }

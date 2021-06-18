@@ -23,8 +23,8 @@ public class ArtifalityMod implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        ArtifalityPotions.register();
-        ArtifalityEffects.register();
+//        ArtifalityPotions.register();
+//        ArtifalityEffects.register();
         ArtifalityItems.register();
         ArtifalityBlocks.register();
         ArtifalityEnchantments.register();

@@ -23,18 +23,18 @@ public class ArtifalityBlocks {
     private static final Map<Identifier, BaseBlockItem> ITEMS = new LinkedHashMap<>();
     private static final Map<Identifier, Block> BLOCKS = new LinkedHashMap<>();
 
-    public static final Block INCREMENTAL_CLUSTER = add("incremental_cluster", new CrystalBlock(FabricBlockSettings.copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.AMETHYST_CLUSTER).luminance(value -> 15), "Incremental Cluster"));
-    public static final Block INCREMENTAL_BLOCK = add("incremental_block", new BaseBlock(FabricBlockSettings.copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.AMETHYST_BLOCK), "cube_all", "Incremental Block"));
+    public static final Block INCREMENTAL_CLUSTER = add("incremental_cluster", new CrystalBlock(FabricBlockSettings.copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.AMETHYST_CLUSTER).luminance(value -> 10), "Incremental Cluster"));
+    public static final Block INCREMENTAL_BLOCK = add("incremental_block", new BaseBlock(FabricBlockSettings.copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(value -> 15), "cube_all", "Incremental Block"));
     public static final Block INCREMENTAL_GLASS = add("incremental_glass", new BaseGlassBlock(FabricBlockSettings.copyOf(Blocks.GLASS).sounds(BlockSoundGroup.GLASS).nonOpaque(), "cube_all", "Incremental Glass"));
     public static final Block INCREMENTAL_LENS = add("incremental_lens", new IncrementalLensBlock(FabricBlockSettings.copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.NETHERITE).nonOpaque(), "Incremental Lens"));
 
-    public static final Block LUNAR_CRYSTAL_CLUSTER = add("lunar_crystal_cluster", new CrystalBlock(FabricBlockSettings.copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.AMETHYST_CLUSTER).luminance(value -> 15), "Lunar Crystal Cluster"));
-    public static final Block LUNAR_CRYSTAL_BLOCK = add("lunar_crystal_block", new BaseBlock(FabricBlockSettings.copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.AMETHYST_BLOCK), "Lunar Crystal Block"));
+    public static final Block LUNAR_CRYSTAL_CLUSTER = add("lunar_crystal_cluster", new CrystalBlock(FabricBlockSettings.copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.AMETHYST_CLUSTER).luminance(value -> 10), "Lunar Crystal Cluster"));
+    public static final Block LUNAR_CRYSTAL_BLOCK = add("lunar_crystal_block", new BaseBlock(FabricBlockSettings.copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(value -> 15), "Lunar Crystal Block"));
     public static final Block LUNAR_CRYSTAL_GLASS = add("lunar_crystal_glass", new BaseGlassBlock(FabricBlockSettings.copyOf(Blocks.GLASS).sounds(BlockSoundGroup.GLASS).nonOpaque(), "Lunar Crystal Glass"));
     public static final Block LUNAR_CRYSTAL_LENS = add("lunar_crystal_lens", new LensBlock(FabricBlockSettings.copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.NETHERITE).nonOpaque(), "Lunar Crystal Lens"));
 
-    public static final Block CRYSTAL_HEART_CLUSTER = add("crystal_heart_cluster", new CrystalBlock(FabricBlockSettings.copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.AMETHYST_CLUSTER).luminance(value -> 15), "Crystal Heart Cluster"));
-    public static final Block CRYSTAL_HEART_BLOCK = add("crystal_heart_block", new BaseBlock(FabricBlockSettings.copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.AMETHYST_BLOCK), "Crystal Heart Block"));
+    public static final Block CRYSTAL_HEART_CLUSTER = add("crystal_heart_cluster", new CrystalBlock(FabricBlockSettings.copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.AMETHYST_CLUSTER).luminance(value -> 10), "Crystal Heart Cluster"));
+    public static final Block CRYSTAL_HEART_BLOCK = add("crystal_heart_block", new BaseBlock(FabricBlockSettings.copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(value -> 15), "Crystal Heart Block"));
     public static final Block CRYSTAL_HEART_GLASS = add("crystal_heart_glass", new BaseGlassBlock(FabricBlockSettings.copyOf(Blocks.GLASS).sounds(BlockSoundGroup.GLASS).nonOpaque(), "Crystal Heart Glass"));
     public static final Block CRYSTAL_HEART_LENS = add("crystal_heart_lens", new LensBlock(FabricBlockSettings.copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.NETHERITE).nonOpaque(), "Crystal Heart Lens"));
 
