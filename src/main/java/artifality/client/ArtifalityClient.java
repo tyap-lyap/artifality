@@ -8,6 +8,7 @@ import artifality.client.particle.ArtifalityParticles;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.model.ModelLoadingRegistry;
+import net.fabricmc.loader.FabricLoader;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.util.ModelIdentifier;
 import net.minecraft.util.Identifier;
@@ -16,7 +17,9 @@ public class ArtifalityClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        ArtifalityResources.init();
+        if(FabricLoader.INSTANCE.isDevelopmentEnvironment()){
+            ArtifalityResources.init();
+        }
         ArtifalityParticles.register();
 
         TwoModelsItemRegistry.register(new Identifier("artifality:ukulele"), ArtifalityItems.UKULELE);

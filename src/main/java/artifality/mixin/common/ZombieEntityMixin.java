@@ -2,17 +2,15 @@ package artifality.mixin.common;
 
 import artifality.item.ArtifalityItems;
 import artifality.item.ZeusStaffItem;
-import artifality.item.base.BaseItem;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LightningEntity;
+import net.minecraft.entity.*;
 import net.minecraft.entity.mob.ZombieEntity;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.Hand;
 import net.minecraft.world.LocalDifficulty;
+import net.minecraft.world.ServerWorldAccess;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ZombieEntity.class)
@@ -29,8 +27,13 @@ public class ZombieEntityMixin {
         }
     }
 
-    @Inject(method = "initEquipment", at = @At("TAIL"))
-    void initEquipment(LocalDifficulty difficulty, CallbackInfo ci){
-        ArtifalityItems.getItems().forEach((id, item) -> ((BaseItem)item).onZombieInit(self));
+    @Inject(method = "initialize", at = @At("RETURN"))
+    void initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, EntityData entityData, NbtCompound entityNbt, CallbackInfoReturnable<EntityData> cir){
+
+        if(!spawnReason.equals(SpawnReason.SPAWNER) && !spawnReason.equals(SpawnReason.CHUNK_GENERATION) && self.getStackInHand(Hand.MAIN_HAND).isEmpty()){
+            if(self.world.random.nextFloat() > 0.9F){
+                self.setStackInHand(Hand.MAIN_HAND, ArtifalityItems.ZEUS_STAFF.getDefaultStack());
+            }
+        }
     }
 }

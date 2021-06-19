@@ -6,7 +6,6 @@ import artifality.util.TooltipAppender;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.item.TooltipContext;
-import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
@@ -32,8 +31,6 @@ public class BaseItem extends Item implements ModelProvider, Translatable {
         this.parentModel = parentModel;
         this.name = name;
     }
-
-    public void onZombieInit(Entity entity) {}
 
     @Override
     public String getParentModel() {

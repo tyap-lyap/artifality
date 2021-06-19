@@ -2,10 +2,8 @@ package artifality.item;
 
 import artifality.interfaces.ILightningEntity;
 import artifality.item.base.TierableItem;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LightningEntity;
-import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
@@ -48,15 +46,6 @@ public class ZeusStaffItem extends TierableItem {
             }
         }
         return TypedActionResult.pass(user.getStackInHand(hand));
-    }
-
-    @Override
-    public void onZombieInit(Entity entity) {
-        if(entity instanceof ZombieEntity  && ((ZombieEntity) entity).getStackInHand(Hand.MAIN_HAND).isEmpty()){
-            if(entity.world.random.nextFloat() > 0.9F){
-                ((ZombieEntity) entity).setStackInHand(Hand.MAIN_HAND, getDefaultStack());
-            }
-        }
     }
 
     @Override

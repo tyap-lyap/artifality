@@ -10,9 +10,9 @@ public class ArtifalityResources {
 
     public static void init(){
 
+        ArtifalityTranslations.init(RESOURCES);
         ArtifalityItemResources.init(RESOURCES);
         ArtifalityBlockResources.init(RESOURCES);
-        ArtifalityTranslations.init(RESOURCES);
 
         RRPCallback.BEFORE_VANILLA.register(resources -> resources.add(RESOURCES));
     }

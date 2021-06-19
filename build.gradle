@@ -27,7 +27,7 @@ dependencies {
 	modImplementation "dev.emi:trinkets:${trinkets_version}"
 
 	modImplementation "net.devtech:arrp:0.4.3"
-	include "net.devtech:arrp:0.4.3"
+//	include "net.devtech:arrp:0.4.3"
 	
 	modRuntime "me.shedaniel:RoughlyEnoughItems-fabric:6.0.249-alpha"
 	modRuntime "com.terraformersmc:modmenu:2.0.0-beta.7"

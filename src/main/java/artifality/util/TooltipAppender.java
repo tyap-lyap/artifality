@@ -3,6 +3,7 @@ package artifality.util;
 import artifality.interfaces.Translatable;
 import artifality.item.base.BaseBlockItem;
 import artifality.item.base.TierableItem;
+import dev.emi.trinkets.api.Trinket;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.item.EnchantedBookItem;
 import net.minecraft.item.Item;
@@ -26,7 +27,7 @@ public class TooltipAppender {
 
         Item item = stack.getItem();
 
-        if(hasDescription(stack) && shiftPressed(tooltip)){
+        if(hasDescription(stack) && shiftPressed(tooltip, item)){
             if(item instanceof Translatable || item instanceof BaseBlockItem){
                 if(item instanceof TierableItem){
                     appendTier(stack, tooltip);
@@ -60,10 +61,11 @@ public class TooltipAppender {
         return false;
     }
 
-    private static boolean shiftPressed(List<Text> tooltip){
+    private static boolean shiftPressed(List<Text> tooltip, Item item){
         if(!Screen.hasShiftDown()){
             tooltip.add(new LiteralText(""));
             tooltip.add(new LiteralText(ofKey("press_shift")).formatted(Formatting.GRAY));
+            if(item instanceof Trinket) tooltip.add(new LiteralText(""));
             return false;
         }else return true;
     }
@@ -89,6 +91,7 @@ public class TooltipAppender {
         for(String line : description.split("\n")) {
             tooltip.add(new LiteralText(line.trim()).formatted(Formatting.GRAY));
         }
+        if(stack.getItem() instanceof Trinket) tooltip.add(new LiteralText(""));
     }
 
     private static void appendEnchantmentDesc(ItemStack stack, List<Text> tooltip){
