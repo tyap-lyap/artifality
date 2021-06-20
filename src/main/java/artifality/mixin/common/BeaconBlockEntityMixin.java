@@ -1,6 +1,6 @@
 package artifality.mixin.common;
 
-import artifality.block.ArtifalityBlocks;
+import artifality.block.base.LensBlock;
 import net.minecraft.block.entity.BeaconBlockEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -8,9 +8,10 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Overwrite;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Iterator;
 import java.util.List;
@@ -18,43 +19,39 @@ import java.util.List;
 @Mixin(BeaconBlockEntity.class)
 public class BeaconBlockEntityMixin{
 
-    /**
-     * @author жопа гусика
-     * @reason mojank made it static (sad face)
-     */
-    @Overwrite
-    private static void applyPlayerEffects(World world, BlockPos pos, int beaconLevel, @Nullable StatusEffect primaryEffect, @Nullable StatusEffect secondaryEffect) {
-        if (!world.isClient && primaryEffect != null) {
-            double d = (beaconLevel * 10 + 10);
-            int i = 0;
-            if (beaconLevel >= 4 && primaryEffect == secondaryEffect) {
-                i = 1;
+    @Inject(method = "applyPlayerEffects", at = @At("TAIL"))
+    private static void applyLensEffects(World world, BlockPos pos, int beaconLevel, StatusEffect primaryEffect, StatusEffect secondaryEffect, CallbackInfo ci){
+        if(world.isClient || primaryEffect == null) return;
+
+        double distance = beaconLevel * 10 + 10;
+        int amplifier = 0;
+        if (beaconLevel >= 4 && primaryEffect == secondaryEffect) {
+            amplifier = 1;
+        }
+        int duration = (9 + beaconLevel * 2) * 20;
+
+        List<PlayerEntity> list = world.getNonSpectatingEntities(PlayerEntity.class, (new Box(pos)).expand(distance).stretch(0.0D, world.getHeight(), 0.0D));
+        Iterator<PlayerEntity> playerIterator = list.iterator();
+
+        PlayerEntity player;
+        while(playerIterator.hasNext()) {
+            player = playerIterator.next();
+
+            if(world.getBlockState(pos.up()).getBlock() instanceof LensBlock lensBlock){
+                lensBlock.applyLensEffect(new StatusEffectInstance(primaryEffect, duration, amplifier, true, true), player);
             }
+        }
 
-            int j = (9 + beaconLevel * 2) * 20;
-            Box box = (new Box(pos)).expand(d).stretch(0.0D, world.getHeight(), 0.0D);
-            List<PlayerEntity> list = world.getNonSpectatingEntities(PlayerEntity.class, box);
-            Iterator<PlayerEntity> var11 = list.iterator();
+        if (beaconLevel >= 4 && primaryEffect != secondaryEffect && secondaryEffect != null) {
+            playerIterator = list.iterator();
 
-            PlayerEntity playerEntity2;
-            while(var11.hasNext()) {
-                playerEntity2 = var11.next();
-                if(world.getBlockState(pos.up()).getBlock().equals(ArtifalityBlocks.INCREMENTAL_LENS)){
-                    playerEntity2.addStatusEffect(new StatusEffectInstance(primaryEffect, j, i + 1, true, true));
-                }else playerEntity2.addStatusEffect(new StatusEffectInstance(primaryEffect, j, i, true, true));
-            }
+            while(playerIterator.hasNext()) {
+                player = playerIterator.next();
 
-            if (beaconLevel >= 4 && primaryEffect != secondaryEffect && secondaryEffect != null) {
-                var11 = list.iterator();
-
-                while(var11.hasNext()) {
-                    playerEntity2 = var11.next();
-                    if(world.getBlockState(pos.up()).getBlock().equals(ArtifalityBlocks.INCREMENTAL_LENS)){
-                        playerEntity2.addStatusEffect(new StatusEffectInstance(secondaryEffect, j, 1, true, true));
-                    }else playerEntity2.addStatusEffect(new StatusEffectInstance(secondaryEffect, j, 0, true, true));
+                if(world.getBlockState(pos.up()).getBlock() instanceof LensBlock lensBlock){
+                    lensBlock.applyLensEffect(new StatusEffectInstance(secondaryEffect, duration, 0, true, true), player);
                 }
             }
-
         }
     }
 }
