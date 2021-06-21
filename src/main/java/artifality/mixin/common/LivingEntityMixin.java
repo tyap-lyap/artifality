@@ -16,7 +16,7 @@ public class LivingEntityMixin {
     LivingEntity self = (LivingEntity)(Object)this;
 
     @Redirect(method = "travel", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/Block;getSlipperiness()F"))
-    float getSlipperiness(Block block){
+    float slidingCurseFunctionality(Block block){
 
         if (hasSlidingCurse()){
             return 1;

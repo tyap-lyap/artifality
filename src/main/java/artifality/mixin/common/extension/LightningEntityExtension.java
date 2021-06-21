@@ -26,7 +26,7 @@ public class LightningEntityExtension implements ILightningEntity {
     }
 
     @Inject(method = "spawnFire", at = @At("HEAD"), cancellable = true)
-    void spawnFire(int spreadAttempts, CallbackInfo ci){
+    void badLightningDontCreateFire(int spreadAttempts, CallbackInfo ci){
         if(!canSpawnFire()){
             ci.cancel();
         }

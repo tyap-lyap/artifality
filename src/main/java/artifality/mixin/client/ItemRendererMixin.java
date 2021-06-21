@@ -22,14 +22,13 @@ public abstract class ItemRendererMixin {
 
     @Shadow @Final private ItemModels models;
 
-
     @Shadow public abstract void renderItem(ItemStack stack, ModelTransformation.Mode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay, BakedModel model);
 
     @Inject(
             method = "renderItem(Lnet/minecraft/entity/LivingEntity;Lnet/minecraft/item/ItemStack;Lnet/minecraft/client/render/model/json/ModelTransformation$Mode;ZLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;Lnet/minecraft/world/World;III)V",
             at = @At("HEAD"), cancellable = true
     )
-    void renderModelInHand(LivingEntity entity, ItemStack item, ModelTransformation.Mode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, World world, int light, int overlay, int seed, CallbackInfo ci){
+    void twoModelsItemImplementation(LivingEntity entity, ItemStack item, ModelTransformation.Mode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, World world, int light, int overlay, int seed, CallbackInfo ci){
         TwoModelsItemRegistry.getEntries().forEach((id, entryItem) ->{
             if(!item.isEmpty() && item.getItem().equals(entryItem) && entity != null){
 
@@ -38,9 +37,6 @@ public abstract class ItemRendererMixin {
 
                 ci.cancel();
             }
-
         });
-
     }
-
 }

@@ -10,10 +10,14 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.util.FeatureContext;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class CrystalFeature extends Feature<DefaultFeatureConfig> {
 
-    public static final ArrayList<BlockState> CRYSTALS = new ArrayList<>();
+    public static final ArrayList<BlockState> CRYSTALS = new ArrayList<>(Arrays.asList(
+            ArtifalityBlocks.INCREMENTAL_CLUSTER.getDefaultState(),
+            ArtifalityBlocks.LUNAR_CRYSTAL_CLUSTER.getDefaultState(),
+            ArtifalityBlocks.CRYSTAL_HEART_CLUSTER.getDefaultState()));
 
     public CrystalFeature() {
         super(DefaultFeatureConfig.CODEC);
@@ -58,11 +62,5 @@ public class CrystalFeature extends Feature<DefaultFeatureConfig> {
             }
         }
         return generated;
-    }
-
-    static {
-        CRYSTALS.add(ArtifalityBlocks.INCREMENTAL_CLUSTER.getDefaultState());
-        CRYSTALS.add(ArtifalityBlocks.LUNAR_CRYSTAL_CLUSTER.getDefaultState());
-        CRYSTALS.add(ArtifalityBlocks.CRYSTAL_HEART_CLUSTER.getDefaultState());
     }
 }

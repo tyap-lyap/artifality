@@ -19,7 +19,7 @@ public class ZombieEntityMixin {
     ZombieEntity self = (ZombieEntity)(Object)this;
 
     @Inject(method = "tryAttack", at = @At("RETURN"))
-    void tryAttack(Entity target, CallbackInfoReturnable<Boolean> cir){
+    void summonLightningOnAttack(Entity target, CallbackInfoReturnable<Boolean> cir){
         if(self.getStackInHand(Hand.MAIN_HAND).getItem().equals(ArtifalityItems.ZEUS_STAFF)){
             if(target.world.random.nextFloat() > 0.65F){
                 ZeusStaffItem.createLighting(target.world, target.getBlockPos(), new LightningEntity(EntityType.LIGHTNING_BOLT, target.world));
@@ -28,7 +28,7 @@ public class ZombieEntityMixin {
     }
 
     @Inject(method = "initialize", at = @At("RETURN"))
-    void initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, EntityData entityData, NbtCompound entityNbt, CallbackInfoReturnable<EntityData> cir){
+    void spawnWithZeusStaff(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, EntityData entityData, NbtCompound entityNbt, CallbackInfoReturnable<EntityData> cir){
 
         if(!spawnReason.equals(SpawnReason.SPAWNER) && !spawnReason.equals(SpawnReason.CHUNK_GENERATION) && self.getStackInHand(Hand.MAIN_HAND).isEmpty()){
             if(self.world.random.nextFloat() > 0.9F){

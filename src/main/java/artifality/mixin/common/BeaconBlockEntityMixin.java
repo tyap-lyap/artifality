@@ -20,7 +20,7 @@ import java.util.List;
 public class BeaconBlockEntityMixin{
 
     @Inject(method = "applyPlayerEffects", at = @At("TAIL"))
-    private static void applyLensEffects(World world, BlockPos pos, int beaconLevel, StatusEffect primaryEffect, StatusEffect secondaryEffect, CallbackInfo ci){
+    private static void lensEffectsFunctionality(World world, BlockPos pos, int beaconLevel, StatusEffect primaryEffect, StatusEffect secondaryEffect, CallbackInfo ci){
         if(world.isClient || primaryEffect == null) return;
 
         double distance = beaconLevel * 10 + 10;

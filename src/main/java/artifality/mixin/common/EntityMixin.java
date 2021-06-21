@@ -22,7 +22,7 @@ public abstract class EntityMixin {
     @Shadow public abstract boolean damage(DamageSource source, float amount);
 
     @Inject(method = "onStruckByLightning", at = @At("HEAD"), cancellable = true)
-    void onStruckByLightning(ServerWorld world, LightningEntity lightning, CallbackInfo ci){
+    void preventSelfDamageWithZeusStaff(ServerWorld world, LightningEntity lightning, CallbackInfo ci){
         if(lightning instanceof ILightningEntity){
             if(!((ILightningEntity) lightning).canSpawnFire()){
                 if(self instanceof LivingEntity){

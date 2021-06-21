@@ -16,7 +16,7 @@ public class ItemStackMixin {
     ItemStack self = (ItemStack)(Object)this;
 
     @Redirect(method = "getTooltip", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/attribute/EntityAttributeModifier;getValue()D"))
-    double getValue(EntityAttributeModifier entityAttributeModifier){
+    double lunarDamageFunctionality(EntityAttributeModifier entityAttributeModifier){
 
         if(entityAttributeModifier.getId().equals(UUID.fromString("FA233E1C-4180-4865-B01B-BCCE9785ACA3"))){
             if (EnchantmentHelper.get(self).containsKey(ArtifalityEnchantments.LUNAR_DAMAGE)){
@@ -24,7 +24,6 @@ public class ItemStackMixin {
                 return entityAttributeModifier.getValue() - (level + 2) / 20.0F;
             }
         }
-
         return entityAttributeModifier.getValue();
     }
 }
