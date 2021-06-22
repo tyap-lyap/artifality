@@ -27,16 +27,16 @@ public class UkuleleItem extends BaseItem implements Trinket {
     public static final ArrayList<StatusEffect> NEGATIVE_EFFECTS = new ArrayList<>(Arrays.asList(StatusEffects.LEVITATION,
             StatusEffects.MINING_FATIGUE, StatusEffects.SLOWNESS, StatusEffects.POISON,
             StatusEffects.WEAKNESS, StatusEffects.WITHER));
+
     public UkuleleItem(Settings settings, String name) {
         super(settings, name);
     }
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-
         if(world.isClient) return TypedActionResult.pass(user.getStackInHand(hand));
 
-        createCloudEffect(world, user, POSITIVE_EFFECTS.get(world.getRandom().nextInt(POSITIVE_EFFECTS.size())), 60, 3.0F);
+        createCloudEffect(world, user, POSITIVE_EFFECTS.get(world.getRandom().nextInt(POSITIVE_EFFECTS.size())), 40, 3.0F);
 
         user.getItemCooldownManager().set(this, 20 * 20);
         return TypedActionResult.success(user.getStackInHand(hand));

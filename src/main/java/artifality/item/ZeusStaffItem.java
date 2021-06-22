@@ -57,7 +57,7 @@ public class ZeusStaffItem extends TierableItem {
         if (lightningEntity instanceof ILightningEntity){
             ((ILightningEntity) lightningEntity).setNoFire();
         }
-        lightningEntity.updatePosition(blockPos.getX(), blockPos.getY(), blockPos.getZ());
+        lightningEntity.updatePosition(blockPos.getX() + 0.5D, blockPos.getY(), blockPos.getZ() + 0.5D);
         world.spawnEntity(lightningEntity);
     }
 

@@ -39,6 +39,6 @@ public class LivingHeartItem extends BaseItem {
 
     @Override
     public String getDescription() {
-        return "Gives additional heart,\nresets after death.";
+        return "When used, gives additional heart,\nresets after death.";
     }
 }

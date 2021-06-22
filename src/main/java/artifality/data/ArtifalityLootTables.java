@@ -27,8 +27,11 @@ public class ArtifalityLootTables {
 //            singleItemInChest(ArtifalityItems.MAGMA_BALLS, "bastion_treasure", 0.05F);
 //            killByPlayer(ArtifalityItems.ENCHANTED_ARROW, "skeleton", 0.05F);
 
-            singleItemInEveryChest(ArtifalityItems.INVISIBILITY_CAPE, 0.09F);
-            singleItemInEveryChest(ArtifalityItems.REGENERATION_RING, 0.08F);
+            singleItemInEveryChest(ArtifalityItems.INVISIBILITY_CAPE, 0.07F);
+            singleItemInEveryChest(ArtifalityItems.REGENERATION_RING, 0.06F);
+            singleItemInEveryChest(ArtifalityItems.UKULELE, 0.04F);
+            singleItemInEveryChest(ArtifalityItems.LIVING_HEART, 0.05F);
+            singleItemInEveryChest(ArtifalityItems.LUNAR_KNOWLEDGE_BOOK, 0.05F);
         });
     }
 
@@ -40,7 +43,6 @@ public class ArtifalityLootTables {
                     .withEntry(ItemEntry.builder(item).build());
             supplier.withPool(poolBuilder.build());
         }
-
     }
 
     static void singleItemInEveryChest(Item item, Float chance){

@@ -33,13 +33,13 @@ public class ArtifactUpgraderBlock extends BaseBlock {
         ItemStack itemStack = player.getStackInHand(hand);
 
         if(!world.isClient){
-            if(hand == Hand.MAIN_HAND && itemStack.getItem().equals(ArtifalityBlocks.INCREMENTAL_BLOCK.asItem())){
+            if(hand == Hand.MAIN_HAND && itemStack.isOf(ArtifalityBlocks.INCREMENTAL_BLOCK.asItem())){
                 if(getCharges(state) < 2){
                     chargeWithIncremental(world, pos, state);
                     itemStack.decrement(1);
                     return ActionResult.SUCCESS;
                 }
-            }else if(hand == Hand.MAIN_HAND && itemStack.getItem().equals(Items.NETHER_STAR)){
+            }else if(hand == Hand.MAIN_HAND && itemStack.isOf(Items.NETHER_STAR)){
                 if(getCharges(state) != 3){
                     chargeWithNetherStar(world, pos, state);
                     itemStack.decrement(1);
