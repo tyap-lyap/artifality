@@ -1,4 +1,4 @@
-package artifality.effect;
+package artifality.entity.effect;
 
 import artifality.ArtifalityMod;
 import net.minecraft.entity.effect.StatusEffect;

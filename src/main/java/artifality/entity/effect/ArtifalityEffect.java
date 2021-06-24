@@ -1,7 +1,5 @@
-package artifality.effect;
+package artifality.entity.effect;
 
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectType;
 

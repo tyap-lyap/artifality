@@ -2,10 +2,8 @@ package artifality;
 
 import artifality.block.ArtifalityBlocks;
 import artifality.data.ArtifalityLootTables;
-import artifality.effect.ArtifalityEffects;
 import artifality.enchantment.ArtifalityEnchantments;
 import artifality.item.ArtifalityItems;
-import artifality.item.ArtifalityPotions;
 import artifality.worldgen.feature.ArtifalityConfiguredFeatures;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;

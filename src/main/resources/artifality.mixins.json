@@ -11,7 +11,8 @@
     "common.LivingEntityMixin",
     "common.PlayerEntityMixin",
     "common.ZombieEntityMixin",
-    "common.extension.LightningEntityExtension"
+    "common.extension.LightningEntityExtension",
+    "common.extension.PlayerEntityExtension"
   ],
   "client": [
     "client.ArmorFeatureRendererMixin",

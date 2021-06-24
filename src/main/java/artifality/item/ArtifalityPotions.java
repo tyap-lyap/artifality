@@ -1,7 +1,7 @@
 package artifality.item;
 
 import artifality.ArtifalityMod;
-import artifality.effect.ArtifalityEffects;
+import artifality.entity.effect.ArtifalityEffects;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.potion.Potion;

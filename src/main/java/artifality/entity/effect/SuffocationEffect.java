@@ -1,8 +1,7 @@
-package artifality.effect;
+package artifality.entity.effect;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectType;
 
 public class SuffocationEffect extends ArtifalityEffect {
