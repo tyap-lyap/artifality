@@ -11,6 +11,9 @@
     },
     "charges=3": {
       "model": "artifality:block/artifact_upgrader_3"
+    },
+    "charges=4": {
+      "model": "artifality:block/artifact_upgrader_4"
     }
   }
 }

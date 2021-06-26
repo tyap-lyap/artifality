@@ -1,6 +1,6 @@
 {
     "block.artifality.artifact_upgrader":"Станция улучшения артефактов",
-    "block.artifality.artifact_upgrader.description":"Позволяет улучшить ваши артефакты.\nЗаполните двумя блоками Инкрементального\nкристалла для улучшения до второго Тиража, или\nЗвездой Нижнего мира для третьего Тиража.",
+    "block.artifality.artifact_upgrader.description":"Позволяет улучшить ваши артефакты.\nЗаполните тремя блоками Инкрементального\nкристалла для улучшения до второго Тиража, или\nЗвездой Нижнего мира для третьего Тиража.",
     "block.artifality.crystal_heart_block":"Блок кристального сердца",
     "block.artifality.crystal_heart_cluster":"Друза кристального сердца",
     "block.artifality.crystal_heart_glass":"Стекло из кристального сердца",

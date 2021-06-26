@@ -1,6 +1,6 @@
 package artifality.item;
 
-import artifality.item.base.BaseItem;
+import artifality.item.base.TierableItem;
 import dev.emi.trinkets.api.Trinket;
 import net.minecraft.entity.AreaEffectCloudEntity;
 import net.minecraft.entity.LivingEntity;
@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class UkuleleItem extends BaseItem implements Trinket {
+public class UkuleleItem extends TierableItem implements Trinket {
 
     public static final ArrayList<StatusEffect> POSITIVE_EFFECTS = new ArrayList<>(Arrays.asList(
             StatusEffects.FIRE_RESISTANCE, StatusEffects.REGENERATION, StatusEffects.STRENGTH,
@@ -35,21 +35,30 @@ public class UkuleleItem extends BaseItem implements Trinket {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if(world.isClient) return TypedActionResult.pass(user.getStackInHand(hand));
+        int tier = TierableItem.getCurrentTier(user.getStackInHand(hand));
 
-        createCloudEffect(world, user, POSITIVE_EFFECTS.get(world.getRandom().nextInt(POSITIVE_EFFECTS.size())), 40, 3.0F);
+        createCloudEffect(world, user, POSITIVE_EFFECTS.get(world.getRandom().nextInt(POSITIVE_EFFECTS.size())), 30 + tier * 10, 3.0F, tier);
 
         user.getItemCooldownManager().set(this, 20 * 20);
         return TypedActionResult.success(user.getStackInHand(hand));
     }
 
-    public static void createCloudEffect(World world, LivingEntity entity, StatusEffect statusEffect, int durationInSec, float radius){
+    public static void createCloudEffect(World world, LivingEntity entity, StatusEffect statusEffect, int durationInSec, float radius, int tier){
         AreaEffectCloudEntity areaEffectCloudEntity = new AreaEffectCloudEntity(world, entity.getX(), entity.getY(), entity.getZ());
         areaEffectCloudEntity.setRadius(radius);
         areaEffectCloudEntity.setRadiusOnUse(-0.5F);
         areaEffectCloudEntity.setWaitTime(10);
         areaEffectCloudEntity.setRadiusGrowth(-areaEffectCloudEntity.getRadius() / (float)areaEffectCloudEntity.getDuration());
 
-        areaEffectCloudEntity.addEffect(new StatusEffectInstance(statusEffect, durationInSec * 20, world.getRandom().nextInt(2)));
+        int amplifier;
+
+        if(tier == 1){
+            amplifier = world.getRandom().nextInt(2);
+        }else{
+            amplifier = tier - 1;
+        }
+
+        areaEffectCloudEntity.addEffect(new StatusEffectInstance(statusEffect, durationInSec * 20, amplifier));
         world.spawnEntity(areaEffectCloudEntity);
     }
 

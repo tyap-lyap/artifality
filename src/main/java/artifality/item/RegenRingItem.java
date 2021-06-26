@@ -17,17 +17,10 @@ public class RegenRingItem extends TierableTrinketItem {
     @Override
     public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
         int tier = TierableItem.getCurrentTier(stack);
-        if (entity.world.getTime() % 1200L == 0L){
-            switch (tier) {
-                case 3 -> giveRegeneration(entity, 400, 2);
-                case 2 -> giveRegeneration(entity, 400, 1);
-                case 1 -> giveRegeneration(entity, 400, 0);
-            }
-        }
-    }
 
-    static void giveRegeneration(LivingEntity entity, int duration, int amplifier){
-        entity.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, duration, amplifier, false, false));
+        if (entity.world.getTime() % 1200L == 0L){
+            entity.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 400 + (tier - 1) * 100, tier - 1, false, false));
+        }
     }
 
     @Override

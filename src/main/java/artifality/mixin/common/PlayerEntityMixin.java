@@ -39,7 +39,7 @@ public class PlayerEntityMixin {
 
                     UkuleleItem.createCloudEffect(attacker.world, attacker,
                             UkuleleItem.NEGATIVE_EFFECTS.get(attacker.world.getRandom().nextInt(UkuleleItem.NEGATIVE_EFFECTS.size())),
-                            10, 1.5F);
+                            10, 1.5F, 1);
                     self.getItemCooldownManager().set(ArtifalityItems.UKULELE, 20 * 20);
                 }
             }

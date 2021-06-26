@@ -1,6 +1,6 @@
 {
     "block.artifality.artifact_upgrader":"Artifact Upgrader",
-    "block.artifality.artifact_upgrader.description":"Allows you to upgrade your artifact,\nfill with 2 Incremental Blocks to\nupgrade to tier 2, or with\nNether Star for tier 3.",
+    "block.artifality.artifact_upgrader.description":"Allows you to upgrade your artifact,\nfill with 3 Incremental Blocks to\nupgrade to tier 2, or with\nNether Star for tier 3.",
     "block.artifality.crystal_heart_block":"Crystal Heart Block",
     "block.artifality.crystal_heart_cluster":"Crystal Heart Cluster",
     "block.artifality.crystal_heart_glass":"Crystal Heart Glass",
@@ -37,6 +37,7 @@
     "item.artifality.ukulele.description":"When used, creates a cloud with\na random positive effect under the\nplayer, and if equipped on the\nback, creates a cloud with a random\nnegative effect under the attacker.\nCooldown: 20 sec",
     "item.artifality.zeus_staff":"Zeus Staff",
     "item.artifality.zeus_staff.description":"Summons lightning at the target point,\nalso neutralizes lightning damage\nwhile in the main hand.",
+    "item.artifality.forest_staff":"Forest Staff [WIP]",
 	
     "itemGroup.artifality.items":"Artifality: Items",
 

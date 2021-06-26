@@ -1,9 +1,12 @@
 package artifality.item.base;
 
+import artifality.block.ArtifalityBlocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemUsageContext;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
 
 public class TierableItem extends BaseItem {
@@ -27,6 +30,13 @@ public class TierableItem extends BaseItem {
             itemStack.getOrCreateTag().putInt("ArtifactLevel", tier);
         }
         return itemStack;
+    }
+
+    @Override
+    public ActionResult useOnBlock(ItemUsageContext context) {
+        if(context.getWorld().getBlockState(context.getBlockPos()).isOf(ArtifalityBlocks.ARTIFACT_UPGRADER)) return ActionResult.FAIL;
+
+        return super.useOnBlock(context);
     }
 
     @Override
