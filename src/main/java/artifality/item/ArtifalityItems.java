@@ -33,6 +33,15 @@ public class ArtifalityItems {
     public static final Item LUNAR_CRYSTAL = add("lunar_crystal", new BaseItem(DEFAULT, "Lunar Crystal"));
     public static final Item CRYSTAL_HEART_SHARD = add("crystal_heart_shard", new BaseItem(DEFAULT, "Crystal Heart Shard"));
 
+    public static final Item BALLOON = add("balloon", new BalloonItem(NOT_STACKABLE, null));
+    public static final Item AQUATIC_BALLOON = add("aquatic_balloon", new BalloonItem(NOT_STACKABLE, "aquatic"));
+    public static final Item COTTONCANDY_BALLOON = add("cottoncandy_balloon", new BalloonItem(NOT_STACKABLE, "cottoncandy"));
+    public static final Item GALACTIC_BALLOON = add("galactic_balloon", new BalloonItem(NOT_STACKABLE, "galactic"));
+    public static final Item PANCAKE_BALLOON = add("pancake_balloon", new BalloonItem(NOT_STACKABLE, "pancake"));
+    public static final Item PRISMATIC_BALLOON = add("prismatic_balloon", new BalloonItem(NOT_STACKABLE, "prismatic"));
+    public static final Item SHERBET_BALLOON = add("sherbet_balloon", new BalloonItem(NOT_STACKABLE, "sherbet"));
+    public static final Item SUNSET_BALLOON = add("sunset_balloon", new BalloonItem(NOT_STACKABLE, "sunset"));
+
 //    public static final Item testHeartItem = add("test_heart", new TestHeartItem(DEFAULT, "Test Heart"));
 
     private static Item add(String id, Item item) {

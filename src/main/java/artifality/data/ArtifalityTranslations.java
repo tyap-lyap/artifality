@@ -48,6 +48,15 @@ public class ArtifalityTranslations {
         add(LANG.entry(key + "description", "Description:"));
         add(LANG.entry(key + "tier", "Tier"));
         add(LANG.entry(key + "max_level", "Max Level:"));
+
+        add(LANG.entry(key + "aquatic", "Aquatic"));
+        add(LANG.entry(key + "cottoncandy", "Cottoncandy"));
+        add(LANG.entry(key + "galactic", "Galactic"));
+        add(LANG.entry(key + "pancake", "Pancake"));
+        add(LANG.entry(key + "prismatic", "Prismatic"));
+        add(LANG.entry(key + "sherbet", "Sherbet"));
+        add(LANG.entry(key + "sunset", "Sunset"));
+
     }
 
     static void add(JLang entry){
