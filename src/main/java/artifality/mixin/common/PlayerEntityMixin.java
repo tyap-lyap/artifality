@@ -2,17 +2,21 @@ package artifality.mixin.common;
 
 import artifality.enchantment.ArtifalityEnchantments;
 import artifality.item.ArtifalityItems;
+import artifality.item.BalloonItem;
 import artifality.item.UkuleleItem;
 import artifality.util.TrinketsUtils;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.Hand;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(PlayerEntity.class)
@@ -42,6 +46,15 @@ public class PlayerEntityMixin {
                             10, 1.5F, 1);
                     self.getItemCooldownManager().set(ArtifalityItems.UKULELE, 20 * 20);
                 }
+            }
+        }
+    }
+
+    @Inject(method = "jump", at = @At("TAIL"))
+    void balloonFunctionality(CallbackInfo ci){
+        if(self.getStackInHand(Hand.MAIN_HAND).getItem() instanceof BalloonItem || self.getStackInHand(Hand.OFF_HAND).getItem() instanceof BalloonItem){
+            if(!self.hasStatusEffect(StatusEffects.LEVITATION)){
+                self.addStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION, 30, 2, false, false));
             }
         }
     }

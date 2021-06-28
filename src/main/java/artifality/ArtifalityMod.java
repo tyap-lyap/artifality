@@ -4,6 +4,7 @@ import artifality.block.ArtifalityBlocks;
 import artifality.data.ArtifalityLootTables;
 import artifality.enchantment.ArtifalityEnchantments;
 import artifality.item.ArtifalityItems;
+import artifality.item.BalloonItem;
 import artifality.worldgen.feature.ArtifalityConfiguredFeatures;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
@@ -31,7 +32,10 @@ public class ArtifalityMod implements ModInitializer {
     }
 
     public static final ItemGroup ITEMS = FabricItemGroupBuilder.create(new Identifier(MODID, "items")).appendItems((itemStacks) ->{
-        ArtifalityItems.getItems().forEach(((id, item) -> itemStacks.add(item.getDefaultStack())));
+        ArtifalityItems.getItems().forEach(((id, item) -> {
+            if(!(item instanceof BalloonItem))itemStacks.add(item.getDefaultStack());
+        }));
+        itemStacks.add(ArtifalityItems.BALLOON.getDefaultStack());
 
         ArtifalityBlocks.getBlocks().forEach((id, block) -> itemStacks.add(block.asItem().getDefaultStack()));
 
