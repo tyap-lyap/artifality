@@ -5,19 +5,14 @@ import artifality.block.ArtifalityBlocks;
 import artifality.data.ArtifalityResources;
 import artifality.item.ArtifalityItems;
 import artifality.client.particle.ArtifalityParticles;
-import artifality.util.TrinketsUtils;
+import dev.emi.trinkets.api.client.TrinketRenderer;
 import dev.emi.trinkets.api.client.TrinketRendererRegistry;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.model.ModelLoadingRegistry;
 import net.fabricmc.loader.FabricLoader;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.RenderLayer;
-import net.minecraft.client.render.item.ItemRenderer;
-import net.minecraft.client.render.model.json.ModelTransformation;
 import net.minecraft.client.util.ModelIdentifier;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.Identifier;
 
 public class ArtifalityClient implements ClientModInitializer {
@@ -51,16 +46,10 @@ public class ArtifalityClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ArtifalityBlocks.LUNAR_CRYSTAL_LENS, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(ArtifalityBlocks.CRYSTAL_HEART_LENS, RenderLayer.getTranslucent());
 
-        TrinketRendererRegistry.registerRenderer(ArtifalityItems.UKULELE, (stack, slotReference, contextModel, matrices, vertexConsumers, light, entity, limbAngle, limbDistance, tickDelta, animationProgress, headYaw, headPitch) -> {
-            ItemRenderer itemRenderer = MinecraftClient.getInstance().getItemRenderer();
-
-            if(entity.isInvisible() && TrinketsUtils.containsTrinket((PlayerEntity) entity, ArtifalityItems.INVISIBILITY_CAPE)) return;
-            matrices.push();
-            matrices.translate(0D, 0.17D, 0.17D);
-            matrices.scale(0.8F, 0.8F, 0.8F);
-
-            itemRenderer.renderItem(stack, ModelTransformation.Mode.FIXED, false, matrices, vertexConsumers, light, OverlayTexture.DEFAULT_UV, itemRenderer.getModels().getModelManager().getModel(new ModelIdentifier("artifality:ukulele_in_hand#inventory")));
-            matrices.pop();
+        ArtifalityItems.getItems().forEach((id, item) -> {
+            if(item instanceof TrinketRenderer trinketRenderer){
+                TrinketRendererRegistry.registerRenderer(item, trinketRenderer);
+            }
         });
 
         ModelLoadingRegistry.INSTANCE.registerModelProvider((manager, out) -> TwoModelsItemRegistry.getEntries().forEach((id, item) ->

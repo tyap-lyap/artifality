@@ -28,7 +28,7 @@ public class ArtifalityLootTables {
 //            killByPlayer(ArtifalityItems.ENCHANTED_ARROW, "skeleton", 0.05F);
 
             singleItemInEveryChest(ArtifalityItems.INVISIBILITY_CAPE, 0.05F);
-            singleItemInEveryChest(ArtifalityItems.REGENERATION_RING, 0.04F);
+//            singleItemInEveryChest(ArtifalityItems.REGENERATION_RING, 0.04F);
             singleItemInEveryChest(ArtifalityItems.UKULELE, 0.03F);
             singleItemInEveryChest(ArtifalityItems.LIVING_HEART, 0.05F);
             singleItemInEveryChest(ArtifalityItems.LUNAR_KNOWLEDGE_BOOK, 0.05F);

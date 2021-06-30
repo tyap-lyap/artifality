@@ -21,7 +21,7 @@ public class ArtifalityItems {
     public static final Item UKULELE = add("ukulele", new UkuleleItem(NOT_STACKABLE, "Ukulele"));
     //изменить дизайн
 //    public static final Item MAGMA_BALLS = add("magma_balls", new MagmaBallsItem(NOT_STACKABLE, "Magma Balls"));
-    public static final Item REGENERATION_RING = add("regeneration_ring", new RegenRingItem(NOT_STACKABLE, "Regeneration Ring"));
+//    public static final Item REGENERATION_RING = add("regeneration_ring", new RegenRingItem(NOT_STACKABLE, "Regeneration Ring"));
     public static final Item ZEUS_STAFF = add("zeus_staff", new ZeusStaffItem(NOT_STACKABLE, "Zeus Staff"));
     public static final Item FOREST_STAFF = add("forest_staff", new BaseItem(NOT_STACKABLE, "Forest Staff [WIP]"));
     public static final Item INVISIBILITY_CAPE = add("invisibility_cape", new InvisibilityCapeItem(NOT_STACKABLE, "Invisibility Cape"));

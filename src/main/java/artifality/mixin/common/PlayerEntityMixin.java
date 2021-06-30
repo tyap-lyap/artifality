@@ -52,9 +52,29 @@ public class PlayerEntityMixin {
 
     @Inject(method = "jump", at = @At("TAIL"))
     void balloonFunctionality(CallbackInfo ci){
-        if(self.getStackInHand(Hand.MAIN_HAND).getItem() instanceof BalloonItem || self.getStackInHand(Hand.OFF_HAND).getItem() instanceof BalloonItem){
-            if(!self.hasStatusEffect(StatusEffects.LEVITATION)){
-                self.addStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION, 30, 2, false, false));
+        if(!self.world.isClient){
+            if(self.getStackInHand(Hand.MAIN_HAND).getItem() instanceof BalloonItem ||
+                    self.getStackInHand(Hand.OFF_HAND).getItem() instanceof BalloonItem || BalloonItem.hasBalloonOnHead(self)){
+
+                if(!self.hasStatusEffect(StatusEffects.LEVITATION)){
+                    self.addStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION, 20, 2, false, false));
+                }
+            }
+        }
+    }
+
+    @Inject(method = "tick", at = @At("TAIL"))
+    void balloonTick(CallbackInfo ci){
+        if(!self.world.isClient && self.isSneaking()){
+            if(self.getStackInHand(Hand.OFF_HAND).getItem() instanceof BalloonItem || self.getStackInHand(Hand.MAIN_HAND).getItem() instanceof BalloonItem || BalloonItem.hasBalloonOnHead(self)){
+
+                if (!self.hasStatusEffect(StatusEffects.SLOW_FALLING)) {
+                    self.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING, 10, 0, false, false));
+
+                }else if (self.getActiveStatusEffects().get(StatusEffects.SLOW_FALLING).getDuration() == 1) {
+
+                    self.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING, 10, 0, false, false));
+                }
             }
         }
     }

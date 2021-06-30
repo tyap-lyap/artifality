@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "artifality:balloon",
+    "artifality:prismatic_balloon",
+    "artifality:aquatic_balloon",
+    "artifality:cottoncandy_balloon",
+    "artifality:galactic_balloon",
+    "artifality:pancake_balloon",
+    "artifality:sherbet_balloon",
+    "artifality:sunset_balloon"
+  ]
+}
