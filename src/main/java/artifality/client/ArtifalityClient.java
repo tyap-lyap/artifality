@@ -36,6 +36,8 @@ public class ArtifalityClient implements ClientModInitializer {
         TwoModelsItemRegistry.register(new Identifier("artifality:sherbet_balloon"), ArtifalityItems.SHERBET_BALLOON);
         TwoModelsItemRegistry.register(new Identifier("artifality:sunset_balloon"), ArtifalityItems.SUNSET_BALLOON);
 
+        TwoModelsItemRegistry.register(new Identifier("artifality:forest_staff"), ArtifalityItems.FOREST_STAFF);
+
         BlockRenderLayerMap.INSTANCE.putBlock(ArtifalityBlocks.INCREMENTAL_CLUSTER, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ArtifalityBlocks.LUNAR_CRYSTAL_CLUSTER, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ArtifalityBlocks.CRYSTAL_HEART_CLUSTER, RenderLayer.getCutout());

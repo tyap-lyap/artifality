@@ -32,6 +32,9 @@ public class ArtifalityLootTables {
             singleItemInEveryChest(ArtifalityItems.UKULELE, 0.03F);
             singleItemInEveryChest(ArtifalityItems.LIVING_HEART, 0.05F);
             singleItemInEveryChest(ArtifalityItems.LUNAR_KNOWLEDGE_BOOK, 0.05F);
+
+            singleItemInEveryChest(ArtifalityItems.FOREST_STAFF, 0.04F);
+            singleItemInEveryChest(ArtifalityItems.BALLOON, 0.04F);
         });
     }
 

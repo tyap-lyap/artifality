@@ -2,13 +2,13 @@
   "parent": "artifality:artifality/root",
   "display": {
     "title": {
-      "text": "Tech Support"
+      "text": "Sneaky"
     },
     "description": {
-      "text": "Find the Ukulele"
+      "text": "Find the Invisibility Cape"
     },
     "icon": {
-      "item": "artifality:ukulele"
+      "item": "artifality:invisibility_cape"
     },
     "frame": "task",
     "show_toast": true,
@@ -16,13 +16,13 @@
     "hidden": false
   },
   "criteria": {
-    "ukulele": {
+    "invisibility_cape": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "artifality:ukulele"
+              "artifality:invisibility_cape"
             ]
           }
         ]

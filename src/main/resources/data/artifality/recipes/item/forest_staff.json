@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " #S",
+    " ##",
+    "#  "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:oak_sapling"
+    },
+    "S": {
+      "item": "artifality:living_heart"
+    }
+  },
+  "result": {
+    "item": "artifality:forest_staff",
+    "count": 1
+  }
+}

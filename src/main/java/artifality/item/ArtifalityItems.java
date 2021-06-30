@@ -23,7 +23,7 @@ public class ArtifalityItems {
 //    public static final Item MAGMA_BALLS = add("magma_balls", new MagmaBallsItem(NOT_STACKABLE, "Magma Balls"));
 //    public static final Item REGENERATION_RING = add("regeneration_ring", new RegenRingItem(NOT_STACKABLE, "Regeneration Ring"));
     public static final Item ZEUS_STAFF = add("zeus_staff", new ZeusStaffItem(NOT_STACKABLE, "Zeus Staff"));
-    public static final Item FOREST_STAFF = add("forest_staff", new BaseItem(NOT_STACKABLE, "Forest Staff [WIP]"));
+    public static final Item FOREST_STAFF = add("forest_staff", new ForestStaffItem(NOT_STACKABLE, "Forest Staff"));
     public static final Item INVISIBILITY_CAPE = add("invisibility_cape", new InvisibilityCapeItem(NOT_STACKABLE, "Invisibility Cape"));
 //    public static final Item CAT_EARS = add("cat_ears", new CatEarsItem(NOT_STACKABLE, "Cat Ears [WIP]"));
 //    public static final Item ENCHANTED_ARROW = add("enchanted_arrow", new EnchantedArrowItem(DEFAULT, "Enchanted Arrow"));
