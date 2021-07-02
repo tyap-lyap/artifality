@@ -27,8 +27,14 @@ public class LunarDamageEnchantment extends Enchantment implements Translatable 
         return level + 1;
     }
 
+    @Override
     public boolean canAccept(Enchantment other) {
         return !(other instanceof DamageEnchantment);
+    }
+
+    @Override
+    public boolean isTreasure() {
+        return true;
     }
 
     @Override
