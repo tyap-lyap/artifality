@@ -4,10 +4,12 @@ import artifality.ArtifalityMod;
 import artifality.block.base.BaseBlock;
 import artifality.block.base.BaseGlassBlock;
 import artifality.block.base.CrystalBlock;
+import artifality.item.MiniSomikItem;
 import artifality.item.base.BaseBlockItem;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
@@ -39,6 +41,8 @@ public class ArtifalityBlocks {
 
     public static final Block ARTIFACT_UPGRADER = add("artifact_upgrader", new ArtifactUpgraderBlock(FabricBlockSettings.copyOf(Blocks.COBBLESTONE), "cube_bottom_top", "Artifact Upgrader"));
 
+    public static final Block MINI_SOMIK = addBlock("mini_somik", new MiniSomikBlock(FabricBlockSettings.copyOf(Blocks.BLACK_WOOL), "Mini Somik"));
+
     private static Block add(String name, Block block) {
         Item.Settings settings = new Item.Settings();
         settings.group(ArtifalityMod.ITEMS);
@@ -52,8 +56,9 @@ public class ArtifalityBlocks {
         return block;
     }
 
-    private static void addBlock(String name, Block block) {
+    private static Block addBlock(String name, Block block) {
         BLOCKS.put(new Identifier(ArtifalityMod.MODID, name), block);
+        return block;
     }
 
     public static void register() {

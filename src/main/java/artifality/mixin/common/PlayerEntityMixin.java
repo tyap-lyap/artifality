@@ -56,7 +56,7 @@ public class PlayerEntityMixin {
             if(self.getStackInHand(Hand.MAIN_HAND).getItem() instanceof BalloonItem ||
                     self.getStackInHand(Hand.OFF_HAND).getItem() instanceof BalloonItem || BalloonItem.hasBalloonOnHead(self)){
 
-                self.addStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION, 20, 2, false, false));
+                self.addStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION, 14, 2, false, false));
             }
         }
     }

@@ -7,7 +7,6 @@
     "common.BeaconBlockEntityMixin",
     "common.BrewingRecipeRegistryMixin",
     "common.EntityMixin",
-    "common.ExplosionMixin",
     "common.LivingEntityMixin",
     "common.PlayerEntityMixin",
     "common.ZombieEntityMixin",

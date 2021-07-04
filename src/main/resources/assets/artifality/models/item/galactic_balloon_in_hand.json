@@ -1,6 +1,0 @@
-{
-  "parent": "artifality:item/balloon_model",
-  "textures": {
-    "balloon": "artifality:item/galactic_balloon_in_hand"
-  }
-}

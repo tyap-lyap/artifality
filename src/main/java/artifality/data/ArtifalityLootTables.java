@@ -19,16 +19,10 @@ public class ArtifalityLootTables {
     public static void register(){
 
         LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, supplier, setter) -> {
-
             ArtifalityLootTables.id = id;
             ArtifalityLootTables.supplier = supplier;
 
-//            singleItemInChest(ArtifalityItems.MAGMA_BALLS, "nether_bridge", 0.01F);
-//            singleItemInChest(ArtifalityItems.MAGMA_BALLS, "bastion_treasure", 0.05F);
-//            killByPlayer(ArtifalityItems.ENCHANTED_ARROW, "skeleton", 0.05F);
-
             singleItemInEveryChest(ArtifalityItems.INVISIBILITY_CAPE, 0.05F);
-//            singleItemInEveryChest(ArtifalityItems.REGENERATION_RING, 0.04F);
             singleItemInEveryChest(ArtifalityItems.UKULELE, 0.03F);
             singleItemInEveryChest(ArtifalityItems.LIVING_HEART, 0.05F);
             singleItemInEveryChest(ArtifalityItems.LUNAR_KNOWLEDGE_BOOK, 0.05F);
@@ -50,7 +44,8 @@ public class ArtifalityLootTables {
 
     static void singleItemInEveryChest(Item item, Float chance){
 
-        if (id.toString().contains("minecraft:chests/") && !id.toString().contains("village") && !id.toString().contains("jungle_temple_dispenser")) {
+        if (id.toString().contains("minecraft:chests/") && !id.toString().contains("village") &&
+                !id.toString().contains("jungle_temple_dispenser") && !id.toString().contains("end_city_treasure")) {
             FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
                     .rolls(ConstantLootNumberProvider.create(1)).withCondition(RandomChanceLootCondition.builder(chance).build())
                     .withEntry(ItemEntry.builder(item).build());

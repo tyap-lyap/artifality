@@ -11,11 +11,11 @@ version = "mc" + project.minecraft_version + "-" + project.mod_version + "-" + p
 //group = project.maven_group
 
 repositories {
-	maven { url "https://maven.gegy.dev" } //databreaker
-	maven { url "https://maven.terraformersmc.com" } //modmenu
 	maven { url "https://maven.shedaniel.me" } //rei
+	maven { url "https://maven.gegy.dev" } //databreaker
+	maven { url "https://ladysnake.jfrog.io/artifactory/mods" } //CCA
+	maven { url "https://maven.terraformersmc.com" } //modmenu, trinkets
 	maven { url "https://storage.googleapis.com/devan-maven" } //arrp
-	maven { url "https://ladysnake.jfrog.io/artifactory/mods" } //trinkets
 }
 
 dependencies {
@@ -26,11 +26,13 @@ dependencies {
 
 	modImplementation "dev.emi:trinkets:${trinkets_version}"
 
+	modImplementation "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-base:3.0.0-nightly.21w19a"
+	modImplementation "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-entity:3.0.0-nightly.21w19a"
+
 	modImplementation "net.devtech:arrp:0.4.3"
-//	include "net.devtech:arrp:0.4.3"
 	
-	modRuntime "me.shedaniel:RoughlyEnoughItems-fabric:6.0.249-alpha"
-	modRuntime "com.terraformersmc:modmenu:2.0.0-beta.7"
+	modRuntime "me.shedaniel:RoughlyEnoughItems-fabric:6.0.262-alpha"
+	modRuntime "com.terraformersmc:modmenu:2.0.2"
 	modRuntime "supercoder79:databreaker:0.2.7"
 	modRuntime "com.ptsmods:devlogin:1.2"
 

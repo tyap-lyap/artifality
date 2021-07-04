@@ -5,6 +5,7 @@ import artifality.block.ArtifalityBlocks;
 import artifality.enchantment.ArtifalityEnchantments;
 import artifality.interfaces.Translatable;
 import artifality.item.ArtifalityItems;
+import artifality.item.MiniSomikItem;
 import net.devtech.arrp.api.RuntimeResourcePack;
 import net.devtech.arrp.json.lang.JLang;
 import net.minecraft.util.Identifier;
@@ -19,6 +20,7 @@ public class ArtifalityTranslations {
         ArtifalityTranslations.pack = pack;
 
         ArtifalityItems.getItems().forEach((id, item) -> {
+            if(item instanceof MiniSomikItem) return;
             add(LANG.itemRespect(item, ((Translatable) item).getOriginName()));
             if (((Translatable) item).getDescription() != null){
                 add(LANG.entry(item.getTranslationKey() + ".description", ((Translatable) item).getDescription()));
@@ -40,23 +42,12 @@ public class ArtifalityTranslations {
 
     private static void miscTranslations(){
         add(LANG.itemGroup(new Identifier(ArtifalityMod.MODID, "items"), "Artifality: Items"));
-        add(LANG.itemGroup(new Identifier(ArtifalityMod.MODID, "tierable_items"), "Artifality: Tierable Items"));
-        add(LANG.itemGroup(new Identifier(ArtifalityMod.MODID, "wip_items"), "Artifality: Work In Progress"));
 
         String key = "misc.artifality.";
         add(LANG.entry(key + "press_shift", "<Press Shift>"));
         add(LANG.entry(key + "description", "Description:"));
         add(LANG.entry(key + "tier", "Tier"));
         add(LANG.entry(key + "max_level", "Max Level:"));
-
-        add(LANG.entry(key + "aquatic", "Aquatic"));
-        add(LANG.entry(key + "cottoncandy", "Cottoncandy"));
-        add(LANG.entry(key + "galactic", "Galactic"));
-        add(LANG.entry(key + "pancake", "Pancake"));
-        add(LANG.entry(key + "prismatic", "Prismatic"));
-        add(LANG.entry(key + "sherbet", "Sherbet"));
-        add(LANG.entry(key + "sunset", "Sunset"));
-
     }
 
     static void add(JLang entry){

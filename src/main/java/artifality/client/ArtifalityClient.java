@@ -28,13 +28,6 @@ public class ArtifalityClient implements ClientModInitializer {
         TwoModelsItemRegistry.register(new Identifier("artifality:zeus_staff"), ArtifalityItems.ZEUS_STAFF);
 
         TwoModelsItemRegistry.register(new Identifier("artifality:balloon"), ArtifalityItems.BALLOON);
-        TwoModelsItemRegistry.register(new Identifier("artifality:aquatic_balloon"), ArtifalityItems.AQUATIC_BALLOON);
-        TwoModelsItemRegistry.register(new Identifier("artifality:cottoncandy_balloon"), ArtifalityItems.COTTONCANDY_BALLOON);
-        TwoModelsItemRegistry.register(new Identifier("artifality:galactic_balloon"), ArtifalityItems.GALACTIC_BALLOON);
-        TwoModelsItemRegistry.register(new Identifier("artifality:pancake_balloon"), ArtifalityItems.PANCAKE_BALLOON);
-        TwoModelsItemRegistry.register(new Identifier("artifality:prismatic_balloon"), ArtifalityItems.PRISMATIC_BALLOON);
-        TwoModelsItemRegistry.register(new Identifier("artifality:sherbet_balloon"), ArtifalityItems.SHERBET_BALLOON);
-        TwoModelsItemRegistry.register(new Identifier("artifality:sunset_balloon"), ArtifalityItems.SUNSET_BALLOON);
 
         TwoModelsItemRegistry.register(new Identifier("artifality:forest_staff"), ArtifalityItems.FOREST_STAFF);
 
@@ -47,6 +40,7 @@ public class ArtifalityClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ArtifalityBlocks.INCREMENTAL_LENS, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(ArtifalityBlocks.LUNAR_CRYSTAL_LENS, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(ArtifalityBlocks.CRYSTAL_HEART_LENS, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(ArtifalityBlocks.MINI_SOMIK, RenderLayer.getCutout());
 
         ArtifalityItems.getItems().forEach((id, item) -> {
             if(item instanceof TrinketRenderer trinketRenderer){
