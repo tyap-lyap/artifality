@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '0.8-SNAPSHOT'
+	id 'fabric-loom' version '0.9.9'
 	id 'maven-publish'
 }
 
@@ -14,8 +14,9 @@ repositories {
 	maven { url "https://maven.shedaniel.me" } //rei
 	maven { url "https://maven.gegy.dev" } //databreaker
 	maven { url "https://ladysnake.jfrog.io/artifactory/mods" } //CCA
-	maven { url "https://maven.terraformersmc.com" } //modmenu, trinkets
+//	maven { url "https://maven.terraformersmc.com" } //modmenu, trinkets
 	maven { url "https://storage.googleapis.com/devan-maven" } //arrp
+	maven { url "https://maven.quiltmc.org/repository/release" } //yarn, modmenu
 }
 
 dependencies {
@@ -32,7 +33,7 @@ dependencies {
 	modImplementation "net.devtech:arrp:0.4.3"
 	
 	modRuntime "me.shedaniel:RoughlyEnoughItems-fabric:6.0.262-alpha"
-	modRuntime "com.terraformersmc:modmenu:2.0.2"
+	modRuntime "com.terraformersmc:modmenu:v2.0.2+1.17.2035ad2"
 	modRuntime "supercoder79:databreaker:0.2.7"
 	modRuntime "com.ptsmods:devlogin:1.2"
 

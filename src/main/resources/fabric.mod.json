@@ -17,8 +17,7 @@
   "contact": {
     "homepage": "https://curseforge.com/minecraft/mc-mods/artifality",
     "sources": "https://github.com/PinkGoosik/artifality",
-    "issues": "https://github.com/PinkGoosik/artifality/issues",
-    "discord": "https://discord.gg/DcemWeskeZ"
+    "issues": "https://github.com/PinkGoosik/artifality/issues"
   },
 
   "license": "MIT",
@@ -36,7 +35,15 @@
   "mixins": [
     "artifality.mixins.json"
   ],
-
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "https://discord.gg/DcemWeskeZ",
+        "modmenu.curseforge": "https://curseforge.com/minecraft/mc-mods/artifality",
+        "modmenu.modrinth": "https://modrinth.com/mod/artifality"
+      }
+    }
+  },
   "depends": {
     "fabricloader": ">=0.11.3",
     "fabric": "*",
