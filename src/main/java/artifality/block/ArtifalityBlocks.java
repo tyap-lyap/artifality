@@ -39,7 +39,7 @@ public class ArtifalityBlocks {
 
     public static final Block ARTIFACT_UPGRADER = add("artifact_upgrader", new ArtifactUpgraderBlock(FabricBlockSettings.copyOf(Blocks.COBBLESTONE), "cube_bottom_top", "Artifact Upgrader"));
 
-    public static final Block MINI_SOMIK = addBlock("mini_somik", new MiniSomikBlock(FabricBlockSettings.copyOf(Blocks.BLACK_WOOL), "Mini Somik"));
+//    public static final Block MINI_SOMIK = addBlock("mini_somik", new MiniSomikBlock(FabricBlockSettings.copyOf(Blocks.BLACK_WOOL), "Mini Somik"));
 
     private static Block add(String name, Block block) {
         Item.Settings settings = new Item.Settings();

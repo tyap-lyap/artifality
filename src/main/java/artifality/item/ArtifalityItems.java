@@ -1,7 +1,6 @@
 package artifality.item;
 
 import artifality.ArtifalityMod;
-import artifality.block.ArtifalityBlocks;
 import artifality.item.base.BaseItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
@@ -30,7 +29,7 @@ public class ArtifalityItems {
     public static final Item CRYSTAL_HEART_SHARD = add("crystal_heart_shard", new BaseItem(DEFAULT, "Crystal Heart Shard"));
     public static final Item BALLOON = add("balloon", new BalloonItem(NOT_STACKABLE, "Balloon"));
 
-    public static final Item MINI_SOMIK = add("mini_somik", new MiniSomikItem(ArtifalityBlocks.MINI_SOMIK, DEFAULT));
+//    public static final Item MINI_SOMIK = add("mini_somik", new MiniSomikItem(ArtifalityBlocks.MINI_SOMIK, DEFAULT));
 
 //    public static final Item testHeartItem = add("test_heart", new TestHeartItem(DEFAULT, "Test Heart"));
 

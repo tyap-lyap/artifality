@@ -1,4 +1,6 @@
 {
+    "modmenu.descriptionTranslation.artifality": "Collection of useful artifacts, blocks, enchantments and more.",
+
     "block.artifality.artifact_upgrader":"Artifact Upgrader",
     "block.artifality.artifact_upgrader.description":"Allows you to upgrade your artifact,\nfill with 3 Incremental Blocks to\nupgrade to tier 2, or with\nNether Star for tier 3.",
     "block.artifality.crystal_heart_block":"Crystal Heart Block",
@@ -16,8 +18,6 @@
     "block.artifality.lunar_crystal_glass":"Lunar Crystal Glass",
     "block.artifality.lunar_crystal_lens":"Lunar Crystal Lens",
     "block.artifality.lunar_crystal_lens.description":"Gives glowing effect to players\nin radius of beacon if placed\non top of the beacon.",
-    "block.artifality.mini_somik":"Mini Somik",
-    "block.artifality.mini_somik.description":"Funny guy.",
 	
     "enchantment.artifality.lunar_damage":"Lunar Damage",
     "enchantment.artifality.lunar_damage.description":"Increases melee damage by\ndecreasing attack speed.",
@@ -47,5 +47,7 @@
     "misc.artifality.description":"Description:",
     "misc.artifality.max_level":"Max Level:",
     "misc.artifality.press_shift":"<Press Shift>",
-    "misc.artifality.tier":"Tier"
+    "misc.artifality.tier":"Tier",
+    "misc.artifality.discord": "<Join Our Discord Server>",
+    "misc.artifality.wiki": "<Check Out the Wiki for More Info>"
 }

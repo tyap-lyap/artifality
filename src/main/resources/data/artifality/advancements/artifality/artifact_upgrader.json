@@ -1,0 +1,32 @@
+{
+  "parent": "artifality:artifality/root",
+  "display": {
+    "title": {
+      "text": "How Do I Upgrade?"
+    },
+    "description": {
+      "text": "Create the Artifact Upgrader"
+    },
+    "icon": {
+      "item": "artifality:artifact_upgrader"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "artifact_upgrader": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "artifality:artifact_upgrader"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

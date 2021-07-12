@@ -1,7 +1,6 @@
 package artifality;
 
 import artifality.block.ArtifalityBlocks;
-import artifality.block.MiniSomikBlock;
 import artifality.data.ArtifalityLootTables;
 import artifality.enchantment.ArtifalityEnchantments;
 import artifality.item.ArtifalityItems;
@@ -31,13 +30,10 @@ public class ArtifalityMod implements ModInitializer {
         ArtifalityConfiguredFeatures.register();
     }
 
-    public static final ItemGroup ITEMS = FabricItemGroupBuilder.create(new Identifier(MODID, "items")).appendItems((itemStacks) ->{
+    public static final ItemGroup ITEMS = FabricItemGroupBuilder.create(new Identifier(MODID, "items")).appendItems((itemStacks) -> {
         ArtifalityItems.getItems().forEach(((id, item) -> itemStacks.add(item.getDefaultStack())));
 
-        ArtifalityBlocks.getBlocks().forEach((id, block) -> {
-            if(block instanceof MiniSomikBlock) return;
-            itemStacks.add(block.asItem().getDefaultStack());
-        });
+        ArtifalityBlocks.getBlocks().forEach((id, block) -> itemStacks.add(block.asItem().getDefaultStack()));
 
         ArtifalityEnchantments.getEnchantments().forEach(((id, enchantment) -> {
             ItemStack book = new ItemStack(Items.ENCHANTED_BOOK);

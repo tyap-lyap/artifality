@@ -26,9 +26,7 @@ public class ArtifalityClient implements ClientModInitializer {
 
         TwoModelsItemRegistry.register(new Identifier("artifality:ukulele"), ArtifalityItems.UKULELE);
         TwoModelsItemRegistry.register(new Identifier("artifality:zeus_staff"), ArtifalityItems.ZEUS_STAFF);
-
         TwoModelsItemRegistry.register(new Identifier("artifality:balloon"), ArtifalityItems.BALLOON);
-
         TwoModelsItemRegistry.register(new Identifier("artifality:forest_staff"), ArtifalityItems.FOREST_STAFF);
 
         BlockRenderLayerMap.INSTANCE.putBlock(ArtifalityBlocks.INCREMENTAL_CLUSTER, RenderLayer.getCutout());
@@ -40,7 +38,7 @@ public class ArtifalityClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ArtifalityBlocks.INCREMENTAL_LENS, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(ArtifalityBlocks.LUNAR_CRYSTAL_LENS, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(ArtifalityBlocks.CRYSTAL_HEART_LENS, RenderLayer.getTranslucent());
-        BlockRenderLayerMap.INSTANCE.putBlock(ArtifalityBlocks.MINI_SOMIK, RenderLayer.getCutout());
+//        BlockRenderLayerMap.INSTANCE.putBlock(ArtifalityBlocks.MINI_SOMIK, RenderLayer.getCutout());
 
         ArtifalityItems.getItems().forEach((id, item) -> {
             if(item instanceof TrinketRenderer trinketRenderer){

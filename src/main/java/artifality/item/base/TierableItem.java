@@ -20,14 +20,14 @@ public class TierableItem extends BaseItem {
     }
 
     public static int getCurrentTier(ItemStack stack){
-        if(stack.getOrCreateTag().getInt("ArtifactLevel") >= 2) return stack.getOrCreateTag().getInt("ArtifactLevel");
+        if(stack.getOrCreateNbt().getInt("artifactTier") >= 2) return stack.getOrCreateNbt().getInt("artifactTier");
         else return 1;
     }
 
     public static ItemStack withTier(Item item, int tier){
         ItemStack itemStack = new ItemStack(item);
         if (tier >= 2){
-            itemStack.getOrCreateTag().putInt("ArtifactLevel", tier);
+            itemStack.getOrCreateNbt().putInt("artifactTier", tier);
         }
         return itemStack;
     }

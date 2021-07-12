@@ -6,17 +6,16 @@
   "name": "Artifality",
   "description": "Collection of useful artifacts, blocks, enchantments and more.",
   "authors": [
-    "PinkGoosik",
-	"DoctorNight",
-	"Spusik",
-    "aSomik"
+    "PinkGoosik"
   ],
   "contributors": [
-    "matthewperiut"
+    "DoctorNight - Author, Developer",
+    "Spusik - Author, Developer",
+    "aSomik - Author, idk",
+    "matthewperiut - Contributor"
   ],
   "contact": {
     "homepage": "https://curseforge.com/minecraft/mc-mods/artifality",
-    "sources": "https://github.com/PinkGoosik/artifality",
     "issues": "https://github.com/PinkGoosik/artifality/issues"
   },
 
@@ -38,9 +37,8 @@
   "custom": {
     "modmenu": {
       "links": {
-        "modmenu.discord": "https://discord.gg/DcemWeskeZ",
-        "modmenu.curseforge": "https://curseforge.com/minecraft/mc-mods/artifality",
-        "modmenu.modrinth": "https://modrinth.com/mod/artifality"
+        "misc.artifality.discord": "https://discord.gg/DcemWeskeZ",
+        "misc.artifality.wiki": "https://artifality.fandom.com"
       }
     }
   },

@@ -3,6 +3,7 @@ package artifality.block.base;
 import artifality.client.particle.ArtifalityParticles;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
@@ -15,6 +16,8 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldAccess;
+import net.minecraft.world.WorldView;
 
 import java.util.Random;
 
@@ -31,6 +34,18 @@ public class CrystalBlock extends BaseBlock {
     public CrystalBlock(Settings settings, String name) {
         super(settings, "cross", name);
         this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.UP));
+    }
+
+    @Override
+    public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
+        Direction direction = state.get(FACING);
+        BlockPos blockPos = pos.offset(direction.getOpposite());
+        return world.getBlockState(blockPos).isSideSolidFullSquare(world, blockPos, direction);
+    }
+
+    @Override
+    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
+        return direction == (state.get(FACING)).getOpposite() && !state.canPlaceAt(world, pos) ? Blocks.AIR.getDefaultState() : super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
     }
 
     @Override

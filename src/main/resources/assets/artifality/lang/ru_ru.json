@@ -1,4 +1,6 @@
 {
+    "modmenu.descriptionTranslation.artifality": "Коллекция полезных артефактов, блоков, зачарований и больше.",
+
     "block.artifality.artifact_upgrader":"Станция улучшения артефактов",
     "block.artifality.artifact_upgrader.description":"Позволяет улучшить ваши артефакты.\nЗаполните тремя блоками Инкрементального\nкристалла для улучшения до второго Тиража, или\nЗвездой Нижнего мира для третьего Тиража.",
     "block.artifality.crystal_heart_block":"Блок кристального сердца",
@@ -31,17 +33,21 @@
     "item.artifality.lunar_crystal":"Лунный кристалл",
     "item.artifality.lunar_knowledge_book":"Книга знаний Луны",
     "item.artifality.lunar_knowledge_book.description":"Даёт случайное Лунное зачарование.",
-    "item.artifality.regeneration_ring":"Кольцо Регенерации",
-    "item.artifality.regeneration_ring.description":"Даёт носителю эффект\nРегенерации раз в минуту.",
     "item.artifality.ukulele":"Укулеле",
     "item.artifality.ukulele.description":"When used, creates a cloud with\na random positive effect under the\nplayer, and if equipped on the\nback, creates a cloud with a random\nnegative effect under the attacker.\nCooldown: 20 sec",
     "item.artifality.zeus_staff":"Посох Зевса",
     "item.artifality.zeus_staff.description":"Призывает молнии в направленную точку,\nтакже носителю не наносится урон от молний,\nпока предмет в ведущей руке.",
+    "item.artifality.balloon": "Balloon",
+    "item.artifality.balloon.description": "When in hand increases jump\nheight and while sneaking\ngives slow falling effect.",
+    "item.artifality.forest_staff": "Forest Staff",
+    "item.artifality.forest_staff.description": "Allows you to easily plant a\nsaplings and fertilize it,\ntakes the necessary items from\nthe player's inventory, and\nalso rewards with experience.",
 	
     "itemGroup.artifality.items":"Artifality: Предметы",
 
     "misc.artifality.description":"Описание:",
     "misc.artifality.max_level":"Максимальный уровень:",
     "misc.artifality.press_shift":"<Нажмите Шифт>",
-    "misc.artifality.tier":"Тираж"
+    "misc.artifality.tier":"Тираж",
+    "misc.artifality.discord": "<Заходите на наш Discord сервер>",
+    "misc.artifality.wiki": "<Загляните в Вики для большей информации>"
 }
