@@ -17,6 +17,7 @@ repositories {
 //	maven { url "https://maven.terraformersmc.com" } //modmenu, trinkets
 	maven { url "https://storage.googleapis.com/devan-maven" } //arrp
 	maven { url "https://maven.quiltmc.org/repository/release" } //modmenu
+	maven { url "https://api.modrinth.com/maven" } //trinkets
 }
 
 dependencies {
@@ -25,7 +26,8 @@ dependencies {
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-	modImplementation "dev.emi:trinkets:${trinkets_version}"
+//	modImplementation "dev.emi:trinkets:${trinkets_version}"
+	modImplementation "maven.modrinth:trinkets:${trinkets_version}"
 
 	modImplementation "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-base:3.0.1"
 	modImplementation "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-entity:3.0.1"
