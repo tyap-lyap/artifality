@@ -7,8 +7,8 @@ import net.minecraft.entity.player.PlayerEntity;
 
 public class CrystalHeartLensBlock extends LensBlock {
 
-    public CrystalHeartLensBlock(Settings settings, String name) {
-        super(settings, name);
+    public CrystalHeartLensBlock(Settings settings) {
+        super(settings);
     }
 
     @Override
@@ -18,10 +18,5 @@ public class CrystalHeartLensBlock extends LensBlock {
         float health = playerEntity.getHealth();
         playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.HEALTH_BOOST, effectInstance.getDuration(), 4, true, true));
         playerEntity.setHealth(health);
-    }
-
-    @Override
-    public String getDescription() {
-        return "Gives additional 10 hearts to players\nin radius of beacon if placed\non top of the beacon.";
     }
 }

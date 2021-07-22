@@ -13,8 +13,8 @@ import java.util.Arrays;
 
 public class TestHeartItem extends BaseItem {
 
-    public TestHeartItem(Settings settings, String name) {
-        super(settings, name);
+    public TestHeartItem(Settings settings) {
+        super(settings);
     }
 
     @Override

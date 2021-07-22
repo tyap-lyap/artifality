@@ -24,8 +24,8 @@ public class ForestStaffItem extends BaseItem {
 
     private static final Map<Item, Block> SAPLINGS = new LinkedHashMap<>();
 
-    public ForestStaffItem(Settings settings, String name) {
-        super(settings, name);
+    public ForestStaffItem(Settings settings) {
+        super(settings);
     }
 
     @Override
@@ -90,11 +90,6 @@ public class ForestStaffItem extends BaseItem {
             ExperienceOrbEntity.spawn(world, Vec3d.ofCenter(pos), size);
         }
 
-    }
-
-    @Override
-    public String getDescription() {
-        return "Allows you to easily plant a\nsaplings and fertilize it,\ntakes the necessary items from\nthe player's inventory, and\nalso rewards with experience.";
     }
 
     static {

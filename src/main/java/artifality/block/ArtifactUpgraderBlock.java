@@ -1,9 +1,10 @@
 package artifality.block;
 
-import artifality.block.base.BaseBlock;
+import artifality.block.base.BasedBlock;
 import artifality.item.base.TierableItem;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.client.render.model.json.JsonUnbakedModel;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -14,17 +15,23 @@ import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
+import ru.bclib.client.models.BasePatterns;
+import ru.bclib.client.models.ModelsHelper;
+import ru.bclib.client.models.PatternsHelper;
 
-public class ArtifactUpgraderBlock extends BaseBlock {
+import java.util.Optional;
+
+public class ArtifactUpgraderBlock extends BasedBlock {
 
     public static final IntProperty CHARGES = Properties.CHARGES;
 
-    public ArtifactUpgraderBlock(Settings settings, String parentModel, String name) {
-        super(settings, parentModel, name);
+    public ArtifactUpgraderBlock(Settings settings) {
+        super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(CHARGES, 0));
     }
 
@@ -93,7 +100,8 @@ public class ArtifactUpgraderBlock extends BaseBlock {
     }
 
     @Override
-    public String getDescription() {
-        return "Allows you to upgrade your artifact,\nfill with 3 Incremental Blocks to\nupgrade to tier 2, or with\nNether Star for tier 3.";
+    public JsonUnbakedModel getItemModel(Identifier id) {
+        Optional<String> pattern = PatternsHelper.createJson(BasePatterns.BLOCK_BOTTOM_TOP, id);
+        return ModelsHelper.fromPattern(pattern);
     }
 }

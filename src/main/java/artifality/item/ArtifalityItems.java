@@ -5,47 +5,48 @@ import artifality.item.base.BaseItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
-
-import java.util.LinkedHashMap;
-import java.util.Map;
+import ru.bclib.registry.ItemsRegistry;
 
 @SuppressWarnings("unused")
-public class ArtifalityItems {
+public class ArtifalityItems extends ItemsRegistry {
 
-    private static final Map<Identifier, Item> ITEMS = new LinkedHashMap<>();
+    public static final Item UKULELE = add("ukulele", new UkuleleItem(settings()));
+    public static final Item ZEUS_STAFF = add("zeus_staff", new ZeusStaffItem(notStackable()));
+    public static final Item FOREST_STAFF = add("forest_staff", new ForestStaffItem(notStackable()));
+    public static final Item INVISIBILITY_CAPE = add("invisibility_cape", new InvisibilityCapeItem(notStackable()));
+    public static final Item LUNAR_KNOWLEDGE_BOOK = add("lunar_knowledge_book", new LunarKnowledgeBookItem(notStackable()));
+    public static final Item LIVING_HEART = add("living_heart", new LivingHeartItem(settings()));
+    public static final Item INCREMENTAL = add("incremental", new BaseItem(settings()));
+    public static final Item LUNAR_CRYSTAL = add("lunar_crystal", new BaseItem(settings()));
+    public static final Item CRYSTAL_HEART_SHARD = add("crystal_heart_shard", new BaseItem(settings()));
+    public static final Item BALLOON = add("balloon", new BalloonItem(notStackable()));
 
-    private static final FabricItemSettings DEFAULT = new FabricItemSettings();
-    private static final FabricItemSettings NOT_STACKABLE = new FabricItemSettings().maxCount(1);
+    private static ItemsRegistry ITEMS_REGISTRY;
 
-    public static final Item UKULELE = add("ukulele", new UkuleleItem(NOT_STACKABLE, "Ukulele"));
-    public static final Item ZEUS_STAFF = add("zeus_staff", new ZeusStaffItem(NOT_STACKABLE, "Zeus Staff"));
-    public static final Item FOREST_STAFF = add("forest_staff", new ForestStaffItem(NOT_STACKABLE, "Forest Staff"));
-    public static final Item INVISIBILITY_CAPE = add("invisibility_cape", new InvisibilityCapeItem(NOT_STACKABLE, "Invisibility Cape"));
-    public static final Item LUNAR_KNOWLEDGE_BOOK = add("lunar_knowledge_book", new LunarKnowledgeBookItem(NOT_STACKABLE, "Lunar Knowledge Book"));
-    public static final Item LIVING_HEART = add("living_heart", new LivingHeartItem(DEFAULT, "Living Heart"));
-    public static final Item INCREMENTAL = add("incremental", new BaseItem(DEFAULT, "Incremental"));
-    public static final Item LUNAR_CRYSTAL = add("lunar_crystal", new BaseItem(DEFAULT, "Lunar Crystal"));
-    public static final Item CRYSTAL_HEART_SHARD = add("crystal_heart_shard", new BaseItem(DEFAULT, "Crystal Heart Shard"));
-    public static final Item BALLOON = add("balloon", new BalloonItem(NOT_STACKABLE, "Balloon"));
-
-//    public static final Item MINI_SOMIK = add("mini_somik", new MiniSomikItem(ArtifalityBlocks.MINI_SOMIK, DEFAULT));
-
-//    public static final Item testHeartItem = add("test_heart", new TestHeartItem(DEFAULT, "Test Heart"));
-
-    private static Item add(String id, Item item) {
-        ITEMS.put(new Identifier(ArtifalityMod.MODID, id), item);
-        return item;
+    private ArtifalityItems() {
+        super(ArtifalityMod.ITEMS_ITEM_GROUP);
     }
 
-    public static void register(){
-
-        for (Identifier id : ITEMS.keySet()) {
-            Registry.register(Registry.ITEM, id, ITEMS.get(id));
-        }
+    private static Item add(String id, Item item){
+        return getItemsRegistry().register(ArtifalityMod.newId(id), item);
     }
 
-    public static Map<Identifier, Item> getItems(){
-        return ITEMS;
+    private static FabricItemSettings settings(){
+        return new FabricItemSettings().group(ArtifalityMod.ITEMS_ITEM_GROUP);
     }
+
+    private static FabricItemSettings notStackable(){
+        return new FabricItemSettings().group(ArtifalityMod.ITEMS_ITEM_GROUP).maxCount(1);
+    }
+
+    @Override
+    public Identifier createModId(String name) {
+        return ArtifalityMod.newId(name);
+    }
+
+    private static ItemsRegistry getItemsRegistry() {
+        if(ITEMS_REGISTRY == null) ITEMS_REGISTRY = new ArtifalityItems();
+        return ITEMS_REGISTRY;
+    }
+
 }

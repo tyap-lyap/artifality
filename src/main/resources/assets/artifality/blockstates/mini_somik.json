@@ -1,8 +1,0 @@
-{
-  "variants": {
-    "facing=north": { "model": "artifality:block/mini_somik" },
-    "facing=east":  { "model": "artifality:block/mini_somik", "y":  90},
-    "facing=south": { "model": "artifality:block/mini_somik", "y": 180 },
-    "facing=west":  { "model": "artifality:block/mini_somik", "y": 270 }
-  }
-}

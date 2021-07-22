@@ -1,75 +1,73 @@
 package artifality.block;
 
 import artifality.ArtifalityMod;
-import artifality.block.base.BaseBlock;
 import artifality.block.base.BaseGlassBlock;
-import artifality.block.base.CrystalBlock;
-import artifality.item.base.BaseBlockItem;
+import artifality.block.base.ClusterBlock;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.item.Item;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
-
-import java.util.LinkedHashMap;
-import java.util.Map;
+import ru.bclib.blocks.BaseBlock;
+import ru.bclib.registry.BlocksRegistry;
 
 @SuppressWarnings("unused")
-public class ArtifalityBlocks {
+public class ArtifalityBlocks extends BlocksRegistry {
 
-    private static final Map<Identifier, BaseBlockItem> ITEMS = new LinkedHashMap<>();
-    private static final Map<Identifier, Block> BLOCKS = new LinkedHashMap<>();
+    public static final Block INCREMENTAL_CLUSTER = addCluster("incremental_cluster");
+    public static final Block INCREMENTAL_BLOCK = addLitBlock("incremental_block");
+    public static final Block INCREMENTAL_GLASS = addGlass("incremental_glass");
+    public static final Block INCREMENTAL_LENS = addLens("incremental_lens");
 
-    public static final Block INCREMENTAL_CLUSTER = add("incremental_cluster", new CrystalBlock(FabricBlockSettings.copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.AMETHYST_CLUSTER).luminance(value -> 10), "Incremental Cluster"));
-    public static final Block INCREMENTAL_BLOCK = add("incremental_block", new BaseBlock(FabricBlockSettings.copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(value -> 15), "cube_all", "Incremental Block"));
-    public static final Block INCREMENTAL_GLASS = add("incremental_glass", new BaseGlassBlock(FabricBlockSettings.copyOf(Blocks.GLASS).sounds(BlockSoundGroup.GLASS).nonOpaque(), "cube_all", "Incremental Glass"));
-    public static final Block INCREMENTAL_LENS = add("incremental_lens", new IncrementalLensBlock(FabricBlockSettings.copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.NETHERITE).nonOpaque(), "Incremental Lens"));
+    public static final Block LUNAR_CRYSTAL_CLUSTER = addCluster("lunar_crystal_cluster");
+    public static final Block LUNAR_CRYSTAL_BLOCK = addLitBlock("lunar_crystal_block");
+    public static final Block LUNAR_CRYSTAL_GLASS = addGlass("lunar_crystal_glass");
+    public static final Block LUNAR_CRYSTAL_LENS = addLens("lunar_crystal_lens");
 
-    public static final Block LUNAR_CRYSTAL_CLUSTER = add("lunar_crystal_cluster", new CrystalBlock(FabricBlockSettings.copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.AMETHYST_CLUSTER).luminance(value -> 10), "Lunar Crystal Cluster"));
-    public static final Block LUNAR_CRYSTAL_BLOCK = add("lunar_crystal_block", new BaseBlock(FabricBlockSettings.copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(value -> 15), "Lunar Crystal Block"));
-    public static final Block LUNAR_CRYSTAL_GLASS = add("lunar_crystal_glass", new BaseGlassBlock(FabricBlockSettings.copyOf(Blocks.GLASS).sounds(BlockSoundGroup.GLASS).nonOpaque(), "Lunar Crystal Glass"));
-    public static final Block LUNAR_CRYSTAL_LENS = add("lunar_crystal_lens", new LunarCrystalLensBlock(FabricBlockSettings.copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.NETHERITE).nonOpaque(), "Lunar Crystal Lens"));
+    public static final Block CRYSTAL_HEART_CLUSTER = addCluster("crystal_heart_cluster");
+    public static final Block CRYSTAL_HEART_BLOCK = addLitBlock("crystal_heart_block");
+    public static final Block CRYSTAL_HEART_GLASS = addGlass("crystal_heart_glass");
+    public static final Block CRYSTAL_HEART_LENS = addLens("crystal_heart_lens");
 
-    public static final Block CRYSTAL_HEART_CLUSTER = add("crystal_heart_cluster", new CrystalBlock(FabricBlockSettings.copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.AMETHYST_CLUSTER).luminance(value -> 10), "Crystal Heart Cluster"));
-    public static final Block CRYSTAL_HEART_BLOCK = add("crystal_heart_block", new BaseBlock(FabricBlockSettings.copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(value -> 15), "Crystal Heart Block"));
-    public static final Block CRYSTAL_HEART_GLASS = add("crystal_heart_glass", new BaseGlassBlock(FabricBlockSettings.copyOf(Blocks.GLASS).sounds(BlockSoundGroup.GLASS).nonOpaque(), "Crystal Heart Glass"));
-    public static final Block CRYSTAL_HEART_LENS = add("crystal_heart_lens", new CrystalHeartLensBlock(FabricBlockSettings.copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.NETHERITE).nonOpaque(), "Crystal Heart Lens"));
+    public static final Block ARTIFACT_UPGRADER = add("artifact_upgrader", new ArtifactUpgraderBlock(copyOf(Blocks.COBBLESTONE)));
 
-    public static final Block ARTIFACT_UPGRADER = add("artifact_upgrader", new ArtifactUpgraderBlock(FabricBlockSettings.copyOf(Blocks.COBBLESTONE), "cube_bottom_top", "Artifact Upgrader"));
+    private static BlocksRegistry BLOCKS_REGISTRY;
 
-//    public static final Block MINI_SOMIK = addBlock("mini_somik", new MiniSomikBlock(FabricBlockSettings.copyOf(Blocks.BLACK_WOOL), "Mini Somik"));
-
-    private static Block add(String name, Block block) {
-        Item.Settings settings = new Item.Settings();
-        settings.group(ArtifalityMod.ITEMS);
-        return addBlockItem(name, block, new BaseBlockItem(block, settings));
+    private ArtifalityBlocks() {
+        super(ArtifalityMod.ITEMS_ITEM_GROUP);
     }
 
-    private static Block addBlockItem(String name, Block block, BaseBlockItem item) {
-        addBlock(name, block);
-        item.appendBlocks(Item.BLOCK_ITEMS, item);
-        ITEMS.put(new Identifier(ArtifalityMod.MODID, name), item);
-        return block;
+    private static Block addCluster(String name){
+        return add(name, new ClusterBlock(copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.AMETHYST_CLUSTER).luminance(value -> 10)));
     }
 
-    private static Block addBlock(String name, Block block) {
-        BLOCKS.put(new Identifier(ArtifalityMod.MODID, name), block);
-        return block;
+    private static Block addGlass(String name){
+        return add(name, new BaseGlassBlock(copyOf(Blocks.GLASS).sounds(BlockSoundGroup.GLASS).nonOpaque()));
     }
 
-    public static void register() {
-
-        for (Identifier id : ITEMS.keySet()) {
-            Registry.register(Registry.ITEM, id, ITEMS.get(id));
-        }
-        for (Identifier id : BLOCKS.keySet()) {
-            Registry.register(Registry.BLOCK, id, BLOCKS.get(id));
-        }
+    private static Block addLitBlock(String name){
+        return add(name, new BaseBlock(copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(value -> 15)));
     }
 
-    public static Map<Identifier, Block> getBlocks() {
-        return BLOCKS;
+    private static Block addLens(String name){
+        return add(name, new IncrementalLensBlock(copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.NETHERITE).nonOpaque()));
+    }
+
+    private static Block add(String id, Block block){
+        return getBlocksRegistry().register(ArtifalityMod.newId(id), block);
+    }
+
+    private static FabricBlockSettings copyOf(Block block){
+        return FabricBlockSettings.copyOf(block);
+    }
+
+    @Override
+    public Identifier createModId(String name) {
+        return ArtifalityMod.newId(name);
+    }
+
+    private static BlocksRegistry getBlocksRegistry() {
+        if(BLOCKS_REGISTRY == null) BLOCKS_REGISTRY = new ArtifalityBlocks();
+        return BLOCKS_REGISTRY;
     }
 }

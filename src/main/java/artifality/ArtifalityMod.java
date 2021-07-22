@@ -17,29 +17,30 @@ import net.minecraft.util.Identifier;
 @SuppressWarnings("unused")
 public class ArtifalityMod implements ModInitializer {
 
-    public static final String MODID = "artifality";
+    public static final String MOD_ID = "artifality";
+
+    public static final ItemGroup ITEMS_ITEM_GROUP = FabricItemGroupBuilder
+            .create(newId("items"))
+            .appendItems(itemStacks -> {
+                ArtifalityItems.getRegisteredItems().forEach((s, items) -> items.forEach(item -> itemStacks.add(item.getDefaultStack())));
+                ArtifalityBlocks.getRegisteredBlocks().forEach((s, items) -> items.forEach(item -> itemStacks.add(item.getDefaultStack())));
+
+                ArtifalityEnchantments.getEnchantments().forEach((id, enchantment) -> {
+                    ItemStack book = new ItemStack(Items.ENCHANTED_BOOK);
+                    EnchantedBookItem.addEnchantment(book, new EnchantmentLevelEntry(enchantment, enchantment.getMaxLevel()));
+                    itemStacks.add(book);
+                });
+            })
+            .icon(ArtifalityItems.UKULELE::getDefaultStack).build();
 
     @Override
     public void onInitialize() {
-//        ArtifalityPotions.register();
-//        ArtifalityEffects.register();
-        ArtifalityItems.register();
-        ArtifalityBlocks.register();
         ArtifalityEnchantments.register();
         ArtifalityLootTables.register();
         ArtifalityConfiguredFeatures.register();
     }
 
-    public static final ItemGroup ITEMS = FabricItemGroupBuilder.create(new Identifier(MODID, "items")).appendItems((itemStacks) -> {
-        ArtifalityItems.getItems().forEach(((id, item) -> itemStacks.add(item.getDefaultStack())));
-
-        ArtifalityBlocks.getBlocks().forEach((id, block) -> itemStacks.add(block.asItem().getDefaultStack()));
-
-        ArtifalityEnchantments.getEnchantments().forEach(((id, enchantment) -> {
-            ItemStack book = new ItemStack(Items.ENCHANTED_BOOK);
-            EnchantedBookItem.addEnchantment(book, new EnchantmentLevelEntry(enchantment, enchantment.getMaxLevel()));
-            itemStacks.add(book);
-        }));
-
-    }).icon(ArtifalityItems.UKULELE::getDefaultStack).build();
+    public static Identifier newId(String path){
+        return new Identifier(MOD_ID, path);
+    }
 }

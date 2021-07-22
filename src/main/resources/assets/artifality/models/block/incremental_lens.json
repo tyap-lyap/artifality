@@ -1,7 +1,0 @@
-{
-  "parent": "artifality:block/lens",
-  "textures": {
-    "top": "artifality:block/incremental_lens_top",
-    "side": "artifality:block/incremental_lens_side"
-  }
-}

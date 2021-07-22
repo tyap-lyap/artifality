@@ -15,8 +15,8 @@ import java.util.Objects;
 
 public class LivingHeartItem extends BaseItem {
 
-    public LivingHeartItem(Settings settings, String name) {
-        super(settings, name);
+    public LivingHeartItem(Settings settings) {
+        super(settings);
     }
 
     @Override
@@ -35,10 +35,5 @@ public class LivingHeartItem extends BaseItem {
     @Override
     public boolean hasGlint(ItemStack stack) {
         return true;
-    }
-
-    @Override
-    public String getDescription() {
-        return "When used, gives additional heart,\nresets after death.";
     }
 }

@@ -17,8 +17,8 @@ import net.minecraft.world.World;
 
 public class ZeusStaffItem extends TierableItem {
 
-    public ZeusStaffItem(Settings settings, String name) {
-        super(settings, name);
+    public ZeusStaffItem(Settings settings) {
+        super(settings);
     }
 
     @Override
@@ -46,11 +46,6 @@ public class ZeusStaffItem extends TierableItem {
             }
         }
         return TypedActionResult.pass(user.getStackInHand(hand));
-    }
-
-    @Override
-    public String getDescription() {
-        return "Summons lightning at the target point,\nalso neutralizes lightning damage\nwhile in the main hand.";
     }
 
     public static void createLighting(World world, BlockPos blockPos, LightningEntity lightningEntity){

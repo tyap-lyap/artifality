@@ -7,17 +7,16 @@ sourceCompatibility = JavaVersion.VERSION_16
 targetCompatibility = JavaVersion.VERSION_16
 
 archivesBaseName = project.archives_base_name
-version = "mc" + project.minecraft_version + "-" + project.mod_version + "-" + project.release_type
+version = "mc" + project.minecraft_version + "-" + project.mod_version + "-" + project.mod_status
 group = project.maven_group
 
 repositories {
 	maven { url "https://maven.shedaniel.me" } //rei
 	maven { url "https://maven.gegy.dev" } //databreaker
 	maven { url "https://ladysnake.jfrog.io/artifactory/mods" } //CCA
-//	maven { url "https://maven.terraformersmc.com" } //modmenu, trinkets
-	maven { url "https://storage.googleapis.com/devan-maven" } //arrp
-	maven { url "https://maven.quiltmc.org/repository/release" } //modmenu
+	maven { url "https://maven.terraformersmc.com" } //modmenu
 	maven { url "https://api.modrinth.com/maven" } //trinkets
+	maven { url "https://jitpack.io" } //bclib
 }
 
 dependencies {
@@ -28,14 +27,13 @@ dependencies {
 
 //	modImplementation "dev.emi:trinkets:${trinkets_version}"
 	modImplementation "maven.modrinth:trinkets:${trinkets_version}"
+	modImplementation "com.github.paulevsGitch:BCLib:${bclib_version}"
 
 	modImplementation "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-base:3.0.1"
 	modImplementation "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-entity:3.0.1"
-
-	modImplementation "net.devtech:arrp:0.4.3"
 	
 //	modRuntime "me.shedaniel:RoughlyEnoughItems-fabric:6.0.264-alpha"
-	modRuntime "com.terraformersmc:modmenu:v2.0.2+1.17.2035ad2"
+	modRuntime "com.terraformersmc:modmenu:2.0.3"
 	modRuntime "supercoder79:databreaker:0.2.7"
 	modRuntime "com.ptsmods:devlogin:1.2"
 }

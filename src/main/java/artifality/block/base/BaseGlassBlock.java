@@ -1,33 +1,25 @@
 package artifality.block.base;
 
-import artifality.interfaces.ModelProvider;
-import artifality.interfaces.Translatable;
-import net.minecraft.block.GlassBlock;
+import net.minecraft.client.render.model.json.JsonUnbakedModel;
+import net.minecraft.util.Identifier;
+import ru.bclib.blocks.BaseBlock;
+import ru.bclib.client.models.BlockModelProvider;
+import ru.bclib.client.render.BCLRenderLayer;
+import ru.bclib.interfaces.IRenderTyped;
 
-public class BaseGlassBlock extends GlassBlock implements ModelProvider, Translatable {
+public class BaseGlassBlock extends BaseBlock implements BlockModelProvider, IRenderTyped {
 
-    private final String parentModel;
-    private final String name;
-
-    public BaseGlassBlock(Settings settings, String parentModel, String name) {
+    public BaseGlassBlock(Settings settings) {
         super(settings);
-        this.parentModel = parentModel;
-        this.name = name;
-    }
-
-    public BaseGlassBlock(Settings settings, String name) {
-        super(settings);
-        this.parentModel = "cube_all";
-        this.name = name;
     }
 
     @Override
-    public String getParentModel() {
-        return parentModel;
+    public JsonUnbakedModel getItemModel(Identifier blockId) {
+        return getBlockModel(blockId, getDefaultState());
     }
 
     @Override
-    public String getOriginName() {
-        return name;
+    public BCLRenderLayer getRenderLayer() {
+        return BCLRenderLayer.TRANSLUCENT;
     }
 }

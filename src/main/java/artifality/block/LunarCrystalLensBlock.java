@@ -7,8 +7,8 @@ import net.minecraft.entity.player.PlayerEntity;
 
 public class LunarCrystalLensBlock extends LensBlock {
 
-    public LunarCrystalLensBlock(Settings settings, String name) {
-        super(settings, name);
+    public LunarCrystalLensBlock(Settings settings) {
+        super(settings);
     }
 
     @Override
@@ -16,10 +16,5 @@ public class LunarCrystalLensBlock extends LensBlock {
         super.applyLensEffect(effectInstance, playerEntity);
 
         playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, effectInstance.getDuration(), 0, true, true));
-    }
-
-    @Override
-    public String getDescription() {
-        return "Gives glowing effect to players\nin radius of beacon if placed\non top of the beacon.";
     }
 }

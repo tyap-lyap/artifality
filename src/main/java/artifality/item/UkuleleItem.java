@@ -41,8 +41,8 @@ public class UkuleleItem extends TierableItem implements Trinket, TrinketRendere
             StatusEffects.MINING_FATIGUE, StatusEffects.SLOWNESS, StatusEffects.POISON,
             StatusEffects.WEAKNESS, StatusEffects.WITHER));
 
-    public UkuleleItem(Settings settings, String name) {
-        super(settings, name);
+    public UkuleleItem(Settings settings) {
+        super(settings);
     }
 
     @Override
@@ -73,11 +73,6 @@ public class UkuleleItem extends TierableItem implements Trinket, TrinketRendere
 
         areaEffectCloudEntity.addEffect(new StatusEffectInstance(statusEffect, durationInSec * 20, amplifier));
         world.spawnEntity(areaEffectCloudEntity);
-    }
-
-    @Override
-    public String getDescription() {
-        return "When used, creates a cloud with\na random positive effect under the\nplayer, and if equipped on the\nback, creates a cloud with a random\nnegative effect under the attacker.\nCooldown: 20 sec";
     }
 
     @SuppressWarnings("unchecked")

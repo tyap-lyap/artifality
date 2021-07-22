@@ -11,12 +11,8 @@ import net.minecraft.util.Formatting;
 
 public class TierableItem extends BaseItem {
 
-    public TierableItem(Settings settings, String name) {
-        super(settings, name);
-    }
-
-    public TierableItem(Settings settings, String parentModel, String name) {
-        super(settings, parentModel, name);
+    public TierableItem(Settings settings) {
+        super(settings);
     }
 
     public static int getCurrentTier(ItemStack stack){

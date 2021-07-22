@@ -25,7 +25,7 @@ public class ArtifalityPotions {
 
 
     private static Potion add(String id, Potion potion) {
-        POTIONS.put(new Identifier(ArtifalityMod.MODID, id), potion);
+        POTIONS.put(ArtifalityMod.newId(id), potion);
         return potion;
     }
 

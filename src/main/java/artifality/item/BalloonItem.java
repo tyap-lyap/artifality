@@ -20,8 +20,8 @@ import net.minecraft.util.math.Vec3f;
 
 public class BalloonItem extends BaseItem implements Trinket, TrinketRenderer {
 
-    public BalloonItem(Settings settings, String name) {
-        super(settings, name);
+    public BalloonItem(Settings settings) {
+        super(settings);
     }
 
     public static boolean hasBalloonOnHead(PlayerEntity entity){
@@ -29,11 +29,6 @@ public class BalloonItem extends BaseItem implements Trinket, TrinketRenderer {
             if(itemStack.getItem() instanceof BalloonItem)return true;
         }
         return false;
-    }
-
-    @Override
-    public String getDescription() {
-        return "When in hand increases jump\nheight and while sneaking\ngives slow falling effect.";
     }
 
     @Override

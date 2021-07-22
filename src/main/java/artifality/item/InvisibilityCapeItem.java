@@ -9,8 +9,8 @@ import net.minecraft.item.ItemStack;
 
 public class InvisibilityCapeItem extends BaseTrinketItem {
 
-    public InvisibilityCapeItem(Settings settings, String name) {
-        super(settings, name);
+    public InvisibilityCapeItem(Settings settings) {
+        super(settings);
     }
 
     @Override
@@ -24,11 +24,5 @@ public class InvisibilityCapeItem extends BaseTrinketItem {
                 }
             }
         }
-    }
-
-    @Override
-    public String getDescription()
-    {
-        return "Makes the wearer invisible\nwhile sneaking, also\nhides the worn armor.";
     }
 }

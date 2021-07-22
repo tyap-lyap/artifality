@@ -1,6 +1,5 @@
 package artifality.enchantment;
 
-import artifality.interfaces.Translatable;
 import net.minecraft.enchantment.DamageEnchantment;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
@@ -11,7 +10,7 @@ import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 
-public class LunarDamageEnchantment extends Enchantment implements Translatable {
+public class LunarDamageEnchantment extends Enchantment {
 
     public LunarDamageEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
@@ -47,15 +46,5 @@ public class LunarDamageEnchantment extends Enchantment implements Translatable 
         }
 
         return mutableText;
-    }
-
-    @Override
-    public String getOriginName() {
-        return "Lunar Damage";
-    }
-
-    @Override
-    public String getDescription() {
-        return "Increases melee damage by\ndecreasing attack speed.";
     }
 }

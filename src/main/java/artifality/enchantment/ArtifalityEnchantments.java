@@ -19,7 +19,7 @@ public class ArtifalityEnchantments {
     public static final Enchantment LUNAR_DAMAGE = add("lunar_damage", new LunarDamageEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON, new EquipmentSlot[]{EquipmentSlot.MAINHAND}));
 
     private static Enchantment add(String id, Enchantment enchantment) {
-        ENCHANTMENTS.put(new Identifier(ArtifalityMod.MODID, id), enchantment);
+        ENCHANTMENTS.put(ArtifalityMod.newId(id), enchantment);
         return enchantment;
     }
 
@@ -28,7 +28,6 @@ public class ArtifalityEnchantments {
         for (Identifier id : ENCHANTMENTS.keySet()) {
             Registry.register(Registry.ENCHANTMENT, id, ENCHANTMENTS.get(id));
         }
-
     }
 
     public static Map<Identifier, Enchantment> getEnchantments(){

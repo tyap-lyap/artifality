@@ -15,8 +15,8 @@ import net.minecraft.world.World;
 
 public class LunarKnowledgeBookItem extends BaseItem {
 
-    public LunarKnowledgeBookItem(Settings settings, String name) {
-        super(settings, name);
+    public LunarKnowledgeBookItem(Settings settings) {
+        super(settings);
     }
 
     @Override
@@ -37,10 +37,5 @@ public class LunarKnowledgeBookItem extends BaseItem {
     @Override
     public boolean hasGlint(ItemStack stack) {
         return true;
-    }
-
-    @Override
-    public String getDescription() {
-        return "Gives random Lunar Enchantment.";
     }
 }

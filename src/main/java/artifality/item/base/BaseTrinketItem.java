@@ -13,8 +13,8 @@ import net.minecraft.world.event.GameEvent;
 // This hackiness is due to how the structure of the mod is already done
 public class BaseTrinketItem extends BaseItem implements Trinket {
 
-    public BaseTrinketItem(Settings settings, String name) {
-        super(settings, name);
+    public BaseTrinketItem(Settings settings) {
+        super(settings);
         TrinketsApi.registerTrinket(this, this);
     }
 

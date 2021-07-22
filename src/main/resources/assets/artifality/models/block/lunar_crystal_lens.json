@@ -1,7 +1,0 @@
-{
-  "parent": "artifality:block/lens",
-  "textures": {
-    "top": "artifality:block/lunar_crystal_lens_top",
-    "side": "artifality:block/lunar_crystal_lens_side"
-  }
-}
