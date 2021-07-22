@@ -9,4 +9,4 @@ Artifality is a mod that adds new items, blocks, potions, and enchantments to yo
 
 ## Links
 
-* [Wiki](https://github.com/PinkGoosik/artifality/wiki) [Discord](https://discord.gg/DcemWeskeZ) [Modrinth](https://modrinth.com/mod/artifality) [CurseForge](https://curseforge.com/minecraft/mc-mods/artifality)
+* [Wiki](https://github.com/PinkGoosik/artifality/wiki), [Discord](https://discord.gg/DcemWeskeZ), [Modrinth](https://modrinth.com/mod/artifality), [CurseForge](https://curseforge.com/minecraft/mc-mods/artifality).
