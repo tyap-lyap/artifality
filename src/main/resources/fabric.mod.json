@@ -46,8 +46,9 @@
     "fabricloader": ">=0.11.3",
     "fabric": "*",
     "minecraft": "1.17.x",
-	"java": ">=16",
-    "trinkets": "*"
+    "java": ">=16",
+    "trinkets": ">=3.0.0",
+    "bclib": ">=0.2.4"
   },
   "suggests": {
     "colored_lights": "*"
