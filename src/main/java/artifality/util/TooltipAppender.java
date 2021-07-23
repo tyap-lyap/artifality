@@ -35,7 +35,6 @@ public class TooltipAppender {
     }
 
     private static boolean hasDescription(ItemStack stack){
-
         return Language.getInstance().hasTranslation(stack.getTranslationKey() + ".description");
     }
 
@@ -49,8 +48,8 @@ public class TooltipAppender {
     }
 
     private static void appendTier(ItemStack stack, List<Text> tooltip){
-
         LiteralText tierString = new LiteralText(ofKey("tier") + " " + TierableItem.getCurrentTier(stack));
+
         switch (TierableItem.getCurrentTier(stack)) {
             default -> tooltip.add(tierString);
             case 2 -> tooltip.add(tierString.formatted(Formatting.GREEN));
@@ -59,7 +58,6 @@ public class TooltipAppender {
     }
 
     private static void appendItemDescription(ItemStack stack, List<Text> tooltip){
-
         String description = Language.getInstance().get(stack.getItem().getTranslationKey() + ".description");
 
         tooltip.add(new LiteralText(""));
@@ -71,7 +69,6 @@ public class TooltipAppender {
     }
 
     private static void appendEnchantmentDesc(ItemStack stack, List<Text> tooltip){
-
         NbtList enchantments = EnchantedBookItem.getEnchantmentNbt(stack);
 
         for(int i = 0; i < enchantments.size(); ++i) {

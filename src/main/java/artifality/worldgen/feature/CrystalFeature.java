@@ -1,13 +1,18 @@
 package artifality.worldgen.feature;
 
+import artifality.ArtifalityMod;
 import artifality.block.ArtifalityBlocks;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.state.property.Properties;
+import net.minecraft.tag.BlockTags;
+import net.minecraft.tag.Tag;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.util.FeatureContext;
+import ru.bclib.api.TagAPI;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,6 +23,8 @@ public class CrystalFeature extends Feature<DefaultFeatureConfig> {
             ArtifalityBlocks.INCREMENTAL_CLUSTER.getDefaultState(),
             ArtifalityBlocks.LUNAR_CRYSTAL_CLUSTER.getDefaultState(),
             ArtifalityBlocks.CRYSTAL_HEART_CLUSTER.getDefaultState()));
+
+    public static final Tag.Identified<Block> BLACKLISTED_STONE = TagAPI.makeBlockTag(ArtifalityMod.MOD_ID, "blacklisted_stone");
 
     public CrystalFeature() {
         super(DefaultFeatureConfig.CODEC);
@@ -35,32 +42,36 @@ public class CrystalFeature extends Feature<DefaultFeatureConfig> {
             BlockPos spawnPos = new BlockPos(x, y, z);
             if(context.getWorld().isAir(spawnPos)){
 
-                if (isStone(context.getWorld().getBlockState(spawnPos.down()))) {
+                if (isOverworldStone(context.getWorld().getBlockState(spawnPos.down()))) {
                     setBlockState(context.getWorld(), spawnPos, crystal);
                     generated = true;
 
-                }else if(isStone(context.getWorld().getBlockState(spawnPos.add(0, 0, -1)))){
+                }else if(isOverworldStone(context.getWorld().getBlockState(spawnPos.add(0, 0, -1)))){
                     setBlockState(context.getWorld(), spawnPos, crystal.with(Properties.FACING, Direction.SOUTH));
                     generated = true;
 
-                }else if(isStone(context.getWorld().getBlockState(spawnPos.add(0, 0, 1)))){
+                }else if(isOverworldStone(context.getWorld().getBlockState(spawnPos.add(0, 0, 1)))){
                     setBlockState(context.getWorld(), spawnPos, crystal.with(Properties.FACING, Direction.NORTH));
                     generated = true;
 
-                }else if(isStone(context.getWorld().getBlockState(spawnPos.add(-1, 0, 0)))){
+                }else if(isOverworldStone(context.getWorld().getBlockState(spawnPos.add(-1, 0, 0)))){
                     setBlockState(context.getWorld(), spawnPos, crystal.with(Properties.FACING, Direction.EAST));
                     generated = true;
 
-                }else if(isStone(context.getWorld().getBlockState(spawnPos.add(1, 0, 0)))){
+                }else if(isOverworldStone(context.getWorld().getBlockState(spawnPos.add(1, 0, 0)))){
                     setBlockState(context.getWorld(), spawnPos, crystal.with(Properties.FACING, Direction.WEST));
                     generated = true;
 
-                }else if(isStone(context.getWorld().getBlockState(spawnPos.up()))){
+                }else if(isOverworldStone(context.getWorld().getBlockState(spawnPos.up()))){
                     setBlockState(context.getWorld(), spawnPos, crystal.with(Properties.FACING, Direction.DOWN));
                     generated = true;
                 }
             }
         }
         return generated;
+    }
+
+    public static boolean isOverworldStone(BlockState blockState){
+        return blockState.isIn(BlockTags.BASE_STONE_OVERWORLD) && !blockState.isIn(BLACKLISTED_STONE);
     }
 }
