@@ -1,5 +1,8 @@
 <div align="center">
-<img alt="Icon" src="src/main/resources/assets/artifality/icon.png" width="128"> 
+<img alt="Icon" src="src/main/resources/assets/artifality/icon.png" width="128">
+  
+[![img](http://cf.way2muchnoise.eu/full_artifality_downloads.svg)](https://curseforge.com/minecraft/mc-mods/artifality)
+[![img](http://cf.way2muchnoise.eu/versions/artifality_latest.svg)](https://curseforge.com/minecraft/mc-mods/artifality)
 
 # Artifality
 </div>
