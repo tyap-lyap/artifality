@@ -1,6 +1,6 @@
 package artifality.item;
 
-import artifality.interfaces.ISpecialHeartsManager;
+import artifality.interfaces.PlayerEntityExtensions;
 import artifality.item.base.BaseItem;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -21,7 +21,7 @@ public class TestHeartItem extends BaseItem {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if(world.isClient) return TypedActionResult.pass(user.getStackInHand(hand));
 
-        if(user instanceof ISpecialHeartsManager manager){
+        if(user instanceof PlayerEntityExtensions manager){
             var heartsManager = manager.getSpecialHeartsManager();
 
             if(heartsManager.hasEmptySlot()){

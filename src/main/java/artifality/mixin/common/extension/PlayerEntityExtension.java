@@ -1,12 +1,12 @@
 package artifality.mixin.common.extension;
 
 import artifality.entity.player.SpecialHeartsManager;
-import artifality.interfaces.ISpecialHeartsManager;
+import artifality.interfaces.PlayerEntityExtensions;
 import net.minecraft.entity.player.PlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(PlayerEntity.class)
-public class PlayerEntityExtension implements ISpecialHeartsManager {
+public class PlayerEntityExtension implements artifality.interfaces.PlayerEntityExtensions {
 
     private SpecialHeartsManager specialHeartsManager = new SpecialHeartsManager();
 

@@ -1,6 +1,6 @@
 package artifality.item;
 
-import artifality.interfaces.ILightningEntity;
+import artifality.interfaces.LightningEntityExtensions;
 import artifality.item.base.TierableItem;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LightningEntity;
@@ -49,8 +49,8 @@ public class ZeusStaffItem extends TierableItem {
     }
 
     public static void createLighting(World world, BlockPos blockPos, LightningEntity lightningEntity){
-        if (lightningEntity instanceof ILightningEntity){
-            ((ILightningEntity) lightningEntity).setNoFire();
+        if (lightningEntity instanceof LightningEntityExtensions){
+            ((LightningEntityExtensions) lightningEntity).setNoFire();
         }
         lightningEntity.updatePosition(blockPos.getX() + 0.5D, blockPos.getY(), blockPos.getZ() + 0.5D);
         world.spawnEntity(lightningEntity);

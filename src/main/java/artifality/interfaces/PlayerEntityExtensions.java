@@ -2,7 +2,7 @@ package artifality.interfaces;
 
 import artifality.entity.player.SpecialHeartsManager;
 
-public interface ISpecialHeartsManager {
+public interface PlayerEntityExtensions {
 
     SpecialHeartsManager getSpecialHeartsManager();
 
