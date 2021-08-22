@@ -26,11 +26,11 @@ import ru.bclib.client.models.BasePatterns;
 import ru.bclib.client.models.ModelsHelper;
 import ru.bclib.client.models.PatternsHelper;
 import ru.bclib.client.render.BCLRenderLayer;
-import ru.bclib.interfaces.IRenderTyped;
+import ru.bclib.interfaces.RenderLayerProvider;
 
 import java.util.*;
 
-public class ClusterBlock extends BaseAttachedBlock implements IRenderTyped {
+public class ClusterBlock extends BaseAttachedBlock implements RenderLayerProvider {
 
     protected static final VoxelShape NORTH_SHAPE = createCuboidShape(3, 3, 9, 13, 13, 16);
     protected static final VoxelShape SOUTH_SHAPE = createCuboidShape(3, 3, 0, 13, 13, 7);

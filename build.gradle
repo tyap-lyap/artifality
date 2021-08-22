@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '0.9.9'
+	id 'fabric-loom' version '0.9-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -11,12 +11,12 @@ version = "mc" + project.minecraft_version + "-" + project.mod_version + "-" + p
 group = project.maven_group
 
 repositories {
+	maven { url "https://jitpack.io" } //bclib
 	maven { url "https://maven.shedaniel.me" } //rei
 	maven { url "https://maven.gegy.dev" } //databreaker
 	maven { url "https://ladysnake.jfrog.io/artifactory/mods" } //CCA
 	maven { url "https://maven.terraformersmc.com" } //modmenu
 	maven { url "https://api.modrinth.com/maven" } //trinkets
-	maven { url "https://jitpack.io" } //bclib
 }
 
 dependencies {
@@ -26,8 +26,8 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 //	modImplementation "dev.emi:trinkets:${trinkets_version}"
-	modImplementation "maven.modrinth:trinkets:${trinkets_version}"
-	modImplementation "com.github.paulevsGitch:BCLib:${bclib_version}"
+	modImplementation "maven.modrinth:trinkets:${project.trinkets_version}"
+	modImplementation "com.github.paulevsGitch:BCLib:${project.bclib_version}"
 
 	modImplementation "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-base:3.0.1"
 	modImplementation "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-entity:3.0.1"

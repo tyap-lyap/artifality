@@ -14,13 +14,13 @@ import org.jetbrains.annotations.Nullable;
 import ru.bclib.client.models.ModelsHelper;
 import ru.bclib.client.models.PatternsHelper;
 import ru.bclib.client.render.BCLRenderLayer;
-import ru.bclib.interfaces.IRenderTyped;
+import ru.bclib.interfaces.RenderLayerProvider;
 
 import java.util.Optional;
 
-public class LensBlock extends BasedBlock implements IRenderTyped {
+public class LensBlock extends BasedBlock implements RenderLayerProvider {
 
-    public final static Identifier LENS = ArtifalityMod.newId("patterns/block/lens.json");
+    public final static Identifier LENS_PATTERN = ArtifalityMod.newId("patterns/block/lens.json");
 
     private static final VoxelShape SHAPE = createCuboidShape(0, 0, 0, 16, 8, 16);
 
@@ -43,7 +43,7 @@ public class LensBlock extends BasedBlock implements IRenderTyped {
 
     @Override
     public @Nullable JsonUnbakedModel getBlockModel(Identifier id, BlockState blockState) {
-        Optional<String> pattern = PatternsHelper.createJson(LENS, id);
+        Optional<String> pattern = PatternsHelper.createJson(LENS_PATTERN, id);
         return ModelsHelper.fromPattern(pattern);
     }
 }

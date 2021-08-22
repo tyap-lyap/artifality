@@ -1,18 +1,16 @@
 package artifality.worldgen.feature;
 
-import artifality.ArtifalityMod;
 import artifality.block.ArtifalityBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.state.property.Properties;
-import net.minecraft.tag.BlockTags;
-import net.minecraft.tag.Tag;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.util.FeatureContext;
-import ru.bclib.api.TagAPI;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,8 +21,6 @@ public class CrystalFeature extends Feature<DefaultFeatureConfig> {
             ArtifalityBlocks.INCREMENTAL_CLUSTER.getDefaultState(),
             ArtifalityBlocks.LUNAR_CRYSTAL_CLUSTER.getDefaultState(),
             ArtifalityBlocks.CRYSTAL_HEART_CLUSTER.getDefaultState()));
-
-    public static final Tag.Identified<Block> BLACKLISTED_STONE = TagAPI.makeBlockTag(ArtifalityMod.MOD_ID, "blacklisted_stone");
 
     public CrystalFeature() {
         super(DefaultFeatureConfig.CODEC);
@@ -72,6 +68,10 @@ public class CrystalFeature extends Feature<DefaultFeatureConfig> {
     }
 
     public static boolean isOverworldStone(BlockState blockState){
-        return blockState.isIn(BlockTags.BASE_STONE_OVERWORLD) && !blockState.isIn(BLACKLISTED_STONE);
+        if(Registry.BLOCK.containsId(new Identifier("the_aether:holy_stone"))){
+            Block holyStone = Registry.BLOCK.get(new Identifier("the_aether:holy_stone"));
+            if(blockState.getBlock().equals(holyStone)) return false;
+        }
+        return isStone(blockState);
     }
 }

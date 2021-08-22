@@ -13,6 +13,7 @@
     "common.extension.LightningEntityExtension"
   ],
   "client": [
+    "client.TrinketFeatureRendererMixin",
     "client.ArmorFeatureRendererMixin",
     "client.EnchantedBookItemMixin",
     "client.ItemRendererMixin",

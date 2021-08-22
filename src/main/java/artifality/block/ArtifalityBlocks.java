@@ -9,10 +9,10 @@ import net.minecraft.block.Blocks;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import ru.bclib.blocks.BaseBlock;
-import ru.bclib.registry.BlocksRegistry;
+import ru.bclib.registry.BlockRegistry;
 
 @SuppressWarnings("unused")
-public class ArtifalityBlocks extends BlocksRegistry {
+public class ArtifalityBlocks extends BlockRegistry {
 
     public static final Block INCREMENTAL_CLUSTER = addCluster("incremental_cluster");
     public static final Block INCREMENTAL_BLOCK = addLitBlock("incremental_block");
@@ -31,7 +31,7 @@ public class ArtifalityBlocks extends BlocksRegistry {
 
     public static final Block ARTIFACT_UPGRADER = add("artifact_upgrader", new ArtifactUpgraderBlock(copyOf(Blocks.COBBLESTONE)));
 
-    private static BlocksRegistry BLOCKS_REGISTRY;
+    private static BlockRegistry BLOCKS_REGISTRY;
 
     private ArtifalityBlocks() {
         super(ArtifalityMod.ITEMS_ITEM_GROUP);
@@ -66,7 +66,7 @@ public class ArtifalityBlocks extends BlocksRegistry {
         return ArtifalityMod.newId(name);
     }
 
-    private static BlocksRegistry getBlocksRegistry() {
+    private static BlockRegistry getBlocksRegistry() {
         if(BLOCKS_REGISTRY == null) BLOCKS_REGISTRY = new ArtifalityBlocks();
         return BLOCKS_REGISTRY;
     }
