@@ -9,9 +9,9 @@ import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
 
-public class TierableItem extends BaseItem {
+public class TieredItem extends BaseItem {
 
-    public TierableItem(Settings settings) {
+    public TieredItem(Settings settings) {
         super(settings);
     }
 

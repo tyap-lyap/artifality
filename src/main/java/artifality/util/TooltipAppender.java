@@ -1,6 +1,6 @@
 package artifality.util;
 
-import artifality.item.base.TierableItem;
+import artifality.item.base.TieredItem;
 import dev.emi.trinkets.api.Trinket;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.item.EnchantedBookItem;
@@ -25,7 +25,7 @@ public class TooltipAppender {
         Item item = stack.getItem();
 
         if(hasDescription(stack) && shiftPressed(tooltip, item)){
-            if(item instanceof TierableItem){
+            if(item instanceof TieredItem){
                 appendTier(stack, tooltip);
             }
             appendItemDescription(stack, tooltip);
@@ -48,9 +48,9 @@ public class TooltipAppender {
     }
 
     private static void appendTier(ItemStack stack, List<Text> tooltip){
-        LiteralText tierString = new LiteralText(ofKey("tier") + " " + TierableItem.getCurrentTier(stack));
+        LiteralText tierString = new LiteralText(ofKey("tier") + " " + TieredItem.getCurrentTier(stack));
 
-        switch (TierableItem.getCurrentTier(stack)) {
+        switch (TieredItem.getCurrentTier(stack)) {
             default -> tooltip.add(tierString);
             case 2 -> tooltip.add(tierString.formatted(Formatting.GREEN));
             case 3 -> tooltip.add(tierString.formatted(Formatting.LIGHT_PURPLE));

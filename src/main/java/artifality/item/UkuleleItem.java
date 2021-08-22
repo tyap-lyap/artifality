@@ -1,6 +1,6 @@
 package artifality.item;
 
-import artifality.item.base.TierableItem;
+import artifality.item.base.TieredItem;
 import artifality.util.TrinketsUtils;
 import dev.emi.trinkets.api.SlotReference;
 import dev.emi.trinkets.api.Trinket;
@@ -29,7 +29,7 @@ import net.minecraft.world.World;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class UkuleleItem extends TierableItem implements Trinket, TrinketRenderer {
+public class UkuleleItem extends TieredItem implements Trinket, TrinketRenderer {
 
     public static final ArrayList<StatusEffect> POSITIVE_EFFECTS = new ArrayList<>(Arrays.asList(
             StatusEffects.FIRE_RESISTANCE, StatusEffects.REGENERATION, StatusEffects.STRENGTH,
@@ -48,7 +48,7 @@ public class UkuleleItem extends TierableItem implements Trinket, TrinketRendere
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if(world.isClient) return TypedActionResult.pass(user.getStackInHand(hand));
-        int tier = TierableItem.getCurrentTier(user.getStackInHand(hand));
+        int tier = TieredItem.getCurrentTier(user.getStackInHand(hand));
 
         createCloudEffect(world, user, POSITIVE_EFFECTS.get(world.getRandom().nextInt(POSITIVE_EFFECTS.size())), 30 + tier * 10, 3.0F, tier);
 

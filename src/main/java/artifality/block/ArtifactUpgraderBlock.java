@@ -1,7 +1,7 @@
 package artifality.block;
 
 import artifality.block.base.BasedBlock;
-import artifality.item.base.TierableItem;
+import artifality.item.base.TieredItem;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.render.model.json.JsonUnbakedModel;
@@ -52,16 +52,16 @@ public class ArtifactUpgraderBlock extends BasedBlock {
                 itemStack.decrement(1);
                 return ActionResult.SUCCESS;
             }
-        }else if(hand == Hand.MAIN_HAND && itemStack.getItem() instanceof TierableItem){
-            if(getCharges(state) == 3 && TierableItem.getCurrentTier(itemStack) == 1){
+        }else if(hand == Hand.MAIN_HAND && itemStack.getItem() instanceof TieredItem){
+            if(getCharges(state) == 3 && TieredItem.getCurrentTier(itemStack) == 1){
                 world.playSound(null, pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, SoundEvents.BLOCK_RESPAWN_ANCHOR_DEPLETE, SoundCategory.BLOCKS, 1.0F, 1.0F);
-                player.setStackInHand(Hand.MAIN_HAND, TierableItem.withTier(itemStack.getItem(), 2));
+                player.setStackInHand(Hand.MAIN_HAND, TieredItem.withTier(itemStack.getItem(), 2));
                 world.setBlockState(pos, this.getDefaultState());
                 return ActionResult.SUCCESS;
 
-            }else if(getCharges(state) == 4 && TierableItem.getCurrentTier(itemStack) == 2){
+            }else if(getCharges(state) == 4 && TieredItem.getCurrentTier(itemStack) == 2){
                 world.playSound(null, pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, SoundEvents.BLOCK_RESPAWN_ANCHOR_DEPLETE, SoundCategory.BLOCKS, 1.0F, 1.0F);
-                player.setStackInHand(Hand.MAIN_HAND, TierableItem.withTier(itemStack.getItem(), 3));
+                player.setStackInHand(Hand.MAIN_HAND, TieredItem.withTier(itemStack.getItem(), 3));
                 world.setBlockState(pos, this.getDefaultState());
                 return ActionResult.SUCCESS;
             }

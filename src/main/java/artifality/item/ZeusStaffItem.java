@@ -1,7 +1,7 @@
 package artifality.item;
 
 import artifality.interfaces.LightningEntityExtensions;
-import artifality.item.base.TierableItem;
+import artifality.item.base.TieredItem;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -15,7 +15,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
 
-public class ZeusStaffItem extends TierableItem {
+public class ZeusStaffItem extends TieredItem {
 
     public ZeusStaffItem(Settings settings) {
         super(settings);
@@ -27,7 +27,7 @@ public class ZeusStaffItem extends TierableItem {
         BlockHitResult blockHitResult = longRaycast(world, user);
 
         if(!world.isClient){
-            switch (TierableItem.getCurrentTier(user.getStackInHand(hand))) {
+            switch (TieredItem.getCurrentTier(user.getStackInHand(hand))) {
                 case 1 -> {
                     createLighting(world, blockHitResult.getBlockPos(), new LightningEntity(EntityType.LIGHTNING_BOLT, world));
                     user.getItemCooldownManager().set(this, 200);
