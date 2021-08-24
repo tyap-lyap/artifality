@@ -47,8 +47,8 @@
     "fabric": "*",
     "minecraft": "1.17.x",
     "java": ">=16",
-    "trinkets": ">=3.0.0",
-    "bclib": ">=0.2.4"
+    "trinkets": ">=3.0.2",
+    "bclib": ">=0.3.1"
   },
   "suggests": {
     "colored_lights": "*"

@@ -68,8 +68,8 @@ public class CrystalFeature extends Feature<DefaultFeatureConfig> {
     }
 
     public static boolean isOverworldStone(BlockState blockState){
-        if(Registry.BLOCK.containsId(new Identifier("the_aether:holy_stone"))){
-            Block holyStone = Registry.BLOCK.get(new Identifier("the_aether:holy_stone"));
+        if(Registry.BLOCK.containsId(new Identifier("the_aether:holystone"))){
+            Block holyStone = Registry.BLOCK.get(new Identifier("the_aether:holystone"));
             if(blockState.getBlock().equals(holyStone)) return false;
         }
         return isStone(blockState);

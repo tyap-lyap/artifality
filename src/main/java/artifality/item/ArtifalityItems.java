@@ -14,8 +14,8 @@ public class ArtifalityItems extends ItemRegistry {
     public static final Item ZEUS_STAFF = add("zeus_staff", new ZeusStaffItem(settings().maxCount(1)));
     public static final Item FOREST_STAFF = add("forest_staff", new ForestStaffItem(settings().maxCount(1)));
     public static final Item INVISIBILITY_CAPE = add("invisibility_cape", new InvisibilityCapeItem(settings().maxCount(1)));
-    public static final Item LUNAR_KNOWLEDGE_BOOK = add("lunar_knowledge_book", new LunarKnowledgeBookItem(settings().maxCount(1)));
-    public static final Item LIVING_HEART = add("living_heart", new LivingHeartItem(settings()));
+//    public static final Item LUNAR_KNOWLEDGE_BOOK = add("lunar_knowledge_book", new LunarKnowledgeBookItem(settings().maxCount(1)));
+//    public static final Item LIVING_HEART = add("living_heart", new LivingHeartItem(settings()));
     public static final Item INCREMENTAL = add("incremental", new BaseItem(settings()));
     public static final Item LUNAR_CRYSTAL = add("lunar_crystal", new BaseItem(settings()));
     public static final Item CRYSTAL_HEART_SHARD = add("crystal_heart_shard", new BaseItem(settings()));
