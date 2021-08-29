@@ -26,11 +26,11 @@ import ru.bclib.client.models.PatternsHelper;
 
 import java.util.Optional;
 
-public class ArtifactUpgraderBlock extends BasedBlock {
+public class UpgradingPedestalBlock extends BasedBlock {
 
     public static final IntProperty CHARGES = Properties.CHARGES;
 
-    public ArtifactUpgraderBlock(Settings settings) {
+    public UpgradingPedestalBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(CHARGES, 0));
     }

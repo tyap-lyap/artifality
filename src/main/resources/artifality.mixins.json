@@ -5,7 +5,7 @@
   "compatibilityLevel": "JAVA_16",
   "mixins": [
     "common.BeaconBlockEntityMixin",
-    "common.BrewingRecipeRegistryMixin",
+    "common.CreeperEntityMixin",
     "common.EntityMixin",
     "common.LivingEntityMixin",
     "common.PlayerEntityMixin",
@@ -13,11 +13,11 @@
     "common.extension.LightningEntityExtension"
   ],
   "client": [
-    "client.TrinketFeatureRendererMixin",
     "client.ArmorFeatureRendererMixin",
     "client.EnchantedBookItemMixin",
     "client.ItemRendererMixin",
-    "client.ItemStackMixin"
+    "client.ItemStackMixin",
+    "client.TrinketFeatureRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -11,9 +11,10 @@ public class CrystalSparkleParticle extends SpriteBillboardParticle {
     private final SpriteProvider spriteProvider;
 
     protected CrystalSparkleParticle(ClientWorld world, double x, double y, double z, SpriteProvider spriteProvider) {
-        super(world, x, y, z, 0, 0, 0);
+        super(world, x, y, z, 0D, 0D, 0D);
 
         this.maxAge = 6 + this.random.nextInt(4);
+        this.setVelocity(0D, 0D, 0D);
 
         this.spriteProvider = spriteProvider;
         this.setSpriteForAge(spriteProvider);
@@ -21,9 +22,6 @@ public class CrystalSparkleParticle extends SpriteBillboardParticle {
 
     @Override
     public void tick() {
-        this.prevPosX = this.x;
-        this.prevPosY = this.y;
-        this.prevPosZ = this.z;
         if (this.age++ >= this.maxAge) {
             this.markDead();
         } else {
@@ -39,9 +37,8 @@ public class CrystalSparkleParticle extends SpriteBillboardParticle {
     @Environment(EnvType.CLIENT)
     public record Factory(SpriteProvider spriteProvider) implements ParticleFactory<DefaultParticleType> {
 
-        public Particle createParticle(DefaultParticleType defaultParticleType, ClientWorld clientWorld, double d, double e, double f, double g, double h, double i) {
-
-            return new CrystalSparkleParticle(clientWorld, d, e, f, spriteProvider);
+        public Particle createParticle(DefaultParticleType defaultParticleType, ClientWorld world, double x, double y, double z, double velX, double velY, double velZ) {
+            return new CrystalSparkleParticle(world, x, y, z, spriteProvider);
         }
     }
 }

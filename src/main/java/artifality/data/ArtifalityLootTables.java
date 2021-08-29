@@ -33,7 +33,6 @@ public class ArtifalityLootTables {
 
             overworldChest(ArtifalityItems.INVISIBILITY_CAPE, 0.05F);
             overworldChest(ArtifalityItems.UKULELE, 0.03F);
-//            overworldChest(ArtifalityItems.LUNAR_KNOWLEDGE_BOOK, 0.05F);
             overworldChest(ArtifalityItems.FOREST_STAFF, 0.04F);
             overworldChest(ArtifalityItems.BALLOON, 0.04F);
         });

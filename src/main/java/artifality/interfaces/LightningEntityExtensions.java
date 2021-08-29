@@ -7,5 +7,4 @@ public interface LightningEntityExtensions {
 
     @SuppressWarnings("BooleanMethodIsAlwaysInverted")
     boolean canSpawnFire();
-
 }

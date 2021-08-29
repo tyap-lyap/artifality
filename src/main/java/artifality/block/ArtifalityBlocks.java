@@ -25,9 +25,11 @@ public class ArtifalityBlocks extends BlockRegistry {
     public static final Block CRYSTAL_HEART_BLOCK = addLitBlock("crystal_heart_block");
     public static final Block CRYSTAL_HEART_LENS = addLens("crystal_heart_lens");
 
-    public static final Block ARTIFACT_UPGRADER = add("artifact_upgrader", new ArtifactUpgraderBlock(copyOf(Blocks.COBBLESTONE)));
+    //TODO rename to pedestal of upgrading
+    public static final Block ARTIFACT_UPGRADER = add("artifact_upgrader", new UpgradingPedestalBlock(copyOf(Blocks.COBBLESTONE)));
+    public static final Block LUNAR_PEDESTAL = add("lunar_pedestal", new UpgradingPedestalBlock(copyOf(Blocks.COBBLESTONE)));
 
-    private static BlockRegistry BLOCKS_REGISTRY;
+    private static BlockRegistry BLOCK_REGISTRY;
 
     private ArtifalityBlocks() {
         super(ArtifalityMod.ITEMS_ITEM_GROUP);
@@ -46,7 +48,7 @@ public class ArtifalityBlocks extends BlockRegistry {
     }
 
     private static Block add(String id, Block block){
-        return getBlocksRegistry().register(ArtifalityMod.newId(id), block);
+        return getBlockRegistry().register(ArtifalityMod.newId(id), block);
     }
 
     private static FabricBlockSettings copyOf(Block block){
@@ -58,8 +60,8 @@ public class ArtifalityBlocks extends BlockRegistry {
         return ArtifalityMod.newId(name);
     }
 
-    private static BlockRegistry getBlocksRegistry() {
-        if(BLOCKS_REGISTRY == null) BLOCKS_REGISTRY = new ArtifalityBlocks();
-        return BLOCKS_REGISTRY;
+    private static BlockRegistry getBlockRegistry() {
+        if(BLOCK_REGISTRY == null) BLOCK_REGISTRY = new ArtifalityBlocks();
+        return BLOCK_REGISTRY;
     }
 }

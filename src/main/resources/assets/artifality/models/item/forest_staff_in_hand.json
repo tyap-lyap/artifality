@@ -2,7 +2,7 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [32, 32],
 	"textures": {
-		"staff": "artifality:item/forest_staff_in_hand",
+		"staff": "artifality:item/forest_staff_model",
 		"particle": "#staff"
 	},
 	"elements": [

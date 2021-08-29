@@ -101,26 +101,22 @@ public class ClusterBlock extends BaseAttachedBlock implements RenderLayerProvid
         registerBlockModel(stateId, modelId, blockState, modelCache);
         int x = 0, y = 0;
         switch (blockState.get(FACING)) {
-            case DOWN:
-                x = 180;
-                break;
-            case NORTH:
-                x = 90;
-                break;
-            case EAST:
+            case DOWN -> x = 180;
+            case NORTH -> x = 90;
+            case EAST -> {
                 x = 90;
                 y = 90;
-                break;
-            case SOUTH:
+            }
+            case SOUTH -> {
                 x = 90;
                 y = 180;
-                break;
-            case WEST:
+            }
+            case WEST -> {
                 x = 90;
                 y = 270;
-                break;
-            default:
-                break;
+            }
+            default -> {
+            }
         }
         ModelRotation rotation = ModelRotation.get(x, y);
         return ModelsHelper.createMultiVariant(modelId, rotation.getRotation(), false);
