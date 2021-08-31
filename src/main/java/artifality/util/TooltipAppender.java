@@ -63,7 +63,7 @@ public class TooltipAppender {
         tooltip.add(new LiteralText(""));
         tooltip.add(new LiteralText(ofKey("description") + " ").formatted(Formatting.GRAY));
         for(String line : description.split("\n")) {
-            tooltip.add(new LiteralText(line.trim()).formatted(Formatting.GRAY));
+            tooltip.add(new LiteralText(line.trim().replaceAll("&", "§")).formatted(Formatting.GRAY));
         }
         if(stack.getItem() instanceof Trinket) tooltip.add(new LiteralText(""));
     }
@@ -83,7 +83,7 @@ public class TooltipAppender {
                 tooltip.add(new LiteralText(""));
                 tooltip.add(new LiteralText(ofKey("description") + " ").formatted(Formatting.GRAY));
                 for(String line : description.split("\n")) {
-                    tooltip.add(new LiteralText(line.trim()).formatted(Formatting.GRAY));
+                    tooltip.add(new LiteralText(line.trim().replaceAll("&", "§")).formatted(Formatting.GRAY));
                 }
                 if(enchantment.getMaxLevel() > 1){
                     tooltip.add(new LiteralText(""));
@@ -94,6 +94,6 @@ public class TooltipAppender {
     }
 
     public static String ofKey(String name){
-        return Language.getInstance().get("misc.artifality." + name);
+        return Language.getInstance().get("misc.artifality." + name).replaceAll("&", "§");
     }
 }

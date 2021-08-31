@@ -1,6 +1,6 @@
 package artifality.item;
 
-import artifality.item.base.BaseItem;
+import artifality.item.base.TieredItem;
 import net.minecraft.block.*;
 import net.minecraft.entity.ExperienceOrbEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -15,12 +15,13 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldEvents;
 import net.minecraft.world.gen.feature.Feature;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class ForestStaffItem extends BaseItem {
+public class ForestStaffItem extends TieredItem {
 
     private static final Map<Item, Block> SAPLINGS = new LinkedHashMap<>();
 
@@ -30,8 +31,7 @@ public class ForestStaffItem extends BaseItem {
 
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
-        if(context.getWorld().isClient) return super.useOnBlock(context);
-        if(context.getPlayer() == null) return super.useOnBlock(context);
+        if(context.getWorld().isClient || context.getPlayer() == null) return super.useOnBlock(context);
 
         BlockPos pos = context.getBlockPos();
         BlockState block = context.getWorld().getBlockState(pos);
@@ -41,9 +41,8 @@ public class ForestStaffItem extends BaseItem {
         if(block.getBlock() instanceof SaplingBlock && player.getInventory().contains(Items.BONE_MEAL.getDefaultStack())){
             if(BoneMealItem.useOnFertilizable(player.getInventory().getStack(player.getInventory().getSlotWithStack(Items.BONE_MEAL.getDefaultStack())), world, pos)){
 
-                world.syncWorldEvent(1505, pos, 0);
-                dropExperience((ServerWorld)world, pos, world.getRandom().nextInt(3) + 1);
-
+                world.syncWorldEvent(WorldEvents.BONE_MEAL_USED, pos, 0);
+                dropExperience((ServerWorld)world, pos, world.getRandom().nextInt(3) + getCurrentTier(context.getStack()));
                 return ActionResult.SUCCESS;
             }
         }else if(Feature.isSoil(block) && context.getSide().equals(Direction.UP)){
@@ -52,7 +51,6 @@ public class ForestStaffItem extends BaseItem {
                 BlockSoundGroup blockSoundGroup = Blocks.AZALEA.getSoundGroup(Blocks.AZALEA.getDefaultState());
                 world.playSound(null, pos, blockSoundGroup.getPlaceSound(), SoundCategory.BLOCKS, (blockSoundGroup.getVolume() + 1.0F) / 2.0F, blockSoundGroup.getPitch() * 0.8F);
                 world.setBlockState(pos.up(), SAPLINGS.get(consumeSapling(player)).getDefaultState());
-
                 return ActionResult.SUCCESS;
             }
         }
@@ -81,7 +79,6 @@ public class ForestStaffItem extends BaseItem {
                 return inventory.getStack(i).getItem();
             }
         }
-
         return Items.AIR;
     }
 
@@ -89,7 +86,6 @@ public class ForestStaffItem extends BaseItem {
         if (world.getGameRules().getBoolean(GameRules.DO_TILE_DROPS)) {
             ExperienceOrbEntity.spawn(world, Vec3d.ofCenter(pos), size);
         }
-
     }
 
     static {

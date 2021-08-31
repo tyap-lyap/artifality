@@ -36,11 +36,6 @@ public class TieredItem extends BaseItem {
     }
 
     @Override
-    public boolean hasGlint(ItemStack stack) {
-        return getCurrentTier(stack) == 3;
-    }
-
-    @Override
     public Text getName(ItemStack stack) {
         TranslatableText name = new TranslatableText(this.getTranslationKey(stack));
         return switch (getCurrentTier(stack)) {

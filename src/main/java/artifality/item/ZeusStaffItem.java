@@ -4,6 +4,8 @@ import artifality.interfaces.LightningEntityExtensions;
 import artifality.item.base.TieredItem;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LightningEntity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
@@ -23,35 +25,16 @@ public class ZeusStaffItem extends TieredItem {
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+        if(world.isClient) return super.use(world, user, hand);
 
         BlockHitResult blockHitResult = longRaycast(world, user);
-
-        if(!world.isClient){
-            switch (TieredItem.getCurrentTier(user.getStackInHand(hand))) {
-                case 1 -> {
-                    createLighting(world, blockHitResult.getBlockPos(), new LightningEntity(EntityType.LIGHTNING_BOLT, world));
-                    user.getItemCooldownManager().set(this, 200);
-                    return TypedActionResult.success(user.getStackInHand(hand));
-                }
-                case 2 -> {
-                    createLighting(world, blockHitResult.getBlockPos(), new LightningEntity(EntityType.LIGHTNING_BOLT, world));
-                    user.getItemCooldownManager().set(this, 150);
-                    return TypedActionResult.success(user.getStackInHand(hand));
-                }
-                case 3 -> {
-                    createLighting(world, blockHitResult.getBlockPos(), new LightningEntity(EntityType.LIGHTNING_BOLT, world));
-                    user.getItemCooldownManager().set(this, 100);
-                    return TypedActionResult.success(user.getStackInHand(hand));
-                }
-            }
-        }
-        return TypedActionResult.pass(user.getStackInHand(hand));
+        createLighting(world, blockHitResult.getBlockPos(), new LightningEntity(EntityType.LIGHTNING_BOLT, world));
+        user.getItemCooldownManager().set(this, 250 - getCurrentTier(user.getStackInHand(hand)) * 50);
+        return TypedActionResult.success(user.getStackInHand(hand));
     }
 
     public static void createLighting(World world, BlockPos blockPos, LightningEntity lightningEntity){
-        if (lightningEntity instanceof LightningEntityExtensions){
-            ((LightningEntityExtensions) lightningEntity).setNoFire();
-        }
+        if (lightningEntity instanceof LightningEntityExtensions extension) extension.setNoFire();
         lightningEntity.updatePosition(blockPos.getX() + 0.5D, blockPos.getY(), blockPos.getZ() + 0.5D);
         world.spawnEntity(lightningEntity);
     }
