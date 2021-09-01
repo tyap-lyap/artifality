@@ -19,11 +19,9 @@ public class ArtifalityClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         ArtifalityParticles.register();
-        LivingEntityFeatureRendererRegistrationCallback.EVENT.register((entityType, entityRenderer, registrationHelper, context) -> {
-            if(entityType.equals(EntityType.PLAYER)){
-                registrationHelper.register(new CosmeticFeatureRenderer((PlayerEntityRenderer)entityRenderer));
-            }
-        });
+//        LivingEntityFeatureRendererRegistrationCallback.EVENT.register((entityType, entityRenderer, registrationHelper, context) -> {
+//            if(entityType.equals(EntityType.PLAYER))registrationHelper.register(new CosmeticFeatureRenderer((PlayerEntityRenderer)entityRenderer));
+//        });
 
         TwoModelsItemRegistry.register(new Item[]{ArtifalityItems.UKULELE, ArtifalityItems.ZEUS_STAFF,
                 ArtifalityItems.BALLOON, ArtifalityItems.FOREST_STAFF});

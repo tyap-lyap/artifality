@@ -7,7 +7,7 @@ sourceCompatibility = JavaVersion.VERSION_16
 targetCompatibility = JavaVersion.VERSION_16
 
 archivesBaseName = project.archives_base_name
-version = "mc" + project.minecraft_version + "-" + project.mod_version + "-" + project.mod_status
+version = "mc" + project.minecraft_version + "-" + project.mod_version
 group = project.maven_group
 
 repositories {

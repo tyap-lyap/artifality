@@ -25,9 +25,9 @@ public class ArtifalityBlocks extends BlockRegistry {
     public static final Block CRYSTAL_HEART_BLOCK = addLitBlock("crystal_heart_block");
     public static final Block CRYSTAL_HEART_LENS = addLens("crystal_heart_lens");
 
-    //TODO rename to pedestal of upgrading
+    //TODO rename to pedestal of upgrading and bclib's datafixer api
     public static final Block ARTIFACT_UPGRADER = add("artifact_upgrader", new UpgradingPedestalBlock(copyOf(Blocks.COBBLESTONE)));
-    public static final Block LUNAR_PEDESTAL = add("lunar_pedestal", new UpgradingPedestalBlock(copyOf(Blocks.COBBLESTONE)));
+//    public static final Block LUNAR_PEDESTAL = add("lunar_pedestal", new UpgradingPedestalBlock(copyOf(Blocks.COBBLESTONE)));
 
     private static BlockRegistry BLOCK_REGISTRY;
 
