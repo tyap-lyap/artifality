@@ -1,6 +1,7 @@
 package artifality.item;
 
 import artifality.item.base.TieredItem;
+import artifality.util.TooltipAppender;
 import dev.emi.trinkets.api.SlotReference;
 import dev.emi.trinkets.api.Trinket;
 import dev.emi.trinkets.api.client.TrinketRenderer;
@@ -21,12 +22,16 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.text.LiteralText;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class UkuleleItem extends TieredItem implements Trinket, TrinketRenderer {
 
@@ -42,6 +47,17 @@ public class UkuleleItem extends TieredItem implements Trinket, TrinketRenderer 
 
     public UkuleleItem(Settings settings) {
         super(settings);
+    }
+
+    @Override
+    public void appendTooltipInfo(ItemStack stack, List<Text> tooltip){
+        tooltip.add(new LiteralText(""));
+        if(getCurrentTier(stack) == 1){
+            tooltip.add(new LiteralText(TooltipAppender.ofKey("effect_level").replaceAll("%", "1-2")).formatted(Formatting.DARK_GREEN));
+        }else {
+            tooltip.add(new LiteralText(TooltipAppender.ofKey("effect_level").replaceAll("%", Integer.toString(getCurrentTier(stack)))).formatted(Formatting.DARK_GREEN));
+        }
+        tooltip.add(new LiteralText(TooltipAppender.ofKey("cooldown").replaceAll("%", Integer.toString(20))).formatted(Formatting.DARK_GREEN));
     }
 
     @Override
@@ -86,7 +102,8 @@ public class UkuleleItem extends TieredItem implements Trinket, TrinketRenderer 
         matrices.translate(0.0F, -0.2F, 0.37F);
         matrices.scale(0.8F, 0.8F, 0.8F);
 
-        itemRenderer.renderItem(stack, ModelTransformation.Mode.FIXED, false, matrices, vertexConsumers, light, OverlayTexture.DEFAULT_UV, itemRenderer.getModels().getModelManager().getModel(new ModelIdentifier("artifality:ukulele_in_hand#inventory")));
+        itemRenderer.renderItem(stack, ModelTransformation.Mode.FIXED, false, matrices, vertexConsumers, light, OverlayTexture.DEFAULT_UV,
+                itemRenderer.getModels().getModelManager().getModel(new ModelIdentifier("artifality:ukulele_in_hand#inventory")));
         matrices.pop();
     }
 }

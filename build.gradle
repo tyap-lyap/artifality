@@ -15,8 +15,8 @@ repositories {
 	maven { url "https://maven.shedaniel.me" } //rei
 	maven { url "https://maven.gegy.dev" } //databreaker
 	maven { url "https://ladysnake.jfrog.io/artifactory/mods" } //CCA
-	maven { url "https://maven.terraformersmc.com" } //modmenu
-	maven { url "https://api.modrinth.com/maven" } //trinkets
+	maven { url "https://maven.terraformersmc.com" } //modmenu, trinkets
+//	maven { url "https://api.modrinth.com/maven" } //trinkets
 }
 
 dependencies {
@@ -25,17 +25,15 @@ dependencies {
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-//	modImplementation "dev.emi:trinkets:${trinkets_version}"
-	modImplementation "maven.modrinth:trinkets:${project.trinkets_version}"
+	modImplementation "dev.emi:trinkets:${trinkets_version}"
 	modImplementation "com.github.paulevsGitch:BCLib:${project.bclib_version}"
 
 	modImplementation "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-base:3.0.1"
 	modImplementation "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-entity:3.0.1"
 	
-//	modRuntime "me.shedaniel:RoughlyEnoughItems-fabric:6.0.264-alpha"
-	modRuntime "com.terraformersmc:modmenu:2.0.3"
+	modRuntime "me.shedaniel:RoughlyEnoughItems-fabric:6.0.279-alpha"
+	modRuntime "com.terraformersmc:modmenu:2.0.9"
 	modRuntime "supercoder79:databreaker:0.2.7"
-	modRuntime "com.ptsmods:devlogin:1.2"
 }
 
 processResources {

@@ -45,7 +45,8 @@ public class BalloonItem extends BaseItem implements Trinket, TrinketRenderer {
 
         String modelId = "artifality:balloon_in_hand#inventory";
 
-        itemRenderer.renderItem(stack, ModelTransformation.Mode.FIXED, false, matrices, vertexConsumers, light, OverlayTexture.DEFAULT_UV, itemRenderer.getModels().getModelManager().getModel(new ModelIdentifier(modelId)));
+        itemRenderer.renderItem(stack, ModelTransformation.Mode.FIXED, false, matrices, vertexConsumers, light, OverlayTexture.DEFAULT_UV,
+                itemRenderer.getModels().getModelManager().getModel(new ModelIdentifier(modelId)));
         matrices.pop();
     }
 }

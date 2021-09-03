@@ -15,17 +15,17 @@ public class ArtifalityBlocks extends BlockRegistry {
 
     public static final Block INCREMENTAL_CLUSTER = addCluster("incremental_cluster");
     public static final Block INCREMENTAL_BLOCK = addLitBlock("incremental_block");
-    public static final Block INCREMENTAL_LENS = addLens("incremental_lens");
+    public static final Block INCREMENTAL_LENS = add("incremental_lens", new IncrementalLensBlock(copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.NETHERITE).nonOpaque()));
 
     public static final Block LUNAR_CRYSTAL_CLUSTER = addCluster("lunar_crystal_cluster");
     public static final Block LUNAR_CRYSTAL_BLOCK = addLitBlock("lunar_crystal_block");
-    public static final Block LUNAR_CRYSTAL_LENS = addLens("lunar_crystal_lens");
+    public static final Block LUNAR_CRYSTAL_LENS = add("lunar_crystal_lens", new LunarCrystalLensBlock(copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.NETHERITE).nonOpaque()));
 
     public static final Block CRYSTAL_HEART_CLUSTER = addCluster("crystal_heart_cluster");
     public static final Block CRYSTAL_HEART_BLOCK = addLitBlock("crystal_heart_block");
-    public static final Block CRYSTAL_HEART_LENS = addLens("crystal_heart_lens");
+    public static final Block CRYSTAL_HEART_LENS = add("crystal_heart_lens", new CrystalHeartLensBlock(copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.NETHERITE).nonOpaque()));
 
-    //TODO rename to pedestal of upgrading and bclib's datafixer api
+    //TODO rename to pedestal of upgrading and use bclib's datafixer api
     public static final Block ARTIFACT_UPGRADER = add("artifact_upgrader", new UpgradingPedestalBlock(copyOf(Blocks.COBBLESTONE)));
 //    public static final Block LUNAR_PEDESTAL = add("lunar_pedestal", new UpgradingPedestalBlock(copyOf(Blocks.COBBLESTONE)));
 
@@ -41,10 +41,6 @@ public class ArtifalityBlocks extends BlockRegistry {
 
     private static Block addLitBlock(String name){
         return add(name, new BaseBlock(copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(value -> 15)));
-    }
-
-    private static Block addLens(String name){
-        return add(name, new IncrementalLensBlock(copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.NETHERITE).nonOpaque()));
     }
 
     private static Block add(String id, Block block){

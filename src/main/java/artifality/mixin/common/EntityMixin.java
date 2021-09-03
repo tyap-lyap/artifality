@@ -23,11 +23,11 @@ public abstract class EntityMixin {
 
     @Inject(method = "onStruckByLightning", at = @At("HEAD"), cancellable = true)
     void preventSelfDamageWithZeusStaff(ServerWorld world, LightningEntity lightning, CallbackInfo ci){
-        if(lightning instanceof LightningEntityExtensions){
-            if(!((LightningEntityExtensions) lightning).canSpawnFire()){
+        if(lightning instanceof LightningEntityExtensions extensions){
+            if(!extensions.canSpawnFire()){
                 if(self instanceof LivingEntity){
                     if(!((LivingEntity) self).getStackInHand(Hand.MAIN_HAND).getItem().equals(ArtifalityItems.ZEUS_STAFF)){
-                        damage(DamageSource.LIGHTNING_BOLT, 6.0F);
+                        damage(DamageSource.LIGHTNING_BOLT, extensions.getDamage());
                     }
                 }
                 ci.cancel();

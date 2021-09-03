@@ -17,12 +17,14 @@ public class BaseItem extends ModelProviderItem {
     public BaseItem(Settings settings) {
         super(settings);
     }
+
+    public void appendTooltipInfo(ItemStack stack, List<Text> tooltip){
+    }
     
     @Environment(EnvType.CLIENT)
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        super.appendTooltip(stack, world, tooltip, context);
-
         TooltipAppender.appendDescription(stack, tooltip);
+        super.appendTooltip(stack, world, tooltip, context);
     }
 }

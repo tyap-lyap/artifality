@@ -2,12 +2,14 @@ package artifality.item;
 
 import artifality.interfaces.LightningEntityExtensions;
 import artifality.item.base.TieredItem;
+import artifality.util.TooltipAppender;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LightningEntity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.text.LiteralText;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.hit.BlockHitResult;
@@ -17,6 +19,8 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
 
+import java.util.List;
+
 public class ZeusStaffItem extends TieredItem {
 
     public ZeusStaffItem(Settings settings) {
@@ -24,17 +28,27 @@ public class ZeusStaffItem extends TieredItem {
     }
 
     @Override
+    public void appendTooltipInfo(ItemStack stack, List<Text> tooltip){
+        tooltip.add(new LiteralText(""));
+        tooltip.add(new LiteralText(TooltipAppender.ofKey("cooldown").replaceAll("%", Integer.toString((250 - getCurrentTier(stack) * 50) / 20))).formatted(Formatting.DARK_GREEN));
+        tooltip.add(new LiteralText(TooltipAppender.ofKey("damage").replaceAll("%", Integer.toString(6 + getCurrentTier(stack)))).formatted(Formatting.DARK_GREEN));
+    }
+
+    @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if(world.isClient) return super.use(world, user, hand);
 
         BlockHitResult blockHitResult = longRaycast(world, user);
-        createLighting(world, blockHitResult.getBlockPos(), new LightningEntity(EntityType.LIGHTNING_BOLT, world));
+        createLighting(world, blockHitResult.getBlockPos(), new LightningEntity(EntityType.LIGHTNING_BOLT, world), 6 + getCurrentTier(user.getStackInHand(hand)));
         user.getItemCooldownManager().set(this, 250 - getCurrentTier(user.getStackInHand(hand)) * 50);
         return TypedActionResult.success(user.getStackInHand(hand));
     }
 
-    public static void createLighting(World world, BlockPos blockPos, LightningEntity lightningEntity){
-        if (lightningEntity instanceof LightningEntityExtensions extension) extension.setNoFire();
+    public static void createLighting(World world, BlockPos blockPos, LightningEntity lightningEntity, float damage){
+        if (lightningEntity instanceof LightningEntityExtensions extension){
+            extension.setNoFire();
+            extension.setDamage(damage);
+        }
         lightningEntity.updatePosition(blockPos.getX() + 0.5D, blockPos.getY(), blockPos.getZ() + 0.5D);
         world.spawnEntity(lightningEntity);
     }

@@ -1,5 +1,6 @@
 package artifality.util;
 
+import artifality.item.base.BaseItem;
 import artifality.item.base.TieredItem;
 import dev.emi.trinkets.api.Trinket;
 import net.minecraft.client.gui.screen.Screen;
@@ -15,7 +16,9 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.Language;
 import net.minecraft.util.registry.Registry;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class TooltipAppender {
 
@@ -24,7 +27,7 @@ public class TooltipAppender {
     public static void appendDescription(ItemStack stack, List<Text> tooltip){
         Item item = stack.getItem();
 
-        if(hasDescription(stack) && shiftPressed(tooltip, item)){
+        if(!getDescription(Registry.ITEM.getId(item).getPath()).isEmpty() && shiftPressed(tooltip, item)){
             if(item instanceof TieredItem){
                 appendTier(stack, tooltip);
             }
@@ -32,10 +35,6 @@ public class TooltipAppender {
         }else if(item instanceof EnchantedBookItem){
             appendEnchantmentDesc(stack, tooltip);
         }
-    }
-
-    private static boolean hasDescription(ItemStack stack){
-        return Language.getInstance().hasTranslation(stack.getTranslationKey() + ".description");
     }
 
     private static boolean shiftPressed(List<Text> tooltip, Item item){
@@ -48,7 +47,7 @@ public class TooltipAppender {
     }
 
     private static void appendTier(ItemStack stack, List<Text> tooltip){
-        LiteralText tierString = new LiteralText(ofKey("tier") + " " + TieredItem.getCurrentTier(stack));
+        LiteralText tierString = new LiteralText(ofKey("tier").replaceAll("%", Integer.toString(TieredItem.getCurrentTier(stack))));
 
         switch (TieredItem.getCurrentTier(stack)) {
             default -> tooltip.add(tierString);
@@ -58,12 +57,14 @@ public class TooltipAppender {
     }
 
     private static void appendItemDescription(ItemStack stack, List<Text> tooltip){
-        String description = Language.getInstance().get(stack.getItem().getTranslationKey() + ".description");
 
         tooltip.add(new LiteralText(""));
-        tooltip.add(new LiteralText(ofKey("description") + " ").formatted(Formatting.GRAY));
-        for(String line : description.split("\n")) {
+        tooltip.add(new LiteralText(ofKey("description")).formatted(Formatting.GRAY));
+        for(String line : getDescription(Registry.ITEM.getId(stack.getItem()).getPath())) {
             tooltip.add(new LiteralText(line.trim().replaceAll("&", "§")).formatted(Formatting.GRAY));
+        }
+        if(stack.getItem() instanceof BaseItem baseItem){
+            baseItem.appendTooltipInfo(stack, tooltip);
         }
         if(stack.getItem() instanceof Trinket) tooltip.add(new LiteralText(""));
     }
@@ -78,19 +79,27 @@ public class TooltipAppender {
                 if(!enchantment.getTranslationKey().contains("artifality")) return;
                 if(!shiftPressed(tooltip, stack.getItem())) return;
 
-                String description = Language.getInstance().get(enchantment.getTranslationKey() + ".description");
-
                 tooltip.add(new LiteralText(""));
-                tooltip.add(new LiteralText(ofKey("description") + " ").formatted(Formatting.GRAY));
-                for(String line : description.split("\n")) {
+                tooltip.add(new LiteralText(ofKey("description")).formatted(Formatting.GRAY));
+                for(String line : getDescription(Objects.requireNonNull(Registry.ENCHANTMENT.getId(enchantment)).getPath())) {
                     tooltip.add(new LiteralText(line.trim().replaceAll("&", "§")).formatted(Formatting.GRAY));
                 }
                 if(enchantment.getMaxLevel() > 1){
                     tooltip.add(new LiteralText(""));
-                    tooltip.add(new LiteralText(ofKey("max_level") + " " + enchantment.getMaxLevel()).formatted(Formatting.GRAY));
+                    tooltip.add(new LiteralText(ofKey("max_level").replaceAll("%", Integer.toString(enchantment.getMaxLevel()))).formatted(Formatting.DARK_GREEN));
                 }
             });
         }
+    }
+
+    public static ArrayList<String> getDescription(String id){
+        ArrayList<String> strings = new ArrayList<>();
+        for(int i = 0; i <= 10; i++){
+            if(Language.getInstance().hasTranslation("description." + id + "." + i)){
+                strings.add(Language.getInstance().get("description." + id + "." + i));
+            }
+        }
+        return strings;
     }
 
     public static String ofKey(String name){
