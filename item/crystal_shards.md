@@ -4,10 +4,10 @@ Crystal Shards are items that can be obtained by mining [Crystal Clusters](https
 
 ## Overview
 ### Incremental
-<img alt="Icon" src="images/item/incremental.png" width="128">
+<img alt="Icon" src="https://github.com/PinkGoosik/artifality/blob/wiki/images/item/incremental.png?raw=true" width="128">
 
 ### Lunar Crystal
-<img alt="Icon" src="images/item/lunar_crystal.png" width="128">
+<img alt="Icon" src="https://github.com/PinkGoosik/artifality/blob/wiki/images/item/lunar_crystal.png?raw=true" width="128">
 
 ### Crystal Heart Shard
-<img alt="Icon" src="images/item/crystal_heart_shard.png" width="128">
+<img alt="Icon" src="https://github.com/PinkGoosik/artifality/blob/wiki/images/item/crystal_heart_shard.png?raw=true" width="128">
