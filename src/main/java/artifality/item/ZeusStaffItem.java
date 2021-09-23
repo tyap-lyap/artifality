@@ -49,8 +49,8 @@ public class ZeusStaffItem extends TieredItem {
         if (lightningEntity instanceof LightningEntityExtensions extension){
             extension.setNoFire();
             extension.setDamage(6 + tier);
-            if(tier >= 2){
-                extension.setCanChargeCreeper();
+            if(tier == 1){
+                extension.setCanChargeCreeper(false);
             }
         }
         lightningEntity.updatePosition(blockPos.getX() + 0.5D, blockPos.getY(), blockPos.getZ() + 0.5D);

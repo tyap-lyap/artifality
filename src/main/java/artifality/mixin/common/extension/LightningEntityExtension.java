@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class LightningEntityExtension extends Entity implements LightningEntityExtensions {
 
     @Unique private boolean canSpawnFire = true;
-    @Unique private boolean canChargeCreeper = false;
+    @Unique private boolean canChargeCreeper = true;
     @Unique private float damage = 0;
 
     public LightningEntityExtension(EntityType<?> type, World world) {
@@ -30,8 +30,8 @@ public abstract class LightningEntityExtension extends Entity implements Lightni
 
     @Unique
     @Override
-    public void setCanChargeCreeper() {
-        canChargeCreeper = true;
+    public void setCanChargeCreeper(boolean bl) {
+        canChargeCreeper = bl;
     }
 
     @Unique

@@ -5,7 +5,7 @@ public interface LightningEntityExtensions {
 
     void setNoFire();
 
-    void setCanChargeCreeper();
+    void setCanChargeCreeper(boolean bl);
 
     void setDamage(float damage);
 
