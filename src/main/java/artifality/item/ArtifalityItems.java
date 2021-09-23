@@ -15,7 +15,7 @@ public class ArtifalityItems extends ItemRegistry {
     public static final Item FOREST_STAFF = add("forest_staff", new ForestStaffItem(settings().maxCount(1)));
     public static final Item HARVEST_STAFF = add("harvest_staff", new HarvestStaffItem(settings().maxCount(1)));
     public static final Item INVISIBILITY_CAPE = add("invisibility_cape", new InvisibilityCapeItem(settings().maxCount(1)));
-    public static final Item BALLOON = add("balloon", new BalloonItem(settings().maxCount(1)));
+    public static final Item BALLOON = add("balloon", new BalloonItem(settings().maxDamage(128)));
     public static final Item LUCKY_EMBLEM = add("lucky_emblem", new BaseItem(settings().maxCount(1)));
 //    public static final Item CHARM_OF_EVOLUTION = add("charm_of_evolution", new BaseItem(settings().maxCount(1)));
     public static final Item MIDAS_TOUCH = add("midas_touch", new BaseItem(settings().maxCount(1)));
@@ -35,7 +35,7 @@ public class ArtifalityItems extends ItemRegistry {
     }
 
     private static FabricItemSettings settings() {
-        return new FabricItemSettings().group(ArtifalityMod.ITEMS_ITEM_GROUP);
+        return new FabricItemSettings();
     }
 
     @Override

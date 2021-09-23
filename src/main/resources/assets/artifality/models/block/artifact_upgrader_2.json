@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top",
-  "textures": {
-    "top": "artifality:block/artifact_upgrader_top",
-    "bottom": "artifality:block/artifact_upgrader_bottom",
-    "side": "artifality:block/artifact_upgrader_side_2"
-  }
-}

@@ -30,7 +30,7 @@ public class TieredItem extends BaseItem {
 
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
-        if(context.getWorld().getBlockState(context.getBlockPos()).isOf(ArtifalityBlocks.ARTIFACT_UPGRADER)) return ActionResult.FAIL;
+        if(context.getWorld().getBlockState(context.getBlockPos()).isOf(ArtifalityBlocks.UPGRADING_PEDESTAL)) return ActionResult.FAIL;
 
         return super.useOnBlock(context);
     }

@@ -30,6 +30,9 @@ dependencies {
 
 	modImplementation "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-base:3.0.1"
 	modImplementation "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-entity:3.0.1"
+
+	modImplementation "com.github.PinkGoosik:goosik-lib:v0.1.0"
+	include "com.github.PinkGoosik:goosik-lib:v0.1.0"
 	
 	modRuntime "me.shedaniel:RoughlyEnoughItems-fabric:6.0.279-alpha"
 	modRuntime "com.terraformersmc:modmenu:2.0.9"

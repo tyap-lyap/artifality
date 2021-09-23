@@ -1,11 +1,11 @@
 {
     "modmenu.descriptionTranslation.artifality": "Collection of useful artifacts, blocks, enchantments and more.",
 
-    "block.artifality.artifact_upgrader":"Pedestal of Upgrading",
-    "description.artifact_upgrader.0": "Allows you to &fupgrade your artifact&7,",
-    "description.artifact_upgrader.1": "fill with &f3 Incremental Blocks &7to",
-    "description.artifact_upgrader.2": "upgrade to &ftier 2&7, or with",
-    "description.artifact_upgrader.3": "&fNether Star &7for &ftier 3&7.",
+    "block.artifality.upgrading_pedestal":"Pedestal of Upgrading",
+    "description.upgrading_pedestal.0": "Allows you to &fupgrade your artifact&7,",
+    "description.upgrading_pedestal.1": "fill with &f3 Incremental Blocks &7to",
+    "description.upgrading_pedestal.2": "upgrade to &ftier 2&7, or with",
+    "description.upgrading_pedestal.3": "&fNether Star &7for &ftier 3&7.",
 
     "block.artifality.crystal_heart_block":"Crystal Heart Block",
     "block.artifality.crystal_heart_cluster":"Crystal Heart Cluster",
@@ -38,9 +38,12 @@
     "description.sliding_curse.1": "&fblocks &7like on ice.",
 	
     "item.artifality.balloon":"Balloon",
-    "description.balloon.0": "When in hand &fincreases jump",
-    "description.balloon.1": "height &7and while sneaking",
+    "description.balloon.0": "While in hand &fincreases jump",
+    "description.balloon.1": "height &7and when equipped",
     "description.balloon.2": "&fgives slow falling effect&7.",
+    "description.balloon.3": "",
+    "description.balloon.4": "&fRight Click in hand &7to",
+    "description.balloon.5": "fill with &fDragon Breath&7.",
 
     "item.artifality.forest_staff":"Forest Staff",
     "description.forest_staff.0": "Allows you to easily &fplant a",
@@ -73,6 +76,8 @@
     "description.zeus_staff.0": "&fSummons lightning &7at the target point,",
     "description.zeus_staff.1": "also neutralizes lightning damage",
     "description.zeus_staff.2": "while in the main hand.",
+    "description.zeus_staff.3": "",
+    "description.zeus_staff.4": "On &fTier 2 &7can charge &fCreepers&7.",
 
     "item.artifality.harvest_staff":"Harvest Staff [WIP]",
     "item.artifality.lucky_emblem":"Lucky Emblem [WIP]",
@@ -80,13 +85,13 @@
 	
     "itemGroup.artifality.items":"Artifality: Items",
 	
-    "misc.artifality.description":" Description:",
+    "misc.artifality.description":"Description:",
     "misc.artifality.max_level":" Max Level: %",
     "misc.artifality.cooldown":" Cooldown: % Sec",
     "misc.artifality.effect_level":" Level of Effect: %",
     "misc.artifality.damage":" Damage: %",
     "misc.artifality.press_shift":"<Press Shift>",
-    "misc.artifality.tier":" Tier %",
+    "misc.artifality.tier":"Tier %",
     "misc.artifality.discord": "<Join Our Discord Server>",
     "misc.artifality.wiki": "<Check Out the Wiki for More Info>"
 }

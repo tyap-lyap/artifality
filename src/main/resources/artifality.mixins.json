@@ -9,6 +9,7 @@
     "common.EntityMixin",
     "common.LivingEntityMixin",
     "common.PlayerEntityMixin",
+    "common.VillagerEntityMixin",
     "common.ZombieEntityMixin",
     "common.extension.LightningEntityExtension"
   ],

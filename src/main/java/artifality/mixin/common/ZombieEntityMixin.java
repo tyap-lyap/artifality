@@ -26,7 +26,7 @@ public abstract class ZombieEntityMixin extends HostileEntity {
     void summonLightningOnAttack(Entity target, CallbackInfoReturnable<Boolean> cir){
         if(this.getStackInHand(Hand.MAIN_HAND).getItem().equals(ArtifalityItems.ZEUS_STAFF)){
             if(target.world.random.nextFloat() > 0.65F){
-                ZeusStaffItem.createLighting(target.world, target.getBlockPos(), new LightningEntity(EntityType.LIGHTNING_BOLT, target.world), 6);
+                ZeusStaffItem.createLighting(target.world, target.getBlockPos(), new LightningEntity(EntityType.LIGHTNING_BOLT, target.world), 1);
             }
         }
     }

@@ -1,6 +1,6 @@
 package artifality.mixin.client;
 
-import artifality.api.client.TwoModelsItemRegistry;
+import artifality.util.TwoModelsItemRegistry;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.item.ItemModels;
 import net.minecraft.client.render.item.ItemRenderer;

@@ -1,6 +1,6 @@
 package artifality.client;
 
-import artifality.api.client.TwoModelsItemRegistry;
+import artifality.util.TwoModelsItemRegistry;
 import artifality.item.ArtifalityItems;
 import artifality.client.particle.ArtifalityParticles;
 import dev.emi.trinkets.api.client.TrinketRenderer;

@@ -15,6 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class LightningEntityExtension extends Entity implements LightningEntityExtensions {
 
     @Unique private boolean canSpawnFire = true;
+    @Unique private boolean canChargeCreeper = false;
     @Unique private float damage = 0;
 
     public LightningEntityExtension(EntityType<?> type, World world) {
@@ -25,6 +26,12 @@ public abstract class LightningEntityExtension extends Entity implements Lightni
     @Override
     public void setNoFire() {
         canSpawnFire = false;
+    }
+
+    @Unique
+    @Override
+    public void setCanChargeCreeper() {
+        canChargeCreeper = true;
     }
 
     @Unique
@@ -43,6 +50,12 @@ public abstract class LightningEntityExtension extends Entity implements Lightni
     @Override
     public boolean canSpawnFire() {
         return canSpawnFire;
+    }
+
+    @Unique
+    @Override
+    public boolean canChargeCreeper(){
+        return canChargeCreeper;
     }
 
     @Inject(method = "spawnFire", at = @At("HEAD"), cancellable = true)

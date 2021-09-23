@@ -37,17 +37,21 @@ public class ZeusStaffItem extends TieredItem {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if(world.isClient) return super.use(world, user, hand);
+        int tier = getCurrentTier(user.getStackInHand(hand));
 
         BlockHitResult blockHitResult = longRaycast(world, user);
-        createLighting(world, blockHitResult.getBlockPos(), new LightningEntity(EntityType.LIGHTNING_BOLT, world), 6 + getCurrentTier(user.getStackInHand(hand)));
-        user.getItemCooldownManager().set(this, 250 - getCurrentTier(user.getStackInHand(hand)) * 50);
+        createLighting(world, blockHitResult.getBlockPos(), new LightningEntity(EntityType.LIGHTNING_BOLT, world), tier);
+        user.getItemCooldownManager().set(this, 250 - tier * 50);
         return TypedActionResult.success(user.getStackInHand(hand));
     }
 
-    public static void createLighting(World world, BlockPos blockPos, LightningEntity lightningEntity, float damage){
+    public static void createLighting(World world, BlockPos blockPos, LightningEntity lightningEntity, int tier){
         if (lightningEntity instanceof LightningEntityExtensions extension){
             extension.setNoFire();
-            extension.setDamage(damage);
+            extension.setDamage(6 + tier);
+            if(tier >= 2){
+                extension.setCanChargeCreeper();
+            }
         }
         lightningEntity.updatePosition(blockPos.getX() + 0.5D, blockPos.getY(), blockPos.getZ() + 0.5D);
         world.spawnEntity(lightningEntity);

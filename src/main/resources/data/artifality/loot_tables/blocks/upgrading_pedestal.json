@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "artifality:artifact_upgrader"
+          "name": "artifality:upgrading_pedestal"
         }
       ],
       "conditions": [

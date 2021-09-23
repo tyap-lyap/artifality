@@ -2,13 +2,13 @@
   "parent": "artifality:artifality/root",
   "display": {
     "title": {
-      "text": "Sneaky"
+      "text": "How Do I Upgrade?"
     },
     "description": {
-      "text": "Find the Invisibility Cape"
+      "text": "Create the Artifact Upgrader"
     },
     "icon": {
-      "item": "artifality:invisibility_cape"
+      "item": "artifality:upgrading_pedestal"
     },
     "frame": "task",
     "show_toast": true,
@@ -16,13 +16,13 @@
     "hidden": false
   },
   "criteria": {
-    "invisibility_cape": {
+    "artifact_upgrader": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "artifality:invisibility_cape"
+              "artifality:upgrading_pedestal"
             ]
           }
         ]
