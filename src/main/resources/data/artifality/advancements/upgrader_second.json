@@ -1,0 +1,35 @@
+{
+    "display": {
+        "title": {
+            "text": "Upgrades!"
+        },
+        "description": {
+            "text": "Upgrade the Pedestal of Upgrading to Tier 2"
+        },
+        "icon": {
+            "item": "artifality:upgrading_pedestal"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "name": {
+            "trigger": "minecraft:item_used_on_block",
+            "conditions": {
+                "item": {
+                    "items": [
+                        "artifality:incremental_block"
+                    ]
+                },
+                "location": {
+                    "block": {
+                        "block": "artifality:upgrading_pedestal"
+                    }
+                }
+            }
+        }
+    },
+    "parent": "artifality:upgrader_first"
+}

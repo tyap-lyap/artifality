@@ -31,8 +31,9 @@
 			}
 		},
 		{
-			"from": [8, -16, 4.5],
-			"to": [8, 12, 11.5],
+			"from": [0, -15, 7],
+			"to": [0, 13, 15],
+			"rotation": {"angle": 45, "axis": "y", "origin": [0, 0, 0]},
 			"faces": {
 				"north": {"uv": [0, 0, 0, 14], "texture": "#balloon"},
 				"east": {"uv": [12.5, 1, 16, 15], "texture": "#balloon"},
@@ -40,6 +41,19 @@
 				"west": {"uv": [12.5, 1, 16, 15], "texture": "#balloon"},
 				"up": {"uv": [0, 0, 0, 3.5], "texture": "#balloon"},
 				"down": {"uv": [0, 0, 0, 3.5], "texture": "#balloon"}
+			}
+		},
+		{
+			"from": [-4, -15, 11],
+			"to": [4, 13, 11],
+			"rotation": {"angle": 45, "axis": "y", "origin": [0, 0, 0]},
+			"faces": {
+				"north": {"uv": [12.5, 1, 16, 15], "texture": "#balloon"},
+				"east": {"uv": [0, 0, 0, 14], "texture": "#balloon"},
+				"south": {"uv": [12.5, 1, 16, 15], "texture": "#balloon"},
+				"west": {"uv": [0, 0, 0, 14], "texture": "#balloon"},
+				"up": {"uv": [0, 0, 0, 3.5], "rotation": 270, "texture": "#balloon"},
+				"down": {"uv": [0, 0, 0, 3.5], "rotation": 90, "texture": "#balloon"}
 			}
 		}
 	],
@@ -53,12 +67,11 @@
 			"translation": [0, 8, 22]
 		},
 		"firstperson_righthand": {
-			"rotation": [0, 2, 0],
-			"translation": [0, 12, 0]
+			"translation": [4, 17, 0]
 		},
 		"firstperson_lefthand": {
 			"rotation": [0, -5, 0],
-			"translation": [0, 12, 0]
+			"translation": [5, 17, 0]
 		},
 		"head": {
 			"rotation": [0, -54, 0],

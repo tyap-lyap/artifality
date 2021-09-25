@@ -1,0 +1,33 @@
+{
+    "display": {
+        "title": {
+            "text": "Classy stuff"
+        },
+        "description": {
+            "text": "Upgrade an Artifact to Tier 2"
+        },
+        "icon": {
+            "item": "artifality:harvest_staff"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "name": {
+            "trigger": "minecraft:item_used_on_block",
+            "conditions": {
+                "item": {
+                    "tag": "artifality:artifacts"
+                },
+                "location": {
+                    "block": {
+                        "block": "artifality:upgrading_pedestal"
+                    }
+                }
+            }
+        }
+    },
+    "parent": "artifality:artifact_first"
+}

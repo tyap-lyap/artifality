@@ -6,7 +6,6 @@ import artifality.item.BalloonItem;
 import artifality.item.UkuleleItem;
 import artifality.item.base.TieredItem;
 import artifality.util.TrinketsUtils;
-import dev.emi.trinkets.api.TrinketsApi;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -14,7 +13,6 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -64,23 +62,24 @@ public class PlayerEntityMixin {
     void tick(CallbackInfo ci){
         if(!self.world.isClient){
             if(!self.isOnGround() && !self.isFallFlying() && !self.isTouchingWater() && !self.hasStatusEffect(StatusEffects.LEVITATION)){
-
-                if(BalloonItem.hasBalloonOnHead(self)){
-                    TrinketsUtils.getTrinketsAsArray(self).forEach(stack -> {
-                        if(stack.isOf(ArtifalityItems.BALLOON)){
-                            if(stack.getDamage() != stack.getMaxDamage()){
-                                giveSlowFall();
-                                if(self.getRandom().nextInt(30 * TieredItem.getCurrentTier(stack)) == 0){
-                                    stack.setDamage(stack.getDamage() + 1);
-                                }
-                            }
-                        }
-                    });
-                }
+                useBalloon();
             }
         }
     }
 
+    @Unique
+    void useBalloon(){
+        TrinketsUtils.getTrinketsAsArray(self).forEach(stack -> {
+            if(stack.isOf(ArtifalityItems.BALLOON)){
+                if(stack.getDamage() != stack.getMaxDamage()){
+                    giveSlowFall();
+                    if(self.getRandom().nextInt(30 * TieredItem.getCurrentTier(stack)) == 0){
+                        stack.setDamage(stack.getDamage() + 1);
+                    }
+                }
+            }
+        });
+    }
 
     @Unique
     void giveSlowFall(){

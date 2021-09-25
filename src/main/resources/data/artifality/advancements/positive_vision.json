@@ -1,0 +1,56 @@
+{
+    "display": {
+        "title": {
+            "text": "UNLIMITED POWER!"
+        },
+        "description": {
+            "text": "Craft all 3 beacon lenses.. §mAnd apply them to 3 different max level beacons!"
+        },
+        "icon": {
+            "item": "artifality:lunar_crystal_lens"
+        },
+        "frame": "challenge",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "incremental_lens": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "artifality:incremental_lens"
+                        ]
+                    }
+                ]
+            }
+        },
+        "lunar_crystal_lens": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "artifality:lunar_crystal_lens"
+                        ]
+                    }
+                ]
+            }
+        },
+        "crystal_heart_lens": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "artifality:crystal_heart_lens"
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "parent": "artifality:negative_vision"
+}

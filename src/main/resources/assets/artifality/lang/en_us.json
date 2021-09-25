@@ -80,8 +80,11 @@
     "description.zeus_staff.4": "On &fTier 2 &7can charge &fCreepers&7.",
 
     "item.artifality.harvest_staff":"Harvest Staff [WIP]",
+    "description.harvest_staff.0": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
     "item.artifality.lucky_emblem":"Lucky Emblem [WIP]",
+    "description.lucky_emblem.0": "description",
     "item.artifality.midas_touch":"Midas' Touch [WIP]",
+    "description.midas_touch.0": "descriptioooooooooooooooooooooon",
 	
     "itemGroup.artifality.items":"Artifality: Items",
 	

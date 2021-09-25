@@ -1,0 +1,30 @@
+{
+    "display": {
+        "title": {
+            "text": "What's this?"
+        },
+        "description": {
+            "text": "Find your first Artifact"
+        },
+        "icon": {
+            "item": "artifality:forest_staff"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "name": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "tag": "artifality:artifacts"
+                    }
+                ]
+            }
+        }
+    },
+    "parent": "artifality:root"
+}

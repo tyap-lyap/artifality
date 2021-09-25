@@ -1,0 +1,32 @@
+{
+    "display": {
+        "title": {
+            "text": "Upgrades?"
+        },
+        "description": {
+            "text": "Craft the Pedestal of Upgrading"
+        },
+        "icon": {
+            "item": "artifality:upgrading_pedestal"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "name": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "artifality:upgrading_pedestal"
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "parent": "artifality:root"
+}

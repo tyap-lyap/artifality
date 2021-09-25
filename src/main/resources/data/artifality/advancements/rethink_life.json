@@ -1,0 +1,111 @@
+{
+    "display": {
+        "title": {
+            "text": "ORIGINAL ANNIVERSARY PLATINUM ULTRA RARE LIMITED COLLECTOR'S EDITION"
+        },
+        "description": {
+            "text": "why?"
+        },
+        "icon": {
+            "item": "artifality:midas_touch"
+        },
+        "frame": "challenge",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": true
+    },
+    "criteria": {
+        "ukulele": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "artifality:ukulele"
+                        ],
+                        "nbt": "{artifactTier:3}"
+                    }
+                ]
+            }
+        },
+        "zeus_staff": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "artifality:zeus_staff"
+                        ],
+                        "nbt": "{artifactTier:3}"
+                    }
+                ]
+            }
+        },
+        "forest_staff": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "artifality:forest_staff"
+                        ],
+                        "nbt": "{artifactTier:3}"
+                    }
+                ]
+            }
+        },
+        "harvest_staff": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "artifality:harvest_staff"
+                        ],
+                        "nbt": "{artifactTier:3}"
+                    }
+                ]
+            }
+        },
+        "balloon": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "artifality:balloon"
+                        ],
+                        "nbt": "{artifactTier:3}"
+                    }
+                ]
+            }
+        },
+        "lucky_emblem": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "artifality:lucky_emblem"
+                        ],
+                        "nbt": "{artifactTier:3}"
+                    }
+                ]
+            }
+        },
+        "midas_touch": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "artifality:midas_touch"
+                        ],
+                        "nbt": "{artifactTier:3}"
+                    }
+                ]
+            }
+        }
+    },
+    "parent": "artifality:artifact_all"
+}

@@ -1,0 +1,35 @@
+{
+    "display": {
+        "title": {
+            "text": "I love bebr- I mean, I love upgrades!"
+        },
+        "description": {
+            "text": "Upgrade the Pedestal of Upgrading to Tier 3"
+        },
+        "icon": {
+            "item": "minecraft:nether_star"
+        },
+        "frame": "challenge",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "name": {
+            "trigger": "minecraft:item_used_on_block",
+            "conditions": {
+                "item": {
+                    "items": [
+                        "minecraft:nether_star"
+                    ]
+                },
+                "location": {
+                    "block": {
+                        "block": "artifality:upgrading_pedestal"
+                    }
+                }
+            }
+        }
+    },
+    "parent": "artifality:upgrader_second"
+}

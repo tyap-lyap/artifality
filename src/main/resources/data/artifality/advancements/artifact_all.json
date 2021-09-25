@@ -1,0 +1,116 @@
+{
+    "display": {
+        "title": {
+            "text": "Collector's edition"
+        },
+        "description": {
+            "text": "Get 'em all!"
+        },
+        "icon": {
+            "item": "artifality:zeus_staff"
+        },
+        "frame": "goal",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "ukulele": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "artifality:ukulele"
+                        ]
+                    }
+                ]
+            }
+        },
+        "zeus_staff": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "artifality:zeus_staff"
+                        ]
+                    }
+                ]
+            }
+        },
+        "forest_staff": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "artifality:forest_staff"
+                        ]
+                    }
+                ]
+            }
+        },
+        "harvest_staff": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "artifality:harvest_staff"
+                        ]
+                    }
+                ]
+            }
+        },
+        "invisibility_cape": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "artifality:invisibility_cape"
+                        ]
+                    }
+                ]
+            }
+        },
+        "balloon": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "artifality:balloon"
+                        ]
+                    }
+                ]
+            }
+        },
+        "lucky_emblem": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "artifality:lucky_emblem"
+                        ]
+                    }
+                ]
+            }
+        },
+        "midas_touch": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "artifality:midas_touch"
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "parent": "artifality:artifact_first"
+}

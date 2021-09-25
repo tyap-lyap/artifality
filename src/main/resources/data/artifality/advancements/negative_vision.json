@@ -1,0 +1,30 @@
+{
+    "display": {
+        "title": {
+            "text": "To see you better"
+        },
+        "description": {
+            "text": "Craft any of the 3 beacon lenses §mand apply it to an active beacon"
+        },
+        "icon": {
+            "item": "artifality:crystal_heart_lens"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "name": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "tag": "artifality:lenses"
+                    }
+                ]
+            }
+        }
+    },
+    "parent": "artifality:gather_crystal"
+}

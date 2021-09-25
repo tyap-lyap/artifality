@@ -2,6 +2,7 @@ package artifality;
 
 import artifality.block.ArtifalityBlocks;
 import artifality.data.ArtifalityLootTables;
+import artifality.data.ArtifalityTags;
 import artifality.enchantment.ArtifalityEnchantments;
 import artifality.item.ArtifalityItems;
 import artifality.worldgen.feature.ArtifalityConfiguredFeatures;
@@ -38,6 +39,7 @@ public class ArtifalityMod implements ModInitializer {
         ArtifalityEnchantments.register();
         ArtifalityLootTables.register();
         ArtifalityConfiguredFeatures.register();
+        ArtifalityTags.initTags();
     }
 
     public static Identifier newId(String path){

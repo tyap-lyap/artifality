@@ -1,0 +1,56 @@
+{
+    "display": {
+        "title": {
+            "text": "Give me all the shinies!"
+        },
+        "description": {
+            "text": "Why are you so obsessed with these again?"
+        },
+        "icon": {
+            "item": "artifality:lunar_crystal"
+        },
+        "frame": "goal",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "incremental": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "artifality:incremental"
+                        ]
+                    }
+                ]
+            }
+        },
+        "lunar_crystal": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "artifality:lunar_crystal"
+                        ]
+                    }
+                ]
+            }
+        },
+        "crystal_heart_shard": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "artifality:crystal_heart_shard"
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "parent": "artifality:gather_crystal"
+}

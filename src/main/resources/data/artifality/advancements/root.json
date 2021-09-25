@@ -1,13 +1,13 @@
 {
     "display": {
         "title": {
-            "text": "Artifality"
+            "text": "And so it starts.."
         },
         "description": {
-            "text": "Welcome to Artifality Mod"
+            "text": "Welcome to the world of Artifality!"
         },
         "icon": {
-            "item": "artifality:ukulele"
+            "item": "artifality:crystal_heart"
         },
         "frame": "task",
         "show_toast": false,
