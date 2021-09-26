@@ -16,8 +16,8 @@ public class ArtifalityClient implements ClientModInitializer {
     public void onInitializeClient() {
         ArtifalityParticles.register();
 
-        TwoModelsItemRegistry.register(new Item[]{ArtifalityItems.UKULELE, ArtifalityItems.ZEUS_STAFF,
-                ArtifalityItems.BALLOON, ArtifalityItems.FOREST_STAFF});
+        TwoModelsItemRegistry.register(new Item[]{ArtifalityItems.UKULELE, ArtifalityItems.ZEUS_STAFF, ArtifalityItems.BALLOON,
+                ArtifalityItems.FOREST_STAFF, ArtifalityItems.FLORAL_STAFF, ArtifalityItems.HARVEST_STAFF});
 
         ArtifalityItems.getRegisteredItems().forEach((id, items) -> items.forEach(item -> {
             if(item instanceof TrinketRenderer trinketRenderer) TrinketRendererRegistry.registerRenderer(item, trinketRenderer);

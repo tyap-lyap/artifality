@@ -7,7 +7,7 @@
             "translate": "advancements.artifality.artifact_upgrade.desc"
         },
         "icon": {
-            "item": "artifality:harvest_staff"
+            "item": "artifality:balloon"
         },
         "frame": "task",
         "show_toast": true,

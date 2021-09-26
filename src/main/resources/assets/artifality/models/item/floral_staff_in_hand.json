@@ -1,6 +1,6 @@
 {
   "parent": "artifality:item/nature_staff",
   "textures": {
-    "staff": "artifality:item/forest_staff_model"
+    "staff": "artifality:item/floral_staff_model"
   }
 }

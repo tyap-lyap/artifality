@@ -7,7 +7,7 @@
             "translate": "advancements.artifality.artifact_first.desc"
         },
         "icon": {
-            "item": "artifality:forest_staff"
+            "item": "artifality:ukulele"
         },
         "frame": "task",
         "show_toast": true,

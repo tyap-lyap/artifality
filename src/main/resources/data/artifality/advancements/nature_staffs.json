@@ -1,0 +1,56 @@
+{
+    "display": {
+        "title": {
+            "translate": "advancements.artifality.nature_staffs.name"
+        },
+        "description": {
+            "translate": "advancements.artifality.nature_staffs.desc"
+        },
+        "icon": {
+            "item": "artifality:forest_staff"
+        },
+        "frame": "goal",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "floral_staff": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "artifality:floral_staff"
+                        ]
+                    }
+                ]
+            }
+        },
+        "harvest_staff": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "artifality:harvest_staff"
+                        ]
+                    }
+                ]
+            }
+        },
+        "forest_staff": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "artifality:forest_staff"
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "parent": "artifality:artifact_first"
+}
