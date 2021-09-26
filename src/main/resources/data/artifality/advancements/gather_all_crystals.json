@@ -1,13 +1,13 @@
 {
     "display": {
         "title": {
-            "text": "Give me all the shinies!"
+            "translate": "advancements.artifality.gather_all_crystals.name"
         },
         "description": {
-            "text": "Why are you so obsessed with these again?"
+            "translate": "advancements.artifality.gather_all_crystals.desc"
         },
         "icon": {
-            "item": "artifality:lunar_crystal"
+            "item": "artifality:lunamental"
         },
         "frame": "goal",
         "show_toast": true,
@@ -33,7 +33,7 @@
                 "items": [
                     {
                         "items": [
-                            "artifality:lunar_crystal"
+                            "artifality:lunamental"
                         ]
                     }
                 ]
@@ -45,7 +45,7 @@
                 "items": [
                     {
                         "items": [
-                            "artifality:crystal_heart_shard"
+                            "artifality:lovemental"
                         ]
                     }
                 ]

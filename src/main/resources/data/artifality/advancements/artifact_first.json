@@ -1,10 +1,10 @@
 {
     "display": {
         "title": {
-            "text": "What's this?"
+            "translate": "advancements.artifality.artifact_first.name"
         },
         "description": {
-            "text": "Find your first Artifact"
+            "translate": "advancements.artifality.artifact_first.desc"
         },
         "icon": {
             "item": "artifality:forest_staff"

@@ -23,8 +23,8 @@ public class ArtifalityItems extends ItemRegistry {
     public static final Item MIDAS_TOUCH = add("midas_touch", new TieredItem(settings().maxCount(1)));
     public static final Item CRYSTAL_HEART = add("crystal_heart", new BaseItem(settings()));
     public static final Item INCREMENTAL = add("incremental", new BaseItem(settings()));
-    public static final Item LUNAR_CRYSTAL = add("lunar_crystal", new BaseItem(settings()));
-    public static final Item CRYSTAL_HEART_SHARD = add("crystal_heart_shard", new BaseItem(settings()));
+    public static final Item LUNAMENTAL = add("lunamental", new BaseItem(settings()));
+    public static final Item LOVEMENTAL = add("lovemental", new BaseItem(settings()));
 
     private static ItemRegistry ITEM_REGISTRY;
 

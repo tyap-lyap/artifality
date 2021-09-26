@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "artifality:crystal_heart_lens"
+          "name": "artifality:lunamental_block"
         }
       ],
       "conditions": [

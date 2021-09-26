@@ -6,11 +6,11 @@
   ],
   "key": {
     "#": {
-      "item": "artifality:lunar_crystal"
+      "item": "artifality:lovemental"
     }
   },
   "result": {
-    "item": "artifality:lunar_crystal_block",
+    "item": "artifality:lovemental_block",
     "count": 1
   }
 }

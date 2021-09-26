@@ -1,10 +1,10 @@
 {
     "display": {
         "title": {
-            "text": "Upgrades?"
+            "translate": "advancements.artifality.upgrader_first.name"
         },
         "description": {
-            "text": "Craft the Pedestal of Upgrading"
+            "translate": "advancements.artifality.upgrader_first.desc"
         },
         "icon": {
             "item": "artifality:upgrading_pedestal"

@@ -2,11 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "artifality:lunar_crystal_block"
+      "item": "artifality:lunamental_block"
     }
   ],
   "result": {
-    "item": "artifality:lunar_crystal",
+    "item": "artifality:lunamental",
     "count": 4
   }
 }

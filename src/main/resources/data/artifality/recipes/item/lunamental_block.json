@@ -6,11 +6,11 @@
   ],
   "key": {
     "#": {
-      "item": "artifality:crystal_heart_shard"
+      "item": "artifality:lunamental"
     }
   },
   "result": {
-    "item": "artifality:crystal_heart_block",
+    "item": "artifality:lunamental_block",
     "count": 1
   }
 }

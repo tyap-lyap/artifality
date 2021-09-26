@@ -1,10 +1,10 @@
 {
     "display": {
         "title": {
-            "text": "Classy stuff"
+            "translate": "advancements.artifality.artifact_upgrade.name"
         },
         "description": {
-            "text": "Upgrade an Artifact to Tier 2"
+            "translate": "advancements.artifality.artifact_upgrade.desc"
         },
         "icon": {
             "item": "artifality:harvest_staff"

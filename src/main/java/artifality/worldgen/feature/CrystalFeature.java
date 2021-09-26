@@ -19,8 +19,8 @@ public class CrystalFeature extends Feature<DefaultFeatureConfig> {
 
     public static final ArrayList<BlockState> CRYSTALS = new ArrayList<>(Arrays.asList(
             ArtifalityBlocks.INCREMENTAL_CLUSTER.getDefaultState(),
-            ArtifalityBlocks.LUNAR_CRYSTAL_CLUSTER.getDefaultState(),
-            ArtifalityBlocks.CRYSTAL_HEART_CLUSTER.getDefaultState()));
+            ArtifalityBlocks.LUNAMENTAL_CLUSTER.getDefaultState(),
+            ArtifalityBlocks.LOVEMENTAL_CLUSTER.getDefaultState()));
 
     public CrystalFeature() {
         super(DefaultFeatureConfig.CODEC);

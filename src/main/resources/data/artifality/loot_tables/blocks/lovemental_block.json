@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "artifality:lunar_crystal_block"
+          "name": "artifality:lovemental_block"
         }
       ],
       "conditions": [

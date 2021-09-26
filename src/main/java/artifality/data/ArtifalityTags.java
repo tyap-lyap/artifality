@@ -18,9 +18,9 @@ public class ArtifalityTags {
                 ArtifalityItems.HARVEST_STAFF, ArtifalityItems.INVISIBILITY_CAPE, ArtifalityItems.BALLOON, ArtifalityItems.LUCKY_EMBLEM,
                 ArtifalityItems.MIDAS_TOUCH});
 
-        TagAPI.addTag(CRYSTALS, new Item[]{ArtifalityItems.INCREMENTAL, ArtifalityItems.LUNAR_CRYSTAL, ArtifalityItems.CRYSTAL_HEART_SHARD});
+        TagAPI.addTag(CRYSTALS, new Item[]{ArtifalityItems.INCREMENTAL, ArtifalityItems.LUNAMENTAL, ArtifalityItems.LOVEMENTAL});
 
-        TagAPI.addTag(LENSES, new Item[]{ArtifalityBlocks.INCREMENTAL_LENS.asItem(), ArtifalityBlocks.LUNAR_CRYSTAL_LENS.asItem(),
-                ArtifalityBlocks.CRYSTAL_HEART_LENS.asItem()});
+        TagAPI.addTag(LENSES, new Item[]{ArtifalityBlocks.INCREMENTAL_LENS.asItem(), ArtifalityBlocks.LUNAMENTAL_LENS.asItem(),
+                ArtifalityBlocks.LOVEMENTAL_LENS.asItem()});
     }
 }

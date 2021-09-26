@@ -1,13 +1,13 @@
 {
     "display": {
         "title": {
-            "text": "To see you better"
+            "translate": "advancements.artifality.negative_vision.name"
         },
         "description": {
-            "text": "Craft any of the 3 beacon lenses §mand apply it to an active beacon"
+            "translate": "advancements.artifality.negative_vision.desc"
         },
         "icon": {
-            "item": "artifality:crystal_heart_lens"
+            "item": "artifality:lovemental_lens"
         },
         "frame": "task",
         "show_toast": true,

@@ -10,11 +10,11 @@
       "item": "minecraft:netherite_ingot"
     },
     "W": {
-      "item": "artifality:crystal_heart_block"
+      "item": "artifality:lovemental_block"
     }
   },
   "result": {
-    "item": "artifality:crystal_heart_lens",
+    "item": "artifality:lovemental_lens",
     "count": 1
   }
 }

@@ -1,10 +1,10 @@
 {
     "display": {
         "title": {
-            "text": "Shinies!"
+            "translate": "advancements.artifality.gather_crystal.name"
         },
         "description": {
-            "text": "Gather your first crystal"
+            "translate": "advancements.artifality.gather_crystal.desc"
         },
         "icon": {
             "item": "artifality:incremental"

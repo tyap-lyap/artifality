@@ -10,11 +10,11 @@
       "item": "minecraft:netherite_ingot"
     },
     "W": {
-      "item": "artifality:lunar_crystal_block"
+      "item": "artifality:lunamental_block"
     }
   },
   "result": {
-    "item": "artifality:lunar_crystal_lens",
+    "item": "artifality:lunamental_lens",
     "count": 1
   }
 }

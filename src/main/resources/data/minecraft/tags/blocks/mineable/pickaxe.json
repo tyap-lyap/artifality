@@ -3,13 +3,13 @@
   "values": [
     "artifality:incremental_cluster",
     "artifality:incremental_block",
-    "artifality:lunar_crystal_cluster",
-    "artifality:lunar_crystal_block",
+    "artifality:lunamental_cluster",
+    "artifality:lunamental_block",
     "artifality:incremental_lens",
     "artifality:upgrading_pedestal",
-    "artifality:lunar_crystal_lens",
-    "artifality:crystal_heart_lens",
-    "artifality:crystal_heart_cluster",
-    "artifality:crystal_heart_block"
+    "artifality:lunamental_lens",
+    "artifality:lovemental_lens",
+    "artifality:lovemental_cluster",
+    "artifality:lovemental_block"
   ]
 }

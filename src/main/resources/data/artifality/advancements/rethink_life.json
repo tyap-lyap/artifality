@@ -1,10 +1,10 @@
 {
     "display": {
         "title": {
-            "text": "ORIGINAL ANNIVERSARY PLATINUM ULTRA RARE LIMITED COLLECTOR'S EDITION"
+            "translate": "advancements.artifality.rethink_life.name"
         },
         "description": {
-            "text": "why?"
+            "translate": "advancements.artifality.rethink_life.desc"
         },
         "icon": {
             "item": "artifality:midas_touch"

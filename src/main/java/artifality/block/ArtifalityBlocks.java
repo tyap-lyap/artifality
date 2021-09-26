@@ -17,13 +17,13 @@ public class ArtifalityBlocks extends BlockRegistry {
     public static final Block INCREMENTAL_BLOCK = addLitBlock("incremental_block");
     public static final Block INCREMENTAL_LENS = add("incremental_lens", new IncrementalLensBlock(copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.NETHERITE).nonOpaque()));
 
-    public static final Block LUNAR_CRYSTAL_CLUSTER = addCluster("lunar_crystal_cluster");
-    public static final Block LUNAR_CRYSTAL_BLOCK = addLitBlock("lunar_crystal_block");
-    public static final Block LUNAR_CRYSTAL_LENS = add("lunar_crystal_lens", new LunarCrystalLensBlock(copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.NETHERITE).nonOpaque()));
+    public static final Block LUNAMENTAL_CLUSTER = addCluster("lunamental_cluster");
+    public static final Block LUNAMENTAL_BLOCK = addLitBlock("lunamental_block");
+    public static final Block LUNAMENTAL_LENS = add("lunamental_lens", new LunamentalLensBlock(copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.NETHERITE).nonOpaque()));
 
-    public static final Block CRYSTAL_HEART_CLUSTER = addCluster("crystal_heart_cluster");
-    public static final Block CRYSTAL_HEART_BLOCK = addLitBlock("crystal_heart_block");
-    public static final Block CRYSTAL_HEART_LENS = add("crystal_heart_lens", new CrystalHeartLensBlock(copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.NETHERITE).nonOpaque()));
+    public static final Block LOVEMENTAL_CLUSTER = addCluster("lovemental_cluster");
+    public static final Block LOVEMENTAL_BLOCK = addLitBlock("lovemental_block");
+    public static final Block LOVEMENTAL_LENS = add("lovemental_lens", new LovementalLensBlock(copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.NETHERITE).nonOpaque()));
 
     public static final Block UPGRADING_PEDESTAL = add("upgrading_pedestal", new UpgradingPedestalBlock(copyOf(Blocks.COBBLESTONE)));
 //    public static final Block LUNAR_PEDESTAL = add("lunar_pedestal", new UpgradingPedestalBlock(copyOf(Blocks.COBBLESTONE)));

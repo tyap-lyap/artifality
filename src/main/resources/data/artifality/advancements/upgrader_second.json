@@ -1,10 +1,10 @@
 {
     "display": {
         "title": {
-            "text": "Upgrades!"
+            "translate": "advancements.artifality.upgrader_second.name"
         },
         "description": {
-            "text": "Upgrade the Pedestal of Upgrading to Tier 2"
+            "translate": "advancements.artifality.upgrader_second.desc"
         },
         "icon": {
             "item": "artifality:upgrading_pedestal"

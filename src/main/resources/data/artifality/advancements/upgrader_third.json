@@ -1,10 +1,10 @@
 {
     "display": {
         "title": {
-            "text": "I love bebr- I mean, I love upgrades!"
+            "translate": "advancements.artifality.upgrader_third.name"
         },
         "description": {
-            "text": "Upgrade the Pedestal of Upgrading to Tier 3"
+            "translate": "advancements.artifality.upgrader_third.desc"
         },
         "icon": {
             "item": "minecraft:nether_star"

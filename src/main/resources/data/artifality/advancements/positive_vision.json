@@ -1,13 +1,13 @@
 {
     "display": {
         "title": {
-            "text": "UNLIMITED POWER!"
+            "translate": "advancements.artifality.positive_vision.name"
         },
         "description": {
-            "text": "Craft all 3 beacon lenses.. §mAnd apply them to 3 different max level beacons!"
+            "translate": "advancements.artifality.positive_vision.desc"
         },
         "icon": {
-            "item": "artifality:lunar_crystal_lens"
+            "item": "artifality:lunamental_lens"
         },
         "frame": "challenge",
         "show_toast": true,
@@ -33,7 +33,7 @@
                 "items": [
                     {
                         "items": [
-                            "artifality:lunar_crystal_lens"
+                            "artifality:lunamental_lens"
                         ]
                     }
                 ]
@@ -45,7 +45,7 @@
                 "items": [
                     {
                         "items": [
-                            "artifality:crystal_heart_lens"
+                            "artifality:lovemental_lens"
                         ]
                     }
                 ]

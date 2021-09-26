@@ -2,11 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "artifality:crystal_heart_block"
+      "item": "artifality:lovemental_block"
     }
   ],
   "result": {
-    "item": "artifality:crystal_heart_shard",
+    "item": "artifality:lovemental",
     "count": 4
   }
 }

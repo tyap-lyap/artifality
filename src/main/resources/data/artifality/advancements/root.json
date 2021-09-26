@@ -1,10 +1,10 @@
 {
     "display": {
         "title": {
-            "text": "And so it starts.."
+            "translate": "advancements.artifality.root.name"
         },
         "description": {
-            "text": "Welcome to the world of Artifality!"
+            "translate": "advancements.artifality.root.desc"
         },
         "icon": {
             "item": "artifality:crystal_heart"
