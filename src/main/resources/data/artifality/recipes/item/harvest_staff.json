@@ -7,7 +7,7 @@
   ],
   "key": {
     "#": {
-      "item": "minecraft:oak_sapling"
+      "item": "minecraft:wheat"
     },
     "H": {
       "item": "artifality:crystal_heart"
@@ -17,7 +17,7 @@
     }
   },
   "result": {
-    "item": "artifality:forest_staff",
+    "item": "artifality:harvest_staff",
     "count": 1
   }
 }

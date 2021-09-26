@@ -40,7 +40,6 @@ public class UkuleleItem extends TieredItem implements Trinket, TrinketRenderer 
             StatusEffects.SPEED, StatusEffects.ABSORPTION, StatusEffects.HASTE,
             StatusEffects.JUMP_BOOST, StatusEffects.RESISTANCE));
 
-
     public static final ArrayList<StatusEffect> NEGATIVE_EFFECTS = new ArrayList<>(Arrays.asList(StatusEffects.LEVITATION,
             StatusEffects.MINING_FATIGUE, StatusEffects.SLOWNESS, StatusEffects.POISON,
             StatusEffects.WEAKNESS, StatusEffects.WITHER));

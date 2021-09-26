@@ -13,15 +13,27 @@ import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.client.render.model.json.ModelTransformation;
 import net.minecraft.client.util.ModelIdentifier;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.entity.ExperienceOrbEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.Vec3f;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.GameRules;
+import net.minecraft.world.World;
 
 public class NatureStaffItem extends TieredItem implements Trinket, TrinketRenderer {
 
     public NatureStaffItem(Settings settings) {
         super(settings);
+    }
+
+    public static void dropExperience(World world, BlockPos pos, int size) {
+        if (world.getGameRules().getBoolean(GameRules.DO_TILE_DROPS)) {
+            ExperienceOrbEntity.spawn((ServerWorld)world, Vec3d.ofCenter(pos), size);
+        }
     }
 
     @SuppressWarnings("unchecked")

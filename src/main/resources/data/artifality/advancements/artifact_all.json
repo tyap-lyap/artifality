@@ -110,6 +110,18 @@
                     }
                 ]
             }
+        },
+        "floral_staff": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "artifality:floral_staff"
+                        ]
+                    }
+                ]
+            }
         }
     },
     "parent": "artifality:artifact_first"

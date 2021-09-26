@@ -16,7 +16,7 @@ public class ArtifalityTags {
     public static void initTags(){
         TagAPI.addTag(ARTIFACTS, new Item[]{ArtifalityItems.UKULELE, ArtifalityItems.ZEUS_STAFF, ArtifalityItems.FOREST_STAFF,
                 ArtifalityItems.HARVEST_STAFF, ArtifalityItems.INVISIBILITY_CAPE, ArtifalityItems.BALLOON, ArtifalityItems.LUCKY_EMBLEM,
-                ArtifalityItems.MIDAS_TOUCH});
+                ArtifalityItems.MIDAS_TOUCH, ArtifalityItems.FLORAL_STAFF});
 
         TagAPI.addTag(CRYSTALS, new Item[]{ArtifalityItems.INCREMENTAL, ArtifalityItems.LUNAMENTAL, ArtifalityItems.LOVEMENTAL});
 

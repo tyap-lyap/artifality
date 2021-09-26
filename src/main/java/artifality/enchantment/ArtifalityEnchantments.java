@@ -15,7 +15,8 @@ public class ArtifalityEnchantments {
 
     private static final Map<Identifier, Enchantment> ENCHANTMENTS = new LinkedHashMap<>();
 
-    public static final Enchantment SLIDING_CURSE = add("sliding_curse", new SlidingCurseEnchantment(Enchantment.Rarity.RARE, EnchantmentTarget.ARMOR, new EquipmentSlot[]{EquipmentSlot.FEET}));
+    public static final Enchantment SLIDING_CURSE = add("sliding_curse", new SlidingCurseEnchantment(Enchantment.Rarity.RARE, EnchantmentTarget.ARMOR, new EquipmentSlot[]{EquipmentSlot.FEET, EquipmentSlot.LEGS, EquipmentSlot.CHEST, EquipmentSlot.HEAD}));
+    public static final Enchantment VOLATILE_CURSE = add("volatile_curse", new SlidingCurseEnchantment(Enchantment.Rarity.RARE, EnchantmentTarget.ARMOR, new EquipmentSlot[]{EquipmentSlot.FEET, EquipmentSlot.LEGS, EquipmentSlot.CHEST, EquipmentSlot.HEAD}));
     public static final Enchantment LUNAR_DAMAGE = add("lunar_damage", new LunarDamageEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON, new EquipmentSlot[]{EquipmentSlot.MAINHAND}));
 //    public static final Enchantment LUNAR_MINER = add("lunar_miner", new LunarDamageEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON, new EquipmentSlot[]{EquipmentSlot.MAINHAND}));
 

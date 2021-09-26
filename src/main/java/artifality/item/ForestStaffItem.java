@@ -2,18 +2,14 @@ package artifality.item;
 
 import artifality.item.base.NatureStaffItem;
 import net.minecraft.block.*;
-import net.minecraft.entity.ExperienceOrbEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.*;
-import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldEvents;
 import net.minecraft.world.gen.feature.Feature;
@@ -45,20 +41,18 @@ public class ForestStaffItem extends NatureStaffItem {
         if(context.getWorld().isClient || context.getPlayer() == null) return super.useOnBlock(context);
 
         BlockPos pos = context.getBlockPos();
-        BlockState block = context.getWorld().getBlockState(pos);
+        BlockState state = context.getWorld().getBlockState(pos);
         PlayerEntity player = context.getPlayer();
         World world = context.getWorld();
 
-        if(block.getBlock() instanceof SaplingBlock && player.getInventory().contains(Items.BONE_MEAL.getDefaultStack())){
+        if(state.getBlock() instanceof SaplingBlock && player.getInventory().contains(Items.BONE_MEAL.getDefaultStack())){
             if(BoneMealItem.useOnFertilizable(player.getInventory().getStack(player.getInventory().getSlotWithStack(Items.BONE_MEAL.getDefaultStack())), world, pos)){
-
                 world.syncWorldEvent(WorldEvents.BONE_MEAL_USED, pos, 0);
-                dropExperience((ServerWorld)world, pos, world.getRandom().nextInt(3) + getCurrentTier(context.getStack()));
+                dropExperience(world, pos, world.getRandom().nextInt(2) + getCurrentTier(context.getStack()));
                 return ActionResult.SUCCESS;
             }
-        }else if(Feature.isSoil(block) && context.getSide().equals(Direction.UP)){
+        }else if(Feature.isSoil(state) && context.getSide().equals(Direction.UP)){
             if(hasSapling(player) && world.isAir(pos.up())){
-
                 BlockSoundGroup blockSoundGroup = Blocks.AZALEA.getSoundGroup(Blocks.AZALEA.getDefaultState());
                 world.playSound(null, pos, blockSoundGroup.getPlaceSound(), SoundCategory.BLOCKS, (blockSoundGroup.getVolume() + 1.0F) / 2.0F, blockSoundGroup.getPitch() * 0.8F);
                 world.setBlockState(pos.up(), SAPLINGS.get(consumeSapling(player)).getDefaultState());
@@ -91,11 +85,5 @@ public class ForestStaffItem extends NatureStaffItem {
             }
         }
         return Items.AIR;
-    }
-
-    protected void dropExperience(ServerWorld world, BlockPos pos, int size) {
-        if (world.getGameRules().getBoolean(GameRules.DO_TILE_DROPS)) {
-            ExperienceOrbEntity.spawn(world, Vec3d.ofCenter(pos), size);
-        }
     }
 }

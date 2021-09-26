@@ -13,7 +13,9 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
+import net.minecraft.world.explosion.Explosion;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -43,6 +45,23 @@ public class PlayerEntityMixin {
                             UkuleleItem.NEGATIVE_EFFECTS.get(attacker.world.getRandom().nextInt(UkuleleItem.NEGATIVE_EFFECTS.size())),
                             10, 1.5F, 1);
                     self.getItemCooldownManager().set(ArtifalityItems.UKULELE, 20 * 20);
+                }
+            }
+        }
+    }
+
+    @Inject(method = "damage", at = @At("HEAD"))
+    void volatileCurse(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir){
+        if(!self.world.isClient){
+            if(!self.isInvulnerableTo(source) && source.getAttacker() != null){
+                for (ItemStack stack : self.getItemsEquipped()){
+                    if (EnchantmentHelper.get(stack).containsKey(ArtifalityEnchantments.VOLATILE_CURSE)){
+                        if(!self.getItemCooldownManager().isCoolingDown(stack.getItem())){
+                            self.world.createExplosion(self, self.getX(), self.getY(), self.getZ(), 1F, Explosion.DestructionType.NONE);
+                            self.getItemCooldownManager().set(stack.getItem(), 20 * 20);
+                            break;
+                        }
+                    }
                 }
             }
         }
