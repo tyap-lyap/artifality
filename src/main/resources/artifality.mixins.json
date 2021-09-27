@@ -11,7 +11,8 @@
     "common.PlayerEntityMixin",
     "common.VillagerEntityMixin",
     "common.ZombieEntityMixin",
-    "common.extension.LightningEntityExtension"
+    "common.extension.LightningEntityExtension",
+    "common.access.BeaconAccessor"
   ],
   "client": [
     "client.ArmorFeatureRendererMixin",

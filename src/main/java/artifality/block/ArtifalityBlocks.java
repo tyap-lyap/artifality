@@ -1,6 +1,7 @@
 package artifality.block;
 
 import artifality.ArtifalityMod;
+import artifality.block.base.BuddingCrystalBlock;
 import artifality.block.base.ClusterBlock;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
@@ -13,15 +14,24 @@ import ru.bclib.registry.BlockRegistry;
 @SuppressWarnings("unused")
 public class ArtifalityBlocks extends BlockRegistry {
 
+    public static final Block SMALL_INCREMENTAL_CLUSTER = addCluster("small_incremental_cluster");
+    public static final Block MEDIUM_INCREMENTAL_CLUSTER = addCluster("medium_incremental_cluster");
     public static final Block INCREMENTAL_CLUSTER = addCluster("incremental_cluster");
+    public static final Block BUDDING_INCREMENTAL = addBuddingBlock("budding_incremental");
     public static final Block INCREMENTAL_BLOCK = addLitBlock("incremental_block");
     public static final Block INCREMENTAL_LENS = add("incremental_lens", new IncrementalLensBlock(copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.NETHERITE).nonOpaque()));
 
+    public static final Block SMALL_LUNAMENTAL_CLUSTER = addCluster("small_lunamental_cluster");
+    public static final Block MEDIUM_LUNAMENTAL_CLUSTER = addCluster("medium_lunamental_cluster");
     public static final Block LUNAMENTAL_CLUSTER = addCluster("lunamental_cluster");
+    public static final Block BUDDING_LUNAMENTAL = addBuddingBlock("budding_lunamental");
     public static final Block LUNAMENTAL_BLOCK = addLitBlock("lunamental_block");
     public static final Block LUNAMENTAL_LENS = add("lunamental_lens", new LunamentalLensBlock(copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.NETHERITE).nonOpaque()));
 
+    public static final Block SMALL_LOVEMENTAL_CLUSTER = addCluster("small_lovemental_cluster");
+    public static final Block MEDIUM_LOVEMENTAL_CLUSTER = addCluster("medium_lovemental_cluster");
     public static final Block LOVEMENTAL_CLUSTER = addCluster("lovemental_cluster");
+    public static final Block BUDDING_LOVEMENTAL = addBuddingBlock("budding_lovemental");
     public static final Block LOVEMENTAL_BLOCK = addLitBlock("lovemental_block");
     public static final Block LOVEMENTAL_LENS = add("lovemental_lens", new LovementalLensBlock(copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.NETHERITE).nonOpaque()));
 
@@ -35,11 +45,15 @@ public class ArtifalityBlocks extends BlockRegistry {
     }
 
     private static Block addCluster(String name){
-        return add(name, new ClusterBlock(copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.AMETHYST_CLUSTER).luminance(value -> 10)));
+        return add(name, new ClusterBlock(copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.AMETHYST_CLUSTER).luminance(10)));
+    }
+
+    private static Block addBuddingBlock(String name){
+        return add(name, new BuddingCrystalBlock(copyOf(Blocks.STONE).ticksRandomly()));
     }
 
     private static Block addLitBlock(String name){
-        return add(name, new BaseBlock(copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(value -> 15)));
+        return add(name, new BaseBlock(copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(15)));
     }
 
     private static Block add(String id, Block block){

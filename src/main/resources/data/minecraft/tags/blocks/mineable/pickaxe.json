@@ -10,6 +10,15 @@
     "artifality:lunamental_lens",
     "artifality:lovemental_lens",
     "artifality:lovemental_cluster",
-    "artifality:lovemental_block"
+    "artifality:lovemental_block",
+    "artifality:budding_incremental",
+    "artifality:budding_lunamental",
+    "artifality:budding_lovemental",
+    "artifality:small_incremental_cluster",
+    "artifality:small_lunamental_cluster",
+    "artifality:small_lovemental_cluster",
+    "artifality:medium_incremental_cluster",
+    "artifality:medium_lunamental_cluster",
+    "artifality:medium_lovemental_cluster"
   ]
 }

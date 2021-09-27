@@ -25,14 +25,14 @@
                   }
                 }
               ],
-              "name": "artifality:lunamental_cluster"
+              "name": "artifality:medium_incremental_cluster"
             },
             {
               "type": "minecraft:item",
 			  "functions": [
                 {
                   "function": "minecraft:set_count",
-                  "count": 3.0,
+                  "count": 2.0,
                   "add": false
                 }
               ],
@@ -41,7 +41,7 @@
                   "condition": "minecraft:survives_explosion"
                 }
               ],
-              "name": "artifality:lunamental"
+              "name": "artifality:incremental"
             }
           ]
         }

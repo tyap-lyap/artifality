@@ -25,23 +25,16 @@
                   }
                 }
               ],
-              "name": "artifality:lunamental_cluster"
+              "name": "artifality:small_lovemental_cluster"
             },
             {
               "type": "minecraft:item",
-			  "functions": [
-                {
-                  "function": "minecraft:set_count",
-                  "count": 3.0,
-                  "add": false
-                }
-              ],
               "conditions": [
                 {
                   "condition": "minecraft:survives_explosion"
                 }
               ],
-              "name": "artifality:lunamental"
+              "name": "artifality:lovemental"
             }
           ]
         }
