@@ -54,6 +54,19 @@
                 ]
             }
         },
+        "floral_staff": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "artifality:floral_staff"
+                        ],
+                        "nbt": "{artifactTier:3}"
+                    }
+                ]
+            }
+        },
         "harvest_staff": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
@@ -74,19 +87,6 @@
                     {
                         "items": [
                             "artifality:balloon"
-                        ],
-                        "nbt": "{artifactTier:3}"
-                    }
-                ]
-            }
-        },
-        "lucky_emblem": {
-            "trigger": "minecraft:inventory_changed",
-            "conditions": {
-                "items": [
-                    {
-                        "items": [
-                            "artifality:lucky_emblem"
                         ],
                         "nbt": "{artifactTier:3}"
                     }

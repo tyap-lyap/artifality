@@ -2,10 +2,16 @@
   "replace": false,
   "colors": {
     "artifality:incremental_cluster": "#26cddb",
+    "artifality:small_incremental_cluster": "#26cddb",
+    "artifality:medium_incremental_cluster": "#26cddb",
     "artifality:incremental_block": "#26cddb",
-    "artifality:lunar_crystal_cluster": "#55acff",
-    "artifality:lunar_crystal_block": "#55acff",
-    "artifality:crystal_heart_cluster": "#ff3648",
-    "artifality:crystal_heart_block": "#ff3648"
+    "artifality:lunamental_cluster": "#55acff",
+    "artifality:small_lunamental_cluster": "#55acff",
+    "artifality:medium_lunamental_cluster": "#55acff",
+    "artifality:lunamental_block": "#55acff",
+    "artifality:lovemental_cluster": "#ff3648",
+    "artifality:small_lovemental_cluster": "#ff3648",
+    "artifality:medium_lovemental_cluster": "#ff3648",
+    "artifality:lovemental_block": "#ff3648"
   }
 }

@@ -35,7 +35,7 @@ public abstract class ZombieEntityMixin extends HostileEntity {
     void spawnWithZeusStaff(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, EntityData entityData, NbtCompound entityNbt, CallbackInfoReturnable<EntityData> cir){
 
         if(!spawnReason.equals(SpawnReason.SPAWNER) && !spawnReason.equals(SpawnReason.CHUNK_GENERATION) && this.getStackInHand(Hand.MAIN_HAND).isEmpty()){
-            if(this.world.random.nextFloat() > 0.9F){
+            if(this.world.random.nextFloat() > 0.95F){
                 this.setStackInHand(Hand.MAIN_HAND, ArtifalityItems.ZEUS_STAFF.getDefaultStack());
             }
         }

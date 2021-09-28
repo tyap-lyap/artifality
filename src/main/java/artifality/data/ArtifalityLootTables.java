@@ -33,7 +33,11 @@ public class ArtifalityLootTables {
 
             overworldChest(ArtifalityItems.INVISIBILITY_CAPE, 0.05F);
             overworldChest(ArtifalityItems.UKULELE, 0.03F);
-            overworldChest(ArtifalityItems.FOREST_STAFF, 0.04F);
+            overworldChest(ArtifalityItems.ZEUS_STAFF, 0.03F);
+            overworldChest(ArtifalityItems.FOREST_STAFF, 0.03F);
+            overworldChest(ArtifalityItems.HARVEST_STAFF, 0.03F);
+            overworldChest(ArtifalityItems.FLORAL_STAFF, 0.03F);
+            overworldChest(ArtifalityItems.CRYSTAL_HEART, 0.03F);
             overworldChest(ArtifalityItems.BALLOON, 0.04F);
         });
     }

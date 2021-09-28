@@ -19,7 +19,7 @@ public class ArtifalityItems extends ItemRegistry {
     public static final Item HARVEST_STAFF = add("harvest_staff", new HarvestStaffItem(settings().maxCount(1)));
     public static final Item INVISIBILITY_CAPE = add("invisibility_cape", new InvisibilityCapeItem(settings().maxCount(1)));
     public static final Item BALLOON = add("balloon", new BalloonItem(settings().maxDamage(128)));
-    public static final Item LUCKY_EMBLEM = add("lucky_emblem", new TieredItem(settings().maxCount(1)));
+//    public static final Item LUCKY_EMBLEM = add("lucky_emblem", new TieredItem(settings().maxCount(1)));
 //    public static final Item CHARM_OF_EVOLUTION = add("charm_of_evolution", new BaseItem(settings().maxCount(1)));
     public static final Item MIDAS_TOUCH = add("midas_touch", new TieredItem(settings().maxCount(1)));
     public static final Item CRYSTAL_HEART = add("crystal_heart", new BaseItem(settings()));

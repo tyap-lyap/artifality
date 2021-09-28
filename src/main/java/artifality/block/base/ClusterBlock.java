@@ -5,6 +5,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.render.model.ModelRotation;
 import net.minecraft.client.render.model.UnbakedModel;
 import net.minecraft.client.render.model.json.JsonUnbakedModel;
@@ -15,6 +16,9 @@ import net.minecraft.loot.context.LootContext;
 import net.minecraft.loot.context.LootContextParameters;
 import net.minecraft.loot.context.LootContextTypes;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
@@ -39,8 +43,11 @@ public class ClusterBlock extends BaseAttachedBlock implements RenderLayerProvid
     protected static final VoxelShape UP_SHAPE = createCuboidShape(3, 0, 3, 13, 7, 13);
     protected static final VoxelShape DOWN_SHAPE = createCuboidShape(3, 9, 3, 13, 16, 13);
 
-    public ClusterBlock(Settings settings) {
+    private final String type;
+
+    public ClusterBlock(Settings settings, String type) {
         super(settings);
+        this.type = type;
     }
 
     @Override
@@ -54,6 +61,12 @@ public class ClusterBlock extends BaseAttachedBlock implements RenderLayerProvid
             LootTable lootTable = serverWorld.getServer().getLootManager().getTable(identifier);
             return lootTable.generateLoot(lootContext);
         }
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
+        super.appendTooltip(stack, world, tooltip, options);
+        tooltip.add(new TranslatableText("misc.artifality." + type).formatted(Formatting.GRAY));
     }
 
     @Override

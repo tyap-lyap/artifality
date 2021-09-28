@@ -87,18 +87,6 @@
                 ]
             }
         },
-        "lucky_emblem": {
-            "trigger": "minecraft:inventory_changed",
-            "conditions": {
-                "items": [
-                    {
-                        "items": [
-                            "artifality:lucky_emblem"
-                        ]
-                    }
-                ]
-            }
-        },
         "midas_touch": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
