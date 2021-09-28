@@ -92,19 +92,6 @@
                     }
                 ]
             }
-        },
-        "midas_touch": {
-            "trigger": "minecraft:inventory_changed",
-            "conditions": {
-                "items": [
-                    {
-                        "items": [
-                            "artifality:midas_touch"
-                        ],
-                        "nbt": "{artifactTier:3}"
-                    }
-                ]
-            }
         }
     },
     "parent": "artifality:artifact_all"

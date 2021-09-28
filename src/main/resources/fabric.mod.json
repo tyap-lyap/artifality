@@ -4,15 +4,15 @@
   "version": "${version}",
 
   "name": "Artifality",
-  "description": "Collection of useful artifacts, blocks, enchantments and more.",
+  "description": "Collection of useful Artifacts, Blocks, Enchantments and more.",
   "authors": [
     "PinkGoosik"
   ],
   "contributors": [
-    "DoctorNight - Author, Developer",
-    "Spusik - Author, Developer",
-    "aSomik - Author, idk",
-    "matthewperiut - Contributor"
+    "DoctorNight",
+    "Spusik",
+    "aSomik",
+    "matthewperiut"
   ],
   "contact": {
     "homepage": "https://curseforge.com/minecraft/mc-mods/artifality",
@@ -49,8 +49,5 @@
     "java": ">=16",
     "trinkets": ">=3.0.2",
     "bclib": ">=0.3.1"
-  },
-  "suggests": {
-    "colored_lights": "*"
   }
 }

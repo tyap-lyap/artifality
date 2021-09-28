@@ -87,18 +87,6 @@
                 ]
             }
         },
-        "midas_touch": {
-            "trigger": "minecraft:inventory_changed",
-            "conditions": {
-                "items": [
-                    {
-                        "items": [
-                            "artifality:midas_touch"
-                        ]
-                    }
-                ]
-            }
-        },
         "floral_staff": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
