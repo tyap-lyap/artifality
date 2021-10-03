@@ -7,7 +7,7 @@
             "translate": "advancements.artifality.gather_crystal.desc"
         },
         "icon": {
-            "item": "artifality:incremental"
+            "item": "artifality:incremental_crystal"
         },
         "frame": "task",
         "show_toast": true,

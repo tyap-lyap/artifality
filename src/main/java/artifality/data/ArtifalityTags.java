@@ -17,9 +17,9 @@ public class ArtifalityTags {
         TagAPI.addTag(ARTIFACTS, new Item[]{ArtifalityItems.UKULELE, ArtifalityItems.ZEUS_STAFF, ArtifalityItems.FOREST_STAFF,
                 ArtifalityItems.HARVEST_STAFF, ArtifalityItems.INVISIBILITY_CAPE, ArtifalityItems.BALLOON, ArtifalityItems.FLORAL_STAFF});
 
-        TagAPI.addTag(CRYSTALS, new Item[]{ArtifalityItems.INCREMENTAL, ArtifalityItems.LUNAMENTAL, ArtifalityItems.LOVEMENTAL});
+        TagAPI.addTag(CRYSTALS, new Item[]{ArtifalityItems.INCREMENTAL_CRYSTAL, ArtifalityItems.LUNAR_CRYSTAL, ArtifalityItems.LIFE_CRYSTAL});
 
-        TagAPI.addTag(LENSES, new Item[]{ArtifalityBlocks.INCREMENTAL_LENS.asItem(), ArtifalityBlocks.LUNAMENTAL_LENS.asItem(),
-                ArtifalityBlocks.LOVEMENTAL_LENS.asItem()});
+        TagAPI.addTag(LENSES, new Item[]{ArtifalityBlocks.INCREMENTAL_CRYSTAL_LENS.asItem(), ArtifalityBlocks.LUNAR_CRYSTAL_LENS.asItem(),
+                ArtifalityBlocks.LIFE_CRYSTAL_LENS.asItem()});
     }
 }

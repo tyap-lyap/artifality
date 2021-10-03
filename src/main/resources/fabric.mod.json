@@ -12,10 +12,12 @@
     "DoctorNight",
     "Spusik",
     "aSomik",
-    "matthewperiut"
+    "matthewperiut",
+    "PrismaticYT"
   ],
   "contact": {
     "homepage": "https://curseforge.com/minecraft/mc-mods/artifality",
+    "sources": "https://github.com/PinkGoosik/artifality",
     "issues": "https://github.com/PinkGoosik/artifality/issues"
   },
 

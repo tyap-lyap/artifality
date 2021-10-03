@@ -7,7 +7,7 @@
             "translate": "advancements.artifality.positive_vision.desc"
         },
         "icon": {
-            "item": "artifality:lunamental_lens"
+            "item": "artifality:lunar_crystal_lens"
         },
         "frame": "challenge",
         "show_toast": true,
@@ -15,13 +15,13 @@
         "hidden": false
     },
     "criteria": {
-        "incremental_lens": {
+        "incremental_crystal_lens": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
                     {
                         "items": [
-                            "artifality:incremental_lens"
+                            "artifality:incremental_crystal_lens"
                         ]
                     }
                 ]
@@ -33,7 +33,7 @@
                 "items": [
                     {
                         "items": [
-                            "artifality:lunamental_lens"
+                            "artifality:lunar_crystal_lens"
                         ]
                     }
                 ]
@@ -45,7 +45,7 @@
                 "items": [
                     {
                         "items": [
-                            "artifality:lovemental_lens"
+                            "artifality:life_crystal_lens"
                         ]
                     }
                 ]

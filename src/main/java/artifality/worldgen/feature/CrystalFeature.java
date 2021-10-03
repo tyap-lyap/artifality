@@ -18,9 +18,9 @@ import java.util.Random;
 public class CrystalFeature extends Feature<DefaultFeatureConfig> {
 
     public static final ArrayList<BlockState> CRYSTALS = new ArrayList<>(Arrays.asList(
-            ArtifalityBlocks.INCREMENTAL_CLUSTER.getDefaultState(),
-            ArtifalityBlocks.LUNAMENTAL_CLUSTER.getDefaultState(),
-            ArtifalityBlocks.LOVEMENTAL_CLUSTER.getDefaultState()));
+            ArtifalityBlocks.INCREMENTAL_CRYSTAL_CLUSTER.getDefaultState(),
+            ArtifalityBlocks.LUNAR_CRYSTAL_CLUSTER.getDefaultState(),
+            ArtifalityBlocks.LIFE_CRYSTAL_CLUSTER.getDefaultState()));
 
     public CrystalFeature() {
         super(DefaultFeatureConfig.CODEC);
@@ -74,47 +74,47 @@ public class CrystalFeature extends Feature<DefaultFeatureConfig> {
     }
 
     public static void setCrystal(StructureWorldAccess world, BlockPos pos, BlockState state, Random random){
-        if(state.isOf(ArtifalityBlocks.INCREMENTAL_CLUSTER)){
+        if(state.isOf(ArtifalityBlocks.INCREMENTAL_CRYSTAL_CLUSTER)){
             int randomInt = random.nextInt(3);
             if(randomInt == 0){
                 world.setBlockState(pos, state, 3);
             }else if(randomInt == 1){
-                world.setBlockState(pos, ArtifalityBlocks.MEDIUM_INCREMENTAL_CLUSTER.getStateWithProperties(state), 3);
+                world.setBlockState(pos, ArtifalityBlocks.MEDIUM_INCREMENTAL_CRYSTAL_CLUSTER.getStateWithProperties(state), 3);
             }else{
-                world.setBlockState(pos, ArtifalityBlocks.SMALL_INCREMENTAL_CLUSTER.getStateWithProperties(state), 3);
+                world.setBlockState(pos, ArtifalityBlocks.SMALL_INCREMENTAL_CRYSTAL_CLUSTER.getStateWithProperties(state), 3);
             }
         }
-        else if(state.isOf(ArtifalityBlocks.LOVEMENTAL_CLUSTER)){
+        else if(state.isOf(ArtifalityBlocks.LIFE_CRYSTAL_CLUSTER)){
             int randomInt = random.nextInt(3);
             if(randomInt == 0){
                 world.setBlockState(pos, state, 3);
             }else if(randomInt == 1){
-                world.setBlockState(pos, ArtifalityBlocks.MEDIUM_LOVEMENTAL_CLUSTER.getStateWithProperties(state), 3);
+                world.setBlockState(pos, ArtifalityBlocks.MEDIUM_LIFE_CRYSTAL_CLUSTER.getStateWithProperties(state), 3);
             }else{
-                world.setBlockState(pos, ArtifalityBlocks.SMALL_LOVEMENTAL_CLUSTER.getStateWithProperties(state), 3);
+                world.setBlockState(pos, ArtifalityBlocks.SMALL_LIFE_CRYSTAL_CLUSTER.getStateWithProperties(state), 3);
             }
         }
-        else if(state.isOf(ArtifalityBlocks.LUNAMENTAL_CLUSTER)){
+        else if(state.isOf(ArtifalityBlocks.LUNAR_CRYSTAL_CLUSTER)){
             int randomInt = random.nextInt(3);
             if(randomInt == 0){
                 world.setBlockState(pos, state, 3);
             }else if(randomInt == 1){
-                world.setBlockState(pos, ArtifalityBlocks.MEDIUM_LUNAMENTAL_CLUSTER.getStateWithProperties(state), 3);
+                world.setBlockState(pos, ArtifalityBlocks.MEDIUM_LUNAR_CRYSTAL_CLUSTER.getStateWithProperties(state), 3);
             }else{
-                world.setBlockState(pos, ArtifalityBlocks.SMALL_LUNAMENTAL_CLUSTER.getStateWithProperties(state), 3);
+                world.setBlockState(pos, ArtifalityBlocks.SMALL_LUNAR_CRYSTAL_CLUSTER.getStateWithProperties(state), 3);
             }
         }
     }
 
     public static BlockState getBuddingCrystal(BlockState state){
-        if(state.isOf(ArtifalityBlocks.INCREMENTAL_CLUSTER)){
-            return ArtifalityBlocks.BUDDING_INCREMENTAL.getDefaultState();
+        if(state.isOf(ArtifalityBlocks.INCREMENTAL_CRYSTAL_CLUSTER)){
+            return ArtifalityBlocks.BUDDING_INCREMENTAL_CRYSTAL.getDefaultState();
         }
-        else if(state.isOf(ArtifalityBlocks.LOVEMENTAL_CLUSTER)){
-            return ArtifalityBlocks.BUDDING_LOVEMENTAL.getDefaultState();
+        else if(state.isOf(ArtifalityBlocks.LIFE_CRYSTAL_CLUSTER)){
+            return ArtifalityBlocks.BUDDING_LIFE_CRYSTAL.getDefaultState();
         }
-        else if(state.isOf(ArtifalityBlocks.LUNAMENTAL_CLUSTER)){
-            return ArtifalityBlocks.BUDDING_LUNAMENTAL.getDefaultState();
+        else if(state.isOf(ArtifalityBlocks.LUNAR_CRYSTAL_CLUSTER)){
+            return ArtifalityBlocks.BUDDING_LUNAR_CRYSTAL.getDefaultState();
         }else return Blocks.STONE.getDefaultState();
     }
 

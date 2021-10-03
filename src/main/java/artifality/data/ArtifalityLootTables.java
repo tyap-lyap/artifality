@@ -37,7 +37,6 @@ public class ArtifalityLootTables {
             overworldChest(ArtifalityItems.FOREST_STAFF, 0.03F);
             overworldChest(ArtifalityItems.HARVEST_STAFF, 0.03F);
             overworldChest(ArtifalityItems.FLORAL_STAFF, 0.03F);
-            overworldChest(ArtifalityItems.CRYSTAL_HEART, 0.03F);
             overworldChest(ArtifalityItems.BALLOON, 0.04F);
         });
     }

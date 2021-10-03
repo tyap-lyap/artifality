@@ -22,10 +22,10 @@ public class ArtifalityItems extends ItemRegistry {
 //    public static final Item LUCKY_EMBLEM = add("lucky_emblem", new TieredItem(settings().maxCount(1)));
 //    public static final Item CHARM_OF_EVOLUTION = add("charm_of_evolution", new BaseItem(settings().maxCount(1)));
     public static final Item MIDAS_TOUCH = add("midas_touch", new TieredItem(settings().maxCount(1)));
+    public static final Item INCREMENTAL_CRYSTAL = add("incremental_crystal", new BaseItem(settings()));
+    public static final Item LUNAR_CRYSTAL = add("lunar_crystal", new BaseItem(settings()));
+    public static final Item LIFE_CRYSTAL = add("life_crystal", new BaseItem(settings()));
     public static final Item CRYSTAL_HEART = add("crystal_heart", new BaseItem(settings()));
-    public static final Item INCREMENTAL = add("incremental", new BaseItem(settings()));
-    public static final Item LUNAMENTAL = add("lunamental", new BaseItem(settings()));
-    public static final Item LOVEMENTAL = add("lovemental", new BaseItem(settings()));
 
     private static ItemRegistry ITEM_REGISTRY;
 
