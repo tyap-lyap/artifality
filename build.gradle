@@ -19,9 +19,9 @@ repositories {
 //	maven { url "https://api.modrinth.com/maven" } //trinkets
 }
 
-loom {
-	accessWidenerPath = file("src/main/resources/artifality.accesswidener")
-}
+//loom {
+//	accessWidenerPath = file("src/main/resources/artifality.accesswidener")
+//}
 
 dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
@@ -31,9 +31,6 @@ dependencies {
 
 	modImplementation "dev.emi:trinkets:${trinkets_version}"
 	modImplementation "com.github.paulevsGitch:BCLib:${project.bclib_version}"
-
-	modImplementation "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-base:3.0.1"
-	modImplementation "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-entity:3.0.1"
 
 	modImplementation "com.github.PinkGoosik:goosik-lib:v0.1.0"
 	include "com.github.PinkGoosik:goosik-lib:v0.1.0"

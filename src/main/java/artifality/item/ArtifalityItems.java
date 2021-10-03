@@ -25,6 +25,7 @@ public class ArtifalityItems extends ItemRegistry {
     public static final Item INCREMENTAL_CRYSTAL = add("incremental_crystal", new BaseItem(settings()));
     public static final Item LUNAR_CRYSTAL = add("lunar_crystal", new BaseItem(settings()));
     public static final Item LIFE_CRYSTAL = add("life_crystal", new BaseItem(settings()));
+    public static final Item CRYSTAL_HEART = add("crystal_heart", new BaseItem(settings()));
 
     private static ItemRegistry ITEM_REGISTRY;
 
