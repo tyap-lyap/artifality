@@ -32,7 +32,7 @@ public class ArtifalityMod implements ModInitializer {
                     itemStacks.add(book);
                 });
             })
-            .icon(ArtifalityItems.CRYSTAL_HEART::getDefaultStack).build();
+            .icon(ArtifalityItems.LIFE_CRYSTAL::getDefaultStack).build();
 
     @Override
     public void onInitialize() {

@@ -40,7 +40,7 @@ public class UpgradingPedestalBlock extends BasedBlock {
         if(world.isClient) return ActionResult.PASS;
         ItemStack itemStack = player.getStackInHand(hand);
 
-        if(hand == Hand.MAIN_HAND && itemStack.isOf(ArtifalityBlocks.INCREMENTAL_BLOCK.asItem())){
+        if(hand == Hand.MAIN_HAND && itemStack.isOf(ArtifalityBlocks.INCREMENTAL_CRYSTAL_BLOCK.asItem())){
             if(getCharges(state) < 3){
                 chargeWithIncremental(world, pos, state);
                 itemStack.decrement(1);
@@ -87,9 +87,9 @@ public class UpgradingPedestalBlock extends BasedBlock {
     public void onBroken(WorldAccess world, BlockPos pos, BlockState state) {
         super.onBroken(world, pos, state);
         switch (getCharges(state)) {
-            case 1 -> dropStack((World) world, pos, new ItemStack(ArtifalityBlocks.INCREMENTAL_BLOCK));
-            case 2 -> dropStack((World) world, pos, new ItemStack(ArtifalityBlocks.INCREMENTAL_BLOCK, 2));
-            case 3 -> dropStack((World) world, pos, new ItemStack(ArtifalityBlocks.INCREMENTAL_BLOCK, 3));
+            case 1 -> dropStack((World) world, pos, new ItemStack(ArtifalityBlocks.INCREMENTAL_CRYSTAL_BLOCK));
+            case 2 -> dropStack((World) world, pos, new ItemStack(ArtifalityBlocks.INCREMENTAL_CRYSTAL_BLOCK, 2));
+            case 3 -> dropStack((World) world, pos, new ItemStack(ArtifalityBlocks.INCREMENTAL_CRYSTAL_BLOCK, 3));
             case 4 -> dropStack((World) world, pos, new ItemStack(Items.NETHER_STAR));
         }
     }

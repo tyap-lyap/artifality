@@ -5,9 +5,9 @@ import artifality.item.UkuleleItem;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 
-public class LunamentalLensBlock extends LensBlock {
+public class LunarCrystalLensBlock extends LensBlock {
 
-    public LunamentalLensBlock(Settings settings) {
+    public LunarCrystalLensBlock(Settings settings) {
         super(settings);
     }
 

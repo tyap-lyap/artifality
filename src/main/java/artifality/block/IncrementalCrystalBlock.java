@@ -4,9 +4,9 @@ import artifality.block.base.LensBlock;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 
-public class IncrementalLensBlock extends LensBlock {
+public class IncrementalCrystalBlock extends LensBlock {
 
-    public IncrementalLensBlock(Settings settings) {
+    public IncrementalCrystalBlock(Settings settings) {
         super(settings);
     }
 

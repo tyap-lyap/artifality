@@ -10,9 +10,9 @@ import net.minecraft.util.math.Direction;
 
 import java.util.Random;
 
-public class BuddingLovementalBlock extends BuddingCrystalBlock {
+public class BuddingLunarCrystalBlock extends BuddingCrystalBlock {
 
-    public BuddingLovementalBlock(Settings settings) {
+    public BuddingLunarCrystalBlock(Settings settings) {
         super(settings);
     }
 
@@ -24,11 +24,11 @@ public class BuddingLovementalBlock extends BuddingCrystalBlock {
             BlockState blockState = world.getBlockState(blockPos);
             Block block = null;
             if (blockState.isAir()) {
-                block = ArtifalityBlocks.SMALL_LOVEMENTAL_CLUSTER;
-            } else if (blockState.isOf(ArtifalityBlocks.SMALL_LOVEMENTAL_CLUSTER) && blockState.get(ClusterBlock.FACING) == direction) {
-                block = ArtifalityBlocks.MEDIUM_LOVEMENTAL_CLUSTER;
-            } else if (blockState.isOf(ArtifalityBlocks.MEDIUM_LOVEMENTAL_CLUSTER) && blockState.get(ClusterBlock.FACING) == direction) {
-                block = ArtifalityBlocks.LOVEMENTAL_CLUSTER;
+                block = ArtifalityBlocks.SMALL_LUNAR_CRYSTAL_CLUSTER;
+            } else if (blockState.isOf(ArtifalityBlocks.SMALL_LUNAR_CRYSTAL_CLUSTER) && blockState.get(ClusterBlock.FACING) == direction) {
+                block = ArtifalityBlocks.MEDIUM_LUNAR_CRYSTAL_CLUSTER;
+            } else if (blockState.isOf(ArtifalityBlocks.MEDIUM_LUNAR_CRYSTAL_CLUSTER) && blockState.get(ClusterBlock.FACING) == direction) {
+                block = ArtifalityBlocks.LUNAR_CRYSTAL_CLUSTER;
             }
 
             if (block != null) {

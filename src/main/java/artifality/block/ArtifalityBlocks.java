@@ -13,26 +13,26 @@ import ru.bclib.registry.BlockRegistry;
 @SuppressWarnings("unused")
 public class ArtifalityBlocks extends BlockRegistry {
 
-    public static final Block SMALL_INCREMENTAL_CLUSTER = addCluster("small_incremental_cluster", "small");
-    public static final Block MEDIUM_INCREMENTAL_CLUSTER = addCluster("medium_incremental_cluster", "medium");
-    public static final Block INCREMENTAL_CLUSTER = addCluster("incremental_cluster", "large");
-    public static final Block BUDDING_INCREMENTAL = add("budding_incremental", new BuddingIncrementalBlock(copyOf(Blocks.STONE).ticksRandomly()));
-    public static final Block INCREMENTAL_BLOCK = addLitBlock("incremental_block");
-    public static final Block INCREMENTAL_LENS = add("incremental_lens", new IncrementalLensBlock(copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.NETHERITE).nonOpaque()));
+    public static final Block SMALL_INCREMENTAL_CRYSTAL_CLUSTER = addCluster("small_incremental_crystal_cluster", "small");
+    public static final Block MEDIUM_INCREMENTAL_CRYSTAL_CLUSTER = addCluster("medium_incremental_crystal_cluster", "medium");
+    public static final Block INCREMENTAL_CRYSTAL_CLUSTER = addCluster("incremental_crystal_cluster", "large");
+    public static final Block BUDDING_INCREMENTAL_CRYSTAL = add("budding_incremental_crystal", new BuddingIncrementalCrystalBlock(copyOf(Blocks.STONE).ticksRandomly()));
+    public static final Block INCREMENTAL_CRYSTAL_BLOCK = addLitBlock("incremental_crystal_block");
+    public static final Block INCREMENTAL_CRYSTAL_LENS = add("incremental_crystal_lens", new IncrementalCrystalBlock(copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.NETHERITE).nonOpaque()));
 
-    public static final Block SMALL_LUNAMENTAL_CLUSTER = addCluster("small_lunamental_cluster", "small");
-    public static final Block MEDIUM_LUNAMENTAL_CLUSTER = addCluster("medium_lunamental_cluster", "medium");
-    public static final Block LUNAMENTAL_CLUSTER = addCluster("lunamental_cluster", "large");
-    public static final Block BUDDING_LUNAMENTAL = add("budding_lunamental", new BuddingLunamentalBlock(copyOf(Blocks.STONE).ticksRandomly()));
-    public static final Block LUNAMENTAL_BLOCK = addLitBlock("lunamental_block");
-    public static final Block LUNAMENTAL_LENS = add("lunamental_lens", new LunamentalLensBlock(copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.NETHERITE).nonOpaque()));
+    public static final Block SMALL_LUNAR_CRYSTAL_CLUSTER = addCluster("small_lunar_crystal_cluster", "small");
+    public static final Block MEDIUM_LUNAR_CRYSTAL_CLUSTER = addCluster("medium_lunar_crystal_cluster", "medium");
+    public static final Block LUNAR_CRYSTAL_CLUSTER = addCluster("lunar_crystal_cluster", "large");
+    public static final Block BUDDING_LUNAR_CRYSTAL = add("budding_lunar_crystal", new BuddingLunarCrystalBlock(copyOf(Blocks.STONE).ticksRandomly()));
+    public static final Block LUNAR_CRYSTAL_BLOCK = addLitBlock("lunar_crystal_block");
+    public static final Block LUNAR_CRYSTAL_LENS = add("lunar_crystal_lens", new LunarCrystalLensBlock(copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.NETHERITE).nonOpaque()));
 
-    public static final Block SMALL_LOVEMENTAL_CLUSTER = addCluster("small_lovemental_cluster", "small");
-    public static final Block MEDIUM_LOVEMENTAL_CLUSTER = addCluster("medium_lovemental_cluster", "medium");
-    public static final Block LOVEMENTAL_CLUSTER = addCluster("lovemental_cluster", "large");
-    public static final Block BUDDING_LOVEMENTAL = add("budding_lovemental", new BuddingLovementalBlock(copyOf(Blocks.STONE).ticksRandomly()));
-    public static final Block LOVEMENTAL_BLOCK = addLitBlock("lovemental_block");
-    public static final Block LOVEMENTAL_LENS = add("lovemental_lens", new LovementalLensBlock(copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.NETHERITE).nonOpaque()));
+    public static final Block SMALL_LIFE_CRYSTAL_CLUSTER = addCluster("small_life_crystal_cluster", "small");
+    public static final Block MEDIUM_LIFE_CRYSTAL_CLUSTER = addCluster("medium_life_crystal_cluster", "medium");
+    public static final Block LIFE_CRYSTAL_CLUSTER = addCluster("life_crystal_cluster", "large");
+    public static final Block BUDDING_LIFE_CRYSTAL = add("budding_life_crystal", new BuddingLifeCrystalBlock(copyOf(Blocks.STONE).ticksRandomly()));
+    public static final Block LIFE_CRYSTAL_BLOCK = addLitBlock("life_crystal_block");
+    public static final Block LIFE_CRYSTAL_LENS = add("life_crystal_lens", new LifeCrystalLensBlock(copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.NETHERITE).nonOpaque()));
 
     public static final Block UPGRADING_PEDESTAL = add("upgrading_pedestal", new UpgradingPedestalBlock(copyOf(Blocks.COBBLESTONE)));
 //    public static final Block LUNAR_PEDESTAL = add("lunar_pedestal", new UpgradingPedestalBlock(copyOf(Blocks.COBBLESTONE)));

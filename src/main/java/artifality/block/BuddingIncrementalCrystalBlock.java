@@ -10,9 +10,9 @@ import net.minecraft.util.math.Direction;
 
 import java.util.Random;
 
-public class BuddingIncrementalBlock extends BuddingCrystalBlock {
+public class BuddingIncrementalCrystalBlock extends BuddingCrystalBlock {
 
-    public BuddingIncrementalBlock(Settings settings) {
+    public BuddingIncrementalCrystalBlock(Settings settings) {
         super(settings);
     }
 
@@ -24,11 +24,11 @@ public class BuddingIncrementalBlock extends BuddingCrystalBlock {
             BlockState blockState = world.getBlockState(blockPos);
             Block block = null;
             if (blockState.isAir()) {
-                block = ArtifalityBlocks.SMALL_INCREMENTAL_CLUSTER;
-            } else if (blockState.isOf(ArtifalityBlocks.SMALL_INCREMENTAL_CLUSTER) && blockState.get(ClusterBlock.FACING) == direction) {
-                block = ArtifalityBlocks.MEDIUM_INCREMENTAL_CLUSTER;
-            } else if (blockState.isOf(ArtifalityBlocks.MEDIUM_INCREMENTAL_CLUSTER) && blockState.get(ClusterBlock.FACING) == direction) {
-                block = ArtifalityBlocks.INCREMENTAL_CLUSTER;
+                block = ArtifalityBlocks.SMALL_INCREMENTAL_CRYSTAL_CLUSTER;
+            } else if (blockState.isOf(ArtifalityBlocks.SMALL_INCREMENTAL_CRYSTAL_CLUSTER) && blockState.get(ClusterBlock.FACING) == direction) {
+                block = ArtifalityBlocks.MEDIUM_INCREMENTAL_CRYSTAL_CLUSTER;
+            } else if (blockState.isOf(ArtifalityBlocks.MEDIUM_INCREMENTAL_CRYSTAL_CLUSTER) && blockState.get(ClusterBlock.FACING) == direction) {
+                block = ArtifalityBlocks.INCREMENTAL_CRYSTAL_CLUSTER;
             }
 
             if (block != null) {

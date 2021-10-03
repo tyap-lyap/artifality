@@ -7,7 +7,7 @@
             "translate": "advancements.artifality.gather_all_crystals.desc"
         },
         "icon": {
-            "item": "artifality:lunamental"
+            "item": "artifality:lunar_crystal"
         },
         "frame": "goal",
         "show_toast": true,
@@ -15,13 +15,13 @@
         "hidden": false
     },
     "criteria": {
-        "incremental": {
+        "incremental_crystal": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
                     {
                         "items": [
-                            "artifality:incremental"
+                            "artifality:incremental_crystal"
                         ]
                     }
                 ]
@@ -33,7 +33,7 @@
                 "items": [
                     {
                         "items": [
-                            "artifality:lunamental"
+                            "artifality:lunar_crystal"
                         ]
                     }
                 ]
@@ -45,7 +45,7 @@
                 "items": [
                     {
                         "items": [
-                            "artifality:lovemental"
+                            "artifality:life_crystal"
                         ]
                     }
                 ]

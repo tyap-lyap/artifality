@@ -5,9 +5,9 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 
-public class LovementalLensBlock extends LensBlock {
+public class LifeCrystalLensBlock extends LensBlock {
 
-    public LovementalLensBlock(Settings settings) {
+    public LifeCrystalLensBlock(Settings settings) {
         super(settings);
     }
 

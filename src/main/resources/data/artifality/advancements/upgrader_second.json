@@ -20,7 +20,7 @@
             "conditions": {
                 "item": {
                     "items": [
-                        "artifality:incremental_block"
+                        "artifality:incremental_crystal_block"
                     ]
                 },
                 "location": {
