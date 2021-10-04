@@ -1,23 +1,12 @@
 package artifality.block.base;
 
-import artifality.ArtifalityMod;
-import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
-import net.minecraft.client.render.model.json.JsonUnbakedModel;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
-import org.jetbrains.annotations.Nullable;
-import ru.bclib.client.models.ModelsHelper;
-import ru.bclib.client.models.PatternsHelper;
-import ru.bclib.client.render.BCLRenderLayer;
-import ru.bclib.interfaces.RenderLayerProvider;
-
-import java.util.Optional;
 
 public class LensBlock extends ArtifalityBaseBlock {
     private static final VoxelShape SHAPE = createCuboidShape(0, 0, 0, 16, 8, 16);
