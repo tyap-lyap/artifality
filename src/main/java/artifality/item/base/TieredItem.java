@@ -9,7 +9,7 @@ import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
 
-public class TieredItem extends BaseItem {
+public class TieredItem extends ArtifalityBaseItem {
 
     public TieredItem(Settings settings) {
         super(settings);

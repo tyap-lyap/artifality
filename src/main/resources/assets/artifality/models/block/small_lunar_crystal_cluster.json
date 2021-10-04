@@ -1,3 +1,6 @@
 {
-  "parent": "artifality:block/small_lunar_crystal_cluster"
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "artifality:block/small_lunar_crystal_cluster"
+   }
 }

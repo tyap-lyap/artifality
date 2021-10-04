@@ -1,10 +1,9 @@
 package artifality.block;
 
-import artifality.block.base.BasedBlock;
+import artifality.block.base.ArtifalityBaseBlock;
 import artifality.item.base.TieredItem;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.client.render.model.json.JsonUnbakedModel;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -15,19 +14,13 @@ import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
-import ru.bclib.client.models.BasePatterns;
-import ru.bclib.client.models.ModelsHelper;
-import ru.bclib.client.models.PatternsHelper;
 
-import java.util.Optional;
-
-public class UpgradingPedestalBlock extends BasedBlock {
-
+@SuppressWarnings("deprecation")
+public class UpgradingPedestalBlock extends ArtifalityBaseBlock {
     public static final IntProperty CHARGES = Properties.CHARGES;
 
     public UpgradingPedestalBlock(Settings settings) {
@@ -97,11 +90,5 @@ public class UpgradingPedestalBlock extends BasedBlock {
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(CHARGES);
-    }
-
-    @Override
-    public JsonUnbakedModel getItemModel(Identifier id) {
-        Optional<String> pattern = PatternsHelper.createJson(BasePatterns.BLOCK_BOTTOM_TOP, id);
-        return ModelsHelper.fromPattern(pattern);
     }
 }

@@ -19,9 +19,9 @@ repositories {
 //	maven { url "https://api.modrinth.com/maven" } //trinkets
 }
 
-//loom {
-//	accessWidenerPath = file("src/main/resources/artifality.accesswidener")
-//}
+loom {
+	accessWidenerPath = file("src/main/resources/artifality.accesswidener")
+}
 
 dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"

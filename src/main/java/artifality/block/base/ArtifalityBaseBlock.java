@@ -1,18 +1,18 @@
 package artifality.block.base;
 
 import artifality.util.TooltipAppender;
+import net.minecraft.block.Block;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.world.BlockView;
 import org.jetbrains.annotations.Nullable;
-import ru.bclib.blocks.BaseBlock;
 
 import java.util.List;
 
-public class BasedBlock extends BaseBlock {
+public class ArtifalityBaseBlock extends Block {
 
-    public BasedBlock(Settings settings) {
+    public ArtifalityBaseBlock(Settings settings) {
         super(settings);
     }
 

@@ -1,3 +1,6 @@
 {
-  "parent": "artifality:block/incremental_crystal_block"
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "artifality:block/incremental_crystal_block"
+   }
 }
