@@ -1,0 +1,8 @@
+accessWidener	v1	named
+
+mutable	field	net/minecraft/block/AmethystClusterBlock	NORTH_SHAPE	Lnet/minecraft/util/shape/VoxelShape;
+mutable	field	net/minecraft/block/AmethystClusterBlock	SOUTH_SHAPE	Lnet/minecraft/util/shape/VoxelShape;
+mutable	field	net/minecraft/block/AmethystClusterBlock	EAST_SHAPE	Lnet/minecraft/util/shape/VoxelShape;
+mutable	field	net/minecraft/block/AmethystClusterBlock	WEST_SHAPE	Lnet/minecraft/util/shape/VoxelShape;
+mutable	field	net/minecraft/block/AmethystClusterBlock	UP_SHAPE	Lnet/minecraft/util/shape/VoxelShape;
+mutable	field	net/minecraft/block/AmethystClusterBlock	DOWN_SHAPE	Lnet/minecraft/util/shape/VoxelShape;

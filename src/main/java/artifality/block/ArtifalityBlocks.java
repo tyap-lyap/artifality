@@ -18,7 +18,7 @@ public class ArtifalityBlocks extends BlockRegistry {
     public static final Block INCREMENTAL_CRYSTAL_CLUSTER = addCluster("incremental_crystal_cluster", "large");
     public static final Block BUDDING_INCREMENTAL_CRYSTAL = add("budding_incremental_crystal", new BuddingIncrementalCrystalBlock(copyOf(Blocks.STONE).ticksRandomly()));
     public static final Block INCREMENTAL_CRYSTAL_BLOCK = addLitBlock("incremental_crystal_block");
-    public static final Block INCREMENTAL_CRYSTAL_LENS = add("incremental_crystal_lens", new IncrementalCrystalBlock(copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.NETHERITE).nonOpaque()));
+    public static final Block INCREMENTAL_CRYSTAL_LENS = add("incremental_crystal_lens", new IncrementalCrystalLensBlock(copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.NETHERITE).nonOpaque()));
 
     public static final Block SMALL_LUNAR_CRYSTAL_CLUSTER = addCluster("small_lunar_crystal_cluster", "small");
     public static final Block MEDIUM_LUNAR_CRYSTAL_CLUSTER = addCluster("medium_lunar_crystal_cluster", "medium");
@@ -35,7 +35,7 @@ public class ArtifalityBlocks extends BlockRegistry {
     public static final Block LIFE_CRYSTAL_LENS = add("life_crystal_lens", new LifeCrystalLensBlock(copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.NETHERITE).nonOpaque()));
 
     public static final Block UPGRADING_PEDESTAL = add("upgrading_pedestal", new UpgradingPedestalBlock(copyOf(Blocks.COBBLESTONE)));
-//    public static final Block LUNAR_PEDESTAL = add("lunar_pedestal", new UpgradingPedestalBlock(copyOf(Blocks.COBBLESTONE)));
+//    public static final Block LUNAR_PEDESTAL = addDummy("lunar_pedestal", new UpgradingPedestalBlock(copyOf(Blocks.COBBLESTONE)));
 
     private static BlockRegistry BLOCK_REGISTRY;
 
@@ -65,7 +65,10 @@ public class ArtifalityBlocks extends BlockRegistry {
     }
 
     private static BlockRegistry getBlockRegistry() {
-        if(BLOCK_REGISTRY == null) BLOCK_REGISTRY = new ArtifalityBlocks();
+        if (BLOCK_REGISTRY == null) {
+            BLOCK_REGISTRY = new ArtifalityBlocks();
+        }
+
         return BLOCK_REGISTRY;
     }
 }

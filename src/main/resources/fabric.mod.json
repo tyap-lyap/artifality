@@ -51,5 +51,6 @@
     "java": ">=16",
     "trinkets": ">=3.0.2",
     "bclib": ">=0.3.1"
-  }
+  },
+  "accessWidener": "artifality.accesswidener"
 }

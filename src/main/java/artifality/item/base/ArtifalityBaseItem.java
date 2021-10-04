@@ -4,6 +4,7 @@ import artifality.util.TooltipAppender;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
@@ -12,9 +13,9 @@ import ru.bclib.items.ModelProviderItem;
 
 import java.util.List;
 
-public class BaseItem extends ModelProviderItem {
+public class ArtifalityBaseItem extends Item {
 
-    public BaseItem(Settings settings) {
+    public ArtifalityBaseItem(Settings settings) {
         super(settings);
     }
 

@@ -11,13 +11,12 @@ import net.minecraft.loot.context.LootContextParameters;
 import net.minecraft.loot.context.LootContextTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
-import ru.bclib.blocks.BaseBlock;
 
 import java.util.Collections;
 import java.util.List;
 
-public class BuddingCrystalBlock extends BaseBlock {
-
+@SuppressWarnings("deprecation")
+public class BuddingCrystalBlock extends ArtifalityBaseBlock {
     public BuddingCrystalBlock(Settings settings) {
         super(settings);
     }

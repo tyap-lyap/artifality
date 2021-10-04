@@ -1,6 +1,6 @@
 package artifality.util;
 
-import artifality.item.base.BaseItem;
+import artifality.item.base.ArtifalityBaseItem;
 import artifality.item.base.TieredItem;
 import dev.emi.trinkets.api.Trinket;
 import net.minecraft.client.gui.screen.Screen;
@@ -63,7 +63,7 @@ public class TooltipAppender {
         for(String line : getDescription(Registry.ITEM.getId(stack.getItem()).getPath())) {
             tooltip.add(new LiteralText(line.trim().replaceAll("&", "§")).formatted(Formatting.GRAY));
         }
-        if(stack.getItem() instanceof BaseItem baseItem){
+        if(stack.getItem() instanceof ArtifalityBaseItem baseItem){
             baseItem.appendTooltipInfo(stack, tooltip);
         }
         if(stack.getItem() instanceof Trinket) tooltip.add(new LiteralText(""));

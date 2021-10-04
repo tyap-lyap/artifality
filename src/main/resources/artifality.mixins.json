@@ -12,8 +12,8 @@
     "common.RegistryFixMixin",
     "common.VillagerEntityMixin",
     "common.ZombieEntityMixin",
-    "common.extension.LightningEntityExtension",
-    "common.access.BeaconAccessor"
+    "common.access.BeaconAccessor",
+    "common.extension.LightningEntityExtension"
   ],
   "client": [
     "client.ArmorFeatureRendererMixin",
