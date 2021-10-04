@@ -1,7 +1,7 @@
 package artifality.block;
 
 import artifality.block.base.BuddingCrystalBlock;
-import artifality.block.base.ClusterBlock;
+import artifality.block.base.CrystalBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.server.world.ServerWorld;
@@ -25,14 +25,14 @@ public class BuddingLunarCrystalBlock extends BuddingCrystalBlock {
             Block block = null;
             if (blockState.isAir()) {
                 block = ArtifalityBlocks.SMALL_LUNAR_CRYSTAL_CLUSTER;
-            } else if (blockState.isOf(ArtifalityBlocks.SMALL_LUNAR_CRYSTAL_CLUSTER) && blockState.get(ClusterBlock.FACING) == direction) {
+            } else if (blockState.isOf(ArtifalityBlocks.SMALL_LUNAR_CRYSTAL_CLUSTER) && blockState.get(CrystalBlock.FACING) == direction) {
                 block = ArtifalityBlocks.MEDIUM_LUNAR_CRYSTAL_CLUSTER;
-            } else if (blockState.isOf(ArtifalityBlocks.MEDIUM_LUNAR_CRYSTAL_CLUSTER) && blockState.get(ClusterBlock.FACING) == direction) {
+            } else if (blockState.isOf(ArtifalityBlocks.MEDIUM_LUNAR_CRYSTAL_CLUSTER) && blockState.get(CrystalBlock.FACING) == direction) {
                 block = ArtifalityBlocks.LUNAR_CRYSTAL_CLUSTER;
             }
 
             if (block != null) {
-                BlockState crystal = block.getDefaultState().with(ClusterBlock.FACING, direction);
+                BlockState crystal = block.getDefaultState().with(CrystalBlock.FACING, direction);
                 world.setBlockState(blockPos, crystal);
             }
         }

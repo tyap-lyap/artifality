@@ -1,7 +1,7 @@
 package artifality.block;
 
 import artifality.ArtifalityMod;
-import artifality.block.base.ClusterBlock;
+import artifality.block.base.CrystalBlock;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -44,7 +44,7 @@ public class ArtifalityBlocks extends BlockRegistry {
     }
 
     private static Block addCluster(String name, String type){
-        return add(name, new ClusterBlock(copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.AMETHYST_CLUSTER).luminance(10), type));
+        return add(name, new CrystalBlock(copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.AMETHYST_CLUSTER).luminance(10), type));
     }
 
     private static Block addLitBlock(String name){

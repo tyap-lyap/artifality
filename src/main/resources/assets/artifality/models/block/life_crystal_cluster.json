@@ -1,3 +1,6 @@
 {
-  "parent": "artifality:block/life_crystal_cluster"
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "artifality:block/life_crystal_cluster"
+   }
 }

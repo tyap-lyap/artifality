@@ -1,7 +1,7 @@
 package artifality.item;
 
 import artifality.ArtifalityMod;
-import artifality.item.base.BaseItem;
+import artifality.item.base.ArtifalityBaseItem;
 import artifality.item.base.TieredItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
@@ -19,13 +19,11 @@ public class ArtifalityItems extends ItemRegistry {
     public static final Item HARVEST_STAFF = add("harvest_staff", new HarvestStaffItem(settings().maxCount(1)));
     public static final Item INVISIBILITY_CAPE = add("invisibility_cape", new InvisibilityCapeItem(settings().maxCount(1)));
     public static final Item BALLOON = add("balloon", new BalloonItem(settings().maxDamage(128)));
-//    public static final Item LUCKY_EMBLEM = add("lucky_emblem", new TieredItem(settings().maxCount(1)));
-//    public static final Item CHARM_OF_EVOLUTION = add("charm_of_evolution", new BaseItem(settings().maxCount(1)));
     public static final Item MIDAS_TOUCH = add("midas_touch", new TieredItem(settings().maxCount(1)));
-    public static final Item INCREMENTAL_CRYSTAL = add("incremental_crystal", new BaseItem(settings()));
-    public static final Item LUNAR_CRYSTAL = add("lunar_crystal", new BaseItem(settings()));
-    public static final Item LIFE_CRYSTAL = add("life_crystal", new BaseItem(settings()));
-    public static final Item CRYSTAL_HEART = add("crystal_heart", new BaseItem(settings()));
+    public static final Item INCREMENTAL_CRYSTAL = add("incremental_crystal", new ArtifalityBaseItem(settings()));
+    public static final Item LUNAR_CRYSTAL = add("lunar_crystal", new ArtifalityBaseItem(settings()));
+    public static final Item LIFE_CRYSTAL = add("life_crystal", new ArtifalityBaseItem(settings()));
+    public static final Item CRYSTAL_HEART = add("crystal_heart", new ArtifalityBaseItem(settings()));
 
     private static ItemRegistry ITEM_REGISTRY;
 
@@ -47,7 +45,9 @@ public class ArtifalityItems extends ItemRegistry {
     }
 
     private static ItemRegistry getItemRegistry() {
-        if(ITEM_REGISTRY == null) ITEM_REGISTRY = new ArtifalityItems();
+        if (ITEM_REGISTRY == null) {
+            ITEM_REGISTRY = new ArtifalityItems();
+        }
         return ITEM_REGISTRY;
     }
 }

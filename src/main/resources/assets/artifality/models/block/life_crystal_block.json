@@ -1,3 +1,6 @@
 {
-  "parent": "artifality:block/life_crystal_block"
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "artifality:block/life_crystal_block"
+   }
 }

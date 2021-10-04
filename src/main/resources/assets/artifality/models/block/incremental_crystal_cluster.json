@@ -2,5 +2,5 @@
   "parent": "minecraft:block/cross",
   "textures": {
     "cross": "artifality:block/incremental_crystal_cluster"
-  }
+   }
 }
