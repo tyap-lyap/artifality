@@ -3,7 +3,7 @@
 
     "block.artifality.upgrading_pedestal": "Pedestal of Upgrading",
     "description.upgrading_pedestal.0": "Allows you to upgrade artifacts,",
-    "description.upgrading_pedestal.1": "fill with &f3 Incremental Blocks &7to",
+    "description.upgrading_pedestal.1": "fill with &f3 Incremental Orbs &7to",
     "description.upgrading_pedestal.2": "upgrade to &ftier 2&7, or with",
     "description.upgrading_pedestal.3": "a &fNether Star&7for &ftier 3&7.",
 
@@ -80,6 +80,7 @@
     "item.artifality.lunar_crystal": "Lunar Crystal",
     "item.artifality.incremental_crystal": "Incremental Crystal",
     "item.artifality.life_crystal": "Life Crystal",
+    "item.artifality.incremental_orb": "Incremental Orb",
     "item.artifality.crystal_heart": "Crystal Heart",
 
     "item.artifality.ukulele": "Ukulele",

@@ -7,7 +7,7 @@
             "translate": "advancements.artifality.upgrader_second.desc"
         },
         "icon": {
-            "item": "artifality:upgrading_pedestal"
+            "item": "artifality:incremental_orb"
         },
         "frame": "task",
         "show_toast": true,
@@ -20,7 +20,7 @@
             "conditions": {
                 "item": {
                     "items": [
-                        "artifality:incremental_crystal_block"
+                        "artifality:incremental_orb"
                     ]
                 },
                 "location": {

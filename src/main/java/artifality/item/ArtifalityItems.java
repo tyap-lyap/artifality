@@ -2,6 +2,7 @@ package artifality.item;
 
 import artifality.ArtifalityMod;
 import artifality.item.base.ArtifalityBaseItem;
+import artifality.item.base.BaubleItem;
 import artifality.item.base.TieredItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
@@ -23,7 +24,8 @@ public class ArtifalityItems extends ItemRegistry {
     public static final Item INCREMENTAL_CRYSTAL = add("incremental_crystal", new ArtifalityBaseItem(settings()));
     public static final Item LUNAR_CRYSTAL = add("lunar_crystal", new ArtifalityBaseItem(settings()));
     public static final Item LIFE_CRYSTAL = add("life_crystal", new ArtifalityBaseItem(settings()));
-    public static final Item CRYSTAL_HEART = add("crystal_heart", new ArtifalityBaseItem(settings()));
+    public static final Item INCREMENTAL_ORB = add("incremental_orb", new BaubleItem(settings(), true));
+    public static final Item CRYSTAL_HEART = add("crystal_heart", new BaubleItem(settings(), true));
 
     private static ItemRegistry ITEM_REGISTRY;
 

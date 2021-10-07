@@ -2,7 +2,6 @@ package artifality.block.base;
 
 import artifality.client.particle.ArtifalityParticles;
 import net.minecraft.block.AmethystClusterBlock;
-import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.ItemStack;
@@ -21,10 +20,12 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import ru.bclib.client.render.BCLRenderLayer;
+import ru.bclib.interfaces.RenderLayerProvider;
 
 import java.util.*;
 
-public class CrystalBlock extends AmethystClusterBlock {
+public class CrystalBlock extends AmethystClusterBlock implements RenderLayerProvider {
     private final String type;
 
     public CrystalBlock(Settings settings, String type) {
@@ -73,5 +74,10 @@ public class CrystalBlock extends AmethystClusterBlock {
     @Override
     public BlockState mirror(BlockState state, BlockMirror mirror) {
         return state;
+    }
+
+    @Override
+    public BCLRenderLayer getRenderLayer() {
+        return BCLRenderLayer.CUTOUT;
     }
 }

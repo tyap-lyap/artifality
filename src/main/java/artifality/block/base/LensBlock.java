@@ -1,18 +1,26 @@
 package artifality.block.base;
 
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
+import ru.bclib.client.render.BCLRenderLayer;
+import ru.bclib.interfaces.RenderLayerProvider;
 
-public class LensBlock extends ArtifalityBaseBlock {
+public class LensBlock extends ArtifalityBaseBlock implements RenderLayerProvider {
+
     private static final VoxelShape SHAPE = createCuboidShape(0, 0, 0, 16, 8, 16);
+    private final LensEffect lensEffect;
 
-    public LensBlock(Settings settings) {
-        super(settings);
+    public LensBlock(LensEffect effect) {
+        super(FabricBlockSettings.copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.NETHERITE).nonOpaque());
+        this.lensEffect = effect;
     }
 
     @Override
@@ -21,5 +29,16 @@ public class LensBlock extends ArtifalityBaseBlock {
     }
 
     public void applyLensEffect(StatusEffectInstance effectInstance, PlayerEntity playerEntity){
+        lensEffect.apply(effectInstance, playerEntity);
+    }
+
+    @Override
+    public BCLRenderLayer getRenderLayer() {
+        return BCLRenderLayer.TRANSLUCENT;
+    }
+
+    @FunctionalInterface
+    public interface LensEffect {
+        void apply(StatusEffectInstance effectInstance, PlayerEntity playerEntity);
     }
 }

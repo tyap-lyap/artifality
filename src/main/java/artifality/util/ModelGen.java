@@ -1,4 +1,4 @@
-package artifality;
+package artifality.util;
 
 import java.io.File;
 import java.io.FileWriter;

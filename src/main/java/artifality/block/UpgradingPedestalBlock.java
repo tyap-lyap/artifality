@@ -1,6 +1,7 @@
 package artifality.block;
 
 import artifality.block.base.ArtifalityBaseBlock;
+import artifality.item.ArtifalityItems;
 import artifality.item.base.TieredItem;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -21,6 +22,7 @@ import net.minecraft.world.WorldAccess;
 
 @SuppressWarnings("deprecation")
 public class UpgradingPedestalBlock extends ArtifalityBaseBlock {
+
     public static final IntProperty CHARGES = Properties.CHARGES;
 
     public UpgradingPedestalBlock(Settings settings) {
@@ -33,7 +35,7 @@ public class UpgradingPedestalBlock extends ArtifalityBaseBlock {
         if(world.isClient) return ActionResult.PASS;
         ItemStack itemStack = player.getStackInHand(hand);
 
-        if(hand == Hand.MAIN_HAND && itemStack.isOf(ArtifalityBlocks.INCREMENTAL_CRYSTAL_BLOCK.asItem())){
+        if(hand == Hand.MAIN_HAND && itemStack.isOf(ArtifalityItems.INCREMENTAL_ORB.asItem())){
             if(getCharges(state) < 3){
                 chargeWithIncremental(world, pos, state);
                 itemStack.decrement(1);
@@ -68,21 +70,21 @@ public class UpgradingPedestalBlock extends ArtifalityBaseBlock {
 
     public static void chargeWithIncremental(World world, BlockPos pos, BlockState state) {
         world.setBlockState(pos, state.with(CHARGES, state.get(CHARGES) + 1), 3);
-        world.playSound(null, (double)pos.getX() + 0.5D, (double)pos.getY() + 0.5D, (double)pos.getZ() + 0.5D, SoundEvents.BLOCK_RESPAWN_ANCHOR_CHARGE, SoundCategory.BLOCKS, 1.0F, 1.0F);
+        world.playSound(null, pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, SoundEvents.BLOCK_RESPAWN_ANCHOR_CHARGE, SoundCategory.BLOCKS, 1.0F, 1.0F);
     }
 
     public static void chargeWithNetherStar(World world, BlockPos pos, BlockState state) {
         world.setBlockState(pos, state.with(CHARGES, 4), 3);
-        world.playSound(null, (double)pos.getX() + 0.5D, (double)pos.getY() + 0.5D, (double)pos.getZ() + 0.5D, SoundEvents.BLOCK_RESPAWN_ANCHOR_CHARGE, SoundCategory.BLOCKS, 1.0F, 1.0F);
+        world.playSound(null, pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, SoundEvents.BLOCK_RESPAWN_ANCHOR_CHARGE, SoundCategory.BLOCKS, 1.0F, 1.0F);
     }
 
     @Override
     public void onBroken(WorldAccess world, BlockPos pos, BlockState state) {
         super.onBroken(world, pos, state);
         switch (getCharges(state)) {
-            case 1 -> dropStack((World) world, pos, new ItemStack(ArtifalityBlocks.INCREMENTAL_CRYSTAL_BLOCK));
-            case 2 -> dropStack((World) world, pos, new ItemStack(ArtifalityBlocks.INCREMENTAL_CRYSTAL_BLOCK, 2));
-            case 3 -> dropStack((World) world, pos, new ItemStack(ArtifalityBlocks.INCREMENTAL_CRYSTAL_BLOCK, 3));
+            case 1 -> dropStack((World) world, pos, new ItemStack(ArtifalityItems.INCREMENTAL_ORB));
+            case 2 -> dropStack((World) world, pos, new ItemStack(ArtifalityItems.INCREMENTAL_ORB, 2));
+            case 3 -> dropStack((World) world, pos, new ItemStack(ArtifalityItems.INCREMENTAL_ORB, 3));
             case 4 -> dropStack((World) world, pos, new ItemStack(Items.NETHER_STAR));
         }
     }
