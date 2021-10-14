@@ -10,11 +10,8 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
-import ru.bclib.client.render.BCLRenderLayer;
-import ru.bclib.interfaces.RenderLayerProvider;
 
-public class LensBlock extends ArtifalityBaseBlock implements RenderLayerProvider {
-
+public class LensBlock extends ArtifalityBaseBlock {
     private static final VoxelShape SHAPE = createCuboidShape(0, 0, 0, 16, 8, 16);
     private final LensEffect lensEffect;
 
@@ -30,11 +27,6 @@ public class LensBlock extends ArtifalityBaseBlock implements RenderLayerProvide
 
     public void applyLensEffect(StatusEffectInstance effectInstance, PlayerEntity playerEntity){
         lensEffect.apply(effectInstance, playerEntity);
-    }
-
-    @Override
-    public BCLRenderLayer getRenderLayer() {
-        return BCLRenderLayer.TRANSLUCENT;
     }
 
     @FunctionalInterface

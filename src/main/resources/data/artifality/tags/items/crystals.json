@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "artifality:incremental_crystal",
+    "artifality:lunar_crystal",
+    "artifality:life_crystal"
+  ]
+}

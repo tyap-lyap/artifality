@@ -22,7 +22,6 @@ import java.util.Random;
 
 @SuppressWarnings("deprecation")
 public class BuddingCrystalBlock extends ArtifalityBaseBlock {
-
     private final Block small;
     private final Block medium;
     private final Block large;

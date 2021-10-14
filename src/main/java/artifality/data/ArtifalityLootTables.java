@@ -31,6 +31,8 @@ public class ArtifalityLootTables {
             ArtifalityLootTables.id = id;
             ArtifalityLootTables.supplier = supplier;
 
+            overworldChest(ArtifalityItems.CRYSTAL_HEART, 0.03F);
+            overworldChest(ArtifalityItems.INCREMENTAL_ORB, 0.03F);
             overworldChest(ArtifalityItems.INVISIBILITY_CAPE, 0.05F);
             overworldChest(ArtifalityItems.UKULELE, 0.03F);
             overworldChest(ArtifalityItems.ZEUS_STAFF, 0.03F);

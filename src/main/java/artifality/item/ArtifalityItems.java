@@ -7,10 +7,14 @@ import artifality.item.base.TieredItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
-import ru.bclib.registry.ItemRegistry;
+import net.minecraft.util.registry.Registry;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 @SuppressWarnings("unused")
-public class ArtifalityItems extends ItemRegistry {
+public class ArtifalityItems {
+    public static final Map<Identifier, Item> ITEMS = new LinkedHashMap<>();
 
     //напоминание: новые артефакты не забудь внести в достижения и тэги
     public static final Item UKULELE = add("ukulele", new UkuleleItem(settings().maxCount(1)));
@@ -27,29 +31,18 @@ public class ArtifalityItems extends ItemRegistry {
     public static final Item INCREMENTAL_ORB = add("incremental_orb", new BaubleItem(settings(), true));
     public static final Item CRYSTAL_HEART = add("crystal_heart", new BaubleItem(settings(), true));
 
-    private static ItemRegistry ITEM_REGISTRY;
-
-    private ArtifalityItems() {
-        super(ArtifalityMod.ITEMS_ITEM_GROUP);
-    }
-
-    private static Item add(String id, Item item) {
-        return getItemRegistry().register(ArtifalityMod.newId(id), item);
+    private static Item add(String name, Item item) {
+        ITEMS.put(ArtifalityMod.newId(name), item);
+        return item;
     }
 
     private static FabricItemSettings settings() {
         return new FabricItemSettings();
     }
 
-    @Override
-    public Identifier createModId(String name) {
-        return ArtifalityMod.newId(name);
-    }
-
-    private static ItemRegistry getItemRegistry() {
-        if (ITEM_REGISTRY == null) {
-            ITEM_REGISTRY = new ArtifalityItems();
+    public static void register(){
+        for (Identifier id : ITEMS.keySet()) {
+            Registry.register(Registry.ITEM, id, ITEMS.get(id));
         }
-        return ITEM_REGISTRY;
     }
 }

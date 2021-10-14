@@ -36,7 +36,6 @@ public class CrystalSparkleParticle extends SpriteBillboardParticle {
 
     @Environment(EnvType.CLIENT)
     public record Factory(SpriteProvider spriteProvider) implements ParticleFactory<DefaultParticleType> {
-
         public Particle createParticle(DefaultParticleType defaultParticleType, ClientWorld world, double x, double y, double z, double velX, double velY, double velZ) {
             return new CrystalSparkleParticle(world, x, y, z, spriteProvider);
         }

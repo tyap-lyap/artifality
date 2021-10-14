@@ -10,13 +10,19 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
-import ru.bclib.blocks.BaseBlock;
-import ru.bclib.registry.BlockRegistry;
+import net.minecraft.util.registry.Registry;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 @SuppressWarnings("unused")
-public class ArtifalityBlocks extends BlockRegistry {
+public class ArtifalityBlocks {
+    public static final Map<Identifier, BlockItem> ITEMS = new LinkedHashMap<>();
+    public static final Map<Identifier, Block> BLOCKS = new LinkedHashMap<>();
 
     public static final Block SMALL_INCREMENTAL_CRYSTAL_CLUSTER = addCluster("small_incremental_crystal_cluster", "small");
     public static final Block MEDIUM_INCREMENTAL_CRYSTAL_CLUSTER = addCluster("medium_incremental_crystal_cluster", "medium");
@@ -51,12 +57,6 @@ public class ArtifalityBlocks extends BlockRegistry {
     public static final Block UPGRADING_PEDESTAL = add("upgrading_pedestal", new UpgradingPedestalBlock(copyOf(Blocks.COBBLESTONE).luminance(state -> state.get(UpgradingPedestalBlock.CHARGES) * 3)));
 //    public static final Block LUNAR_PEDESTAL = addDummy("lunar_pedestal", new UpgradingPedestalBlock(copyOf(Blocks.COBBLESTONE)));
 
-    private static BlockRegistry BLOCK_REGISTRY;
-
-    private ArtifalityBlocks() {
-        super(ArtifalityMod.ITEMS_ITEM_GROUP);
-    }
-
     private static Block addLens(String type, LensBlock.LensEffect effect){
         return add(type + "_crystal_lens", new LensBlock(effect));
     }
@@ -70,27 +70,34 @@ public class ArtifalityBlocks extends BlockRegistry {
     }
 
     private static Block addLitBlock(String name){
-        return add(name, new BaseBlock(copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(15)));
-    }
-
-    private static Block add(String id, Block block){
-        return getBlockRegistry().register(ArtifalityMod.newId(id), block);
+        return add(name, new Block(copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(15)));
     }
 
     private static FabricBlockSettings copyOf(Block block){
         return FabricBlockSettings.copyOf(block);
     }
 
-    @Override
-    public Identifier createModId(String name) {
-        return ArtifalityMod.newId(name);
+    private static Block add(String name, Block block) {
+        Item.Settings settings = new Item.Settings();
+        return addBlockItem(name, block, new BlockItem(block, settings));
     }
 
-    private static BlockRegistry getBlockRegistry() {
-        if (BLOCK_REGISTRY == null) {
-            BLOCK_REGISTRY = new ArtifalityBlocks();
+    private static Block addBlockItem(String name, Block block, BlockItem item) {
+        addBlock(name, block);
+        if (item != null) {
+            item.appendBlocks(Item.BLOCK_ITEMS, item);
+            ITEMS.put(ArtifalityMod.newId(name), item);
         }
+        return block;
+    }
 
-        return BLOCK_REGISTRY;
+    private static Block addBlock(String name, Block block) {
+        BLOCKS.put(ArtifalityMod.newId(name), block);
+        return block;
+    }
+
+    public static void register() {
+        ITEMS.forEach((id, item) -> Registry.register(Registry.ITEM, id, ITEMS.get(id)));
+        BLOCKS.forEach((id, block) -> Registry.register(Registry.BLOCK, id, BLOCKS.get(id)));
     }
 }

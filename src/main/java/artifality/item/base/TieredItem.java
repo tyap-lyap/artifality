@@ -29,9 +29,13 @@ public class TieredItem extends ArtifalityBaseItem {
     }
 
     @Override
+    public boolean hasGlint(ItemStack stack) {
+        return getCurrentTier(stack) == 3;
+    }
+
+    @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
         if(context.getWorld().getBlockState(context.getBlockPos()).isOf(ArtifalityBlocks.UPGRADING_PEDESTAL)) return ActionResult.FAIL;
-
         return super.useOnBlock(context);
     }
 

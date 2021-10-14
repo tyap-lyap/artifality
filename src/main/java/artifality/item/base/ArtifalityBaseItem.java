@@ -9,8 +9,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
-import ru.bclib.items.ModelProviderItem;
-
 import java.util.List;
 
 public class ArtifalityBaseItem extends Item {

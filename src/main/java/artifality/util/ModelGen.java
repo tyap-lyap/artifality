@@ -1,12 +1,32 @@
 package artifality.util;
 
+import artifality.block.ArtifalityBlocks;
+import artifality.block.base.CrystalBlock;
+import artifality.block.base.LensBlock;
+import net.minecraft.util.registry.Registry;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class ModelGen {
+    
+    public static void generateBlockModels(){
+        HashMap<String, String> blocks = new HashMap<>();
+        ArtifalityBlocks.BLOCKS.forEach((id, block) -> {
+            String model = "cube_all";
+            if (block instanceof CrystalBlock) model = "minecraft:block/cross";
+            if (block instanceof LensBlock) model = "artifality:block/lens";
+            blocks.put(Registry.BLOCK.getId(block).getPath(), model);
+        });
+        ModelGen.generateBlocks("artifality", blocks);
+    }
+
+    public static void generateItemModels(){
+    }
 
     private static void generateItemModel(String namespace, String name, boolean isBlock) {
         try {

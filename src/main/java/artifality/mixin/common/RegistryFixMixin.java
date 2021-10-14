@@ -2,8 +2,6 @@ package artifality.mixin.common;
 
 import artifality.ArtifalityMod;
 import com.mojang.serialization.Lifecycle;
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.DefaultedRegistry;
 import net.minecraft.util.registry.Registry;
@@ -18,6 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(DefaultedRegistry.class)
 public abstract class RegistryFixMixin<T> extends SimpleRegistry<T> {
+
     public RegistryFixMixin(RegistryKey<? extends Registry<T>> registryKey, Lifecycle lifecycle) {
         super(registryKey, lifecycle);
     }
