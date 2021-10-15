@@ -32,8 +32,8 @@ dependencies {
 	modImplementation "dev.emi:trinkets:${trinkets_version}"
 	modImplementation "com.github.paulevsGitch:BCLib:${project.bclib_version}"
 
-	modImplementation "com.github.PinkGoosik:goosik-lib:v0.1.0"
-	include "com.github.PinkGoosik:goosik-lib:v0.1.0"
+	modImplementation "com.github.PinkGoosik:cosmetica:0.2.0"
+	include "com.github.PinkGoosik:cosmetica:0.2.0"
 	
 	modRuntime "me.shedaniel:RoughlyEnoughItems-fabric:6.0.279-alpha"
 	modRuntime "com.terraformersmc:modmenu:2.0.9"
