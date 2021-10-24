@@ -1,6 +1,7 @@
 package artifality.item;
 
 import artifality.item.base.TieredItem;
+import artifality.util.EffectsUtils;
 import artifality.util.TooltipAppender;
 import dev.emi.trinkets.api.SlotReference;
 import dev.emi.trinkets.api.Trinket;
@@ -19,7 +20,6 @@ import net.minecraft.entity.AreaEffectCloudEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.LiteralText;
@@ -29,20 +29,9 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class UkuleleItem extends TieredItem implements Trinket, TrinketRenderer {
-
-    public static final ArrayList<StatusEffect> POSITIVE_EFFECTS = new ArrayList<>(Arrays.asList(
-            StatusEffects.FIRE_RESISTANCE, StatusEffects.REGENERATION, StatusEffects.STRENGTH,
-            StatusEffects.SPEED, StatusEffects.ABSORPTION, StatusEffects.HASTE,
-            StatusEffects.JUMP_BOOST, StatusEffects.RESISTANCE));
-
-    public static final ArrayList<StatusEffect> NEGATIVE_EFFECTS = new ArrayList<>(Arrays.asList(StatusEffects.LEVITATION,
-            StatusEffects.MINING_FATIGUE, StatusEffects.SLOWNESS, StatusEffects.POISON,
-            StatusEffects.WEAKNESS, StatusEffects.WITHER));
 
     public UkuleleItem(Settings settings) {
         super(settings);
@@ -64,8 +53,7 @@ public class UkuleleItem extends TieredItem implements Trinket, TrinketRenderer 
         if(world.isClient) return TypedActionResult.pass(user.getStackInHand(hand));
         int tier = TieredItem.getCurrentTier(user.getStackInHand(hand));
 
-        createCloudEffect(world, user, POSITIVE_EFFECTS.get(world.getRandom().nextInt(POSITIVE_EFFECTS.size())), 30 + tier * 10, 3.0F, tier);
-
+        createCloudEffect(world, user, EffectsUtils.getRandomPositive(), 30 + tier * 10, 3.0F, tier);
         user.getItemCooldownManager().set(this, 20 * 20);
         return TypedActionResult.success(user.getStackInHand(hand));
     }
@@ -78,13 +66,11 @@ public class UkuleleItem extends TieredItem implements Trinket, TrinketRenderer 
         areaEffectCloudEntity.setRadiusGrowth(-areaEffectCloudEntity.getRadius() / (float)areaEffectCloudEntity.getDuration());
 
         int amplifier;
-
         if(tier == 1){
             amplifier = world.getRandom().nextInt(2);
         }else{
             amplifier = tier - 1;
         }
-
         areaEffectCloudEntity.addEffect(new StatusEffectInstance(statusEffect, durationInSec * 20, amplifier));
         world.spawnEntity(areaEffectCloudEntity);
     }
@@ -93,14 +79,10 @@ public class UkuleleItem extends TieredItem implements Trinket, TrinketRenderer 
     @Override
     public void render(ItemStack stack, SlotReference slotReference, EntityModel<? extends LivingEntity> contextModel, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, LivingEntity entity, float limbAngle, float limbDistance, float tickDelta, float animationProgress, float headYaw, float headPitch) {
         ItemRenderer itemRenderer = MinecraftClient.getInstance().getItemRenderer();
-
         matrices.push();
-
         TrinketRenderer.translateToChest(matrices, (PlayerEntityModel<AbstractClientPlayerEntity>) contextModel, (AbstractClientPlayerEntity) entity);
-
         matrices.translate(0.0F, -0.2F, 0.37F);
         matrices.scale(0.8F, 0.8F, 0.8F);
-
         itemRenderer.renderItem(stack, ModelTransformation.Mode.FIXED, false, matrices, vertexConsumers, light, OverlayTexture.DEFAULT_UV,
                 itemRenderer.getModels().getModelManager().getModel(new ModelIdentifier("artifality:ukulele_in_hand#inventory")));
         matrices.pop();

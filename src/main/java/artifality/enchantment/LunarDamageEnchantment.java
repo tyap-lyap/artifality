@@ -5,6 +5,8 @@ import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.item.AxeItem;
+import net.minecraft.item.ItemStack;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
@@ -32,19 +34,27 @@ public class LunarDamageEnchantment extends Enchantment {
     }
 
     @Override
+    public boolean isAcceptableItem(ItemStack stack) {
+        return stack.getItem() instanceof AxeItem || super.isAcceptableItem(stack);
+    }
+
+    @Override
+    public boolean isAvailableForEnchantedBookOffer() {
+        return false;
+    }
+
+    @Override
     public boolean isTreasure() {
         return true;
     }
 
     @Override
     public Text getName(int level) {
-        MutableText mutableText = new TranslatableText(this.getTranslationKey());
-        mutableText.formatted(Formatting.BLUE);
-
+        MutableText text = new TranslatableText(this.getTranslationKey());
+        text.formatted(Formatting.BLUE);
         if (level != 1 || this.getMaxLevel() != 1) {
-            mutableText.append(" ").append(new TranslatableText("enchantment.level." + level));
+            text.append(" ").append(new TranslatableText("enchantment.level." + level));
         }
-
-        return mutableText;
+        return text;
     }
 }

@@ -25,7 +25,7 @@ public abstract class ItemRendererMixin {
     @Inject(method = "renderItem(Lnet/minecraft/entity/LivingEntity;Lnet/minecraft/item/ItemStack;Lnet/minecraft/client/render/model/json/ModelTransformation$Mode;ZLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;Lnet/minecraft/world/World;III)V",
             at = @At("HEAD"))
     void twoModelsItemImplementation(LivingEntity entity, ItemStack stack, ModelTransformation.Mode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, World world, int light, int overlay, int seed, CallbackInfo ci){
-        TwoModelsItemRegistry.getEntries().forEach((id, item) -> {
+        TwoModelsItemRegistry.ENTRIES.forEach((id, item) -> {
             if(!stack.isEmpty() && stack.isOf(item) && entity != null){
                 BakedModel model = models.getModelManager().getModel(new ModelIdentifier(id + "_in_hand#inventory"));
                 renderItem(stack, renderMode, leftHanded, matrices, vertexConsumers, light, overlay, model);

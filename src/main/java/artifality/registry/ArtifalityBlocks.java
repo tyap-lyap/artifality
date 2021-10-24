@@ -1,10 +1,11 @@
-package artifality.block;
+package artifality.registry;
 
 import artifality.ArtifalityMod;
+import artifality.block.UpgradingPedestalBlock;
 import artifality.block.base.BuddingCrystalBlock;
 import artifality.block.base.CrystalBlock;
 import artifality.block.base.LensBlock;
-import artifality.item.UkuleleItem;
+import artifality.util.EffectsUtils;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -45,8 +46,7 @@ public class ArtifalityBlocks {
     public static final Block INCREMENTAL_CRYSTAL_LENS = addLens("incremental", (effect, player) -> player.addStatusEffect(new StatusEffectInstance(effect.getEffectType(), effect.getDuration(), effect.getAmplifier() + 1, true, true)));
 
     public static final Block LUNAR_CRYSTAL_LENS = addLens("lunar", (effect, player) -> player.addStatusEffect(new StatusEffectInstance(
-            UkuleleItem.POSITIVE_EFFECTS.get(player.world.random.nextInt(
-                    UkuleleItem.POSITIVE_EFFECTS.size())), effect.getDuration(), player.world.random.nextInt(2), true, true)));
+            EffectsUtils.getRandomPositive(), effect.getDuration(), player.world.random.nextInt(2), true, true)));
 
     public static final Block LIFE_CRYSTAL_LENS = addLens("life", (effect, playerEntity) -> {
         float health = playerEntity.getHealth();

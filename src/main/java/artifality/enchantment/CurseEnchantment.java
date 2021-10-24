@@ -4,9 +4,9 @@ import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
 
-public class SlidingCurseEnchantment extends Enchantment {
+public class CurseEnchantment extends Enchantment {
 
-    public SlidingCurseEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
+    public CurseEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
     }
 

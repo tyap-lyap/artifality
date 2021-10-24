@@ -1,6 +1,6 @@
 package artifality.mixin.common;
 
-import artifality.item.ArtifalityItems;
+import artifality.registry.ArtifalityItems;
 import artifality.item.ZeusStaffItem;
 import net.minecraft.entity.*;
 import net.minecraft.entity.mob.HostileEntity;

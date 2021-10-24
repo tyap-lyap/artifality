@@ -1,6 +1,6 @@
 package artifality.util;
 
-import artifality.block.ArtifalityBlocks;
+import artifality.registry.ArtifalityBlocks;
 import artifality.block.base.CrystalBlock;
 import artifality.block.base.LensBlock;
 import net.minecraft.util.registry.Registry;

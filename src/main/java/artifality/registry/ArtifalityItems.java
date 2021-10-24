@@ -1,6 +1,7 @@
-package artifality.item;
+package artifality.registry;
 
 import artifality.ArtifalityMod;
+import artifality.item.*;
 import artifality.item.base.ArtifalityBaseItem;
 import artifality.item.base.BaubleItem;
 import artifality.item.base.TieredItem;

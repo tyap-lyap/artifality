@@ -1,6 +1,6 @@
 package artifality.mixin.common;
 
-import artifality.enchantment.ArtifalityEnchantments;
+import artifality.registry.ArtifalityEnchantments;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EquipmentSlot;
@@ -12,7 +12,6 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(LivingEntity.class)
 public class LivingEntityMixin {
-
     LivingEntity self = (LivingEntity)(Object)this;
 
     @Redirect(method = "travel", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/Block;getSlipperiness()F"))

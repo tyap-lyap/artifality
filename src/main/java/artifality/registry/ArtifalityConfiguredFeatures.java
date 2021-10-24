@@ -1,6 +1,7 @@
-package artifality.worldgen.feature;
+package artifality.registry;
 
 import artifality.ArtifalityMod;
+import artifality.worldgen.feature.CrystalFeature;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
@@ -11,9 +12,7 @@ import net.minecraft.world.gen.decorator.DecoratorConfig;
 import net.minecraft.world.gen.feature.*;
 
 public class ArtifalityConfiguredFeatures {
-
     public static final Feature<DefaultFeatureConfig> PATCH_CRYSTAL = new CrystalFeature();
-
     public static final ConfiguredFeature<?, ?> PATCH_CRYSTAL_CONFIG = PATCH_CRYSTAL
             .configure(new DefaultFeatureConfig())
             .decorate(Decorator.NOPE.configure(DecoratorConfig.DEFAULT));

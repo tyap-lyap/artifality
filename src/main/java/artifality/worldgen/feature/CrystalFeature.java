@@ -1,6 +1,6 @@
 package artifality.worldgen.feature;
 
-import artifality.block.ArtifalityBlocks;
+import artifality.registry.ArtifalityBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.state.property.Properties;

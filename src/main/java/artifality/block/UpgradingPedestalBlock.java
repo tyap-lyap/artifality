@@ -1,7 +1,7 @@
 package artifality.block;
 
 import artifality.block.base.ArtifalityBaseBlock;
-import artifality.item.ArtifalityItems;
+import artifality.registry.ArtifalityItems;
 import artifality.item.base.TieredItem;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

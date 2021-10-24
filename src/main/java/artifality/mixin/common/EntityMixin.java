@@ -1,7 +1,7 @@
 package artifality.mixin.common;
 
 import artifality.interfaces.LightningEntityExtensions;
-import artifality.item.ArtifalityItems;
+import artifality.registry.ArtifalityItems;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.LivingEntity;

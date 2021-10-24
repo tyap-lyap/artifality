@@ -1,6 +1,6 @@
 package artifality.item.base;
 
-import artifality.block.ArtifalityBlocks;
+import artifality.registry.ArtifalityBlocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;

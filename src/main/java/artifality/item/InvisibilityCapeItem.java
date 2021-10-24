@@ -1,9 +1,9 @@
 package artifality.item;
 
 import artifality.item.base.BaseTrinketItem;
+import artifality.util.EffectsUtils;
 import dev.emi.trinkets.api.SlotReference;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.ItemStack;
 
@@ -15,14 +15,7 @@ public class InvisibilityCapeItem extends BaseTrinketItem {
 
     @Override
     public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
-        if (entity.isSneaking()) {
-            if (!entity.hasStatusEffect(StatusEffects.INVISIBILITY)) {
-                entity.addStatusEffect(new StatusEffectInstance(StatusEffects.INVISIBILITY, 10, 0, false, false));
-            } else {
-                if (entity.getActiveStatusEffects().get(StatusEffects.INVISIBILITY).getDuration() == 1) {
-                    entity.addStatusEffect(new StatusEffectInstance(StatusEffects.INVISIBILITY, 10, 0, false, false));
-                }
-            }
-        }
+        if (!entity.isSneaking()) return;
+        EffectsUtils.ticking(entity, StatusEffects.INVISIBILITY);
     }
 }

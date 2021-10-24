@@ -1,10 +1,10 @@
 package artifality;
 
-import artifality.block.ArtifalityBlocks;
+import artifality.registry.ArtifalityBlocks;
 import artifality.data.ArtifalityLootTables;
-import artifality.enchantment.ArtifalityEnchantments;
-import artifality.item.ArtifalityItems;
-import artifality.worldgen.feature.ArtifalityConfiguredFeatures;
+import artifality.registry.ArtifalityEnchantments;
+import artifality.registry.ArtifalityItems;
+import artifality.registry.ArtifalityConfiguredFeatures;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.enchantment.EnchantmentLevelEntry;

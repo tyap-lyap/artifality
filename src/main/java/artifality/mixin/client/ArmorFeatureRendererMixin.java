@@ -1,6 +1,6 @@
 package artifality.mixin.client;
 
-import artifality.item.ArtifalityItems;
+import artifality.registry.ArtifalityItems;
 import artifality.util.TrinketsUtils;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.feature.ArmorFeatureRenderer;
@@ -25,10 +25,8 @@ public abstract class ArmorFeatureRendererMixin<T extends LivingEntity, M extend
     @Inject(method = "render", at = @At("HEAD"), cancellable = true)
     void hideArmorWithInvisibilityCape(MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, T livingEntity, float f, float g, float h, float j, float k, float l, CallbackInfo ci){
         if(livingEntity instanceof PlayerEntity player){
-            if(player.isSneaking()){
-                if (TrinketsUtils.containsTrinket(player, ArtifalityItems.INVISIBILITY_CAPE)){
-                    ci.cancel();
-                }
+            if(player.isSneaking() && TrinketsUtils.containsTrinket(player, ArtifalityItems.INVISIBILITY_CAPE)){
+                ci.cancel();
             }
         }
     }

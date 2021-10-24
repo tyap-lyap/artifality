@@ -1,10 +1,11 @@
 package artifality.mixin.common;
 
-import artifality.enchantment.ArtifalityEnchantments;
-import artifality.item.ArtifalityItems;
+import artifality.registry.ArtifalityEnchantments;
+import artifality.registry.ArtifalityItems;
 import artifality.item.BalloonItem;
 import artifality.item.UkuleleItem;
 import artifality.item.base.TieredItem;
+import artifality.util.EffectsUtils;
 import artifality.util.TrinketsUtils;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
@@ -25,7 +26,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(PlayerEntity.class)
 public class PlayerEntityMixin {
-
     PlayerEntity self = (PlayerEntity)(Object)this;
 
     @Inject(method = "getAttackCooldownProgressPerTick", at = @At("HEAD"), cancellable = true)
@@ -38,16 +38,18 @@ public class PlayerEntityMixin {
 
     @Inject(method = "damage", at = @At("HEAD"))
     void damage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir){
-        if(source.getAttacker() != null && source.getAttacker() instanceof LivingEntity attacker){
-            if(TrinketsUtils.containsTrinket(self, ArtifalityItems.UKULELE)){
-                if(!self.getItemCooldownManager().isCoolingDown(ArtifalityItems.UKULELE)){
-                    UkuleleItem.createCloudEffect(attacker.world, attacker,
-                            UkuleleItem.NEGATIVE_EFFECTS.get(attacker.world.getRandom().nextInt(UkuleleItem.NEGATIVE_EFFECTS.size())),
-                            10, 1.5F, 1);
-                    self.getItemCooldownManager().set(ArtifalityItems.UKULELE, 20 * 20);
+        if(!self.world.isClient){{
+            if(source.getAttacker() != null && source.getAttacker() instanceof LivingEntity attacker){
+                if(TrinketsUtils.containsTrinket(self, ArtifalityItems.UKULELE)){
+                    if(!self.getItemCooldownManager().isCoolingDown(ArtifalityItems.UKULELE)){
+                        UkuleleItem.createCloudEffect(attacker.world, attacker,
+                                EffectsUtils.getRandomNegative(),
+                                10, 1.5F, 1);
+                        self.getItemCooldownManager().set(ArtifalityItems.UKULELE, 20 * 20);
+                    }
                 }
             }
-        }
+        }}
     }
 
     @Inject(method = "damage", at = @At("HEAD"))
@@ -89,23 +91,12 @@ public class PlayerEntityMixin {
     @Unique
     void useBalloon(){
         TrinketsUtils.getTrinketsAsArray(self).forEach(stack -> {
-            if(stack.isOf(ArtifalityItems.BALLOON)){
-                if(stack.getDamage() != stack.getMaxDamage()){
-                    giveSlowFall();
-                    if(self.getRandom().nextInt(30 * TieredItem.getCurrentTier(stack)) == 0){
-                        stack.setDamage(stack.getDamage() + 1);
-                    }
+            if(stack.isOf(ArtifalityItems.BALLOON) && stack.getDamage() != stack.getMaxDamage()){
+                EffectsUtils.ticking(self, StatusEffects.SLOW_FALLING);
+                if(self.getRandom().nextInt(30 * TieredItem.getCurrentTier(stack)) == 0){
+                    stack.setDamage(stack.getDamage() + 1);
                 }
             }
         });
-    }
-
-    @Unique
-    void giveSlowFall(){
-        if (!self.hasStatusEffect(StatusEffects.SLOW_FALLING)) {
-            self.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING, 10, 0, false, false));
-        }else if (self.getActiveStatusEffects().get(StatusEffects.SLOW_FALLING).getDuration() == 1) {
-            self.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING, 10, 0, false, false));
-        }
     }
 }
