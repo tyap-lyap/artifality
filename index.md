@@ -11,9 +11,9 @@ Welcome to the Artifality Wiki! Here you can see the full list of Artifality Mod
 * [Balloon](item/balloon)
 
 ## Blocks
-* [Pedestal Of Upgrading] (block/upgrading_pedestal)
-* [Crystal Clusters] (block/crystal_clusters)
-* [Crystal Blocks] (block/crystal_blocks)
-* [Crystal Lenses] (block/crystal_lenses)
+* [Pedestal Of Upgrading](block/upgrading_pedestal)
+* [Crystal Clusters](block/crystal_clusters)
+* [Crystal Blocks](block/crystal_blocks)
+* [Crystal Lenses](block/crystal_lenses)
 
 ## Enchantments
