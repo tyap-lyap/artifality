@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "artifality:block/medium_wrath_crystal_cluster"
+  }
+}

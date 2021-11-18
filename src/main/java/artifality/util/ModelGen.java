@@ -1,7 +1,7 @@
 package artifality.util;
 
 import artifality.registry.ArtifalityBlocks;
-import artifality.block.base.CrystalBlock;
+import artifality.block.base.CrystalClusterBlock;
 import artifality.block.base.LensBlock;
 import net.minecraft.util.registry.Registry;
 
@@ -18,7 +18,7 @@ public class ModelGen {
         HashMap<String, String> blocks = new HashMap<>();
         ArtifalityBlocks.BLOCKS.forEach((id, block) -> {
             String model = "cube_all";
-            if (block instanceof CrystalBlock) model = "minecraft:block/cross";
+            if (block instanceof CrystalClusterBlock) model = "minecraft:block/cross";
             if (block instanceof LensBlock) model = "artifality:block/lens";
             blocks.put(Registry.BLOCK.getId(block).getPath(), model);
         });

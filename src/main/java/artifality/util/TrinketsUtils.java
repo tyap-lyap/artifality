@@ -11,17 +11,17 @@ public class TrinketsUtils {
 
     protected TrinketsUtils(){}
 
-    public static boolean containsTrinket(PlayerEntity playerEntity, Item item){
-        for(ItemStack itemStack : getTrinketsAsArray(playerEntity)){
-            if(itemStack.getItem().equals(item))return true;
+    public static boolean containsTrinket(PlayerEntity player, Item item){
+        for(ItemStack stack : getTrinketsAsArray(player)){
+            if(stack.isOf(item)) return true;
         }
         return false;
     }
 
-    public static ArrayList<ItemStack> getTrinketsAsArray(PlayerEntity playerEntity) {
+    public static ArrayList<ItemStack> getTrinketsAsArray(PlayerEntity player) {
         ArrayList<ItemStack> stacks = new ArrayList<>();
-        if (TrinketsApi.getTrinketComponent(playerEntity).isPresent()){
-            TrinketsApi.getTrinketComponent(playerEntity).get().forEach((slotReference, itemStack) -> stacks.add(itemStack));
+        if (TrinketsApi.getTrinketComponent(player).isPresent()){
+            TrinketsApi.getTrinketComponent(player).get().forEach((slotReference, itemStack) -> stacks.add(itemStack));
         }
         return stacks;
     }

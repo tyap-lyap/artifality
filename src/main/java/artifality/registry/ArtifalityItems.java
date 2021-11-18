@@ -2,8 +2,7 @@ package artifality.registry;
 
 import artifality.ArtifalityMod;
 import artifality.item.*;
-import artifality.item.base.ArtifalityBaseItem;
-import artifality.item.base.BaubleItem;
+import artifality.item.base.BaseItem;
 import artifality.item.base.TieredItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
@@ -26,11 +25,11 @@ public class ArtifalityItems {
     public static final Item INVISIBILITY_CAPE = add("invisibility_cape", new InvisibilityCapeItem(settings().maxCount(1)));
     public static final Item BALLOON = add("balloon", new BalloonItem(settings().maxDamage(128)));
     public static final Item MIDAS_TOUCH = add("midas_touch", new TieredItem(settings().maxCount(1)));
-    public static final Item INCREMENTAL_CRYSTAL = add("incremental_crystal", new ArtifalityBaseItem(settings()));
-    public static final Item LUNAR_CRYSTAL = add("lunar_crystal", new ArtifalityBaseItem(settings()));
-    public static final Item LIFE_CRYSTAL = add("life_crystal", new ArtifalityBaseItem(settings()));
-    public static final Item INCREMENTAL_ORB = add("incremental_orb", new BaubleItem(settings(), true));
-    public static final Item CRYSTAL_HEART = add("crystal_heart", new BaubleItem(settings(), true));
+    public static final Item INCREMENTAL_CRYSTAL = add("incremental_crystal", new BaseItem(settings()));
+    public static final Item LUNAR_CRYSTAL = add("lunar_crystal", new BaseItem(settings()));
+    public static final Item LIFE_CRYSTAL = add("life_crystal", new BaseItem(settings()));
+    public static final Item WRATH_CRYSTAL = add("wrath_crystal", new BaseItem(settings()));
+    public static final Item CRYSTAL_HEART = add("crystal_heart", new CrystalHeartItem(settings()));
 
     private static Item add(String name, Item item) {
         ITEMS.put(ArtifalityMod.newId(name), item);

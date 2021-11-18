@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "artifality:block/small_wrath_crystal_cluster"
+   }
+}

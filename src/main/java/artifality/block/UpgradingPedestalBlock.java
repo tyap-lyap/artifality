@@ -1,7 +1,7 @@
 package artifality.block;
 
-import artifality.block.base.ArtifalityBaseBlock;
-import artifality.registry.ArtifalityItems;
+import artifality.block.base.BaseBlock;
+import artifality.registry.ArtifalityBlocks;
 import artifality.item.base.TieredItem;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -21,8 +21,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 
 @SuppressWarnings("deprecation")
-public class UpgradingPedestalBlock extends ArtifalityBaseBlock {
-
+public class UpgradingPedestalBlock extends BaseBlock {
     public static final IntProperty CHARGES = Properties.CHARGES;
 
     public UpgradingPedestalBlock(Settings settings) {
@@ -33,30 +32,29 @@ public class UpgradingPedestalBlock extends ArtifalityBaseBlock {
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if(world.isClient) return ActionResult.PASS;
-        ItemStack itemStack = player.getStackInHand(hand);
-
-        if(hand == Hand.MAIN_HAND && itemStack.isOf(ArtifalityItems.INCREMENTAL_ORB.asItem())){
+        ItemStack stack = player.getStackInHand(hand);
+        if(hand == Hand.MAIN_HAND && stack.isOf(ArtifalityBlocks.INCREMENTAL_ORB.asItem())){
             if(getCharges(state) < 3){
                 chargeWithIncremental(world, pos, state);
-                itemStack.decrement(1);
+                stack.decrement(1);
                 return ActionResult.SUCCESS;
             }
-        }else if(hand == Hand.MAIN_HAND && itemStack.isOf(Items.NETHER_STAR)){
+        }else if(hand == Hand.MAIN_HAND && stack.isOf(Items.NETHER_STAR)){
             if(getCharges(state) != 4){
                 chargeWithNetherStar(world, pos, state);
-                itemStack.decrement(1);
+                stack.decrement(1);
                 return ActionResult.SUCCESS;
             }
-        }else if(hand == Hand.MAIN_HAND && itemStack.getItem() instanceof TieredItem){
-            if(getCharges(state) == 3 && TieredItem.getCurrentTier(itemStack) == 1){
+        }else if(hand == Hand.MAIN_HAND && stack.getItem() instanceof TieredItem){
+            if(getCharges(state) == 3 && TieredItem.getCurrentTier(stack) == 1){
                 world.playSound(null, pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, SoundEvents.BLOCK_RESPAWN_ANCHOR_DEPLETE, SoundCategory.BLOCKS, 1.0F, 1.0F);
-                player.setStackInHand(Hand.MAIN_HAND, TieredItem.withTier(itemStack.getItem(), 2));
+                player.setStackInHand(Hand.MAIN_HAND, TieredItem.withTier(stack.getItem(), 2));
                 world.setBlockState(pos, this.getDefaultState());
                 return ActionResult.SUCCESS;
 
-            }else if(getCharges(state) == 4 && TieredItem.getCurrentTier(itemStack) == 2){
+            }else if(getCharges(state) == 4 && TieredItem.getCurrentTier(stack) == 2){
                 world.playSound(null, pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, SoundEvents.BLOCK_RESPAWN_ANCHOR_DEPLETE, SoundCategory.BLOCKS, 1.0F, 1.0F);
-                player.setStackInHand(Hand.MAIN_HAND, TieredItem.withTier(itemStack.getItem(), 3));
+                player.setStackInHand(Hand.MAIN_HAND, TieredItem.withTier(stack.getItem(), 3));
                 world.setBlockState(pos, this.getDefaultState());
                 return ActionResult.SUCCESS;
             }
@@ -82,9 +80,9 @@ public class UpgradingPedestalBlock extends ArtifalityBaseBlock {
     public void onBroken(WorldAccess world, BlockPos pos, BlockState state) {
         super.onBroken(world, pos, state);
         switch (getCharges(state)) {
-            case 1 -> dropStack((World) world, pos, new ItemStack(ArtifalityItems.INCREMENTAL_ORB));
-            case 2 -> dropStack((World) world, pos, new ItemStack(ArtifalityItems.INCREMENTAL_ORB, 2));
-            case 3 -> dropStack((World) world, pos, new ItemStack(ArtifalityItems.INCREMENTAL_ORB, 3));
+            case 1 -> dropStack((World) world, pos, new ItemStack(ArtifalityBlocks.INCREMENTAL_ORB));
+            case 2 -> dropStack((World) world, pos, new ItemStack(ArtifalityBlocks.INCREMENTAL_ORB, 2));
+            case 3 -> dropStack((World) world, pos, new ItemStack(ArtifalityBlocks.INCREMENTAL_ORB, 3));
             case 4 -> dropStack((World) world, pos, new ItemStack(Items.NETHER_STAR));
         }
     }

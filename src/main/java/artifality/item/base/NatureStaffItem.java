@@ -42,9 +42,7 @@ public class NatureStaffItem extends TieredItem implements Trinket, TrinketRende
         ItemRenderer itemRenderer = MinecraftClient.getInstance().getItemRenderer();
 
         matrices.push();
-
         TrinketRenderer.translateToChest(matrices, (PlayerEntityModel<AbstractClientPlayerEntity>) contextModel, (AbstractClientPlayerEntity) entity);
-
         matrices.translate(0.2F, 0.15F, 0.37F);
         matrices.scale(0.8F, 0.8F, 0.8F);
         matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion(180.0F));

@@ -1,5 +1,5 @@
 {
-  "parent": "artifality:block/lens",
+  "parent": "artifality:block/lens_model",
   "textures": {
     "top": "artifality:block/incremental_crystal_lens_top",
     "side": "artifality:block/incremental_crystal_lens_side"

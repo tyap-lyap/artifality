@@ -1,8 +1,10 @@
 package artifality.client;
 
 import artifality.ArtifalityMod;
-import artifality.registry.ArtifalityBlocks;
 import artifality.block.base.CrystalBlock;
+import artifality.block.base.OrbBlock;
+import artifality.registry.ArtifalityBlocks;
+import artifality.block.base.CrystalClusterBlock;
 import artifality.block.base.LensBlock;
 import artifality.util.TwoModelsItemRegistry;
 import artifality.registry.ArtifalityItems;
@@ -17,7 +19,6 @@ import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.util.ModelIdentifier;
-import net.minecraft.item.Item;
 
 @SuppressWarnings("OptionalGetWithoutIsPresent")
 public class ArtifalityClient implements ClientModInitializer {
@@ -26,16 +27,18 @@ public class ArtifalityClient implements ClientModInitializer {
     public void onInitializeClient() {
         ArtifalityParticles.register();
 
-        TwoModelsItemRegistry.register(new Item[]{ArtifalityItems.UKULELE, ArtifalityItems.ZEUS_STAFF, ArtifalityItems.BALLOON,
-                ArtifalityItems.FOREST_STAFF, ArtifalityItems.FLORAL_STAFF, ArtifalityItems.HARVEST_STAFF});
+        TwoModelsItemRegistry.register(ArtifalityItems.UKULELE, ArtifalityItems.ZEUS_STAFF, ArtifalityItems.BALLOON,
+                ArtifalityItems.FOREST_STAFF, ArtifalityItems.FLORAL_STAFF, ArtifalityItems.HARVEST_STAFF);
 
         ArtifalityItems.ITEMS.forEach((id, item) -> {
             if(item instanceof TrinketRenderer renderer) TrinketRendererRegistry.registerRenderer(item, renderer);
         });
 
         ArtifalityBlocks.BLOCKS.forEach((id, block) -> {
-            if(block instanceof CrystalBlock) BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout());
+            if(block instanceof CrystalClusterBlock) BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout());
+            if(block instanceof CrystalBlock) BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getTranslucent());
             if(block instanceof LensBlock) BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getTranslucent());
+            if(block instanceof OrbBlock) BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getTranslucent());
         });
 
         ModelLoadingRegistry.INSTANCE.registerModelProvider((manager, out) -> TwoModelsItemRegistry.ENTRIES.forEach((id, item) ->

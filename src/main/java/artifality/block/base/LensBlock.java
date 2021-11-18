@@ -11,7 +11,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 
-public class LensBlock extends ArtifalityBaseBlock {
+public class LensBlock extends BaseBlock {
     private static final VoxelShape SHAPE = createCuboidShape(0, 0, 0, 16, 8, 16);
     private final LensEffect lensEffect;
 

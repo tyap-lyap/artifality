@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Random;
 
 @SuppressWarnings("deprecation")
-public class BuddingCrystalBlock extends ArtifalityBaseBlock {
+public class BuddingCrystalBlock extends BaseBlock {
     private final Block small;
     private final Block medium;
     private final Block large;
@@ -55,14 +55,14 @@ public class BuddingCrystalBlock extends ArtifalityBaseBlock {
             Block block = null;
             if (blockState.isAir()) {
                 block = small;
-            } else if (blockState.isOf(small) && blockState.get(CrystalBlock.FACING) == direction) {
+            } else if (blockState.isOf(small) && blockState.get(CrystalClusterBlock.FACING) == direction) {
                 block = medium;
-            } else if (blockState.isOf(medium) && blockState.get(CrystalBlock.FACING) == direction) {
+            } else if (blockState.isOf(medium) && blockState.get(CrystalClusterBlock.FACING) == direction) {
                 block = large;
             }
 
             if (block != null) {
-                BlockState crystal = block.getDefaultState().with(CrystalBlock.FACING, direction);
+                BlockState crystal = block.getDefaultState().with(CrystalClusterBlock.FACING, direction);
                 world.setBlockState(blockPos, crystal);
             }
         }

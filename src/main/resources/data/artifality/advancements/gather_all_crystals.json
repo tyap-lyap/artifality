@@ -39,13 +39,25 @@
                 ]
             }
         },
-        "crystal_heart_shard": {
+        "life_crystal": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
                     {
                         "items": [
                             "artifality:life_crystal"
+                        ]
+                    }
+                ]
+            }
+        },
+        "wrath_crystal": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "artifality:wrath_crystal"
                         ]
                     }
                 ]

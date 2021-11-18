@@ -1,7 +1,0 @@
-{
-  "parent": "artifality:block/lens",
-  "textures": {
-    "top": "%modid%:block/%texture%_top",
-    "side": "%modid%:block/%texture%_side"
-  }
-}

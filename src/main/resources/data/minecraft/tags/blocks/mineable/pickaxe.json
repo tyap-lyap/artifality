@@ -1,24 +1,34 @@
 {
   "replace": false,
   "values": [
-    "artifality:incremental_crystal_cluster",
-    "artifality:incremental_crystal_block",
-    "artifality:lunar_crystal_cluster",
-    "artifality:lunar_crystal_block",
-    "artifality:incremental_crystal_lens",
     "artifality:upgrading_pedestal",
-    "artifality:lunar_crystal_lens",
-    "artifality:life_crystal_lens",
-    "artifality:life_crystal_cluster",
-    "artifality:life_crystal_block",
-    "artifality:budding_incremental_crystal",
-    "artifality:budding_lunar_crystal",
-    "artifality:budding_life_crystal",
+
+    "artifality:incremental_crystal_cluster",
     "artifality:small_incremental_crystal_cluster",
-    "artifality:small_lunar_crystal_cluster",
-    "artifality:small_life_crystal_cluster",
     "artifality:medium_incremental_crystal_cluster",
+    "artifality:incremental_crystal_block",
+    "artifality:incremental_crystal_lens",
+    "artifality:budding_incremental_crystal",
+
+    "artifality:lunar_crystal_cluster",
+    "artifality:small_lunar_crystal_cluster",
     "artifality:medium_lunar_crystal_cluster",
-    "artifality:medium_life_crystal_cluster"
+    "artifality:lunar_crystal_block",
+    "artifality:lunar_crystal_lens",
+    "artifality:budding_lunar_crystal",
+
+    "artifality:life_crystal_cluster",
+    "artifality:small_life_crystal_cluster",
+    "artifality:medium_life_crystal_cluster",
+    "artifality:life_crystal_block",
+    "artifality:life_crystal_lens",
+    "artifality:budding_life_crystal",
+
+    "artifality:wrath_crystal_cluster",
+    "artifality:small_wrath_crystal_cluster",
+    "artifality:medium_wrath_crystal_cluster",
+    "artifality:wrath_crystal_block",
+    "artifality:wrath_crystal_lens",
+    "artifality:budding_wrath_crystal"
   ]
 }

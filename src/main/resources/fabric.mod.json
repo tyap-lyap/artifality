@@ -4,14 +4,14 @@
   "version": "${version}",
 
   "name": "Artifality",
-  "description": "Collection of useful Artifacts, Blocks, Enchantments and more.",
+  "description": "Minecraft Mod inspired by the game Risk of Rain that adds some new vanilla-styled items and other stuff.",
   "authors": [
-    "PinkGoosik"
-  ],
-  "contributors": [
+    "PinkGoosik",
     "DoctorNight",
     "Spusik",
-    "aSomik",
+    "aSomik"
+  ],
+  "contributors": [
     "matthewperiut",
     "PrismaticYT",
     "VanillaTweaks team"
@@ -27,12 +27,8 @@
 
   "environment": "*",
   "entrypoints": {
-    "main": [
-      "artifality.ArtifalityMod"
-    ],
-    "client": [
-      "artifality.client.ArtifalityClient"
-    ]
+    "main": ["artifality.ArtifalityMod"],
+    "client": ["artifality.client.ArtifalityClient"]
   },
 
   "mixins": [
@@ -51,14 +47,12 @@
   "depends": {
     "fabricloader": ">=0.11.3",
     "fabric": "*",
-    "minecraft": "1.17.x",
+    "minecraft": "1.17.1",
     "java": ">=16",
-    "trinkets": ">=3.0.2"
+    "trinkets": ">=3.0.4"
   },
 
   "suggests": {
     "bclib": "*"
-  },
-
-  "accessWidener": "artifality.accesswidener"
+  }
 }

@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_16",
   "mixins": [
     "common.BeaconBlockEntityMixin",
+    "common.BlockItemMixin",
     "common.CreeperEntityMixin",
     "common.EntityMixin",
     "common.LivingEntityMixin",

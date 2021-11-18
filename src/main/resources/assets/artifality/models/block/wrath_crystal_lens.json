@@ -1,0 +1,7 @@
+{
+  "parent": "artifality:block/lens_model",
+  "textures": {
+    "top": "artifality:block/wrath_crystal_lens_top",
+    "side": "artifality:block/wrath_crystal_lens_side"
+   }
+}

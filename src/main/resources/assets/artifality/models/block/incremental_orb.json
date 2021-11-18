@@ -1,0 +1,6 @@
+{
+  "parent": "artifality:block/orb_model",
+  "textures": {
+    "orb": "artifality:block/incremental_orb_model"
+   }
+}

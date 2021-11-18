@@ -1,5 +1,6 @@
 package artifality.data;
 
+import artifality.registry.ArtifalityBlocks;
 import artifality.registry.ArtifalityItems;
 import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
 import net.fabricmc.fabric.api.loot.v1.FabricLootSupplierBuilder;
@@ -10,28 +11,24 @@ import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.util.Identifier;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
+@Deprecated
 public class ArtifalityLootTables {
     private static FabricLootSupplierBuilder supplier;
     private static Identifier id;
 
     private static final String[] NETHER_CHESTS = new String[]{"bastion_bridge", "bastion_hoglin_stable",
             "bastion_other", "bastion_treasure", "nether_bridge"};
-
     private static final String[] BLACKLIST = new String[]{"jungle_temple_dispenser", "end_city_treasure",
             "village", "spawn_bonus_chest", "woodland_mansion"};
 
     public static void register(){
-
         LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, supplier, setter) -> {
             if(!id.toString().contains("minecraft:chests/")) return;
             ArtifalityLootTables.id = id;
             ArtifalityLootTables.supplier = supplier;
 
             overworldChest(ArtifalityItems.CRYSTAL_HEART, 0.03F);
-            overworldChest(ArtifalityItems.INCREMENTAL_ORB, 0.03F);
+            overworldChest(ArtifalityBlocks.INCREMENTAL_ORB.asItem(), 0.03F);
             overworldChest(ArtifalityItems.INVISIBILITY_CAPE, 0.05F);
             overworldChest(ArtifalityItems.UKULELE, 0.03F);
             overworldChest(ArtifalityItems.ZEUS_STAFF, 0.03F);

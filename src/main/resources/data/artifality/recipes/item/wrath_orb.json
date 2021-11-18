@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "###",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "artifality:wrath_crystal"
+    }
+  },
+  "result": {
+    "item": "artifality:wrath_orb",
+    "count": 1
+  }
+}

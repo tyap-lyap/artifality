@@ -39,13 +39,25 @@
                 ]
             }
         },
-        "crystal_heart_lens": {
+        "life_crystal_lens": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
                     {
                         "items": [
                             "artifality:life_crystal_lens"
+                        ]
+                    }
+                ]
+            }
+        },
+        "wrath_crystal_lens": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "artifality:wrath_crystal_lens"
                         ]
                     }
                 ]

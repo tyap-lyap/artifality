@@ -10,7 +10,6 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class EffectsUtils {
-
     public static final ArrayList<StatusEffect> POSITIVE_EFFECTS = new ArrayList<>(Arrays.asList(
             StatusEffects.FIRE_RESISTANCE, StatusEffects.REGENERATION, StatusEffects.STRENGTH,
             StatusEffects.SPEED, StatusEffects.ABSORPTION, StatusEffects.HASTE,

@@ -1,5 +1,5 @@
 {
-    "modmenu.descriptionTranslation.artifality": "Collection of useful Artifacts, Blocks, Enchantments and more.",
+    "modmenu.descriptionTranslation.artifality": "Minecraft Mod inspired by the game Risk of Rain that adds some new vanilla-styled items and other stuff.",
 
     "block.artifality.upgrading_pedestal": "Pedestal of Upgrading",
     "description.upgrading_pedestal.0": "Allows you to upgrade artifacts,",
@@ -7,30 +7,25 @@
     "description.upgrading_pedestal.2": "upgrade to &ftier 2&7, or with",
     "description.upgrading_pedestal.3": "a &fNether Star&7for &ftier 3&7.",
 
+    "block.artifality.incremental_orb": "Incremental Orb",
+    "block.artifality.lunar_orb": "Lunar Orb",
+    "block.artifality.life_orb": "Life Orb",
+    "block.artifality.wrath_orb": "Wrath Orb",
+
     "block.artifality.incremental_crystal_block": "Incremental Crystal Block",
     "block.artifality.lunar_crystal_block": "Lunar Crystal Block",
     "block.artifality.life_crystal_block": "Life Crystal Block",
+    "block.artifality.wrath_crystal_block": "Wrath Crystal Block",
 
-    "block.artifality.life_crystal_cluster": "Life Crystal Cluster",
     "block.artifality.incremental_crystal_cluster": "Incremental Crystal Cluster",
     "block.artifality.lunar_crystal_cluster": "Lunar Crystal Cluster",
-
-    "block.artifality.small_incremental_crystal_cluster": "Incremental Crystal Cluster",
-    "block.artifality.small_lunar_crystal_cluster": "Lunar Crystal Cluster",
-    "block.artifality.small_life_crystal_cluster": "Life Crystal Cluster",
-
-    "block.artifality.medium_incremental_crystal_cluster": "Incremental Crystal Cluster",
-    "block.artifality.medium_lunar_crystal_cluster": "Lunar Crystal Cluster",
-    "block.artifality.medium_life_crystal_cluster": "Life Crystal Cluster",
+    "block.artifality.life_crystal_cluster": "Life Crystal Cluster",
+    "block.artifality.wrath_crystal_cluster": "Wrath Crystal Cluster",
 
     "block.artifality.budding_incremental_crystal": "Budding Incremental Crystal",
     "block.artifality.budding_lunar_crystal": "Budding Lunar Crystal",
     "block.artifality.budding_life_crystal": "Budding Life Crystal",
-
-    "block.artifality.life_crystal_lens": "Life Crystal Lens",
-    "description.life_crystal_lens.0": "Gives an additional &c10 hearts &7to",
-    "description.life_crystal_lens.1": "players in radius of the beacon",
-    "description.life_crystal_lens.2": "if placed on top of the beacon.",
+    "block.artifality.budding_wrath_crystal": "Budding Wrath Crystal",
 
     "block.artifality.incremental_crystal_lens": "Incremental Crystal Lens",
     "description.incremental_crystal_lens.0": "Increases the level of effect",
@@ -42,17 +37,21 @@
     "description.lunar_crystal_lens.1": "to players in radius of beacon",
     "description.lunar_crystal_lens.2": "if placed on top of the beacon.",
 
-    "enchantment.artifality.lunar_damage": "Lunar Damage",
-    "description.lunar_damage.0": "&aIncreases&r melee damage, but",
-    "description.lunar_damage.1": "&cdecreases&r attack speed.",
+    "block.artifality.life_crystal_lens": "Life Crystal Lens",
+    "description.life_crystal_lens.0": "Gives an additional &c10 hearts &7to",
+    "description.life_crystal_lens.1": "players in radius of the beacon",
+    "description.life_crystal_lens.2": "if placed on top of the beacon.",
 
-    "enchantment.artifality.sliding_curse": "Curse of Sliding",
-    "description.sliding_curse.0": "Makes you &fslide on all",
-    "description.sliding_curse.1": "&fblocks &7like on ice.",
+    "block.artifality.wrath_crystal_lens": "Wrath Crystal Lens",
+    "description.wrath_crystal_lens.0": "",
+    "description.wrath_crystal_lens.1": "",
+    "description.wrath_crystal_lens.2": "",
 
-    "enchantment.artifality.volatile_curse": "Curse of Volatile",
-    "description.volatile_curse.0": "&fCreates a little explosion",
-    "description.volatile_curse.1": "upon a hit.",
+    "item.artifality.incremental_crystal": "Incremental Crystal",
+    "item.artifality.lunar_crystal": "Lunar Crystal",
+    "item.artifality.life_crystal": "Life Crystal",
+    "item.artifality.wrath_crystal": "Wrath Crystal",
+    "item.artifality.crystal_heart": "Crystal Heart",
 
     "item.artifality.balloon": "Balloon",
     "description.balloon.0": "While in hand &fincreases jump",
@@ -76,12 +75,6 @@
     "description.invisibility_cape.0": "&fMakes the wearer invisible",
     "description.invisibility_cape.1": "&7while sneaking, also",
     "description.invisibility_cape.2": "&fhides the worn armor&7.",
-
-    "item.artifality.lunar_crystal": "Lunar Crystal",
-    "item.artifality.incremental_crystal": "Incremental Crystal",
-    "item.artifality.life_crystal": "Life Crystal",
-    "item.artifality.incremental_orb": "Incremental Orb",
-    "item.artifality.crystal_heart": "Crystal Heart",
 
     "item.artifality.ukulele": "Ukulele",
     "description.ukulele.0": "When used, creates a cloud with",
@@ -119,6 +112,18 @@
 
     "item.artifality.midas_touch": "Midas' Touch [WIP]",
 
+    "enchantment.artifality.lunar_damage": "Lunar Damage",
+    "description.lunar_damage.0": "&aIncreases&r melee damage, but",
+    "description.lunar_damage.1": "&cdecreases&r attack speed.",
+
+    "enchantment.artifality.sliding_curse": "Curse of Sliding",
+    "description.sliding_curse.0": "Makes you &fslide on all",
+    "description.sliding_curse.1": "&fblocks &7like on ice.",
+
+    "enchantment.artifality.volatile_curse": "Curse of Volatile",
+    "description.volatile_curse.0": "&fCreates a little explosion",
+    "description.volatile_curse.1": "upon a hit.",
+
     "advancements.artifality.root.name": "Artifality",
     "advancements.artifality.root.desc": "Welcome to the world of Artifality!",
     "advancements.artifality.artifact_first.name": "What's this?",
@@ -146,7 +151,7 @@
     "advancements.artifality.rethink_life.name": "why?",
     "advancements.artifality.rethink_life.desc": "Touch some grass",
 	
-    "itemGroup.artifality.items":"Artifality: Items",
+    "itemGroup.artifality.items": "Artifality: Items",
 
     "misc.artifality.small": "Small",
     "misc.artifality.medium": "Medium",

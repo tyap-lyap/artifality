@@ -19,7 +19,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import java.util.Iterator;
 import java.util.List;
 
 @Mixin(BeaconBlockEntity.class)
@@ -33,11 +32,11 @@ public abstract class BeaconBlockEntityMixin extends BlockEntity implements Name
     private static void tick(World world, BlockPos pos, BlockState state, BeaconBlockEntity blockEntity, CallbackInfo ci){
         if (world.getTime() % 80L == 0L) {
             if(world.getBlockState(pos.up()).getBlock() instanceof LensBlock){
-                boolean bl = true;
+                boolean baseIsFull = true;
                 for (int x = -1; x <= 1; x++)
                     for (int z = -1; z <= 1; z++)
-                        if(!world.getBlockState(pos.add(x, -1, z)).isIn(BlockTags.BEACON_BASE_BLOCKS)) bl = false;
-                if(bl) applyLensEffects(world, pos, ((BeaconAccessor)blockEntity).getPrimary(), ((BeaconAccessor)blockEntity).getSecondary());
+                        if(!world.getBlockState(pos.add(x, -1, z)).isIn(BlockTags.BEACON_BASE_BLOCKS)) baseIsFull = false;
+                if(baseIsFull) applyLensEffects(world, pos, ((BeaconAccessor)blockEntity).getPrimary(), ((BeaconAccessor)blockEntity).getSecondary());
             }
         }
     }
@@ -51,24 +50,15 @@ public abstract class BeaconBlockEntityMixin extends BlockEntity implements Name
         }
         int duration = (9 + 4 * 2) * 20;
 
-        List<PlayerEntity> list = world.getNonSpectatingEntities(PlayerEntity.class, (new Box(pos)).expand(50).stretch(0.0D, world.getHeight(), 0.0D));
-        Iterator<PlayerEntity> playerIterator = list.iterator();
-
-        PlayerEntity player;
-        while(playerIterator.hasNext()) {
-            player = playerIterator.next();
-
+        List<PlayerEntity> players = world.getNonSpectatingEntities(PlayerEntity.class, (new Box(pos)).expand(50).stretch(0.0D, world.getHeight(), 0.0D));
+        for (PlayerEntity player : players){
             if(world.getBlockState(pos.up()).getBlock() instanceof LensBlock lensBlock){
                 lensBlock.applyLensEffect(new StatusEffectInstance(primaryEffect, duration, amplifier, true, true), player);
             }
         }
 
         if (primaryEffect != secondaryEffect && secondaryEffect != null) {
-            playerIterator = list.iterator();
-
-            while(playerIterator.hasNext()) {
-                player = playerIterator.next();
-
+            for (PlayerEntity player : players){
                 if(world.getBlockState(pos.up()).getBlock() instanceof LensBlock lensBlock){
                     lensBlock.applyLensEffect(new StatusEffectInstance(secondaryEffect, duration, 0, true, true), player);
                 }

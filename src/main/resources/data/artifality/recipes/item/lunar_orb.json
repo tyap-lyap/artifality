@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "###",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "artifality:lunar_crystal"
+    }
+  },
+  "result": {
+    "item": "artifality:lunar_orb",
+    "count": 1
+  }
+}
