@@ -1,6 +1,6 @@
 package artifality.item;
 
-import artifality.item.base.TieredItem;
+import artifality.item.base.TieredArtifactItem;
 import artifality.util.TrinketsUtils;
 import dev.emi.trinkets.api.SlotReference;
 import dev.emi.trinkets.api.Trinket;
@@ -23,10 +23,10 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3f;
 import net.minecraft.world.World;
 
-public class BalloonItem extends TieredItem implements Trinket, TrinketRenderer {
+public class BalloonItem extends TieredArtifactItem implements Trinket, TrinketRenderer {
 
-    public BalloonItem(Settings settings) {
-        super(settings);
+    public BalloonItem(Settings settings, ArtifactSettings artifactSettings) {
+        super(settings, artifactSettings);
     }
 
     @Override

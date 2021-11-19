@@ -57,9 +57,7 @@ public class TooltipAppender {
     }
 
     private static void appendItemDescription(ItemStack stack, List<Text> tooltip){
-
         tooltip.add(new LiteralText(""));
-        tooltip.add(new LiteralText(ofKey("description")).formatted(Formatting.GRAY));
         for(String line : getDescription(Registry.ITEM.getId(stack.getItem()).getPath())) {
             tooltip.add(new LiteralText(line.trim().replaceAll("&", "§")).formatted(Formatting.GRAY));
         }
@@ -78,9 +76,7 @@ public class TooltipAppender {
             Registry.ENCHANTMENT.getOrEmpty(Identifier.tryParse(nbtCompound.getString("id"))).ifPresent((enchantment) -> {
                 if(!enchantment.getTranslationKey().contains("artifality")) return;
                 if(!shiftPressed(tooltip, stack.getItem())) return;
-
                 tooltip.add(new LiteralText(""));
-                tooltip.add(new LiteralText(ofKey("description")).formatted(Formatting.GRAY));
                 for(String line : getDescription(Objects.requireNonNull(Registry.ENCHANTMENT.getId(enchantment)).getPath())) {
                     tooltip.add(new LiteralText(line.trim().replaceAll("&", "§")).formatted(Formatting.GRAY));
                 }

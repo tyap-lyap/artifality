@@ -1,7 +1,7 @@
 package artifality.item;
 
 import artifality.interfaces.LightningEntityExtensions;
-import artifality.item.base.TieredItem;
+import artifality.item.base.TieredArtifactItem;
 import artifality.util.TooltipAppender;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LightningEntity;
@@ -21,10 +21,10 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class ZeusStaffItem extends TieredItem {
+public class ZeusStaffItem extends TieredArtifactItem {
 
-    public ZeusStaffItem(Settings settings) {
-        super(settings);
+    public ZeusStaffItem(Settings settings, ArtifactSettings artifactSettings) {
+        super(settings, artifactSettings);
     }
 
     @Override

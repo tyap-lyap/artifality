@@ -1,0 +1,70 @@
+{
+	"ambientocclusion": false,
+	"parent": "block/block",
+	"textures": {
+		"crate": "#crate",
+		"particle": "#crate"
+	},
+	"elements": [
+		{
+			"from": [2, 0, 2],
+			"to": [14, 12, 14],
+			"faces": {
+				"north": {"uv": [0, 0, 6, 6], "texture": "#crate"},
+				"east": {"uv": [0, 0, 6, 6], "texture": "#crate"},
+				"south": {"uv": [0, 0, 6, 6], "texture": "#crate"},
+				"west": {"uv": [0, 0, 6, 6], "texture": "#crate"},
+				"up": {"uv": [8, 0, 14, 6], "texture": "#crate"},
+				"down": {"uv": [0, 8, 6, 14], "texture": "#crate"}
+			}
+		},
+		{
+			"from": [0, 0, 1],
+			"to": [16, 16, 1],
+			"faces": {
+				"north": {"uv": [8, 8, 16, 16], "texture": "#crate"},
+				"east": {"uv": [0, 0, 1, 16], "texture": "#crate"},
+				"south": {"uv": [8, 8, 16, 16], "texture": "#crate"},
+				"west": {"uv": [0, 0, 1, 16], "texture": "#crate"},
+				"up": {"uv": [0, 0, 16, 1], "texture": "#crate"},
+				"down": {"uv": [0, 0, 16, 1], "texture": "#crate"}
+			}
+		},
+		{
+			"from": [0, 0, 15],
+			"to": [16, 16, 15],
+			"faces": {
+				"north": {"uv": [8, 8, 16, 16], "texture": "#crate"},
+				"east": {"uv": [0, 0, 1, 16], "texture": "#crate"},
+				"south": {"uv": [8, 8, 16, 16], "texture": "#crate"},
+				"west": {"uv": [0, 0, 1, 16], "texture": "#crate"},
+				"up": {"uv": [0, 0, 16, 1], "texture": "#crate"},
+				"down": {"uv": [0, 0, 16, 1], "texture": "#crate"}
+			}
+		},
+		{
+			"from": [1, 0, 0],
+			"to": [1, 16, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 0, 16], "texture": "#crate"},
+				"east": {"uv": [8, 8, 16, 16], "texture": "#crate"},
+				"south": {"uv": [0, 0, 0, 16], "texture": "#crate"},
+				"west": {"uv": [8, 8, 16, 16], "texture": "#crate"},
+				"up": {"uv": [0, 0, 0, 16], "texture": "#crate"},
+				"down": {"uv": [0, 0, 0, 16], "texture": "#crate"}
+			}
+		},
+		{
+			"from": [15, 0, 0],
+			"to": [15, 16, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 0, 16], "texture": "#crate"},
+				"east": {"uv": [8, 8, 16, 16], "texture": "#crate"},
+				"south": {"uv": [0, 0, 0, 16], "texture": "#crate"},
+				"west": {"uv": [8, 8, 16, 16], "texture": "#crate"},
+				"up": {"uv": [0, 0, 0, 16], "texture": "#crate"},
+				"down": {"uv": [0, 0, 0, 16], "texture": "#crate"}
+			}
+		}
+	]
+}

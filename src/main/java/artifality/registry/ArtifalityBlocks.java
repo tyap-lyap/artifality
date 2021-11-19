@@ -23,6 +23,11 @@ public class ArtifalityBlocks {
     public static final Map<Identifier, BlockItem> ITEMS = new LinkedHashMap<>();
     public static final Map<Identifier, Block> BLOCKS = new LinkedHashMap<>();
 
+    public static final Block COMMON_CRATE = add("common_crate", new CrateBlock(copyOf(Blocks.WHITE_WOOL).sounds(BlockSoundGroup.WOOD).luminance(7)));
+    public static final Block RARE_CRATE = add("rare_crate", new CrateBlock(copyOf(Blocks.WHITE_WOOL).sounds(BlockSoundGroup.STONE).luminance(7)));
+    public static final Block LEGENDARY_CRATE = add("legendary_crate", new CrateBlock(copyOf(Blocks.WHITE_WOOL).sounds(BlockSoundGroup.STONE).luminance(7)));
+    public static final Block LUNAR_CRATE = add("lunar_crate", new CrateBlock(copyOf(Blocks.WHITE_WOOL).sounds(BlockSoundGroup.STONE).luminance(7)));
+
     public static final Block INCREMENTAL_ORB = add("incremental_orb", new OrbBlock(copyOf(Blocks.WHITE_WOOL).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(15).nonOpaque()));
     public static final Block LUNAR_ORB = add("lunar_orb", new OrbBlock(copyOf(Blocks.WHITE_WOOL).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(15).nonOpaque()));
     public static final Block LIFE_ORB = add("life_orb", new OrbBlock(copyOf(Blocks.WHITE_WOOL).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(15).nonOpaque()));

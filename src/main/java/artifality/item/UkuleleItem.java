@@ -1,5 +1,6 @@
 package artifality.item;
 
+import artifality.item.base.TieredArtifactItem;
 import artifality.item.base.TieredItem;
 import artifality.util.EffectsUtils;
 import artifality.util.TooltipAppender;
@@ -31,10 +32,10 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class UkuleleItem extends TieredItem implements Trinket, TrinketRenderer {
+public class UkuleleItem extends TieredArtifactItem implements Trinket, TrinketRenderer {
 
-    public UkuleleItem(Settings settings) {
-        super(settings);
+    public UkuleleItem(Settings settings, ArtifactSettings artifactSettings) {
+        super(settings, artifactSettings);
     }
 
     @Override

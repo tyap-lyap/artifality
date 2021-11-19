@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {      
+	"model": "artifality:block/rare_crate"
+    }
+  }
+}

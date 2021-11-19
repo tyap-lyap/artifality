@@ -21,7 +21,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class FloralStaffItem extends NatureStaffItem {
-
     public static final ArrayList<Block> FLOWERS = new ArrayList<>(Arrays.asList(
             Blocks.CORNFLOWER, Blocks.ALLIUM, Blocks.DANDELION, Blocks.POPPY, Blocks.BLUE_ORCHID, Blocks.AZURE_BLUET,
             Blocks.RED_TULIP, Blocks.ORANGE_TULIP, Blocks.WHITE_TULIP, Blocks.PINK_TULIP, Blocks.OXEYE_DAISY,

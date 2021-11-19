@@ -1,11 +1,8 @@
 package artifality.client;
 
 import artifality.ArtifalityMod;
-import artifality.block.base.CrystalBlock;
-import artifality.block.base.OrbBlock;
+import artifality.block.base.*;
 import artifality.registry.ArtifalityBlocks;
-import artifality.block.base.CrystalClusterBlock;
-import artifality.block.base.LensBlock;
 import artifality.util.TwoModelsItemRegistry;
 import artifality.registry.ArtifalityItems;
 import artifality.client.particle.ArtifalityParticles;
@@ -36,6 +33,7 @@ public class ArtifalityClient implements ClientModInitializer {
 
         ArtifalityBlocks.BLOCKS.forEach((id, block) -> {
             if(block instanceof CrystalClusterBlock) BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout());
+            if(block instanceof CrateBlock) BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout());
             if(block instanceof CrystalBlock) BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getTranslucent());
             if(block instanceof LensBlock) BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getTranslucent());
             if(block instanceof OrbBlock) BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getTranslucent());

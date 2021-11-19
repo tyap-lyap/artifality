@@ -1,0 +1,6 @@
+{
+  "parent": "artifality:block/crate_model",
+  "textures": {
+    "crate": "artifality:block/lunar_crate_model"
+   }
+}
