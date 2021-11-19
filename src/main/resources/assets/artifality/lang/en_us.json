@@ -1,6 +1,8 @@
 {
     "modmenu.descriptionTranslation.artifality": "Minecraft Mod inspired by the game Risk of Rain that adds some new vanilla-styled items and other stuff.",
 
+    "itemGroup.artifality.items": "Artifality: Items",
+
     "block.artifality.upgrading_pedestal": "Pedestal of Upgrading",
     "description.upgrading_pedestal.0": "Allows you to upgrade artifacts,",
     "description.upgrading_pedestal.1": "fill with &f3 Incremental Orbs &7to",
@@ -11,6 +13,11 @@
     "block.artifality.lunar_orb": "Lunar Orb",
     "block.artifality.life_orb": "Life Orb",
     "block.artifality.wrath_orb": "Wrath Orb",
+
+    "block.artifality.common_crate": "Common Crate",
+    "block.artifality.rare_crate": "Rare Crate",
+    "block.artifality.legendary_crate": "Legendary Crate",
+    "block.artifality.lunar_crate": "Lunar Crate",
 
     "block.artifality.incremental_crystal_block": "Incremental Crystal Block",
     "block.artifality.lunar_crystal_block": "Lunar Crystal Block",
@@ -112,6 +119,12 @@
 
     "item.artifality.midas_touch": "Midas' Touch [WIP]",
 
+    "item.artifality.evolution_charm": "Charm of Evolution",
+
+    "item.artifality.speed_injection": "Speed Injection",
+
+    "item.artifality.strength_injection": "Strength Injection",
+
     "enchantment.artifality.lunar_damage": "Lunar Damage",
     "description.lunar_damage.0": "&aIncreases&r melee damage, but",
     "description.lunar_damage.1": "&cdecreases&r attack speed.",
@@ -150,13 +163,10 @@
     "advancements.artifality.upgrader_third.desc": "Upgrade the Pedestal of Upgrading to Tier 3",
     "advancements.artifality.rethink_life.name": "why?",
     "advancements.artifality.rethink_life.desc": "Touch some grass",
-	
-    "itemGroup.artifality.items": "Artifality: Items",
 
     "misc.artifality.small": "Small",
     "misc.artifality.medium": "Medium",
     "misc.artifality.large": "Large",
-    "misc.artifality.description": "Description:",
     "misc.artifality.max_level": " Max Level: %",
     "misc.artifality.cooldown": " Cooldown: % Sec",
     "misc.artifality.effect_level": " Level of Effect: %",

@@ -3,24 +3,18 @@ package artifality.enums;
 import java.awt.*;
 
 public enum ArtifactRarity {
-    COMMON(new Color(255, 255, 255), new Color(85, 85, 85)),
-    RARE(new Color(210, 255, 85), new Color(76, 255, 169)),
-    LEGENDARY(new Color(255, 72, 168), new Color(255, 123, 63)),
-    LUNAR(new Color(67, 186, 255), new Color(206, 67, 255));
+    COMMON(new Color(188, 188, 188)),
+    RARE(new Color(98, 255, 148)),
+    LEGENDARY(new Color(255, 98, 114)),
+    LUNAR(new Color(131, 98, 255));
 
-    private final Color first;
-    private final Color last;
+    private final Color color;
 
-    ArtifactRarity(Color first, Color last) {
-        this.first = first;
-        this.last = last;
+    ArtifactRarity(Color color) {
+        this.color = color;
     }
 
-    public Color getFirstColor() {
-        return first;
-    }
-
-    public Color getLastColor() {
-        return last;
+    public Color getColor() {
+        return color;
     }
 }

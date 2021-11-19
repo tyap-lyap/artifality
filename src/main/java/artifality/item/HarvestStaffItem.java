@@ -16,8 +16,8 @@ import net.minecraft.world.WorldEvents;
 
 public class HarvestStaffItem extends NatureStaffItem {
 
-    public HarvestStaffItem(Settings settings) {
-        super(settings);
+    public HarvestStaffItem(Settings settings, ArtifactSettings artifactSettings) {
+        super(settings, artifactSettings);
     }
 
     @Override

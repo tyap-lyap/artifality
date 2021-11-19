@@ -1,5 +1,6 @@
 package artifality.item.base;
 
+import artifality.item.ArtifactSettings;
 import dev.emi.trinkets.api.SlotReference;
 import dev.emi.trinkets.api.Trinket;
 import dev.emi.trinkets.api.client.TrinketRenderer;
@@ -24,10 +25,10 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 
-public class NatureStaffItem extends TieredItem implements Trinket, TrinketRenderer {
+public class NatureStaffItem extends TieredArtifactItem implements Trinket, TrinketRenderer {
 
-    public NatureStaffItem(Settings settings) {
-        super(settings);
+    public NatureStaffItem(Settings settings, ArtifactSettings artifactSettings) {
+        super(settings, artifactSettings);
     }
 
     public static void dropExperience(World world, BlockPos pos, int size) {
