@@ -1,0 +1,6 @@
+{
+  "parent": "artifality:item/crystal_element_model",
+  "textures": {
+    "crystal": "artifality:entity/life_crystal_element"
+  }
+}

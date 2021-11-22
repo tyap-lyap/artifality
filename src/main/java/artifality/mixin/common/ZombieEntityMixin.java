@@ -22,20 +22,20 @@ public abstract class ZombieEntityMixin extends HostileEntity {
         super(entityType, world);
     }
 
-    @Inject(method = "tryAttack", at = @At("RETURN"))
-    void summonLightningOnAttack(Entity target, CallbackInfoReturnable<Boolean> cir){
-        if(this.getStackInHand(Hand.MAIN_HAND).getItem().equals(ArtifalityItems.ZEUS_STAFF)){
-            if(target.world.random.nextFloat() > 0.65F){
-                ZeusStaffItem.createLighting(target.world, target.getBlockPos(), new LightningEntity(EntityType.LIGHTNING_BOLT, target.world), 1);
+    @Inject(method = "initialize", at = @At("RETURN"))
+    void initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, EntityData entityData, NbtCompound entityNbt, CallbackInfoReturnable<EntityData> cir){
+        if(!spawnReason.equals(SpawnReason.SPAWNER) && !spawnReason.equals(SpawnReason.CHUNK_GENERATION) && this.getStackInHand(Hand.MAIN_HAND).isEmpty()){
+            if(this.world.random.nextFloat() > 0.95F){
+                this.setStackInHand(Hand.MAIN_HAND, ArtifalityItems.ZEUS_STAFF.getDefaultStack());
             }
         }
     }
 
-    @Inject(method = "initialize", at = @At("RETURN"))
-    void spawnWithZeusStaff(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, EntityData entityData, NbtCompound entityNbt, CallbackInfoReturnable<EntityData> cir){
-        if(!spawnReason.equals(SpawnReason.SPAWNER) && !spawnReason.equals(SpawnReason.CHUNK_GENERATION) && this.getStackInHand(Hand.MAIN_HAND).isEmpty()){
-            if(this.world.random.nextFloat() > 0.95F){
-                this.setStackInHand(Hand.MAIN_HAND, ArtifalityItems.ZEUS_STAFF.getDefaultStack());
+    @Inject(method = "tryAttack", at = @At("RETURN"))
+    void tryAttack(Entity target, CallbackInfoReturnable<Boolean> cir){
+        if(this.getStackInHand(Hand.MAIN_HAND).getItem().equals(ArtifalityItems.ZEUS_STAFF)){
+            if(target.world.random.nextFloat() > 0.65F){
+                ZeusStaffItem.createLighting(target.world, target.getBlockPos(), new LightningEntity(EntityType.LIGHTNING_BOLT, target.world), 1);
             }
         }
     }

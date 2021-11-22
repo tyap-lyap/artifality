@@ -37,4 +37,14 @@ public class EffectsUtils {
             }
         }
     }
+
+    public static void ticking(LivingEntity entity, StatusEffect effect, int amplifier){
+        if (!entity.hasStatusEffect(effect)) {
+            entity.addStatusEffect(new StatusEffectInstance(effect, 10, amplifier, true, true));
+        } else {
+            if (entity.getActiveStatusEffects().get(effect).getDuration() == 1) {
+                entity.addStatusEffect(new StatusEffectInstance(effect, 10, amplifier, true, true));
+            }
+        }
+    }
 }

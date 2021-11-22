@@ -1,6 +1,6 @@
 package artifality.mixin.common.extension;
 
-import artifality.interfaces.LightningEntityExtensions;
+import artifality.interfaces.LightningExtensions;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LightningEntity;
@@ -12,55 +12,55 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(LightningEntity.class)
-public abstract class LightningEntityExtension extends Entity implements LightningEntityExtensions {
+public abstract class LightningExtension extends Entity implements LightningExtensions {
 
     @Unique private boolean canSpawnFire = true;
     @Unique private boolean canChargeCreeper = true;
     @Unique private float damage = 0;
 
-    public LightningEntityExtension(EntityType<?> type, World world) {
+    public LightningExtension(EntityType<?> type, World world) {
         super(type, world);
     }
 
     @Unique
     @Override
-    public void setNoFire() {
+    public void artifality$setNoFire() {
         canSpawnFire = false;
     }
 
     @Unique
     @Override
-    public void setCanChargeCreeper(boolean bl) {
-        canChargeCreeper = bl;
+    public void artifality$setCanChargeCreeper(boolean canChargeCreeper) {
+        this.canChargeCreeper = canChargeCreeper;
     }
 
     @Unique
     @Override
-    public void setDamage(float damage) {
+    public void artifality$setDamage(float damage) {
         this.damage = damage;
     }
 
     @Unique
     @Override
-    public float getDamage() {
+    public float artifality$getDamage() {
         return this.damage;
     }
 
     @Unique
     @Override
-    public boolean canSpawnFire() {
+    public boolean artifality$canSpawnFire() {
         return canSpawnFire;
     }
 
     @Unique
     @Override
-    public boolean canChargeCreeper(){
+    public boolean artifality$canChargeCreeper(){
         return canChargeCreeper;
     }
 
     @Inject(method = "spawnFire", at = @At("HEAD"), cancellable = true)
     void badLightningDoNotCreateFire(int spreadAttempts, CallbackInfo ci){
-        if(!canSpawnFire()){
+        if(!artifality$canSpawnFire()){
             ci.cancel();
         }
     }

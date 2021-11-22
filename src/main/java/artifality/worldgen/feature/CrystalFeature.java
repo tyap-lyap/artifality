@@ -1,5 +1,6 @@
 package artifality.worldgen.feature;
 
+import artifality.enums.CrystalClusterPack;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.state.property.Properties;
@@ -19,7 +20,7 @@ public class CrystalFeature extends Feature<DefaultFeatureConfig> {
     @Override
     public boolean generate(FeatureContext<DefaultFeatureConfig> context) {
         boolean generated = false;
-        var pack = CrystalThingsPacks.LIST.get(context.getRandom().nextInt(CrystalThingsPacks.LIST.size()));
+        var pack = CrystalClusterPack.LIST.get(context.getRandom().nextInt(CrystalClusterPack.LIST.size()));
         for (int i = 0; i < 24; i++) {
             int x = context.getOrigin().getX() + context.getRandom().nextInt(6);
             int z = context.getOrigin().getZ() + context.getRandom().nextInt(6);

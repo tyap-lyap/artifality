@@ -1,4 +1,4 @@
-package artifality.worldgen.feature;
+package artifality.enums;
 
 import artifality.registry.ArtifalityBlocks;
 import net.minecraft.block.Block;
@@ -6,7 +6,7 @@ import net.minecraft.block.Block;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class CrystalThingsPacks {
+public class CrystalClusterPack {
     public static final ArrayList<CrystalThingsPack> LIST = new ArrayList<>();
 
     static {

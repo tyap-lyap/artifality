@@ -1,6 +1,6 @@
 package artifality.item;
 
-import artifality.interfaces.LightningEntityExtensions;
+import artifality.interfaces.LightningExtensions;
 import artifality.item.base.TieredArtifactItem;
 import artifality.util.TooltipAppender;
 import net.minecraft.entity.EntityType;
@@ -46,11 +46,11 @@ public class ZeusStaffItem extends TieredArtifactItem {
     }
 
     public static void createLighting(World world, BlockPos blockPos, LightningEntity lightningEntity, int tier){
-        if (lightningEntity instanceof LightningEntityExtensions extension){
-            extension.setNoFire();
-            extension.setDamage(6 + tier);
+        if (lightningEntity instanceof LightningExtensions extension){
+            extension.artifality$setNoFire();
+            extension.artifality$setDamage(6 + tier);
             if(tier == 1){
-                extension.setCanChargeCreeper(false);
+                extension.artifality$setCanChargeCreeper(false);
             }
         }
         lightningEntity.updatePosition(blockPos.getX() + 0.5D, blockPos.getY(), blockPos.getZ() + 0.5D);

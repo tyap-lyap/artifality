@@ -1,6 +1,6 @@
 package artifality.mixin.common;
 
-import artifality.interfaces.LightningEntityExtensions;
+import artifality.interfaces.LightningExtensions;
 import artifality.registry.ArtifalityItems;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LightningEntity;
@@ -23,11 +23,11 @@ public abstract class EntityMixin {
 
     @Inject(method = "onStruckByLightning", at = @At("HEAD"), cancellable = true)
     void preventSelfDamageWithZeusStaff(ServerWorld world, LightningEntity lightning, CallbackInfo ci){
-        if(lightning instanceof LightningEntityExtensions extensions){
-            if(!extensions.canSpawnFire()){
+        if(lightning instanceof LightningExtensions extensions){
+            if(!extensions.artifality$canSpawnFire()){
                 if(self instanceof LivingEntity){
                     if(!((LivingEntity) self).getStackInHand(Hand.MAIN_HAND).getItem().equals(ArtifalityItems.ZEUS_STAFF)){
-                        damage(DamageSource.LIGHTNING_BOLT, extensions.getDamage());
+                        damage(DamageSource.LIGHTNING_BOLT, extensions.artifality$getDamage());
                     }
                 }
                 ci.cancel();
