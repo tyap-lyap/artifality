@@ -9,8 +9,8 @@ import net.minecraft.item.ItemStack;
 
 public class InvisibilityCapeItem extends ArtifactItem {
 
-    public InvisibilityCapeItem(Settings settings, ArtifactSettings artifactSettings) {
-        super(settings, artifactSettings);
+    public InvisibilityCapeItem(ArtifactSettings settings) {
+        super(settings);
     }
 
     @Override

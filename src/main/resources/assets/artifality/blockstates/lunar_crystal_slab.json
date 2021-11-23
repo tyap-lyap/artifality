@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "artifality:block/lunar_crystal_slab"
+    },
+    "type=double": {
+      "model": "artifality:block/lunar_crystal_block"
+    },
+    "type=top": {
+      "model": "artifality:block/lunar_crystal_slab_top"
+    }
+  }
+}

@@ -15,9 +15,9 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(VillagerEntity.class)
-public abstract class VillagerEntityMixin extends MerchantEntity implements InteractionObserver, VillagerDataContainer {
+public abstract class VillagerMixin extends MerchantEntity implements InteractionObserver, VillagerDataContainer {
 
-    public VillagerEntityMixin(EntityType<? extends MerchantEntity> entityType, World world) {
+    public VillagerMixin(EntityType<? extends MerchantEntity> entityType, World world) {
         super(entityType, world);
     }
 

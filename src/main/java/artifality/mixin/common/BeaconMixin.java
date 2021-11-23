@@ -22,9 +22,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.List;
 
 @Mixin(BeaconBlockEntity.class)
-public abstract class BeaconBlockEntityMixin extends BlockEntity implements NamedScreenHandlerFactory {
+public abstract class BeaconMixin extends BlockEntity implements NamedScreenHandlerFactory {
 
-    public BeaconBlockEntityMixin(BlockEntityType<?> type, BlockPos pos, BlockState state) {
+    public BeaconMixin(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
     }
 

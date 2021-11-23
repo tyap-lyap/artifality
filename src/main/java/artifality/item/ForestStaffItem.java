@@ -32,8 +32,8 @@ public class ForestStaffItem extends NatureStaffItem {
         SAPLINGS.put(Items.DARK_OAK_SAPLING, Blocks.DARK_OAK_SAPLING);
     }
 
-    public ForestStaffItem(Settings settings, ArtifactSettings artifactSettings) {
-        super(settings, artifactSettings);
+    public ForestStaffItem(ArtifactSettings settings) {
+        super(settings);
     }
 
     @Override

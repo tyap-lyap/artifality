@@ -24,6 +24,11 @@
     "block.artifality.life_crystal_block": "Life Crystal Block",
     "block.artifality.wrath_crystal_block": "Wrath Crystal Block",
 
+    "block.artifality.incremental_crystal_slab": "Incremental Crystal Slab",
+    "block.artifality.lunar_crystal_slab": "Lunar Crystal Slab",
+    "block.artifality.life_crystal_slab": "Life Crystal Slab",
+    "block.artifality.wrath_crystal_slab": "Wrath Crystal Slab",
+
     "block.artifality.incremental_crystal_cluster": "Incremental Crystal Cluster",
     "block.artifality.lunar_crystal_cluster": "Lunar Crystal Cluster",
     "block.artifality.life_crystal_cluster": "Life Crystal Cluster",
@@ -53,6 +58,8 @@
     "description.wrath_crystal_lens.0": "",
     "description.wrath_crystal_lens.1": "",
     "description.wrath_crystal_lens.2": "",
+
+    "block.artifality.empty_lens": "Empty Lens",
 
     "item.artifality.incremental_crystal": "Incremental Crystal",
     "item.artifality.lunar_crystal": "Lunar Crystal",
@@ -173,6 +180,7 @@
     "misc.artifality.damage": " Damage: %",
     "misc.artifality.press_shift": "<Press Shift>",
     "misc.artifality.tier": "Tier %",
+    "misc.artifality.placeable": "Placeable",
     "misc.artifality.discord": "<Join Our Discord Server>",
     "misc.artifality.wiki": "<Check Out the Wiki for More Info>"
 }

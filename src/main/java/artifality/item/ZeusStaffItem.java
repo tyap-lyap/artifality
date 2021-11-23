@@ -23,8 +23,8 @@ import java.util.List;
 
 public class ZeusStaffItem extends TieredArtifactItem {
 
-    public ZeusStaffItem(Settings settings, ArtifactSettings artifactSettings) {
-        super(settings, artifactSettings);
+    public ZeusStaffItem(ArtifactSettings settings) {
+        super(settings);
     }
 
     @Override

@@ -16,10 +16,9 @@ import net.minecraft.world.WorldEvents;
 
 public class HarvestStaffItem extends NatureStaffItem {
 
-    public HarvestStaffItem(Settings settings, ArtifactSettings artifactSettings) {
-        super(settings, artifactSettings);
+    public HarvestStaffItem(ArtifactSettings settings) {
+        super(settings);
     }
-
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
         if(context.getWorld().isClient || context.getPlayer() == null) return super.useOnBlock(context);

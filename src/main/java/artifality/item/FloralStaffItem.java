@@ -26,8 +26,8 @@ public class FloralStaffItem extends NatureStaffItem {
             Blocks.RED_TULIP, Blocks.ORANGE_TULIP, Blocks.WHITE_TULIP, Blocks.PINK_TULIP, Blocks.OXEYE_DAISY,
             Blocks.LILY_OF_THE_VALLEY));
 
-    public FloralStaffItem(Settings settings, ArtifactSettings artifactSettings) {
-        super(settings, artifactSettings);
+    public FloralStaffItem(ArtifactSettings settings) {
+        super(settings);
     }
 
     @Override

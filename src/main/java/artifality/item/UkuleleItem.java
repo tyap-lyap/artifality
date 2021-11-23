@@ -34,8 +34,8 @@ import java.util.List;
 
 public class UkuleleItem extends TieredArtifactItem implements Trinket, TrinketRenderer {
 
-    public UkuleleItem(Settings settings, ArtifactSettings artifactSettings) {
-        super(settings, artifactSettings);
+    public UkuleleItem(ArtifactSettings settings) {
+        super(settings);
     }
 
     @Override

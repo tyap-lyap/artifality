@@ -25,8 +25,8 @@ import net.minecraft.world.World;
 
 public class BalloonItem extends TieredArtifactItem implements Trinket, TrinketRenderer {
 
-    public BalloonItem(Settings settings, ArtifactSettings artifactSettings) {
-        super(settings, artifactSettings);
+    public BalloonItem(ArtifactSettings settings) {
+        super(settings);
     }
 
     @Override

@@ -9,16 +9,16 @@ import net.minecraft.text.TranslatableText;
 import java.awt.*;
 
 public class TieredArtifactItem extends TieredItem {
-    private final ArtifactSettings artifactSettings;
+    private final ArtifactSettings settings;
 
-    public TieredArtifactItem(Settings settings, ArtifactSettings artifactSettings) {
-        super(settings);
-        this.artifactSettings = artifactSettings;
+    public TieredArtifactItem(ArtifactSettings settings) {
+        super(settings.getItemSettings());
+        this.settings = settings;
     }
 
     @Override
     public Text getName(ItemStack stack) {
-        Color color = artifactSettings.getRarity().getColor();
+        Color color = settings.getRarity().getColor();
         return new TranslatableText(this.getTranslationKey(stack)).setStyle(Style.EMPTY.withColor(color.getRGB()));
     }
 }

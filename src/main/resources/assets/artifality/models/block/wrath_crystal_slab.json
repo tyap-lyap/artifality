@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "artifality:block/wrath_crystal_block",
+    "top": "artifality:block/wrath_crystal_block",
+    "side": "artifality:block/wrath_crystal_block"
+  }
+}

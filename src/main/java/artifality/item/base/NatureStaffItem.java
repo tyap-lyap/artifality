@@ -27,8 +27,8 @@ import net.minecraft.world.World;
 
 public class NatureStaffItem extends TieredArtifactItem implements Trinket, TrinketRenderer {
 
-    public NatureStaffItem(Settings settings, ArtifactSettings artifactSettings) {
-        super(settings, artifactSettings);
+    public NatureStaffItem(ArtifactSettings settings) {
+        super(settings);
     }
 
     public static void dropExperience(World world, BlockPos pos, int size) {

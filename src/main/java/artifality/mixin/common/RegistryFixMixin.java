@@ -14,6 +14,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+@Deprecated //remove in 1.18
 @Mixin(DefaultedRegistry.class)
 public abstract class RegistryFixMixin<T> extends SimpleRegistry<T> {
 

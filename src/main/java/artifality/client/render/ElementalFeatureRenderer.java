@@ -48,7 +48,7 @@ public class ElementalFeatureRenderer<T extends LivingEntity, M extends BipedEnt
 
         translateToBody(matrices, this.getContextModel(), entity);
         matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion(180.0F));
-        matrices.translate(0.0D, -0.15D, 0.0D);
+        matrices.translate(0.0D, -0.2D, 0.0D);
 
         itemRenderer.renderItem(Items.DIAMOND.getDefaultStack(), ModelTransformation.Mode.FIXED, false, matrices, vertexConsumers, light, OverlayTexture.DEFAULT_UV,
                 itemRenderer.getModels().getModelManager().getModel(new ModelIdentifier("artifality:" + extension.artifality$getElement().getName() + "_body_overlay#inventory")));
@@ -75,6 +75,5 @@ public class ElementalFeatureRenderer<T extends LivingEntity, M extends BipedEnt
             matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion(model.body.pitch * TrinketRenderer.MAGIC_ROTATION));
         }
         matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(model.body.yaw * TrinketRenderer.MAGIC_ROTATION));
-//        matrices.translate(0.0F, 0.4F, -0.16F);
     }
 }

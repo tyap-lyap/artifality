@@ -9,16 +9,16 @@ import net.minecraft.text.TranslatableText;
 import java.awt.*;
 
 public class ArtifactItem extends BaseTrinketItem {
-    private final ArtifactSettings artifactSettings;
+    private final ArtifactSettings settings;
 
-    public ArtifactItem(Settings settings, ArtifactSettings artifactSettings) {
-        super(settings);
-        this.artifactSettings = artifactSettings;
+    public ArtifactItem(ArtifactSettings settings) {
+        super(settings.getItemSettings());
+        this.settings = settings;
     }
 
     @Override
     public Text getName(ItemStack stack) {
-        Color color = artifactSettings.getRarity().getColor();
+        Color color = settings.getRarity().getColor();
         return new TranslatableText(this.getTranslationKey(stack)).setStyle(Style.EMPTY.withColor(color.getRGB()));
     }
 }

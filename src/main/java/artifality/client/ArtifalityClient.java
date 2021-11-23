@@ -41,9 +41,11 @@ public class ArtifalityClient implements ClientModInitializer {
             if(block instanceof CrystalClusterBlock) BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout());
             if(block instanceof CrateBlock) BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout());
             if(block instanceof CrystalBlock) BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getTranslucent());
+            if(block instanceof CrystalSlabBlock) BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getTranslucent());
             if(block instanceof LensBlock) BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getTranslucent());
             if(block instanceof OrbBlock) BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getTranslucent());
         });
+        BlockRenderLayerMap.INSTANCE.putBlock(ArtifalityBlocks.EMPTY_LENS, RenderLayer.getCutout());
 
         ModelLoadingRegistry.INSTANCE.registerModelProvider((manager, out) -> {
             CrystalElement.ELEMENTS.forEach(element ->{
