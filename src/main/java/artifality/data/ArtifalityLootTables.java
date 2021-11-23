@@ -11,6 +11,10 @@ import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.util.Identifier;
 
+/**
+ * @deprecated Crates are now a thing
+ * @see artifality.block.base.CrateBlock
+ */
 @Deprecated
 public class ArtifalityLootTables {
     private static FabricLootSupplierBuilder supplier;
