@@ -1,0 +1,6 @@
+{
+  "parent": "artifality:item/head_overlay",
+  "textures": {
+    "crystal": "artifality:entity/wrath_head_overlay"
+  }
+}

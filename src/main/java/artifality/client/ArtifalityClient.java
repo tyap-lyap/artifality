@@ -46,9 +46,10 @@ public class ArtifalityClient implements ClientModInitializer {
         });
 
         ModelLoadingRegistry.INSTANCE.registerModelProvider((manager, out) -> {
-            CrystalElement.ELEMENTS.forEach(element ->
-                out.accept(new ModelIdentifier("artifality:" + element.getName() + "_crystal_element#inventory"))
-            );
+            CrystalElement.ELEMENTS.forEach(element ->{
+                out.accept(new ModelIdentifier("artifality:" + element.getName() + "_head_overlay#inventory"));
+                out.accept(new ModelIdentifier("artifality:" + element.getName() + "_body_overlay#inventory"));
+            });
             TwoModelsItemRegistry.ENTRIES.forEach((id, item) ->
                     out.accept(new ModelIdentifier(id + "_in_hand#inventory"))
             );

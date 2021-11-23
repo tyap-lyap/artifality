@@ -1,0 +1,6 @@
+{
+  "parent": "artifality:item/body_overlay",
+  "textures": {
+    "crystal": "artifality:entity/incremental_body_overlay"
+  }
+}
