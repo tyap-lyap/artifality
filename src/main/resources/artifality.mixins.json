@@ -11,15 +11,16 @@
     "common.PlayerMixin",
     "common.RegistryFixMixin",
     "common.VillagerMixin",
-    "common.access.BeaconAccessor",
-    "common.extension.ArrowExtension",
-    "common.extension.LightningExtension",
-    "common.extension.SkeletonExtension",
-    "common.extension.StrayExtension",
-    "common.extension.WitherSkeletonExtension",
-    "common.extension.ZombieExtension"
+    "common.access.BeaconAccess",
+    "common.extension.ArrowMixinExtension",
+    "common.extension.LightningMixinExtension",
+    "common.extension.SkeletonMixinExtension",
+    "common.extension.StrayMixinExtension",
+    "common.extension.WitherSkeletonMixinExtension",
+    "common.extension.ZombieMixinExtension"
   ],
   "client": [
+    "client.TrinketFeatureRendererMixin",
     "client.ArmorFeatureRendererMixin",
     "client.EnchantedBookItemMixin",
     "client.ItemRendererMixin",

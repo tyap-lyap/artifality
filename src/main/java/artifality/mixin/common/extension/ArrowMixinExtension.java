@@ -1,7 +1,7 @@
 package artifality.mixin.common.extension;
 
-import artifality.enums.CrystalElement;
-import artifality.interfaces.ElementalExtensions;
+import artifality.list.CrystalElement;
+import artifality.extension.ElementalExtension;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.data.DataTracker;
@@ -17,8 +17,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ArrowEntity.class)
-public abstract class ArrowExtension extends PersistentProjectileEntity implements ElementalExtensions {
-    protected ArrowExtension(EntityType<? extends PersistentProjectileEntity> entityType, World world) {super(entityType, world);}
+public abstract class ArrowMixinExtension extends PersistentProjectileEntity implements ElementalExtension {
+    protected ArrowMixinExtension(EntityType<? extends PersistentProjectileEntity> entityType, World world) {super(entityType, world);}
 
     private static final TrackedData<Boolean> ELEMENTAL = DataTracker.registerData(ArrowEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     private static final TrackedData<Integer> CRYSTAL_ELEMENT = DataTracker.registerData(ArrowEntity.class, TrackedDataHandlerRegistry.INTEGER);

@@ -1,6 +1,7 @@
 {
   "parent": "artifality:block/orb_model",
   "textures": {
-    "orb": "artifality:block/incremental_orb_model"
+    "orb": "artifality:block/incremental_orb_model",
+    "particle": "artifality:block/incremental_crystal_block"
    }
 }

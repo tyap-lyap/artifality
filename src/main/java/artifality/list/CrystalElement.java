@@ -1,4 +1,4 @@
-package artifality.enums;
+package artifality.list;
 
 import artifality.util.EffectsUtils;
 import net.minecraft.entity.LivingEntity;

@@ -1,6 +1,6 @@
 package artifality.client.render;
 
-import artifality.interfaces.ElementalExtensions;
+import artifality.extension.ElementalExtension;
 import dev.emi.trinkets.api.client.TrinketRenderer;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.OverlayTexture;
@@ -21,7 +21,7 @@ public class ElementalFeatureRenderer<T extends LivingEntity, M extends BipedEnt
 
     @Override
     public void render(MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, T entity, float limbAngle, float limbDistance, float tickDelta, float animationProgress, float headYaw, float headPitch) {
-        if(entity instanceof ElementalExtensions extension){
+        if(entity instanceof ElementalExtension extension){
             if(extension.artifality$isElemental()){
                 renderHeadOverlay(extension, matrices, vertexConsumers, light, entity, headYaw, headPitch);
                 renderBodyOverlay(extension, matrices, vertexConsumers, light, entity);
@@ -29,7 +29,7 @@ public class ElementalFeatureRenderer<T extends LivingEntity, M extends BipedEnt
         }
     }
 
-    void renderHeadOverlay(ElementalExtensions extension, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, T entity, float headYaw, float headPitch){
+    void renderHeadOverlay(ElementalExtension extension, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, T entity, float headYaw, float headPitch){
         ItemRenderer itemRenderer = MinecraftClient.getInstance().getItemRenderer();
         matrices.push();
 
@@ -42,7 +42,7 @@ public class ElementalFeatureRenderer<T extends LivingEntity, M extends BipedEnt
         matrices.pop();
     }
 
-    void renderBodyOverlay(ElementalExtensions extension, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, T entity){
+    void renderBodyOverlay(ElementalExtension extension, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, T entity){
         ItemRenderer itemRenderer = MinecraftClient.getInstance().getItemRenderer();
         matrices.push();
 

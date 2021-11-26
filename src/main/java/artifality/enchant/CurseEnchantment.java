@@ -1,4 +1,4 @@
-package artifality.enchantment;
+package artifality.enchant;
 
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;

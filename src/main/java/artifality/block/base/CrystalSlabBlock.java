@@ -15,7 +15,7 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 
 /**
- * @author github.com/Wurst-Imperium/Mo-Glass/
+ * credits to github.com/Wurst-Imperium/Mo-Glass/
  */
 public final class CrystalSlabBlock extends SlabBlock {
 

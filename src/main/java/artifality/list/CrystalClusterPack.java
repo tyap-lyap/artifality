@@ -1,4 +1,4 @@
-package artifality.enums;
+package artifality.list;
 
 import artifality.registry.ArtifalityBlocks;
 import net.minecraft.block.Block;

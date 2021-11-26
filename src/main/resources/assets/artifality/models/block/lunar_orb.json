@@ -1,6 +1,7 @@
 {
   "parent": "artifality:block/orb_model",
   "textures": {
-    "orb": "artifality:block/lunar_orb_model"
+    "orb": "artifality:block/lunar_orb_model",
+    "particle": "artifality:block/lunar_crystal_block"
    }
 }

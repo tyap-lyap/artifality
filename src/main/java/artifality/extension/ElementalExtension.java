@@ -1,8 +1,8 @@
-package artifality.interfaces;
+package artifality.extension;
 
-import artifality.enums.CrystalElement;
+import artifality.list.CrystalElement;
 
-public interface ElementalExtensions {
+public interface ElementalExtension {
     boolean artifality$isElemental();
 
     CrystalElement artifality$getElement();

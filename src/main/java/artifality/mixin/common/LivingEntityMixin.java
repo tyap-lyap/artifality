@@ -1,6 +1,6 @@
 package artifality.mixin.common;
 
-import artifality.registry.ArtifalityEnchantments;
+import artifality.registry.ArtifalityEnchants;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EquipmentSlot;
@@ -23,9 +23,9 @@ public class LivingEntityMixin {
 
     @Unique
     boolean hasSlidingCurse(){
-        return (EnchantmentHelper.get(self.getEquippedStack(EquipmentSlot.FEET)).containsKey(ArtifalityEnchantments.SLIDING_CURSE) ||
-                EnchantmentHelper.get(self.getEquippedStack(EquipmentSlot.LEGS)).containsKey(ArtifalityEnchantments.SLIDING_CURSE) ||
-                EnchantmentHelper.get(self.getEquippedStack(EquipmentSlot.CHEST)).containsKey(ArtifalityEnchantments.SLIDING_CURSE) ||
-                EnchantmentHelper.get(self.getEquippedStack(EquipmentSlot.HEAD)).containsKey(ArtifalityEnchantments.SLIDING_CURSE));
+        return (EnchantmentHelper.get(self.getEquippedStack(EquipmentSlot.FEET)).containsKey(ArtifalityEnchants.SLIDING_CURSE) ||
+                EnchantmentHelper.get(self.getEquippedStack(EquipmentSlot.LEGS)).containsKey(ArtifalityEnchants.SLIDING_CURSE) ||
+                EnchantmentHelper.get(self.getEquippedStack(EquipmentSlot.CHEST)).containsKey(ArtifalityEnchants.SLIDING_CURSE) ||
+                EnchantmentHelper.get(self.getEquippedStack(EquipmentSlot.HEAD)).containsKey(ArtifalityEnchants.SLIDING_CURSE));
     }
 }

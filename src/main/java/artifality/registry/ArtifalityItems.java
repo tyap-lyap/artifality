@@ -1,7 +1,7 @@
 package artifality.registry;
 
 import artifality.ArtifalityMod;
-import artifality.enums.ArtifactRarity;
+import artifality.list.ArtifactRarity;
 import artifality.item.*;
 import artifality.item.base.BaseItem;
 import artifality.item.base.TieredArtifactItem;

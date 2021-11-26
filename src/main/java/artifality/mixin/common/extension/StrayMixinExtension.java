@@ -1,7 +1,7 @@
 package artifality.mixin.common.extension;
 
-import artifality.enums.CrystalElement;
-import artifality.interfaces.ElementalExtensions;
+import artifality.list.CrystalElement;
+import artifality.extension.ElementalExtension;
 import net.minecraft.entity.EntityData;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnReason;
@@ -9,7 +9,7 @@ import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.AbstractSkeletonEntity;
-import net.minecraft.entity.mob.SkeletonEntity;
+import net.minecraft.entity.mob.StrayEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
@@ -19,30 +19,32 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.Redirect;
 
-@Mixin(SkeletonEntity.class)
-public abstract class SkeletonExtension extends AbstractSkeletonEntity implements ElementalExtensions {
-    protected SkeletonExtension(EntityType<? extends AbstractSkeletonEntity> entityType, World world) {super(entityType, world);}
+@Mixin(StrayEntity.class)
+public abstract class StrayMixinExtension extends AbstractSkeletonEntity implements ElementalExtension {
+    protected StrayMixinExtension(EntityType<? extends AbstractSkeletonEntity> entityType, World world) {super(entityType, world);}
 
-    private static final TrackedData<Boolean> ELEMENTAL = DataTracker.registerData(SkeletonEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
-    private static final TrackedData<Integer> CRYSTAL_ELEMENT = DataTracker.registerData(SkeletonEntity.class, TrackedDataHandlerRegistry.INTEGER);
+    private static final TrackedData<Boolean> ELEMENTAL = DataTracker.registerData(StrayEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+    private static final TrackedData<Integer> CRYSTAL_ELEMENT = DataTracker.registerData(StrayEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
-    @Inject(method = "initDataTracker", at = @At("TAIL"))
-    void initDataTracker(CallbackInfo ci){
+    @Override
+    protected void initDataTracker() {
+        super.initDataTracker();
         getDataTracker().startTracking(CRYSTAL_ELEMENT, 0);
         getDataTracker().startTracking(ELEMENTAL, false);
     }
 
-    @Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))
-    void writeCustomDataToNbt(NbtCompound nbt, CallbackInfo ci){
+    @Override
+    public void writeCustomDataToNbt(NbtCompound nbt) {
+        super.writeCustomDataToNbt(nbt);
         nbt.putBoolean("IsElemental", artifality$isElemental());
         nbt.putInt("CrystalElement", this.getDataTracker().get(CRYSTAL_ELEMENT));
     }
 
-    @Inject(method = "readCustomDataFromNbt", at = @At("TAIL"))
-    void readCustomDataFromNbt(NbtCompound nbt, CallbackInfo ci){
+    @Override
+    public void readCustomDataFromNbt(NbtCompound nbt) {
+        super.readCustomDataFromNbt(nbt);
         this.getDataTracker().set(ELEMENTAL, nbt.getBoolean("IsElemental"));
         this.getDataTracker().set(CRYSTAL_ELEMENT, nbt.getInt("CrystalElement"));
     }
@@ -67,8 +69,9 @@ public abstract class SkeletonExtension extends AbstractSkeletonEntity implement
         getDataTracker().set(CRYSTAL_ELEMENT, element);
     }
 
-    @Inject(method = "tick", at = @At("TAIL"))
-    void tick(CallbackInfo ci){
+    @Override
+    public void tick() {
+        super.tick();
         if(!getEntityWorld().isClient()){
             if(artifality$isElemental()){
                 artifality$getElement().tick(this, this.getEntityWorld());
@@ -88,11 +91,11 @@ public abstract class SkeletonExtension extends AbstractSkeletonEntity implement
         return super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
     }
 
-    @Override
-    protected PersistentProjectileEntity createArrowProjectile(ItemStack arrow, float damageModifier) {
+    @Redirect(method = "createArrowProjectile", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/mob/AbstractSkeletonEntity;createArrowProjectile(Lnet/minecraft/item/ItemStack;F)Lnet/minecraft/entity/projectile/PersistentProjectileEntity;"))
+    PersistentProjectileEntity createArrowProjectile(AbstractSkeletonEntity instance, ItemStack arrow, float damageModifier){
         PersistentProjectileEntity proj = super.createArrowProjectile(arrow, damageModifier);
         if(artifality$isElemental()){
-            if(proj instanceof ElementalExtensions extension){
+            if(proj instanceof ElementalExtension extension){
                 extension.artifality$setElement(getDataTracker().get(CRYSTAL_ELEMENT));
             }
         }

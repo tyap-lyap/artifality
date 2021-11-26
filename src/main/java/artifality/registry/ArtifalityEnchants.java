@@ -1,8 +1,8 @@
 package artifality.registry;
 
 import artifality.ArtifalityMod;
-import artifality.enchantment.LunarDamageEnchantment;
-import artifality.enchantment.CurseEnchantment;
+import artifality.enchant.LunarDamageEnchantment;
+import artifality.enchant.CurseEnchantment;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
@@ -13,7 +13,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 @SuppressWarnings("unused")
-public class ArtifalityEnchantments {
+public class ArtifalityEnchants {
     private static final Map<Identifier, Enchantment> ENCHANTMENTS = new LinkedHashMap<>();
 
     public static final Enchantment SLIDING_CURSE = add("sliding_curse", new CurseEnchantment(Enchantment.Rarity.RARE, EnchantmentTarget.ARMOR, new EquipmentSlot[]{EquipmentSlot.FEET, EquipmentSlot.LEGS, EquipmentSlot.CHEST, EquipmentSlot.HEAD}));

@@ -24,8 +24,8 @@ public class CrystalClusterBlock extends AmethystClusterBlock {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
-        super.appendTooltip(stack, world, tooltip, options);
         tooltip.add(new TranslatableText("misc.artifality." + size).formatted(Formatting.GRAY));
+        super.appendTooltip(stack, world, tooltip, options);
     }
 
     @Override

@@ -1,6 +1,6 @@
 package artifality.mixin.client;
 
-import artifality.registry.ArtifalityEnchantments;
+import artifality.registry.ArtifalityEnchants;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.item.ItemStack;
@@ -18,8 +18,8 @@ public class ItemStackMixin {
     @Redirect(method = "getTooltip", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/attribute/EntityAttributeModifier;getValue()D"))
     double lunarDamageFunctionality(EntityAttributeModifier entityAttributeModifier){
         if(entityAttributeModifier.getId().equals(ATTACK_SPEED_MODIFIER_ID)){
-            if (EnchantmentHelper.get(self).containsKey(ArtifalityEnchantments.LUNAR_DAMAGE)){
-                int level = EnchantmentHelper.getLevel(ArtifalityEnchantments.LUNAR_DAMAGE, self);
+            if (EnchantmentHelper.get(self).containsKey(ArtifalityEnchants.LUNAR_DAMAGE)){
+                int level = EnchantmentHelper.getLevel(ArtifalityEnchants.LUNAR_DAMAGE, self);
                 return entityAttributeModifier.getValue() - (level + 2) / 20.0F;
             }
         }

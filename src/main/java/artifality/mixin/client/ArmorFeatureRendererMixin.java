@@ -17,14 +17,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ArmorFeatureRenderer.class)
 public abstract class ArmorFeatureRendererMixin<T extends LivingEntity, M extends BipedEntityModel<T>> extends FeatureRenderer<T, M> {
+    public ArmorFeatureRendererMixin(FeatureRendererContext<T, M> context) {super(context);}
 
-    public ArmorFeatureRendererMixin(FeatureRendererContext<T, M> context) {
-        super(context);
-    }
-
-    @Inject(method = "render", at = @At("HEAD"), cancellable = true)
-    void hideArmorWithInvisibilityCape(MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, T livingEntity, float f, float g, float h, float j, float k, float l, CallbackInfo ci){
-        if(livingEntity instanceof PlayerEntity player){
+    @Inject(method = "render*", at = @At("HEAD"), cancellable = true)
+    void render(MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, T entity, float limbAngle, float limbDistance, float tickDelta, float animationProgress, float headYaw, float headPitch, CallbackInfo ci){
+        if(entity instanceof PlayerEntity player){
             if(player.isSneaking() && TrinketsUtils.containsTrinket(player, ArtifalityItems.INVISIBILITY_CAPE)){
                 ci.cancel();
             }

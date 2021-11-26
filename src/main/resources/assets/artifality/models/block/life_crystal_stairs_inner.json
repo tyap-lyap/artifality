@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "artifality:block/life_crystal_block",
+    "top": "artifality:block/life_crystal_block",
+    "side": "artifality:block/life_crystal_block"
+  }
+}

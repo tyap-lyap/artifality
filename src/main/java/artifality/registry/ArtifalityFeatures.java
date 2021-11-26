@@ -11,7 +11,7 @@ import net.minecraft.world.gen.decorator.Decorator;
 import net.minecraft.world.gen.decorator.DecoratorConfig;
 import net.minecraft.world.gen.feature.*;
 
-public class ArtifalityConfiguredFeatures {
+public class ArtifalityFeatures {
     public static final Feature<DefaultFeatureConfig> PATCH_CRYSTAL = new CrystalFeature();
     public static final ConfiguredFeature<?, ?> PATCH_CRYSTAL_CONFIG = PATCH_CRYSTAL
             .configure(new DefaultFeatureConfig())

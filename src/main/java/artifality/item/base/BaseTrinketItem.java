@@ -19,6 +19,6 @@ public class BaseTrinketItem extends TrinketItem {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         super.appendTooltip(stack, world, tooltip, context);
-        TooltipAppender.appendDescription(stack, tooltip);
+        TooltipAppender.append(stack, tooltip);
     }
 }

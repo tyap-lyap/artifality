@@ -1,6 +1,7 @@
 {
   "parent": "artifality:block/orb_model",
   "textures": {
-    "orb": "artifality:block/wrath_orb_model"
+    "orb": "artifality:block/wrath_orb_model",
+    "particle": "artifality:block/wrath_crystal_block"
    }
 }

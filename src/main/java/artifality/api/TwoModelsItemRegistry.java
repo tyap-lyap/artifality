@@ -1,4 +1,4 @@
-package artifality.util;
+package artifality.api;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;

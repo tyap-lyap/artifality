@@ -18,7 +18,7 @@ public class BaseBlock extends Block {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
-        TooltipAppender.appendDescription(stack, tooltip);
+        TooltipAppender.append(stack, tooltip);
         super.appendTooltip(stack, world, tooltip, options);
     }
 }

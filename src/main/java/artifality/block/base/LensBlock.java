@@ -1,5 +1,6 @@
 package artifality.block.base;
 
+import artifality.list.LensEffects;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -13,9 +14,9 @@ import net.minecraft.world.BlockView;
 
 public class LensBlock extends BaseBlock {
     private static final VoxelShape SHAPE = createCuboidShape(0, 0, 0, 16, 8, 16);
-    private final LensEffect lensEffect;
+    private final LensEffects.LensEffect lensEffect;
 
-    public LensBlock(LensEffect effect) {
+    public LensBlock(LensEffects.LensEffect effect) {
         super(FabricBlockSettings.copyOf(Blocks.COBBLESTONE).sounds(BlockSoundGroup.NETHERITE).nonOpaque());
         this.lensEffect = effect;
     }
@@ -27,10 +28,5 @@ public class LensBlock extends BaseBlock {
 
     public void applyLensEffect(StatusEffectInstance effectInstance, PlayerEntity playerEntity){
         lensEffect.apply(effectInstance, playerEntity);
-    }
-
-    @FunctionalInterface
-    public interface LensEffect {
-        void apply(StatusEffectInstance effectInstance, PlayerEntity playerEntity);
     }
 }

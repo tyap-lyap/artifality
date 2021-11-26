@@ -1,6 +1,6 @@
 package artifality.mixin.common;
 
-import artifality.interfaces.LightningExtensions;
+import artifality.extension.LightningExtension;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.InteractionObserver;
 import net.minecraft.entity.LightningEntity;
@@ -23,7 +23,7 @@ public abstract class VillagerMixin extends MerchantEntity implements Interactio
 
     @Inject(method = "onStruckByLightning", at = @At("HEAD"), cancellable = true)
     void onStruckByLightning(ServerWorld world, LightningEntity lightning, CallbackInfo ci){
-        if(lightning instanceof LightningExtensions extension){
+        if(lightning instanceof LightningExtension extension){
             if(!extension.artifality$canSpawnFire()){
                 super.onStruckByLightning(world, lightning);
                 ci.cancel();

@@ -24,16 +24,16 @@ public class TooltipAppender {
 
     protected TooltipAppender(){}
 
-    public static void appendDescription(ItemStack stack, List<Text> tooltip){
+    public static void append(ItemStack stack, List<Text> tooltip){
         Item item = stack.getItem();
 
-        if(!getDescription(Registry.ITEM.getId(item).getPath()).isEmpty() && shiftPressed(tooltip, item)){
+        if(!getTooltip(Registry.ITEM.getId(item).getPath()).isEmpty() && shiftPressed(tooltip, item)){
             if(item instanceof TieredItem){
                 appendTier(stack, tooltip);
             }
-            appendItemDescription(stack, tooltip);
+            appendItemTooltip(stack, tooltip);
         }else if(item instanceof EnchantedBookItem){
-            appendEnchantmentDesc(stack, tooltip);
+            appendEnchantmentTooltip(stack, tooltip);
         }
     }
 
@@ -56,18 +56,16 @@ public class TooltipAppender {
         }
     }
 
-    private static void appendItemDescription(ItemStack stack, List<Text> tooltip){
+    private static void appendItemTooltip(ItemStack stack, List<Text> tooltip){
         tooltip.add(new LiteralText(""));
-        for(String line : getDescription(Registry.ITEM.getId(stack.getItem()).getPath())) {
+        for(String line : getTooltip(Registry.ITEM.getId(stack.getItem()).getPath())) {
             tooltip.add(new LiteralText(line.trim().replaceAll("&", "§")).formatted(Formatting.GRAY));
         }
-        if(stack.getItem() instanceof BaseItem baseItem){
-            baseItem.appendTooltipInfo(stack, tooltip);
-        }
+        if(stack.getItem() instanceof BaseItem item)item.appendTooltipInfo(stack, tooltip);
         if(stack.getItem() instanceof Trinket) tooltip.add(new LiteralText(""));
     }
 
-    private static void appendEnchantmentDesc(ItemStack stack, List<Text> tooltip){
+    private static void appendEnchantmentTooltip(ItemStack stack, List<Text> tooltip){
         NbtList enchantments = EnchantedBookItem.getEnchantmentNbt(stack);
 
         for(int i = 0; i < enchantments.size(); ++i) {
@@ -77,7 +75,7 @@ public class TooltipAppender {
                 if(!enchantment.getTranslationKey().contains("artifality")) return;
                 if(!shiftPressed(tooltip, stack.getItem())) return;
                 tooltip.add(new LiteralText(""));
-                for(String line : getDescription(Objects.requireNonNull(Registry.ENCHANTMENT.getId(enchantment)).getPath())) {
+                for(String line : getTooltip(Objects.requireNonNull(Registry.ENCHANTMENT.getId(enchantment)).getPath())) {
                     tooltip.add(new LiteralText(line.trim().replaceAll("&", "§")).formatted(Formatting.GRAY));
                 }
                 if(enchantment.getMaxLevel() > 1){
@@ -88,11 +86,11 @@ public class TooltipAppender {
         }
     }
 
-    public static ArrayList<String> getDescription(String id){
+    public static ArrayList<String> getTooltip(String id){
         ArrayList<String> strings = new ArrayList<>();
         for(int i = 0; i <= 10; i++){
-            if(Language.getInstance().hasTranslation("description." + id + "." + i)){
-                strings.add(Language.getInstance().get("description." + id + "." + i));
+            if(Language.getInstance().hasTranslation("tip." + id + "." + i)){
+                strings.add(Language.getInstance().get("tip." + id + "." + i));
             }
         }
         return strings;

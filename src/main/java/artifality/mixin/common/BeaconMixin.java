@@ -1,7 +1,7 @@
 package artifality.mixin.common;
 
 import artifality.block.base.LensBlock;
-import artifality.mixin.common.access.BeaconAccessor;
+import artifality.mixin.common.access.BeaconAccess;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BeaconBlockEntity;
 import net.minecraft.block.entity.BlockEntity;
@@ -36,7 +36,7 @@ public abstract class BeaconMixin extends BlockEntity implements NamedScreenHand
                 for (int x = -1; x <= 1; x++)
                     for (int z = -1; z <= 1; z++)
                         if(!world.getBlockState(pos.add(x, -1, z)).isIn(BlockTags.BEACON_BASE_BLOCKS)) baseIsFull = false;
-                if(baseIsFull) applyLensEffects(world, pos, ((BeaconAccessor)blockEntity).getPrimary(), ((BeaconAccessor)blockEntity).getSecondary());
+                if(baseIsFull) applyLensEffects(world, pos, ((BeaconAccess)blockEntity).getPrimary(), ((BeaconAccess)blockEntity).getSecondary());
             }
         }
     }

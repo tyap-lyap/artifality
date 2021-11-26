@@ -1,6 +1,6 @@
 package artifality.mixin.common;
 
-import artifality.registry.ArtifalityEnchantments;
+import artifality.registry.ArtifalityEnchants;
 import artifality.registry.ArtifalityItems;
 import artifality.item.BalloonItem;
 import artifality.item.UkuleleItem;
@@ -30,8 +30,8 @@ public class PlayerMixin {
 
     @Inject(method = "getAttackCooldownProgressPerTick", at = @At("HEAD"), cancellable = true)
     void getAttackCooldownProgressPerTick(CallbackInfoReturnable<Float> cir){
-        if(EnchantmentHelper.get(self.getStackInHand(Hand.MAIN_HAND)).containsKey(ArtifalityEnchantments.LUNAR_DAMAGE)){
-            int level = EnchantmentHelper.getLevel(ArtifalityEnchantments.LUNAR_DAMAGE, self.getStackInHand(Hand.MAIN_HAND));
+        if(EnchantmentHelper.get(self.getStackInHand(Hand.MAIN_HAND)).containsKey(ArtifalityEnchants.LUNAR_DAMAGE)){
+            int level = EnchantmentHelper.getLevel(ArtifalityEnchants.LUNAR_DAMAGE, self.getStackInHand(Hand.MAIN_HAND));
             cir.setReturnValue((float)(1.0D / self.getAttributeValue(EntityAttributes.GENERIC_ATTACK_SPEED) * 20.0D) + level + 2);
         }
     }
@@ -57,7 +57,7 @@ public class PlayerMixin {
         if(!self.world.isClient){
             if(!self.isInvulnerableTo(source) && source.getAttacker() != null){
                 for (ItemStack stack : self.getItemsEquipped()){
-                    if (EnchantmentHelper.get(stack).containsKey(ArtifalityEnchantments.VOLATILE_CURSE)){
+                    if (EnchantmentHelper.get(stack).containsKey(ArtifalityEnchants.VOLATILE_CURSE)){
                         if(!self.getItemCooldownManager().isCoolingDown(stack.getItem())){
                             self.world.createExplosion(self, self.getX(), self.getY(), self.getZ(), 1F, Explosion.DestructionType.NONE);
                             self.getItemCooldownManager().set(stack.getItem(), 20 * 20);

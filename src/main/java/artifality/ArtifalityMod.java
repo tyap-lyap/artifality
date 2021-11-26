@@ -1,10 +1,7 @@
 package artifality;
 
-import artifality.registry.ArtifalityBlocks;
+import artifality.registry.*;
 import artifality.data.ArtifalityLootTables;
-import artifality.registry.ArtifalityEnchantments;
-import artifality.registry.ArtifalityItems;
-import artifality.registry.ArtifalityConfiguredFeatures;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.enchantment.EnchantmentLevelEntry;
@@ -25,7 +22,7 @@ public class ArtifalityMod implements ModInitializer {
             .appendItems(groupStacks -> {
                 ArtifalityItems.ITEMS.forEach((id, item) -> groupStacks.add(item.getDefaultStack()));
                 ArtifalityBlocks.ITEMS.forEach((id, item) -> groupStacks.add(item.getDefaultStack()));
-                ArtifalityEnchantments.getEnchantments().forEach((id, enchantment) -> {
+                ArtifalityEnchants.getEnchantments().forEach((id, enchantment) -> {
                     ItemStack book = new ItemStack(Items.ENCHANTED_BOOK);
                     EnchantedBookItem.addEnchantment(book, new EnchantmentLevelEntry(enchantment, enchantment.getMaxLevel()));
                     groupStacks.add(book);
@@ -37,9 +34,9 @@ public class ArtifalityMod implements ModInitializer {
     public void onInitialize() {
         ArtifalityItems.register();
         ArtifalityBlocks.register();
-        ArtifalityEnchantments.register();
+        ArtifalityEnchants.register();
         ArtifalityLootTables.register();
-        ArtifalityConfiguredFeatures.register();
+        ArtifalityFeatures.register();
     }
 
     public static Identifier newId(String path){

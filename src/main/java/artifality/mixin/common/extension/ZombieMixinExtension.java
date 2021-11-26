@@ -1,7 +1,7 @@
 package artifality.mixin.common.extension;
 
-import artifality.enums.CrystalElement;
-import artifality.interfaces.ElementalExtensions;
+import artifality.list.CrystalElement;
+import artifality.extension.ElementalExtension;
 import net.minecraft.entity.*;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
@@ -20,10 +20,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ZombieEntity.class)
-public abstract class ZombieExtension extends HostileEntity implements ElementalExtensions {
+public abstract class ZombieMixinExtension extends HostileEntity implements ElementalExtension {
     @Shadow public abstract boolean isBaby();
 
-    protected ZombieExtension(EntityType<? extends HostileEntity> entityType, World world) {super(entityType, world);}
+    protected ZombieMixinExtension(EntityType<? extends HostileEntity> entityType, World world) {super(entityType, world);}
 
     private static final TrackedData<Boolean> ELEMENTAL = DataTracker.registerData(ZombieEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     private static final TrackedData<Integer> CRYSTAL_ELEMENT = DataTracker.registerData(ZombieEntity.class, TrackedDataHandlerRegistry.INTEGER);

@@ -1,7 +1,7 @@
-package artifality.interfaces;
+package artifality.extension;
 
 
-public interface LightningExtensions {
+public interface LightningExtension {
     void artifality$setNoFire();
 
     void artifality$setCanChargeCreeper(boolean canChargeCreeper);

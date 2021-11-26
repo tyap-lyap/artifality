@@ -1,6 +1,6 @@
 package artifality.mixin.common;
 
-import artifality.interfaces.LightningExtensions;
+import artifality.extension.LightningExtension;
 import net.minecraft.client.render.entity.feature.SkinOverlayOwner;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LightningEntity;
@@ -22,7 +22,7 @@ public abstract class CreeperMixin extends HostileEntity implements SkinOverlayO
 
     @Inject(method = "onStruckByLightning", at = @At("HEAD"), cancellable = true)
     void onStruckByLightning(ServerWorld world, LightningEntity lightning, CallbackInfo ci){
-        if(lightning instanceof LightningExtensions extension){
+        if(lightning instanceof LightningExtension extension){
             if(!extension.artifality$canChargeCreeper()){
                 super.onStruckByLightning(world, lightning);
                 ci.cancel();

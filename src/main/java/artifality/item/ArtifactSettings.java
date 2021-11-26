@@ -1,6 +1,6 @@
 package artifality.item;
 
-import artifality.enums.ArtifactRarity;
+import artifality.list.ArtifactRarity;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 
 public class ArtifactSettings {

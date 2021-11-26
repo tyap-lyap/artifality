@@ -23,7 +23,7 @@ public class BaseItem extends Item {
     @Environment(EnvType.CLIENT)
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        TooltipAppender.appendDescription(stack, tooltip);
+        TooltipAppender.append(stack, tooltip);
         super.appendTooltip(stack, world, tooltip, context);
     }
 }
