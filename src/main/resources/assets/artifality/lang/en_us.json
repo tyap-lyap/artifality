@@ -143,6 +143,13 @@
 
     "item.artifality.strength_injection": "Strength Injection",
 
+    "item.artifality.regeneration_injection": "Regeneration Injection",
+
+    "item.artifality.incremental_crystal_wand": "Incremental Crystal Wand",
+    "item.artifality.lunar_crystal_wand": "Lunar Crystal Wand",
+    "item.artifality.life_crystal_wand": "Life Crystal Wand",
+    "item.artifality.wrath_crystal_wand": "Wrath Crystal Wand",
+
     "enchantment.artifality.lunar_damage": "Lunar Damage",
     "tip.lunar_damage.0": "&aIncreases&r melee damage, but",
     "tip.lunar_damage.1": "&cdecreases&r attack speed.",
@@ -182,6 +189,10 @@
     "advancements.artifality.rethink_life.name": "why?",
     "advancements.artifality.rethink_life.desc": "Touch some grass",
 
+    "misc.artifality.common": "Common",
+    "misc.artifality.rare": "Rare",
+    "misc.artifality.legendary": "Legendary",
+    "misc.artifality.lunar": "Lunar",
     "misc.artifality.small": "Small",
     "misc.artifality.medium": "Medium",
     "misc.artifality.large": "Large",

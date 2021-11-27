@@ -22,7 +22,7 @@ public class ArtifalityMod implements ModInitializer {
             .appendItems(groupStacks -> {
                 ArtifalityItems.ITEMS.forEach((id, item) -> groupStacks.add(item.getDefaultStack()));
                 ArtifalityBlocks.ITEMS.forEach((id, item) -> groupStacks.add(item.getDefaultStack()));
-                ArtifalityEnchants.getEnchantments().forEach((id, enchantment) -> {
+                ArtifalityEnchants.ENCHANTMENTS.forEach((id, enchantment) -> {
                     ItemStack book = new ItemStack(Items.ENCHANTED_BOOK);
                     EnchantedBookItem.addEnchantment(book, new EnchantmentLevelEntry(enchantment, enchantment.getMaxLevel()));
                     groupStacks.add(book);
@@ -32,11 +32,11 @@ public class ArtifalityMod implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        ArtifalityItems.register();
-        ArtifalityBlocks.register();
-        ArtifalityEnchants.register();
+        ArtifalityItems.init();
+        ArtifalityBlocks.init();
+        ArtifalityEnchants.init();
         ArtifalityLootTables.register();
-        ArtifalityFeatures.register();
+        ArtifalityFeatures.init();
     }
 
     public static Identifier newId(String path){

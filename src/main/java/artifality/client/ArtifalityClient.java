@@ -31,7 +31,9 @@ public class ArtifalityClient implements ClientModInitializer {
         ArtifalityParticles.register();
 
         TwoModelsItemRegistry.register(ArtifalityItems.UKULELE, ArtifalityItems.ZEUS_STAFF, ArtifalityItems.BALLOON,
-                ArtifalityItems.FOREST_STAFF, ArtifalityItems.FLORAL_STAFF, ArtifalityItems.HARVEST_STAFF);
+                ArtifalityItems.FOREST_STAFF, ArtifalityItems.FLORAL_STAFF, ArtifalityItems.HARVEST_STAFF,
+                ArtifalityItems.INCREMENTAL_CRYSTAL_WAND, ArtifalityItems.LUNAR_CRYSTAL_WAND, ArtifalityItems.LIFE_CRYSTAL_WAND,
+                ArtifalityItems.WRATH_CRYSTAL_WAND);
 
         ArtifalityItems.ITEMS.forEach((id, item) -> {
             if(item instanceof TrinketRenderer renderer) TrinketRendererRegistry.registerRenderer(item, renderer);
@@ -49,7 +51,7 @@ public class ArtifalityClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ArtifalityBlocks.EMPTY_LENS, RenderLayer.getCutout());
 
         ModelLoadingRegistry.INSTANCE.registerModelProvider((manager, out) -> {
-            CrystalElement.ELEMENTS.forEach(element ->{
+            CrystalElement.ELEMENTS.forEach(element -> {
                 out.accept(new ModelIdentifier("artifality:" + element.getName() + "_head_overlay#inventory"));
                 out.accept(new ModelIdentifier("artifality:" + element.getName() + "_body_overlay#inventory"));
             });

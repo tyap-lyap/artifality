@@ -5,21 +5,21 @@ import artifality.block.base.*;
 import artifality.list.LensEffects;
 import artifality.registry.base.BlockRegistry;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
+import static net.minecraft.block.Blocks.*;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.registry.Registry;
 
 @SuppressWarnings("unused")
 public class ArtifalityBlocks extends BlockRegistry {
-    public static final Block COMMON_CRATE = add("common_crate", new CrateBlock(copyOf(Blocks.WHITE_WOOL).sounds(BlockSoundGroup.WOOD).luminance(7)));
-    public static final Block RARE_CRATE = add("rare_crate", new CrateBlock(copyOf(Blocks.WHITE_WOOL).sounds(BlockSoundGroup.STONE).luminance(7)));
-    public static final Block LEGENDARY_CRATE = add("legendary_crate", new CrateBlock(copyOf(Blocks.WHITE_WOOL).sounds(BlockSoundGroup.STONE).luminance(7)));
-    public static final Block LUNAR_CRATE = add("lunar_crate", new CrateBlock(copyOf(Blocks.WHITE_WOOL).sounds(BlockSoundGroup.STONE).luminance(7)));
+    public static final Block COMMON_CRATE = add("common_crate", new CrateBlock(copyOf(WHITE_WOOL).sounds(BlockSoundGroup.WOOD).luminance(7)));
+    public static final Block RARE_CRATE = add("rare_crate", new CrateBlock(copyOf(WHITE_WOOL).sounds(BlockSoundGroup.STONE).luminance(7)));
+    public static final Block LEGENDARY_CRATE = add("legendary_crate", new CrateBlock(copyOf(WHITE_WOOL).sounds(BlockSoundGroup.STONE).luminance(7)));
+    public static final Block LUNAR_CRATE = add("lunar_crate", new CrateBlock(copyOf(WHITE_WOOL).sounds(BlockSoundGroup.STONE).luminance(7)));
 
-    public static final Block INCREMENTAL_ORB = add("incremental_orb", new OrbBlock(copyOf(Blocks.WHITE_WOOL).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(15).nonOpaque()));
-    public static final Block LUNAR_ORB = add("lunar_orb", new OrbBlock(copyOf(Blocks.WHITE_WOOL).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(15).nonOpaque()));
-    public static final Block LIFE_ORB = add("life_orb", new OrbBlock(copyOf(Blocks.WHITE_WOOL).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(15).nonOpaque()));
-    public static final Block WRATH_ORB = add("wrath_orb", new OrbBlock(copyOf(Blocks.WHITE_WOOL).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(15).nonOpaque()));
+    public static final Block INCREMENTAL_ORB = add("incremental_orb", new OrbBlock(copyOf(WHITE_WOOL).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(15).nonOpaque()));
+    public static final Block LUNAR_ORB = add("lunar_orb", new OrbBlock(copyOf(WHITE_WOOL).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(15).nonOpaque()));
+    public static final Block LIFE_ORB = add("life_orb", new OrbBlock(copyOf(WHITE_WOOL).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(15).nonOpaque()));
+    public static final Block WRATH_ORB = add("wrath_orb", new OrbBlock(copyOf(WHITE_WOOL).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(15).nonOpaque()));
 
     public static final Block SMALL_INCREMENTAL_CRYSTAL_CLUSTER = cluster("small_incremental_crystal_cluster", "small");
     public static final Block MEDIUM_INCREMENTAL_CRYSTAL_CLUSTER = cluster("medium_incremental_crystal_cluster", "medium");
@@ -59,10 +59,10 @@ public class ArtifalityBlocks extends BlockRegistry {
     public static final Block WRATH_CRYSTAL_LENS = lens("wrath_crystal_lens", LensEffects.WRATH);
     public static final Block EMPTY_LENS = lens("empty_lens", LensEffects.EMPTY);
 
-    public static final Block UPGRADING_PEDESTAL = add("upgrading_pedestal", new UpgradingPedestalBlock(copyOf(Blocks.COBBLESTONE).luminance(state -> state.get(UpgradingPedestalBlock.CHARGES) * 3)));
-    public static final Block LUNAR_PEDESTAL = add("lunar_pedestal", new BaseBlock(copyOf(Blocks.COBBLESTONE)));
+    public static final Block UPGRADING_PEDESTAL = add("upgrading_pedestal", new UpgradingPedestalBlock(copyOf(COBBLESTONE).luminance(state -> state.get(UpgradingPedestalBlock.CHARGES) * 3)));
+    public static final Block LUNAR_PEDESTAL = add("lunar_pedestal", new BaseBlock(copyOf(COBBLESTONE)));
 
-    public static void register() {
+    public static void init() {
         ITEMS.forEach((id, item) -> Registry.register(Registry.ITEM, id, ITEMS.get(id)));
         BLOCKS.forEach((id, block) -> Registry.register(Registry.BLOCK, id, BLOCKS.get(id)));
     }

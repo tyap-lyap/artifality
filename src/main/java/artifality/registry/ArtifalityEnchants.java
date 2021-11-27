@@ -14,7 +14,7 @@ import java.util.Map;
 
 @SuppressWarnings("unused")
 public class ArtifalityEnchants {
-    private static final Map<Identifier, Enchantment> ENCHANTMENTS = new LinkedHashMap<>();
+    public static final Map<Identifier, Enchantment> ENCHANTMENTS = new LinkedHashMap<>();
 
     public static final Enchantment SLIDING_CURSE = add("sliding_curse", new CurseEnchantment(Enchantment.Rarity.RARE, EnchantmentTarget.ARMOR, new EquipmentSlot[]{EquipmentSlot.FEET, EquipmentSlot.LEGS, EquipmentSlot.CHEST, EquipmentSlot.HEAD}));
     public static final Enchantment VOLATILE_CURSE = add("volatile_curse", new CurseEnchantment(Enchantment.Rarity.RARE, EnchantmentTarget.ARMOR, new EquipmentSlot[]{EquipmentSlot.FEET, EquipmentSlot.LEGS, EquipmentSlot.CHEST, EquipmentSlot.HEAD}));
@@ -26,13 +26,7 @@ public class ArtifalityEnchants {
         return enchantment;
     }
 
-    public static void register(){
-        for (Identifier id : ENCHANTMENTS.keySet()) {
-            Registry.register(Registry.ENCHANTMENT, id, ENCHANTMENTS.get(id));
-        }
-    }
-
-    public static Map<Identifier, Enchantment> getEnchantments(){
-        return ENCHANTMENTS;
+    public static void init(){
+        ENCHANTMENTS.forEach((id, enchantment) -> Registry.register(Registry.ENCHANTMENT, id, ENCHANTMENTS.get(id)));
     }
 }

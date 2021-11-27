@@ -21,7 +21,7 @@ public class ElementalFeatureRenderer<T extends LivingEntity, M extends BipedEnt
 
     @Override
     public void render(MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, T entity, float limbAngle, float limbDistance, float tickDelta, float animationProgress, float headYaw, float headPitch) {
-        if(entity instanceof ElementalExtension extension){
+        if(!entity.isInvisible() && entity instanceof ElementalExtension extension){
             if(extension.artifality$isElemental()){
                 renderHeadOverlay(extension, matrices, vertexConsumers, light, entity, headYaw, headPitch);
                 renderBodyOverlay(extension, matrices, vertexConsumers, light, entity);
@@ -57,7 +57,7 @@ public class ElementalFeatureRenderer<T extends LivingEntity, M extends BipedEnt
 
     static void translateToHead(MatrixStack matrices, LivingEntity entity, float headYaw, float headPitch) {
         if (entity.isInSwimmingPose() || entity.isFallFlying()) {
-            matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion(entity.getPitch()));
+            matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion(headPitch));
             matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(headYaw));
             matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion(-45.0F));
         } else {

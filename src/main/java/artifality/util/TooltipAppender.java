@@ -1,7 +1,9 @@
 package artifality.util;
 
+import artifality.extension.Artifact;
 import artifality.item.base.BaseItem;
 import artifality.item.base.TieredItem;
+import artifality.list.ArtifactRarity;
 import dev.emi.trinkets.api.Trinket;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.item.EnchantedBookItem;
@@ -10,6 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtList;
 import net.minecraft.text.LiteralText;
+import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
@@ -39,11 +42,17 @@ public class TooltipAppender {
 
     private static boolean shiftPressed(List<Text> tooltip, Item item){
         if(!Screen.hasShiftDown()){
+            if(item instanceof Artifact artifact){
+                ArtifactRarity rarity = artifact.getSettings().getRarity();
+                tooltip.add(new LiteralText(ofKey(rarity.getName())).setStyle(Style.EMPTY.withColor(rarity.getColor().getRGB())));
+            }
             tooltip.add(new LiteralText(""));
             tooltip.add(new LiteralText(ofKey("press_shift")).formatted(Formatting.GRAY));
             if(item instanceof Trinket) tooltip.add(new LiteralText(""));
             return false;
-        }else return true;
+        }else{
+            return true;
+        }
     }
 
     private static void appendTier(ItemStack stack, List<Text> tooltip){

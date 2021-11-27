@@ -1,6 +1,6 @@
 package artifality.registry;
 
-import artifality.ArtifalityMod;
+import static artifality.ArtifalityMod.newId;
 import artifality.worldgen.feature.CrystalFeature;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.minecraft.util.registry.BuiltinRegistries;
@@ -12,20 +12,17 @@ import net.minecraft.world.gen.decorator.DecoratorConfig;
 import net.minecraft.world.gen.feature.*;
 
 public class ArtifalityFeatures {
-    public static final Feature<DefaultFeatureConfig> PATCH_CRYSTAL = new CrystalFeature();
-    public static final ConfiguredFeature<?, ?> PATCH_CRYSTAL_CONFIG = PATCH_CRYSTAL
+    public static final Feature<DefaultFeatureConfig> CRYSTAL_FEATURE = new CrystalFeature();
+    public static final ConfiguredFeature<?, ?> CRYSTAL_FEATURE_CONFIG = CRYSTAL_FEATURE
             .configure(new DefaultFeatureConfig())
             .decorate(Decorator.NOPE.configure(DecoratorConfig.DEFAULT));
 
-    public static void register(){
+    public static void init(){
+        Registry.register(Registry.FEATURE, newId("crystal_feature"), CRYSTAL_FEATURE);
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, newId("crystal_feature"), CRYSTAL_FEATURE_CONFIG);
 
-        Registry.register(Registry.FEATURE, ArtifalityMod.newId("patch_crystal"), PATCH_CRYSTAL);
-
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, ArtifalityMod.newId("patch_crystal"), PATCH_CRYSTAL_CONFIG);
-
-        if(BuiltinRegistries.CONFIGURED_FEATURE.getKey(PATCH_CRYSTAL_CONFIG).isPresent()){
-            BiomeModifications.addFeature(ctx -> ctx.getBiome().getCategory() != Biome.Category.THEEND, GenerationStep.Feature.UNDERGROUND_DECORATION,
-                    BuiltinRegistries.CONFIGURED_FEATURE.getKey(PATCH_CRYSTAL_CONFIG).get());
-        }
+        var optional = BuiltinRegistries.CONFIGURED_FEATURE.getKey(CRYSTAL_FEATURE_CONFIG);
+        optional.ifPresent(configuredFeatureRegistryKey -> BiomeModifications.addFeature(ctx -> ctx.getBiome().getCategory() != Biome.Category.THEEND, GenerationStep.Feature.UNDERGROUND_DECORATION,
+                configuredFeatureRegistryKey));
     }
 }
