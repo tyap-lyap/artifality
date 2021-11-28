@@ -83,6 +83,7 @@ public abstract class SkeletonMixinExtension extends AbstractSkeletonEntity impl
             if(this.world.random.nextFloat() > 0.7F){
                 getDataTracker().set(ELEMENTAL, true);
                 getDataTracker().set(CRYSTAL_ELEMENT, this.world.random.nextInt(4));
+                artifality$getElement().onInit(this, this.world);
             }
         }
         return super.initialize(world, difficulty, spawnReason, entityData, entityNbt);

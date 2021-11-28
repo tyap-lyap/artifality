@@ -83,6 +83,7 @@ public abstract class WitherSkeletonMixinExtension extends AbstractSkeletonEntit
             if(this.world.random.nextFloat() > 0.7F){
                 getDataTracker().set(ELEMENTAL, true);
                 getDataTracker().set(CRYSTAL_ELEMENT, this.world.random.nextInt(4));
+                artifality$getElement().onInit(this, this.world);
             }
         }
     }

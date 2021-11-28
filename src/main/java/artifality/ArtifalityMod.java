@@ -1,7 +1,6 @@
 package artifality;
 
 import artifality.registry.*;
-import artifality.data.ArtifalityLootTables;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.enchantment.EnchantmentLevelEntry;
@@ -35,7 +34,6 @@ public class ArtifalityMod implements ModInitializer {
         ArtifalityItems.init();
         ArtifalityBlocks.init();
         ArtifalityEnchants.init();
-        ArtifalityLootTables.register();
         ArtifalityFeatures.init();
     }
 

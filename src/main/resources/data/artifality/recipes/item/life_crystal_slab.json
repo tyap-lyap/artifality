@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "artifality:life_crystal_block"
+        }
+    },
+    "result": {
+        "item": "artifality:life_crystal_slab",
+        "count": 6
+    }
+}

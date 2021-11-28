@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#  ",
+        "## ",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "artifality:incremental_crystal_block"
+        }
+    },
+    "result": {
+        "item": "artifality:incremental_crystal_stairs",
+        "count": 4
+    }
+}

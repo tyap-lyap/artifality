@@ -2,6 +2,7 @@ package artifality.registry;
 
 import artifality.block.UpgradingPedestalBlock;
 import artifality.block.base.*;
+import artifality.list.ArtifactRarity;
 import artifality.list.LensEffects;
 import artifality.registry.base.BlockRegistry;
 import net.minecraft.block.Block;
@@ -11,10 +12,10 @@ import net.minecraft.util.registry.Registry;
 
 @SuppressWarnings("unused")
 public class ArtifalityBlocks extends BlockRegistry {
-    public static final Block COMMON_CRATE = add("common_crate", new CrateBlock(copyOf(WHITE_WOOL).sounds(BlockSoundGroup.WOOD).luminance(7)));
-    public static final Block RARE_CRATE = add("rare_crate", new CrateBlock(copyOf(WHITE_WOOL).sounds(BlockSoundGroup.STONE).luminance(7)));
-    public static final Block LEGENDARY_CRATE = add("legendary_crate", new CrateBlock(copyOf(WHITE_WOOL).sounds(BlockSoundGroup.STONE).luminance(7)));
-    public static final Block LUNAR_CRATE = add("lunar_crate", new CrateBlock(copyOf(WHITE_WOOL).sounds(BlockSoundGroup.STONE).luminance(7)));
+    public static final Block COMMON_CRATE = add("common_crate", new CrateBlock(copyOf(WHITE_WOOL).sounds(BlockSoundGroup.WOOD).luminance(7), ArtifactRarity.COMMON));
+    public static final Block RARE_CRATE = add("rare_crate", new CrateBlock(copyOf(WHITE_WOOL).sounds(BlockSoundGroup.STONE).luminance(7), ArtifactRarity.RARE));
+    public static final Block LEGENDARY_CRATE = add("legendary_crate", new CrateBlock(copyOf(WHITE_WOOL).sounds(BlockSoundGroup.STONE).luminance(7), ArtifactRarity.LEGENDARY));
+    public static final Block LUNAR_CRATE = add("lunar_crate", new CrateBlock(copyOf(WHITE_WOOL).sounds(BlockSoundGroup.STONE).luminance(7), ArtifactRarity.LUNAR));
 
     public static final Block INCREMENTAL_ORB = add("incremental_orb", new OrbBlock(copyOf(WHITE_WOOL).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(15).nonOpaque()));
     public static final Block LUNAR_ORB = add("lunar_orb", new OrbBlock(copyOf(WHITE_WOOL).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(15).nonOpaque()));

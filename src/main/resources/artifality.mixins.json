@@ -14,17 +14,18 @@
     "common.access.BeaconAccess",
     "common.extension.ArrowMixinExtension",
     "common.extension.LightningMixinExtension",
+    "common.extension.PlayerMixinExtension",
     "common.extension.SkeletonMixinExtension",
     "common.extension.StrayMixinExtension",
     "common.extension.WitherSkeletonMixinExtension",
     "common.extension.ZombieMixinExtension"
   ],
   "client": [
-    "client.TrinketFeatureRendererMixin",
     "client.ArmorFeatureRendererMixin",
     "client.EnchantedBookItemMixin",
     "client.ItemRendererMixin",
-    "client.ItemStackMixin"
+    "client.ItemStackMixin",
+    "client.TrinketFeatureRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

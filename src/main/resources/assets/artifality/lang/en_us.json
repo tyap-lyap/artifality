@@ -9,7 +9,7 @@
     "tip.upgrading_pedestal.2": "upgrade to &ftier 2&7, or with",
     "tip.upgrading_pedestal.3": "a &fNether Star&7for &ftier 3&7.",
 
-    "block.artifality.lunar_pedestal": "Lunar Pedestal",
+    "block.artifality.lunar_pedestal": "Lunar Pedestal [WIP]",
     "tip.lunar_pedestal.0": "",
     "tip.lunar_pedestal.1": "",
     "tip.lunar_pedestal.2": "",
@@ -92,9 +92,6 @@
     "tip.forest_staff.2": "takes the necessary items from",
     "tip.forest_staff.3": "the player's inventory, and",
     "tip.forest_staff.4": "also &frewards with experience&7.",
-    "tip.forest_staff.5": "",
-    "tip.forest_staff.6": "Can be equipped on the back",
-    "tip.forest_staff.7": "only for decoration.",
 
     "item.artifality.invisibility_cape": "Invisibility Cape",
     "tip.invisibility_cape.0": "&fMakes the wearer invisible",
@@ -121,9 +118,6 @@
     "tip.harvest_staff.2": "takes the necessary items from",
     "tip.harvest_staff.3": "the player's inventory, and",
     "tip.harvest_staff.4": "also &frewards with experience&7.",
-    "tip.harvest_staff.5": "",
-    "tip.harvest_staff.6": "Can be equipped on the back",
-    "tip.harvest_staff.7": "only for decoration.",
 
     "item.artifality.floral_staff": "Floral Staff",
     "tip.floral_staff.0": "Allows you to easily &fgrow",
@@ -131,24 +125,33 @@
     "tip.floral_staff.2": "takes a necessary bone meal from",
     "tip.floral_staff.3": "the player's inventory, and",
     "tip.floral_staff.4": "also &frewards with experience&7.",
-    "tip.floral_staff.5": "",
-    "tip.floral_staff.6": "Can be equipped on the back",
-    "tip.floral_staff.7": "only for decoration.",
 
     "item.artifality.midas_touch": "Midas' Touch [WIP]",
+    "tip.midas_touch.0": "",
 
     "item.artifality.evolution_charm": "Charm of Evolution",
+    "tip.evolution_charm.0": "",
 
     "item.artifality.speed_injection": "Speed Injection",
+    "tip.speed_injection.0": "",
 
     "item.artifality.strength_injection": "Strength Injection",
+    "tip.strength_injection.0": "",
 
     "item.artifality.regeneration_injection": "Regeneration Injection",
+    "tip.regeneration_injection.0": "",
 
     "item.artifality.incremental_crystal_wand": "Incremental Crystal Wand",
+    "tip.incremental_crystal_wand.0": "",
+
     "item.artifality.lunar_crystal_wand": "Lunar Crystal Wand",
+    "tip.lunar_crystal_wand.0": "",
+
     "item.artifality.life_crystal_wand": "Life Crystal Wand",
+    "tip.life_crystal_wand.0": "",
+
     "item.artifality.wrath_crystal_wand": "Wrath Crystal Wand",
+    "tip.wrath_crystal_wand.0": "",
 
     "enchantment.artifality.lunar_damage": "Lunar Damage",
     "tip.lunar_damage.0": "&aIncreases&r melee damage, but",
@@ -164,28 +167,40 @@
 
     "advancements.artifality.root.name": "Artifality",
     "advancements.artifality.root.desc": "Welcome to the world of Artifality!",
+
     "advancements.artifality.artifact_first.name": "What's this?",
     "advancements.artifality.artifact_first.desc": "Find your first Artifact",
+
     "advancements.artifality.nature_staffs.name": "Nature Magician",
     "advancements.artifality.nature_staffs.desc": "Obtain all of the Nature Staffs",
+
     "advancements.artifality.artifact_all.name": "Collector's edition",
     "advancements.artifality.artifact_all.desc": "Get 'em all!",
+
     "advancements.artifality.artifact_upgrade.name": "Classy stuff",
     "advancements.artifality.artifact_upgrade.desc": "Upgrade an Artifact to Tier 2",
+
     "advancements.artifality.gather_crystal.name": "Shinies!",
     "advancements.artifality.gather_crystal.desc": "Gather your first crystal",
+
     "advancements.artifality.gather_all_crystals.name": "Give me all the shinies!",
     "advancements.artifality.gather_all_crystals.desc": "Why are you so obsessed with these again?",
+
     "advancements.artifality.negative_vision.name": "To see you better",
     "advancements.artifality.negative_vision.desc": "Craft any of the 3 beacon lenses §mand apply it to an active beacon",
+
     "advancements.artifality.positive_vision.name": "UNLIMITED POWER!",
     "advancements.artifality.positive_vision.desc": "Craft all 3 beacon lenses.. §mAnd apply them to 3 different max level beacons!",
+
     "advancements.artifality.upgrader_first.name": "Upgrades?",
     "advancements.artifality.upgrader_first.desc": "Craft the Pedestal of Upgrading",
+
     "advancements.artifality.upgrader_second.name": "Upgrades!",
     "advancements.artifality.upgrader_second.desc": "Upgrade the Pedestal of Upgrading to Tier 2",
+
     "advancements.artifality.upgrader_third.name": "I love upgrades!",
     "advancements.artifality.upgrader_third.desc": "Upgrade the Pedestal of Upgrading to Tier 3",
+
     "advancements.artifality.rethink_life.name": "why?",
     "advancements.artifality.rethink_life.desc": "Touch some grass",
 
@@ -193,9 +208,11 @@
     "misc.artifality.rare": "Rare",
     "misc.artifality.legendary": "Legendary",
     "misc.artifality.lunar": "Lunar",
+
     "misc.artifality.small": "Small",
     "misc.artifality.medium": "Medium",
     "misc.artifality.large": "Large",
+
     "misc.artifality.max_level": " Max Level: %",
     "misc.artifality.cooldown": " Cooldown: % Sec",
     "misc.artifality.effect_level": " Level of Effect: %",
@@ -203,6 +220,7 @@
     "misc.artifality.press_shift": "<Press Shift>",
     "misc.artifality.tier": "Tier %",
     "misc.artifality.placeable": "Placeable",
+
     "misc.artifality.discord": "<Join Our Discord Server>",
     "misc.artifality.wiki": "<Check Out the Wiki for More Info>"
 }

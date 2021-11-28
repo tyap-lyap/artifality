@@ -1,7 +1,6 @@
 package artifality.util;
 
 import artifality.extension.Artifact;
-import artifality.item.base.BaseItem;
 import artifality.item.base.TieredItem;
 import artifality.list.ArtifactRarity;
 import dev.emi.trinkets.api.Trinket;
@@ -70,7 +69,7 @@ public class TooltipAppender {
         for(String line : getTooltip(Registry.ITEM.getId(stack.getItem()).getPath())) {
             tooltip.add(new LiteralText(line.trim().replaceAll("&", "§")).formatted(Formatting.GRAY));
         }
-        if(stack.getItem() instanceof BaseItem item)item.appendTooltipInfo(stack, tooltip);
+        if(stack.getItem() instanceof Artifact item) item.appendTooltipInfo(stack, tooltip);
         if(stack.getItem() instanceof Trinket) tooltip.add(new LiteralText(""));
     }
 

@@ -16,9 +16,6 @@ public class BaseItem extends Item {
     public BaseItem(Settings settings) {
         super(settings);
     }
-
-    public void appendTooltipInfo(ItemStack stack, List<Text> tooltip){
-    }
     
     @Environment(EnvType.CLIENT)
     @Override

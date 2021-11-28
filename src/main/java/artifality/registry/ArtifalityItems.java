@@ -2,11 +2,13 @@ package artifality.registry;
 
 import artifality.ArtifalityMod;
 import artifality.item.base.ArtifactItem;
+import artifality.item.base.InjectionItem;
 import artifality.list.ArtifactRarity;
 import artifality.item.*;
 import artifality.item.base.BaseItem;
 import artifality.item.base.TieredArtifactItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -35,9 +37,9 @@ public class ArtifalityItems {
     public static final Item MIDAS_TOUCH = add("midas_touch", new TieredArtifactItem(artifact().setMaxCount(1).setRarity(ArtifactRarity.LEGENDARY)));
     public static final Item EVOLUTION_CHARM = add("evolution_charm", new TieredArtifactItem(artifact().setMaxCount(1).setRarity(ArtifactRarity.RARE)));
 
-    public static final Item SPEED_INJECTION = add("speed_injection", new TieredArtifactItem(artifact().setMaxCount(1).setRarity(ArtifactRarity.COMMON)));
-    public static final Item STRENGTH_INJECTION = add("strength_injection", new TieredArtifactItem(artifact().setMaxCount(1).setRarity(ArtifactRarity.RARE)));
-    public static final Item REGENERATION_INJECTION = add("regeneration_injection", new TieredArtifactItem(artifact().setMaxCount(1).setRarity(ArtifactRarity.RARE)));
+    public static final Item SPEED_INJECTION = add("speed_injection", new InjectionItem(artifact().setMaxCount(1).setRarity(ArtifactRarity.COMMON), StatusEffects.SPEED));
+    public static final Item STRENGTH_INJECTION = add("strength_injection", new InjectionItem(artifact().setMaxCount(1).setRarity(ArtifactRarity.RARE), StatusEffects.STRENGTH));
+    public static final Item REGENERATION_INJECTION = add("regeneration_injection", new InjectionItem(artifact().setMaxCount(1).setRarity(ArtifactRarity.RARE), StatusEffects.REGENERATION));
     
     public static final Item INCREMENTAL_CRYSTAL = add("incremental_crystal", new BaseItem(settings()));
     public static final Item LUNAR_CRYSTAL = add("lunar_crystal", new BaseItem(settings()));
