@@ -10,10 +10,7 @@
     "tip.upgrading_pedestal.3": "a &fNether Star&7for &ftier 3&7.",
 
     "block.artifality.lunar_pedestal": "Lunar Pedestal [WIP]",
-    "tip.lunar_pedestal.0": "",
-    "tip.lunar_pedestal.1": "",
-    "tip.lunar_pedestal.2": "",
-    "tip.lunar_pedestal.3": "",
+    "tip.lunar_pedestal.0": "Work In Progress.",
 
     "block.artifality.incremental_orb": "Incremental Orb",
     "block.artifality.lunar_orb": "Lunar Orb",
@@ -65,10 +62,8 @@
     "tip.life_crystal_lens.1": "players in radius of the beacon",
     "tip.life_crystal_lens.2": "if placed on top of the beacon.",
 
-    "block.artifality.wrath_crystal_lens": "Wrath Crystal Lens",
-    "tip.wrath_crystal_lens.0": "",
-    "tip.wrath_crystal_lens.1": "",
-    "tip.wrath_crystal_lens.2": "",
+    "block.artifality.wrath_crystal_lens": "Wrath Crystal Lens [WIP]",
+    "tip.wrath_crystal_lens.0": "Work In Progress.",
 
     "block.artifality.empty_lens": "Empty Lens",
 
@@ -127,10 +122,10 @@
     "tip.floral_staff.4": "also &frewards with experience&7.",
 
     "item.artifality.midas_touch": "Midas' Touch [WIP]",
-    "tip.midas_touch.0": "",
+    "tip.midas_touch.0": "Work In Progress.",
 
-    "item.artifality.evolution_charm": "Charm of Evolution",
-    "tip.evolution_charm.0": "",
+    "item.artifality.evolution_charm": "Charm of Evolution [WIP]",
+    "tip.evolution_charm.0": "Work In Progress.",
 
     "item.artifality.speed_injection": "Speed Injection",
     "tip.speed_injection.0": "",

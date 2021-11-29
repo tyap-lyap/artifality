@@ -27,7 +27,7 @@ public class ArtifalityMod implements ModInitializer {
                     groupStacks.add(book);
                 });
             })
-            .icon(ArtifalityItems.CRYSTAL_HEART::getDefaultStack).build();
+            .icon(ArtifalityItems.WRATH_CRYSTAL_WAND::getDefaultStack).build();
 
     @Override
     public void onInitialize() {

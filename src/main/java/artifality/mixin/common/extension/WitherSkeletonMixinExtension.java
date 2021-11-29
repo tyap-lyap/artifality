@@ -23,39 +23,39 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class WitherSkeletonMixinExtension extends AbstractSkeletonEntity implements ElementalExtension {
     protected WitherSkeletonMixinExtension(EntityType<? extends AbstractSkeletonEntity> entityType, World world) {super(entityType, world);}
 
-    private static final TrackedData<Boolean> ELEMENTAL = DataTracker.registerData(WitherSkeletonEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
-    private static final TrackedData<Integer> CRYSTAL_ELEMENT = DataTracker.registerData(WitherSkeletonEntity.class, TrackedDataHandlerRegistry.INTEGER);
+    private static final TrackedData<Boolean> artifality$ELEMENTAL = DataTracker.registerData(WitherSkeletonEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+    private static final TrackedData<Integer> artifality$CRYSTAL_ELEMENT = DataTracker.registerData(WitherSkeletonEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
     @Override
     protected void initDataTracker() {
         super.initDataTracker();
-        getDataTracker().startTracking(CRYSTAL_ELEMENT, 0);
-        getDataTracker().startTracking(ELEMENTAL, false);
+        getDataTracker().startTracking(artifality$CRYSTAL_ELEMENT, 0);
+        getDataTracker().startTracking(artifality$ELEMENTAL, false);
     }
 
     @Override
     public void writeCustomDataToNbt(NbtCompound nbt) {
         super.writeCustomDataToNbt(nbt);
-        nbt.putBoolean("IsElemental", artifality$isElemental());
-        nbt.putInt("CrystalElement", this.getDataTracker().get(CRYSTAL_ELEMENT));
+        nbt.putBoolean("ArtifalityIsElemental", artifality$isElemental());
+        nbt.putInt("ArtifalityCrystalElement", this.getDataTracker().get(artifality$CRYSTAL_ELEMENT));
     }
 
     @Override
     public void readCustomDataFromNbt(NbtCompound nbt) {
         super.readCustomDataFromNbt(nbt);
-        this.getDataTracker().set(ELEMENTAL, nbt.getBoolean("IsElemental"));
-        this.getDataTracker().set(CRYSTAL_ELEMENT, nbt.getInt("CrystalElement"));
+        this.getDataTracker().set(artifality$ELEMENTAL, nbt.getBoolean("ArtifalityIsElemental"));
+        this.getDataTracker().set(artifality$CRYSTAL_ELEMENT, nbt.getInt("ArtifalityCrystalElement"));
     }
 
     @Override
     public boolean artifality$isElemental() {
-        return this.getDataTracker().get(ELEMENTAL);
+        return this.getDataTracker().get(artifality$ELEMENTAL);
     }
 
     @Override
     public CrystalElement artifality$getElement() {
         try {
-            return CrystalElement.ELEMENTS.get(this.getDataTracker().get(CRYSTAL_ELEMENT));
+            return CrystalElement.ELEMENTS.get(this.getDataTracker().get(artifality$CRYSTAL_ELEMENT));
         }catch (IndexOutOfBoundsException e){
             return CrystalElement.ELEMENTS.get(0);
         }
@@ -63,8 +63,8 @@ public abstract class WitherSkeletonMixinExtension extends AbstractSkeletonEntit
 
     @Override
     public void artifality$setElement(int element) {
-        getDataTracker().set(ELEMENTAL, true);
-        getDataTracker().set(CRYSTAL_ELEMENT, element);
+        getDataTracker().set(artifality$ELEMENTAL, true);
+        getDataTracker().set(artifality$CRYSTAL_ELEMENT, element);
     }
 
     @Override
@@ -81,8 +81,8 @@ public abstract class WitherSkeletonMixinExtension extends AbstractSkeletonEntit
     void initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, EntityData entityData, NbtCompound entityNbt, CallbackInfoReturnable<EntityData> cir){
         if(!spawnReason.equals(SpawnReason.SPAWNER) && !spawnReason.equals(SpawnReason.CHUNK_GENERATION)){
             if(this.world.random.nextFloat() > 0.7F){
-                getDataTracker().set(ELEMENTAL, true);
-                getDataTracker().set(CRYSTAL_ELEMENT, this.world.random.nextInt(4));
+                getDataTracker().set(artifality$ELEMENTAL, true);
+                getDataTracker().set(artifality$CRYSTAL_ELEMENT, this.world.random.nextInt(4));
                 artifality$getElement().onInit(this, this.world);
             }
         }

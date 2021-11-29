@@ -1,60 +1,54 @@
 package artifality.mixin.common.extension;
 
+import artifality.extension.LightningExtension;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LightningEntity;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(LightningEntity.class)
-public abstract class LightningMixinExtension extends Entity implements artifality.extension.LightningExtension {
+public abstract class LightningMixinExtension extends Entity implements LightningExtension {
 
-    @Unique private boolean canSpawnFire = true;
-    @Unique private boolean canChargeCreeper = true;
-    @Unique private float damage = 0;
+    private boolean artifality$canSpawnFire = true;
+    private boolean artifality$canChargeCreeper = true;
+    private float artifality$damage = 0;
 
     public LightningMixinExtension(EntityType<?> type, World world) {
         super(type, world);
     }
 
-    @Unique
     @Override
     public void artifality$setNoFire() {
-        canSpawnFire = false;
+        artifality$canSpawnFire = false;
     }
 
-    @Unique
     @Override
     public void artifality$setCanChargeCreeper(boolean canChargeCreeper) {
-        this.canChargeCreeper = canChargeCreeper;
+        this.artifality$canChargeCreeper = canChargeCreeper;
     }
 
-    @Unique
     @Override
     public void artifality$setDamage(float damage) {
-        this.damage = damage;
+        this.artifality$damage = damage;
     }
 
-    @Unique
     @Override
     public float artifality$getDamage() {
-        return this.damage;
+        return this.artifality$damage;
     }
 
-    @Unique
     @Override
     public boolean artifality$canSpawnFire() {
-        return canSpawnFire;
+        return artifality$canSpawnFire;
     }
 
-    @Unique
     @Override
     public boolean artifality$canChargeCreeper(){
-        return canChargeCreeper;
+        return artifality$canChargeCreeper;
     }
 
     @Inject(method = "spawnFire", at = @At("HEAD"), cancellable = true)

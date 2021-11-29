@@ -21,46 +21,52 @@ public abstract class PlayerMixinExtension extends LivingEntity implements Artif
     private static final TrackedData<Integer> artifality$COMMON_CHANCE = DataTracker.registerData(PlayerEntity.class, TrackedDataHandlerRegistry.INTEGER);
     private static final TrackedData<Integer> artifality$RARE_CHANCE = DataTracker.registerData(PlayerEntity.class, TrackedDataHandlerRegistry.INTEGER);
     private static final TrackedData<Integer> artifality$LEGENDARY_CHANCE = DataTracker.registerData(PlayerEntity.class, TrackedDataHandlerRegistry.INTEGER);
-    private static final TrackedData<Integer> artifality$LUNAR_CHANCE = DataTracker.registerData(PlayerEntity.class, TrackedDataHandlerRegistry.INTEGER);
+//    private static final TrackedData<Integer> artifality$LUNAR_CHANCE = DataTracker.registerData(PlayerEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
+    @Override
     public int artifality$getCommonAmplifier(){
         return getDataTracker().get(artifality$COMMON_CHANCE);
     }
 
+    @Override
     public int artifality$getRareAmplifier(){
         return getDataTracker().get(artifality$RARE_CHANCE);
     }
 
+    @Override
     public int artifality$getLegendaryAmplifier(){
         return getDataTracker().get(artifality$LEGENDARY_CHANCE);
     }
 
-    public int artifality$getLunarAmplifier(){
-        return getDataTracker().get(artifality$LUNAR_CHANCE);
-    }
+//    public int artifality$getLunarAmplifier(){
+//        return getDataTracker().get(artifality$LUNAR_CHANCE);
+//    }
 
+    @Override
     public void artifality$setCommonAmplifier(int amplifier){
         getDataTracker().set(artifality$COMMON_CHANCE, Math.min(amplifier, 100));
     }
 
+    @Override
     public void artifality$setRareAmplifier(int amplifier){
         getDataTracker().set(artifality$RARE_CHANCE, Math.min(amplifier, 100));
     }
 
+    @Override
     public void artifality$setLegendaryAmplifier(int amplifier) {
         getDataTracker().set(artifality$LEGENDARY_CHANCE, Math.min(amplifier, 100));
     }
 
-    public void artifality$setLunarAmplifier(int amplifier) {
-        getDataTracker().set(artifality$LUNAR_CHANCE, Math.min(amplifier, 100));
-    }
+//    public void artifality$setLunarAmplifier(int amplifier) {
+//        getDataTracker().set(artifality$LUNAR_CHANCE, Math.min(amplifier, 100));
+//    }
 
     @Inject(method = "initDataTracker", at = @At("TAIL"))
     void initDataTracker(CallbackInfo ci){
         getDataTracker().startTracking(artifality$COMMON_CHANCE, 15);
         getDataTracker().startTracking(artifality$RARE_CHANCE, 5);
         getDataTracker().startTracking(artifality$LEGENDARY_CHANCE, 3);
-        getDataTracker().startTracking(artifality$LUNAR_CHANCE, 5);
+//        getDataTracker().startTracking(artifality$LUNAR_CHANCE, 5);
     }
 
     @Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))
@@ -68,7 +74,7 @@ public abstract class PlayerMixinExtension extends LivingEntity implements Artif
         nbt.putInt("ArtifalityCommonAmplifier", artifality$getCommonAmplifier());
         nbt.putInt("ArtifalityRareAmplifier", artifality$getRareAmplifier());
         nbt.putInt("ArtifalityLegendaryAmplifier", artifality$getLegendaryAmplifier());
-        nbt.putInt("ArtifalityLunarAmplifier", artifality$getLunarAmplifier());
+//        nbt.putInt("ArtifalityLunarAmplifier", artifality$getLunarAmplifier());
     }
 
     @Inject(method = "readCustomDataFromNbt", at = @At("TAIL"))
@@ -76,6 +82,6 @@ public abstract class PlayerMixinExtension extends LivingEntity implements Artif
         artifality$setCommonAmplifier(nbt.getInt("ArtifalityCommonAmplifier"));
         artifality$setRareAmplifier(nbt.getInt("ArtifalityRareAmplifier"));
         artifality$setLegendaryAmplifier(nbt.getInt("ArtifalityLegendaryAmplifier"));
-        artifality$setLunarAmplifier(nbt.getInt("ArtifalityLunarAmplifier"));
+//        artifality$setLunarAmplifier(nbt.getInt("ArtifalityLunarAmplifier"));
     }
 }

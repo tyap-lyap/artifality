@@ -6,7 +6,6 @@ import artifality.item.base.InjectionItem;
 import artifality.list.ArtifactRarity;
 import artifality.item.*;
 import artifality.item.base.BaseItem;
-import artifality.item.base.TieredArtifactItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.Item;
@@ -30,12 +29,12 @@ public class ArtifalityItems {
     public static final Item FOREST_STAFF = add("forest_staff", new ForestStaffItem(artifact().setMaxCount(1).setRarity(ArtifactRarity.COMMON)));
     public static final Item HARVEST_STAFF = add("harvest_staff", new HarvestStaffItem(artifact().setMaxCount(1).setRarity(ArtifactRarity.COMMON)));
 
-    public static final Item UKULELE = add("ukulele", new UkuleleItem(artifact().setMaxCount(1).setRarity(ArtifactRarity.LUNAR)));
+    public static final Item UKULELE = add("ukulele", new UkuleleItem(artifact().setMaxCount(1).setRarity(ArtifactRarity.RARE)));
     public static final Item ZEUS_STAFF = add("zeus_staff", new ZeusStaffItem(artifact().setMaxCount(1).setRarity(ArtifactRarity.LEGENDARY)));
     public static final Item INVISIBILITY_CAPE = add("invisibility_cape", new InvisibilityCapeItem(artifact().setMaxCount(1).setRarity(ArtifactRarity.COMMON)));
     public static final Item BALLOON = add("balloon", new BalloonItem(artifact().setMaxDamage(128).setRarity(ArtifactRarity.RARE)));
-    public static final Item MIDAS_TOUCH = add("midas_touch", new TieredArtifactItem(artifact().setMaxCount(1).setRarity(ArtifactRarity.LEGENDARY)));
-    public static final Item EVOLUTION_CHARM = add("evolution_charm", new TieredArtifactItem(artifact().setMaxCount(1).setRarity(ArtifactRarity.RARE)));
+    public static final Item MIDAS_TOUCH = add("midas_touch", new BaseItem(settings().maxCount(1)));
+    public static final Item EVOLUTION_CHARM = add("evolution_charm", new BaseItem(settings().maxCount(1)));
 
     public static final Item SPEED_INJECTION = add("speed_injection", new InjectionItem(artifact().setMaxCount(1).setRarity(ArtifactRarity.COMMON), StatusEffects.SPEED));
     public static final Item STRENGTH_INJECTION = add("strength_injection", new InjectionItem(artifact().setMaxCount(1).setRarity(ArtifactRarity.RARE), StatusEffects.STRENGTH));
