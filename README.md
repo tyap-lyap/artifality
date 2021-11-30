@@ -9,4 +9,4 @@
 </div>
 
 ## About
-Artifality is a mod that adds new Items, Blocks and Enchantments to your Minecraft world, at the moment the mod does not have a lot of content, but in the future, we are going to expand our barn, all items have in-game description, so you most likely won't get lost.
+Artifality is a Minecraft Mod that will diversify your gameplay a little by adding some new Items, Blocks, Enchantments, and Other Stuff to your Minecraft world.

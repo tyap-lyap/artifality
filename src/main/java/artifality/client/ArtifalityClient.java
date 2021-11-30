@@ -3,7 +3,7 @@ package artifality.client;
 import artifality.ArtifalityMod;
 import artifality.block.base.*;
 import artifality.client.render.ElementalFeatureRenderer;
-import artifality.list.CrystalElement;
+import artifality.list.CrystalElements;
 import artifality.registry.ArtifalityBlocks;
 import artifality.api.TwoModelsItemRegistry;
 import artifality.registry.ArtifalityItems;
@@ -51,7 +51,7 @@ public class ArtifalityClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ArtifalityBlocks.EMPTY_LENS, RenderLayer.getCutout());
 
         ModelLoadingRegistry.INSTANCE.registerModelProvider((manager, out) -> {
-            CrystalElement.ELEMENTS.forEach(element -> {
+            CrystalElements.ELEMENTS.forEach(element -> {
                 out.accept(new ModelIdentifier("artifality:" + element.getName() + "_head_overlay#inventory"));
                 out.accept(new ModelIdentifier("artifality:" + element.getName() + "_body_overlay#inventory"));
             });

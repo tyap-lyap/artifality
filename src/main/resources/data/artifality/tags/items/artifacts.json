@@ -7,6 +7,15 @@
     "artifality:harvest_staff",
     "artifality:invisibility_cape",
     "artifality:balloon",
-    "artifality:floral_staff"
+    "artifality:floral_staff",
+
+    "artifality:incremental_crystal_wand",
+    "artifality:lunar_crystal_wand",
+    "artifality:life_crystal_wand",
+    "artifality:wrath_crystal_wand",
+
+    "artifality:speed_injection",
+    "artifality:strength_injection",
+    "artifality:regeneration_injection"
   ]
 }

@@ -1,7 +1,8 @@
 package artifality.mixin.common.extension;
 
-import artifality.list.CrystalElement;
+import artifality.list.CrystalElements;
 import artifality.extension.ElementalExtension;
+import artifality.list.element.CrystalElement;
 import net.minecraft.entity.EntityData;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnReason;
@@ -55,9 +56,9 @@ public abstract class SkeletonMixinExtension extends AbstractSkeletonEntity impl
     @Override
     public CrystalElement artifality$getElement() {
         try {
-            return CrystalElement.ELEMENTS.get(this.getDataTracker().get(artifality$CRYSTAL_ELEMENT));
+            return CrystalElements.ELEMENTS.get(this.getDataTracker().get(artifality$CRYSTAL_ELEMENT));
         }catch (IndexOutOfBoundsException e){
-            return CrystalElement.ELEMENTS.get(0);
+            return CrystalElements.ELEMENTS.get(0);
         }
     }
 

@@ -27,6 +27,7 @@ import net.minecraft.text.LiteralText;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
@@ -36,15 +37,15 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings("deprecation")
 public class CrateBlock extends BaseBlock implements Waterloggable {
     public static final VoxelShape SHAPE = createCuboidShape(2, 0, 2, 14, 12, 14);
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
 
     public static final ArrayList<Item> CRYSTALS = new ArrayList<>(List.of(INCREMENTAL_CRYSTAL, LUNAR_CRYSTAL, LIFE_CRYSTAL, WRATH_CRYSTAL));
-    public static final ArrayList<Item> COMMON_ARTIFACTS = new ArrayList<>();
-    public static final ArrayList<Item> RARE_ARTIFACTS = new ArrayList<>();
-    public static final ArrayList<Item> LEGENDARY_ARTIFACTS = new ArrayList<>();
-//    public static final ArrayList<Item> LUNAR_ARTIFACTS = new ArrayList<>();
+    private final ArrayList<Item> commonArtifacts = new ArrayList<>();
+    private final ArrayList<Item> rareArtifacts = new ArrayList<>();
+    private final ArrayList<Item> legendaryArtifacts = new ArrayList<>();
 
     private final ArtifactRarity rarity;
 
@@ -55,10 +56,9 @@ public class CrateBlock extends BaseBlock implements Waterloggable {
             if(item instanceof Artifact artifact){
                 ArtifactRarity artifactRarity = artifact.getSettings().getRarity();
                 switch (artifactRarity){
-                    case COMMON -> COMMON_ARTIFACTS.add(item);
-                    case RARE -> RARE_ARTIFACTS.add(item);
-                    case LEGENDARY -> LEGENDARY_ARTIFACTS.add(item);
-//                    case LUNAR -> LUNAR_ARTIFACTS.add(item);
+                    case COMMON -> commonArtifacts.add(item);
+                    case RARE -> rareArtifacts.add(item);
+                    case LEGENDARY -> legendaryArtifacts.add(item);
                 }
             }
         });
@@ -81,7 +81,7 @@ public class CrateBlock extends BaseBlock implements Waterloggable {
             dropExperience(serverWorld, pos, 5 + world.random.nextInt(6));
             dropExperience(serverWorld, pos, 5 + world.random.nextInt(11));
         }
-        if(world.random.nextInt(5) == 0){
+        if(Math.random() < 0.5){
             dropStack(world, pos, new ItemStack(CRYSTALS.get(world.random.nextInt(CRYSTALS.size())), world.random.nextInt(5) + 1));
         }
         if (player instanceof ArtifactChances extension){
@@ -97,16 +97,13 @@ public class CrateBlock extends BaseBlock implements Waterloggable {
         legendary = extension.artifality$getLegendaryAmplifier();
         switch (rarity){
             case RARE -> {
-                common = common + 10; rare = rare + 10; legendary = legendary + 3;
+                common = common + 5; rare = rare + 10; legendary = legendary + 3;
             }
             case LEGENDARY -> {
-                common = common + 10; rare = rare + 10; legendary = legendary + 10;
+                common = common + 5; rare = rare + 5; legendary = legendary + 10;
             }
-//            case LUNAR -> {
-//                common = common + 5; rare = rare + 5; legendary = legendary + 3; lunar = lunar + 10;
-//            }
             default -> {
-                common = common + 15; rare = rare + 5; legendary = legendary + 3;
+                common = common + 10; rare = rare + 5; legendary = legendary + 3;
             }
         }
         extension.artifality$setCommonAmplifier(common);
@@ -117,7 +114,7 @@ public class CrateBlock extends BaseBlock implements Waterloggable {
         int debugrare = extension.artifality$getRareAmplifier();
         int debuglegendary = extension.artifality$getLegendaryAmplifier();
 
-        player.sendMessage(new LiteralText("[DEBUG] amplifiers: " + debugcommon + " " + debugrare + " " + debuglegendary), false);
+        player.sendMessage(new LiteralText("[DEBUG] amplifiers: " + debugcommon + "% " + debugrare + "% " + debuglegendary + "%"), false);
     }
 
     public void dropArtifact(ArtifactChances extension, World world, BlockPos pos){
@@ -125,22 +122,17 @@ public class CrateBlock extends BaseBlock implements Waterloggable {
         common = extension.artifality$getCommonAmplifier();
         rare = extension.artifality$getRareAmplifier();
         legendary = extension.artifality$getLegendaryAmplifier();
-//        lunar = extension.artifality$getLunarAmplifier();
 
-        if (world.random.nextInt(101 - legendary) == 0){
-            dropStack(world, pos, new ItemStack(LEGENDARY_ARTIFACTS.get(world.random.nextInt(LEGENDARY_ARTIFACTS.size()))));
+        if (Math.random() < (double)legendary / 100){
+            dropStack(world, pos, new ItemStack(legendaryArtifacts.get(world.random.nextInt(legendaryArtifacts.size()))));
             extension.artifality$setLegendaryAmplifier(0);
         }
-//        if (world.random.nextInt(101 - lunar) == 0){
-//            dropStack(world, pos, new ItemStack(LUNAR_ARTIFACTS.get(world.random.nextInt(LUNAR_ARTIFACTS.size()))));
-//            extension.artifality$setLunarAmplifier(0);
-//        }
-        if (world.random.nextInt(101 - rare) == 0){
-            dropStack(world, pos, new ItemStack(RARE_ARTIFACTS.get(world.random.nextInt(RARE_ARTIFACTS.size()))));
+        if (Math.random() < (double)rare / 100){
+            dropStack(world, pos, new ItemStack(rareArtifacts.get(world.random.nextInt(rareArtifacts.size()))));
             extension.artifality$setRareAmplifier(0);
         }
-        if (world.random.nextInt(101 - common) == 0){
-            dropStack(world, pos, new ItemStack(COMMON_ARTIFACTS.get(world.random.nextInt(COMMON_ARTIFACTS.size()))));
+        if (Math.random() < (double)common / 100){
+            dropStack(world, pos, new ItemStack(commonArtifacts.get(world.random.nextInt(commonArtifacts.size()))));
             extension.artifality$setCommonAmplifier(0);
         }
     }

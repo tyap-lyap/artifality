@@ -35,6 +35,7 @@ public class ArtifalityMod implements ModInitializer {
         ArtifalityBlocks.init();
         ArtifalityEnchants.init();
         ArtifalityFeatures.init();
+        ArtifalityEvents.init();
     }
 
     public static Identifier newId(String path){

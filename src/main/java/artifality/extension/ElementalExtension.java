@@ -1,6 +1,6 @@
 package artifality.extension;
 
-import artifality.list.CrystalElement;
+import artifality.list.element.CrystalElement;
 
 public interface ElementalExtension {
     boolean artifality$isElemental();

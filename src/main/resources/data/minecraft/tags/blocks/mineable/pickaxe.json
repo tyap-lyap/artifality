@@ -2,6 +2,8 @@
   "replace": false,
   "values": [
     "artifality:upgrading_pedestal",
+    "artifality:lunar_pedestal",
+    "artifality:empty_lens",
 
     "artifality:incremental_crystal_cluster",
     "artifality:small_incremental_crystal_cluster",

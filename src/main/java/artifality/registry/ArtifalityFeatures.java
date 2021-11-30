@@ -36,7 +36,7 @@ public class ArtifalityFeatures {
                 key));
 
         var crate = BuiltinRegistries.CONFIGURED_FEATURE.getKey(CRATE_FEATURE_CONFIG);
-        crate.ifPresent(key -> BiomeModifications.addFeature(ctx -> true, GenerationStep.Feature.RAW_GENERATION,
+        crate.ifPresent(key -> BiomeModifications.addFeature(ctx -> true, GenerationStep.Feature.UNDERGROUND_DECORATION,
                 key));
     }
 }
