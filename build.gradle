@@ -1,25 +1,20 @@
 plugins {
 	id 'fabric-loom' version '0.10-SNAPSHOT'
 	id 'maven-publish'
-	id "com.modrinth.minotaur" version "1.2.1"
-	id 'com.matthewprenger.cursegradle' version '1.4.0'
 }
 
-sourceCompatibility = JavaVersion.VERSION_16
-targetCompatibility = JavaVersion.VERSION_16
+sourceCompatibility = targetCompatibility = JavaVersion.VERSION_16
 
 archivesBaseName = project.archives_base_name
-version = project.mod_version + "-fabric"
+version = project.mod_version + "-" + project.minecraft_version + "-fabric"
 group = project.maven_group
 
 repositories {
-	maven { url "https://jitpack.io" } //bclib
 	maven { url "https://maven.shedaniel.me" } //rei
 	maven { url "https://maven.gegy.dev" } //databreaker
 	maven { url "https://ladysnake.jfrog.io/artifactory/mods" } //CCA
 	maven { url "https://maven.terraformersmc.com" } //modmenu, trinkets
-	maven { url "https://maven.pinkgoosik.ru" } //cosmetica, goosik-config
-//	maven { url "https://api.modrinth.com/maven" } //trinkets
+	maven { url "https://maven.pinkgoosik.ru" } //cosmetica
 }
 
 dependencies {
@@ -27,39 +22,29 @@ dependencies {
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-
 	modImplementation "dev.emi:trinkets:${trinkets_version}"
-	modImplementation "com.github.paulevsGitch:BCLib:${project.bclib_version}"
 
-	modImplementation "ru.pinkgoosik:cosmetica:0.3.0-fabric"
-	include "ru.pinkgoosik:cosmetica:0.3.0-fabric"
+	modImplementation "ru.pinkgoosik:cosmetica:0.3.2-1.17.1-fabric"
+	include "ru.pinkgoosik:cosmetica:0.3.2-1.17.1-fabric"
 	
-	modRuntime "me.shedaniel:RoughlyEnoughItems-fabric:6.0.279-alpha"
-	modRuntime "com.terraformersmc:modmenu:2.0.9"
-	modRuntime "supercoder79:databreaker:0.2.7"
+	modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:6.2.335"
+	modRuntimeOnly "com.terraformersmc:modmenu:2.0.14"
+	modRuntimeOnly "supercoder79:databreaker:0.2.7"
 }
 
 processResources {
 	inputs.property "version", project.mod_version
-
 	filesMatching("fabric.mod.json") {
 		expand "version": project.mod_version
 	}
 }
 
 tasks.withType(JavaCompile).configureEach {
-	// ensure that the encoding is set to UTF-8, no matter what the system default is
-	// this fixes some edge cases with special characters not displaying correctly
-	// see http://yodaconditions.net/blog/fix-for-java-file-encoding-problems-with-gradle.html
-	// If Javadoc is generated, this must be specified in that task too.
 	it.options.encoding = "UTF-8"
 	it.options.release = 16
 }
 
 java {
-	// Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
-	// if it is present.
-	// If you remove this line, sources will not be generated.
 	withSourcesJar()
 }
 
@@ -69,7 +54,6 @@ jar {
 	}
 }
 
-// configure the maven publication
 publishing {
 	publications {
 		mavenJava(MavenPublication) {
@@ -86,41 +70,3 @@ publishing {
 		}
 	}
 }
-
-//import com.modrinth.minotaur.TaskModrinthUpload
-//
-//task publishModrinth (type: TaskModrinthUpload){
-//	onlyIf {
-//		System.getenv("MODRINTH")
-//	}
-//	failSilently = true
-//	token = System.getenv("MODRINTH")
-//	projectId = 'IsKsViE2'
-//	versionName = "[" + project.minecraft_version + "] " + "Artifality" + " " + project.mod_version
-//	versionNumber = project.minecraft_version + "-" + project.mod_version + "-fabric"
-//	versionType = "BETA"
-//	changelog = project.mod_changelog
-//	uploadFile = remapJar
-//	addGameVersion(project.minecraft_version)
-//	addLoader("fabric")
-//}
-//
-//curseforge {
-//	apiKey = System.getenv("CURSEFORGE")
-//	project {
-//		id = "490812"
-//		changelog = project.mod_changelog
-//		releaseType = "beta"
-//		addGameVersion project.minecraft_version
-//		mainArtifact(remapJar) {
-//			displayName = "[" + project.minecraft_version + "] " + "Artifality" + " " + project.mod_version
-//		}
-//	}
-//	options {
-//		forgeGradleIntegration = false
-//	}
-//}
-//
-//afterEvaluate {
-//	tasks.curseforge490812.dependsOn remapJar
-//}
