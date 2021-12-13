@@ -217,5 +217,6 @@
     "misc.artifality.placeable": "Placeable",
 
     "misc.artifality.discord": "<Join Our Discord Server>",
-    "misc.artifality.wiki": "<Check Out the Wiki for More Info>"
+    "misc.artifality.wiki": "<Check Out the Wiki for More Info>",
+    "itemGroup.artifality.items.button.discord": "Join Our Discord"
 }

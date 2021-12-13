@@ -6,7 +6,7 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 public class ArtifactSettings {
     private final FabricItemSettings settings;
     private ArtifactRarity rarity = ArtifactRarity.COMMON;
-    private float chance = 1;
+    private boolean isCrateLoot = true;
 
     public ArtifactSettings(){
         settings = new FabricItemSettings();
@@ -16,12 +16,12 @@ public class ArtifactSettings {
         return rarity;
     }
 
-    public FabricItemSettings getItemSettings() {
-        return settings;
+    public boolean isCrateLoot() {
+        return isCrateLoot;
     }
 
-    public float getChance() {
-        return chance;
+    public FabricItemSettings getItemSettings() {
+        return settings;
     }
 
     public ArtifactSettings setRarity(ArtifactRarity rarity) {
@@ -29,8 +29,8 @@ public class ArtifactSettings {
         return this;
     }
 
-    public ArtifactSettings setChance(float chance) {
-        this.chance = chance;
+    public ArtifactSettings nonCrateItem() {
+        this.isCrateLoot = false;
         return this;
     }
 

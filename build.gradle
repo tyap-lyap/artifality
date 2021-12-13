@@ -15,6 +15,7 @@ repositories {
 	maven { url "https://ladysnake.jfrog.io/artifactory/mods" } //CCA
 	maven { url "https://maven.terraformersmc.com" } //modmenu, trinkets
 	maven { url "https://maven.pinkgoosik.ru" } //cosmetica
+    maven { url 'https://maven.wispforest.io' } //owo lib
 }
 
 dependencies {
@@ -22,7 +23,8 @@ dependencies {
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-	modImplementation "dev.emi:trinkets:${trinkets_version}"
+	modImplementation "dev.emi:trinkets:${project.trinkets_version}"
+    modImplementation "com.glisco:owo-lib:${project.owo_version}"
 
 	modImplementation "ru.pinkgoosik:cosmetica:0.3.2-1.17.1-fabric"
 	include "ru.pinkgoosik:cosmetica:0.3.2-1.17.1-fabric"

@@ -16,13 +16,13 @@ public class ItemStackMixin {
     private static final UUID ATTACK_SPEED_MODIFIER_ID = UUID.fromString("FA233E1C-4180-4865-B01B-BCCE9785ACA3");
 
     @Redirect(method = "getTooltip", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/attribute/EntityAttributeModifier;getValue()D"))
-    double lunarDamageFunctionality(EntityAttributeModifier entityAttributeModifier){
-        if(entityAttributeModifier.getId().equals(ATTACK_SPEED_MODIFIER_ID)){
+    double getValue(EntityAttributeModifier attributeModifier){
+        if(attributeModifier.getId().equals(ATTACK_SPEED_MODIFIER_ID)){
             if (EnchantmentHelper.get(self).containsKey(ArtifalityEnchants.LUNAR_DAMAGE)){
                 int level = EnchantmentHelper.getLevel(ArtifalityEnchants.LUNAR_DAMAGE, self);
-                return entityAttributeModifier.getValue() - (level + 2) / 20.0F;
+                return attributeModifier.getValue() - (level + 2) / 20.0F;
             }
         }
-        return entityAttributeModifier.getValue();
+        return attributeModifier.getValue();
     }
 }
