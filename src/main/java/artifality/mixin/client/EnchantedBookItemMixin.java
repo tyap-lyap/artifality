@@ -17,7 +17,7 @@ import java.util.List;
 public abstract class EnchantedBookItemMixin {
 
     @Inject(method = "appendTooltip", at = @At("TAIL"))
-    void enchantmentDescription(ItemStack stack, World world, List<Text> tooltip, TooltipContext context, CallbackInfo ci){
+    void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context, CallbackInfo ci){
         TooltipAppender.append(stack, tooltip);
     }
 }

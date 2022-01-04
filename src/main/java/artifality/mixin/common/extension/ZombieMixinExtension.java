@@ -30,19 +30,19 @@ public abstract class ZombieMixinExtension extends HostileEntity implements Elem
     private static final TrackedData<Integer> artifality$CRYSTAL_ELEMENT = DataTracker.registerData(ZombieEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
     @Inject(method = "initDataTracker", at = @At("TAIL"))
-    void initDataTracker(CallbackInfo ci){
+    void initDataTracker(CallbackInfo ci) {
         getDataTracker().startTracking(artifality$CRYSTAL_ELEMENT, 0);
         getDataTracker().startTracking(artifality$ELEMENTAL, false);
     }
 
     @Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))
-    void writeCustomDataToNbt(NbtCompound nbt, CallbackInfo ci){
+    void writeCustomDataToNbt(NbtCompound nbt, CallbackInfo ci) {
         nbt.putBoolean("ArtifalityIsElemental", artifality$isElemental());
         nbt.putInt("ArtifalityCrystalElement", this.getDataTracker().get(artifality$CRYSTAL_ELEMENT));
     }
 
     @Inject(method = "readCustomDataFromNbt", at = @At("TAIL"))
-    void readCustomDataFromNbt(NbtCompound nbt, CallbackInfo ci){
+    void readCustomDataFromNbt(NbtCompound nbt, CallbackInfo ci) {
         this.getDataTracker().set(artifality$ELEMENTAL, nbt.getBoolean("ArtifalityIsElemental"));
         this.getDataTracker().set(artifality$CRYSTAL_ELEMENT, nbt.getInt("ArtifalityCrystalElement"));
     }
@@ -68,29 +68,29 @@ public abstract class ZombieMixinExtension extends HostileEntity implements Elem
     }
 
     @Inject(method = "tick", at = @At("TAIL"))
-    void tick(CallbackInfo ci){
-        if(!getEntityWorld().isClient()){
-            if(artifality$isElemental()){
+    void tick(CallbackInfo ci) {
+        if(!getEntityWorld().isClient()) {
+            if(artifality$isElemental()) {
                 artifality$getElement().tick(this, this.getEntityWorld());
             }
         }
     }
 
     @Inject(method = "initialize", at = @At("RETURN"))
-    void initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, EntityData entityData, NbtCompound entityNbt, CallbackInfoReturnable<EntityData> cir){
-        if(!spawnReason.equals(SpawnReason.SPAWNER) && !spawnReason.equals(SpawnReason.CHUNK_GENERATION) && !isBaby()){
-            if(this.world.random.nextFloat() > 0.7F){
+    void initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, EntityData entityData, NbtCompound entityNbt, CallbackInfoReturnable<EntityData> cir) {
+        if(!spawnReason.equals(SpawnReason.SPAWNER) && !spawnReason.equals(SpawnReason.CHUNK_GENERATION) && !isBaby()) {
+            if(this.world.random.nextFloat() > 0.8F) {
                 getDataTracker().set(artifality$ELEMENTAL, true);
-                getDataTracker().set(artifality$CRYSTAL_ELEMENT, this.world.random.nextInt(4));
+                getDataTracker().set(artifality$CRYSTAL_ELEMENT, this.world.random.nextInt(3));
                 artifality$getElement().onInit(this, this.world);
             }
         }
     }
 
     @Inject(method = "tryAttack", at = @At("RETURN"))
-    void tryAttack(Entity target, CallbackInfoReturnable<Boolean> cir){
-        if(target instanceof LivingEntity livingEntity){
-            if(artifality$isElemental()){
+    void tryAttack(Entity target, CallbackInfoReturnable<Boolean> cir) {
+        if(target instanceof LivingEntity livingEntity) {
+            if(artifality$isElemental()) {
                 artifality$getElement().onAttack(livingEntity, this.getEntityWorld());
             }
         }

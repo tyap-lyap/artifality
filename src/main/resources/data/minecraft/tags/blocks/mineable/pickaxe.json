@@ -30,15 +30,6 @@
     "artifality:life_crystal_lens",
     "artifality:budding_life_crystal",
     "artifality:life_crystal_stairs",
-    "artifality:life_crystal_slab",
-
-    "artifality:wrath_crystal_cluster",
-    "artifality:small_wrath_crystal_cluster",
-    "artifality:medium_wrath_crystal_cluster",
-    "artifality:wrath_crystal_block",
-    "artifality:wrath_crystal_lens",
-    "artifality:budding_wrath_crystal",
-    "artifality:wrath_crystal_stairs",
-    "artifality:wrath_crystal_slab"
+    "artifality:life_crystal_slab"
   ]
 }

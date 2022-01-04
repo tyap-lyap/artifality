@@ -3,7 +3,6 @@
   "values": [
     "artifality:incremental_crystal_stairs",
     "artifality:lunar_crystal_stairs",
-    "artifality:life_crystal_stairs",
-    "artifality:wrath_crystal_stairs"
+    "artifality:life_crystal_stairs"
   ]
 }

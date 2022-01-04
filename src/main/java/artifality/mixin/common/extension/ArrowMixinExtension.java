@@ -25,19 +25,19 @@ public abstract class ArrowMixinExtension extends PersistentProjectileEntity imp
     private static final TrackedData<Integer> artifality$CRYSTAL_ELEMENT = DataTracker.registerData(ArrowEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
     @Inject(method = "initDataTracker", at = @At("TAIL"))
-    void initDataTracker(CallbackInfo ci){
+    void initDataTracker(CallbackInfo ci) {
         getDataTracker().startTracking(artifality$CRYSTAL_ELEMENT, 0);
         getDataTracker().startTracking(artifality$ELEMENTAL, false);
     }
 
     @Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))
-    void writeCustomDataToNbt(NbtCompound nbt, CallbackInfo ci){
+    void writeCustomDataToNbt(NbtCompound nbt, CallbackInfo ci) {
         nbt.putBoolean("ArtifalityIsElemental", artifality$isElemental());
         nbt.putInt("ArtifalityCrystalElement", this.getDataTracker().get(artifality$CRYSTAL_ELEMENT));
     }
 
     @Inject(method = "readCustomDataFromNbt", at = @At("TAIL"))
-    void readCustomDataFromNbt(NbtCompound nbt, CallbackInfo ci){
+    void readCustomDataFromNbt(NbtCompound nbt, CallbackInfo ci) {
         this.getDataTracker().set(artifality$ELEMENTAL, nbt.getBoolean("ArtifalityIsElemental"));
         this.getDataTracker().set(artifality$CRYSTAL_ELEMENT, nbt.getInt("ArtifalityCrystalElement"));
     }
@@ -63,7 +63,7 @@ public abstract class ArrowMixinExtension extends PersistentProjectileEntity imp
     }
 
     @Inject(method = "onHit", at = @At("TAIL"))
-    void onHit(LivingEntity target, CallbackInfo ci){
+    void onHit(LivingEntity target, CallbackInfo ci) {
         if(artifality$isElemental()){
             artifality$getElement().onAttack(target, this.world);
         }

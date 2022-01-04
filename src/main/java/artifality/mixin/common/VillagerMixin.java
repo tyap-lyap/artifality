@@ -22,9 +22,9 @@ public abstract class VillagerMixin extends MerchantEntity implements Interactio
     }
 
     @Inject(method = "onStruckByLightning", at = @At("HEAD"), cancellable = true)
-    void onStruckByLightning(ServerWorld world, LightningEntity lightning, CallbackInfo ci){
-        if(lightning instanceof LightningExtension extension){
-            if(!extension.artifality$canSpawnFire()){
+    void onStruckByLightning(ServerWorld world, LightningEntity lightning, CallbackInfo ci) {
+        if(lightning instanceof LightningExtension extension) {
+            if(!extension.artifality$canSpawnFire()) {
                 super.onStruckByLightning(world, lightning);
                 ci.cancel();
             }

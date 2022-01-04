@@ -24,31 +24,31 @@ public abstract class PlayerMixinExtension extends LivingEntity implements Artif
 //    private static final TrackedData<Integer> artifality$LUNAR_CHANCE = DataTracker.registerData(PlayerEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
     @Override
-    public int artifality$getCommonAmplifier(){
+    public int artifality$getCommonAmplifier() {
         return getDataTracker().get(artifality$COMMON_CHANCE);
     }
 
     @Override
-    public int artifality$getRareAmplifier(){
+    public int artifality$getRareAmplifier() {
         return getDataTracker().get(artifality$RARE_CHANCE);
     }
 
     @Override
-    public int artifality$getLegendaryAmplifier(){
+    public int artifality$getLegendaryAmplifier() {
         return getDataTracker().get(artifality$LEGENDARY_CHANCE);
     }
 
-//    public int artifality$getLunarAmplifier(){
+//    public int artifality$getLunarAmplifier() {
 //        return getDataTracker().get(artifality$LUNAR_CHANCE);
 //    }
 
     @Override
-    public void artifality$setCommonAmplifier(int amplifier){
+    public void artifality$setCommonAmplifier(int amplifier) {
         getDataTracker().set(artifality$COMMON_CHANCE, Math.min(amplifier, 100));
     }
 
     @Override
-    public void artifality$setRareAmplifier(int amplifier){
+    public void artifality$setRareAmplifier(int amplifier) {
         getDataTracker().set(artifality$RARE_CHANCE, Math.min(amplifier, 100));
     }
 
@@ -62,7 +62,7 @@ public abstract class PlayerMixinExtension extends LivingEntity implements Artif
 //    }
 
     @Inject(method = "initDataTracker", at = @At("TAIL"))
-    void initDataTracker(CallbackInfo ci){
+    void initDataTracker(CallbackInfo ci) {
         getDataTracker().startTracking(artifality$COMMON_CHANCE, 15);
         getDataTracker().startTracking(artifality$RARE_CHANCE, 5);
         getDataTracker().startTracking(artifality$LEGENDARY_CHANCE, 3);
@@ -70,7 +70,7 @@ public abstract class PlayerMixinExtension extends LivingEntity implements Artif
     }
 
     @Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))
-    void writeCustomDataToNbt(NbtCompound nbt, CallbackInfo ci){
+    void writeCustomDataToNbt(NbtCompound nbt, CallbackInfo ci) {
         nbt.putInt("ArtifalityCommonAmplifier", artifality$getCommonAmplifier());
         nbt.putInt("ArtifalityRareAmplifier", artifality$getRareAmplifier());
         nbt.putInt("ArtifalityLegendaryAmplifier", artifality$getLegendaryAmplifier());
@@ -78,7 +78,7 @@ public abstract class PlayerMixinExtension extends LivingEntity implements Artif
     }
 
     @Inject(method = "readCustomDataFromNbt", at = @At("TAIL"))
-    void readCustomDataFromNbt(NbtCompound nbt, CallbackInfo ci){
+    void readCustomDataFromNbt(NbtCompound nbt, CallbackInfo ci) {
         artifality$setCommonAmplifier(nbt.getInt("ArtifalityCommonAmplifier"));
         artifality$setRareAmplifier(nbt.getInt("ArtifalityRareAmplifier"));
         artifality$setLegendaryAmplifier(nbt.getInt("ArtifalityLegendaryAmplifier"));

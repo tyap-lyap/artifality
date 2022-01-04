@@ -23,11 +23,9 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.tag.FluidTags;
-import net.minecraft.text.LiteralText;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
@@ -42,7 +40,7 @@ public class CrateBlock extends BaseBlock implements Waterloggable {
     public static final VoxelShape SHAPE = createCuboidShape(2, 0, 2, 14, 12, 14);
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
 
-    public static final ArrayList<Item> CRYSTALS = new ArrayList<>(List.of(INCREMENTAL_CRYSTAL, LUNAR_CRYSTAL, LIFE_CRYSTAL, WRATH_CRYSTAL));
+    public static final ArrayList<Item> CRYSTALS = new ArrayList<>(List.of(INCREMENTAL_CRYSTAL, LUNAR_CRYSTAL, LIFE_CRYSTAL));
     private final ArrayList<Item> commonArtifacts = new ArrayList<>();
     private final ArrayList<Item> rareArtifacts = new ArrayList<>();
     private final ArrayList<Item> legendaryArtifacts = new ArrayList<>();
@@ -95,7 +93,7 @@ public class CrateBlock extends BaseBlock implements Waterloggable {
         common = extension.artifality$getCommonAmplifier();
         rare = extension.artifality$getRareAmplifier();
         legendary = extension.artifality$getLegendaryAmplifier();
-        switch (rarity){
+        switch (rarity) {
             case RARE -> {
                 common = common + 5; rare = rare + 10; legendary = legendary + 3;
             }
@@ -110,11 +108,11 @@ public class CrateBlock extends BaseBlock implements Waterloggable {
         extension.artifality$setRareAmplifier(rare);
         extension.artifality$setLegendaryAmplifier(legendary);
 
-        int debugcommon = extension.artifality$getCommonAmplifier();
-        int debugrare = extension.artifality$getRareAmplifier();
-        int debuglegendary = extension.artifality$getLegendaryAmplifier();
-
-        player.sendMessage(new LiteralText("[DEBUG] amplifiers: " + debugcommon + "% " + debugrare + "% " + debuglegendary + "%"), false);
+//        int debugcommon = extension.artifality$getCommonAmplifier();
+//        int debugrare = extension.artifality$getRareAmplifier();
+//        int debuglegendary = extension.artifality$getLegendaryAmplifier();
+//
+//        player.sendMessage(new LiteralText("[DEBUG] amplifiers: " + debugcommon + "% " + debugrare + "% " + debuglegendary + "%"), false);
     }
 
     public void dropArtifact(ArtifactChances extension, World world, BlockPos pos){
@@ -157,7 +155,7 @@ public class CrateBlock extends BaseBlock implements Waterloggable {
     @Override
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
         if (state.get(WATERLOGGED)) {
-            world.getFluidTickScheduler().schedule(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
+            world.createAndScheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
         }
         return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
     }

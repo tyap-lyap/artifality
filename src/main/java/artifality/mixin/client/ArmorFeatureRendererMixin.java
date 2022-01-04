@@ -21,8 +21,8 @@ public abstract class ArmorFeatureRendererMixin<T extends LivingEntity, M extend
 
     @Inject(method = "render*", at = @At("HEAD"), cancellable = true)
     void render(MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, T entity, float limbAngle, float limbDistance, float tickDelta, float animationProgress, float headYaw, float headPitch, CallbackInfo ci){
-        if(entity instanceof PlayerEntity player){
-            if(player.isSneaking() && TrinketsUtils.containsTrinket(player, ArtifalityItems.INVISIBILITY_CAPE)){
+        if(entity instanceof PlayerEntity player) {
+            if(player.isSneaking() && TrinketsUtils.containsTrinket(player, ArtifalityItems.INVISIBILITY_CAPE)) {
                 ci.cancel();
             }
         }

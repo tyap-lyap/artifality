@@ -57,7 +57,7 @@ public abstract class WitherSkeletonMixinExtension extends AbstractSkeletonEntit
     public CrystalElement artifality$getElement() {
         try {
             return CrystalElements.ELEMENTS.get(this.getDataTracker().get(artifality$CRYSTAL_ELEMENT));
-        }catch (IndexOutOfBoundsException e){
+        }catch (IndexOutOfBoundsException e) {
             return CrystalElements.ELEMENTS.get(0);
         }
     }
@@ -71,19 +71,19 @@ public abstract class WitherSkeletonMixinExtension extends AbstractSkeletonEntit
     @Override
     public void tick() {
         super.tick();
-        if(!getEntityWorld().isClient()){
-            if(artifality$isElemental()){
+        if(!getEntityWorld().isClient()) {
+            if(artifality$isElemental()) {
                 artifality$getElement().tick(this, this.getEntityWorld());
             }
         }
     }
 
     @Inject(method = "initialize", at = @At("RETURN"))
-    void initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, EntityData entityData, NbtCompound entityNbt, CallbackInfoReturnable<EntityData> cir){
-        if(!spawnReason.equals(SpawnReason.SPAWNER) && !spawnReason.equals(SpawnReason.CHUNK_GENERATION)){
-            if(this.world.random.nextFloat() > 0.7F){
+    void initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, EntityData entityData, NbtCompound entityNbt, CallbackInfoReturnable<EntityData> cir) {
+        if(!spawnReason.equals(SpawnReason.SPAWNER) && !spawnReason.equals(SpawnReason.CHUNK_GENERATION)) {
+            if(this.world.random.nextFloat() > 0.8F) {
                 getDataTracker().set(artifality$ELEMENTAL, true);
-                getDataTracker().set(artifality$CRYSTAL_ELEMENT, this.world.random.nextInt(4));
+                getDataTracker().set(artifality$CRYSTAL_ELEMENT, this.world.random.nextInt(3));
                 artifality$getElement().onInit(this, this.world);
             }
         }

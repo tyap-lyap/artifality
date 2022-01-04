@@ -5,8 +5,6 @@
   "slots": [
     "head/hat",
     "chest/back",
-    "chest/cape",
-    "chest/necklace",
-    "legs/belt"
+    "chest/cape"
   ]
 }

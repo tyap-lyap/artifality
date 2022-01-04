@@ -24,41 +24,41 @@ public class CrystalFeature extends Feature<DefaultFeatureConfig> {
         for (int i = 0; i < 24; i++) {
             int x = context.getOrigin().getX() + context.getRandom().nextInt(6);
             int z = context.getOrigin().getZ() + context.getRandom().nextInt(6);
-            int y = context.getRandom().nextInt(8) + 11;
+            int y = context.getRandom().nextInt(8) + 16;
             BlockPos pos = new BlockPos(x, y, z);
             StructureWorldAccess world = context.getWorld();
-            if(world.isAir(pos)){
+            if(world.isAir(pos)) {
                 if (isStone(world.getBlockState(pos.down()))) {
                     BlockState cluster = pack.getRandomCluster().getDefaultState();
                     setBlockState(world, pos, cluster);
                     setBlockState(world, pos.down(), pack.budding().getDefaultState());
                     generated = true;
 
-                }else if(isStone(world.getBlockState(pos.add(0, 0, -1)))){
+                }else if(isStone(world.getBlockState(pos.add(0, 0, -1)))) {
                     BlockState cluster = pack.getRandomCluster().getDefaultState().with(Properties.FACING, Direction.SOUTH);
                     setBlockState(world, pos, cluster);
                     setBlockState(world, pos.add(0, 0, -1), pack.budding().getDefaultState());
                     generated = true;
 
-                }else if(isStone(world.getBlockState(pos.add(0, 0, 1)))){
+                }else if(isStone(world.getBlockState(pos.add(0, 0, 1)))) {
                     BlockState cluster = pack.getRandomCluster().getDefaultState().with(Properties.FACING, Direction.NORTH);
                     setBlockState(world, pos, cluster);
                     setBlockState(world, pos.add(0, 0, 1), pack.budding().getDefaultState());
                     generated = true;
 
-                }else if(isStone(world.getBlockState(pos.add(-1, 0, 0)))){
+                }else if(isStone(world.getBlockState(pos.add(-1, 0, 0)))) {
                     BlockState cluster = pack.getRandomCluster().getDefaultState().with(Properties.FACING, Direction.EAST);
                     setBlockState(world, pos, cluster);
                     setBlockState(world, pos.add(-1, 0, 0), pack.budding().getDefaultState());
                     generated = true;
 
-                }else if(isStone(world.getBlockState(pos.add(1, 0, 0)))){
+                }else if(isStone(world.getBlockState(pos.add(1, 0, 0)))) {
                     BlockState cluster = pack.getRandomCluster().getDefaultState().with(Properties.FACING, Direction.WEST);
                     setBlockState(world, pos, cluster);
                     setBlockState(world, pos.add(1, 0, 0), pack.budding().getDefaultState());
                     generated = true;
 
-                }else if(isStone(world.getBlockState(pos.up()))){
+                }else if(isStone(world.getBlockState(pos.up()))) {
                     BlockState cluster = pack.getRandomCluster().getDefaultState().with(Properties.FACING, Direction.DOWN);
                     setBlockState(world, pos, cluster);
                     setBlockState(world, pos.up(), pack.budding().getDefaultState());
@@ -69,7 +69,7 @@ public class CrystalFeature extends Feature<DefaultFeatureConfig> {
         return generated;
     }
 
-    public static boolean isStone(BlockState state){
-        return state.isOf(Blocks.STONE);
+    public static boolean isStone(BlockState state) {
+        return state.isOf(Blocks.STONE) || state.isOf(Blocks.ANDESITE);
     }
 }

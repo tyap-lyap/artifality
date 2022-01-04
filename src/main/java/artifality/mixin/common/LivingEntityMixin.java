@@ -15,14 +15,14 @@ public class LivingEntityMixin {
     LivingEntity self = (LivingEntity)(Object)this;
 
     @Redirect(method = "travel", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/Block;getSlipperiness()F"))
-    float getSlipperiness(Block block){
-        if (hasSlidingCurse()){
+    float getSlipperiness(Block block) {
+        if (hasSlidingCurse()) {
             return 1;
         }else return block.getSlipperiness();
     }
 
     @Unique
-    boolean hasSlidingCurse(){
+    boolean hasSlidingCurse() {
         return (EnchantmentHelper.get(self.getEquippedStack(EquipmentSlot.FEET)).containsKey(ArtifalityEnchants.SLIDING_CURSE) ||
                 EnchantmentHelper.get(self.getEquippedStack(EquipmentSlot.LEGS)).containsKey(ArtifalityEnchants.SLIDING_CURSE) ||
                 EnchantmentHelper.get(self.getEquippedStack(EquipmentSlot.CHEST)).containsKey(ArtifalityEnchants.SLIDING_CURSE) ||

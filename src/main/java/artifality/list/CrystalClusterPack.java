@@ -28,15 +28,15 @@ public class CrystalClusterPack {
                 ArtifalityBlocks.MEDIUM_LIFE_CRYSTAL_CLUSTER,
                 ArtifalityBlocks.LIFE_CRYSTAL_CLUSTER));
 
-        LIST.add(new Pack(
-                ArtifalityBlocks.BUDDING_WRATH_CRYSTAL,
-                ArtifalityBlocks.SMALL_WRATH_CRYSTAL_CLUSTER,
-                ArtifalityBlocks.MEDIUM_WRATH_CRYSTAL_CLUSTER,
-                ArtifalityBlocks.WRATH_CRYSTAL_CLUSTER));
+//        LIST.add(new Pack(
+//                ArtifalityBlocks.BUDDING_WRATH_CRYSTAL,
+//                ArtifalityBlocks.SMALL_WRATH_CRYSTAL_CLUSTER,
+//                ArtifalityBlocks.MEDIUM_WRATH_CRYSTAL_CLUSTER,
+//                ArtifalityBlocks.WRATH_CRYSTAL_CLUSTER));
     }
 
     public record Pack(Block budding, Block... clusters) {
-        public Block getRandomCluster(){
+        public Block getRandomCluster() {
             int random = new Random().nextInt(clusters.length);
             return clusters[random];
         }

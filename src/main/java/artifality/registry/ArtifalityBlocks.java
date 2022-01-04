@@ -2,7 +2,6 @@ package artifality.registry;
 
 import artifality.block.UpgradingPedestalBlock;
 import artifality.block.base.*;
-import artifality.list.ArtifactRarity;
 import artifality.list.LensEffects;
 import artifality.registry.base.BlockRegistry;
 import net.minecraft.block.Block;
@@ -12,15 +11,15 @@ import net.minecraft.util.registry.Registry;
 
 @SuppressWarnings("unused")
 public class ArtifalityBlocks extends BlockRegistry {
-    public static final Block COMMON_CRATE = add("common_crate", new CrateBlock(copyOf(WHITE_WOOL).sounds(BlockSoundGroup.WOOD).luminance(7), ArtifactRarity.COMMON));
-    public static final Block RARE_CRATE = add("rare_crate", new CrateBlock(copyOf(WHITE_WOOL).sounds(BlockSoundGroup.STONE).luminance(7), ArtifactRarity.RARE));
-    public static final Block LEGENDARY_CRATE = add("legendary_crate", new CrateBlock(copyOf(WHITE_WOOL).sounds(BlockSoundGroup.STONE).luminance(7), ArtifactRarity.LEGENDARY));
-    public static final Block LUNAR_CRATE = add("lunar_crate", new CrateBlock(copyOf(WHITE_WOOL).sounds(BlockSoundGroup.STONE).luminance(7), ArtifactRarity.RARE));
+//    public static final Block COMMON_CRATE = add("common_crate", new CrateBlock(copyOf(WHITE_WOOL).sounds(BlockSoundGroup.WOOD).luminance(7), ArtifactRarity.COMMON));
+//    public static final Block RARE_CRATE = add("rare_crate", new CrateBlock(copyOf(WHITE_WOOL).sounds(BlockSoundGroup.STONE).luminance(7), ArtifactRarity.RARE));
+//    public static final Block LEGENDARY_CRATE = add("legendary_crate", new CrateBlock(copyOf(WHITE_WOOL).sounds(BlockSoundGroup.STONE).luminance(7), ArtifactRarity.LEGENDARY));
+//    public static final Block LUNAR_CRATE = add("lunar_crate", new CrateBlock(copyOf(WHITE_WOOL).sounds(BlockSoundGroup.STONE).luminance(7), ArtifactRarity.RARE));
 
     public static final Block INCREMENTAL_ORB = add("incremental_orb", new OrbBlock(copyOf(WHITE_WOOL).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(15).nonOpaque()));
     public static final Block LUNAR_ORB = add("lunar_orb", new OrbBlock(copyOf(WHITE_WOOL).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(15).nonOpaque()));
     public static final Block LIFE_ORB = add("life_orb", new OrbBlock(copyOf(WHITE_WOOL).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(15).nonOpaque()));
-    public static final Block WRATH_ORB = add("wrath_orb", new OrbBlock(copyOf(WHITE_WOOL).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(15).nonOpaque()));
+//    public static final Block WRATH_ORB = add("wrath_orb", new OrbBlock(copyOf(WHITE_WOOL).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(15).nonOpaque()));
 
     public static final Block SMALL_INCREMENTAL_CRYSTAL_CLUSTER = cluster("small_incremental_crystal_cluster", "small");
     public static final Block MEDIUM_INCREMENTAL_CRYSTAL_CLUSTER = cluster("medium_incremental_crystal_cluster", "medium");
@@ -46,18 +45,18 @@ public class ArtifalityBlocks extends BlockRegistry {
     public static final Block LIFE_CRYSTAL_SLAB = crystalSlab("life_crystal_slab");
     public static final Block LIFE_CRYSTAL_STAIRS = crystalStairs("life_crystal_stairs");
 
-    public static final Block SMALL_WRATH_CRYSTAL_CLUSTER = cluster("small_wrath_crystal_cluster", "small");
-    public static final Block MEDIUM_WRATH_CRYSTAL_CLUSTER = cluster("medium_wrath_crystal_cluster", "medium");
-    public static final Block WRATH_CRYSTAL_CLUSTER = cluster("wrath_crystal_cluster", "large");
-    public static final Block BUDDING_WRATH_CRYSTAL = budding("budding_wrath_crystal", SMALL_WRATH_CRYSTAL_CLUSTER, MEDIUM_WRATH_CRYSTAL_CLUSTER, WRATH_CRYSTAL_CLUSTER);
-    public static final Block WRATH_CRYSTAL_BLOCK = crystalBlock("wrath_crystal_block");
-    public static final Block WRATH_CRYSTAL_SLAB = crystalSlab("wrath_crystal_slab");
-    public static final Block WRATH_CRYSTAL_STAIRS = crystalStairs("wrath_crystal_stairs");
+//    public static final Block SMALL_WRATH_CRYSTAL_CLUSTER = cluster("small_wrath_crystal_cluster", "small");
+//    public static final Block MEDIUM_WRATH_CRYSTAL_CLUSTER = cluster("medium_wrath_crystal_cluster", "medium");
+//    public static final Block WRATH_CRYSTAL_CLUSTER = cluster("wrath_crystal_cluster", "large");
+//    public static final Block BUDDING_WRATH_CRYSTAL = budding("budding_wrath_crystal", SMALL_WRATH_CRYSTAL_CLUSTER, MEDIUM_WRATH_CRYSTAL_CLUSTER, WRATH_CRYSTAL_CLUSTER);
+//    public static final Block WRATH_CRYSTAL_BLOCK = crystalBlock("wrath_crystal_block");
+//    public static final Block WRATH_CRYSTAL_SLAB = crystalSlab("wrath_crystal_slab");
+//    public static final Block WRATH_CRYSTAL_STAIRS = crystalStairs("wrath_crystal_stairs");
 
     public static final Block INCREMENTAL_CRYSTAL_LENS = lens("incremental_crystal_lens", LensEffects.INCREMENTAL);
     public static final Block LUNAR_CRYSTAL_LENS = lens("lunar_crystal_lens", LensEffects.LUNAR);
     public static final Block LIFE_CRYSTAL_LENS = lens("life_crystal_lens", LensEffects.LIFE);
-    public static final Block WRATH_CRYSTAL_LENS = lens("wrath_crystal_lens", LensEffects.WRATH);
+//    public static final Block WRATH_CRYSTAL_LENS = lens("wrath_crystal_lens", LensEffects.WRATH);
     public static final Block EMPTY_LENS = lens("empty_lens", LensEffects.EMPTY);
 
     public static final Block UPGRADING_PEDESTAL = add("upgrading_pedestal", new UpgradingPedestalBlock(copyOf(COBBLESTONE).luminance(state -> state.get(UpgradingPedestalBlock.CHARGES) * 3)));

@@ -31,9 +31,9 @@ public class ArtifalityClient implements ClientModInitializer {
         ArtifalityParticles.register();
 
         TwoModelsItemRegistry.register(ArtifalityItems.UKULELE, ArtifalityItems.ZEUS_STAFF, ArtifalityItems.BALLOON,
-                ArtifalityItems.FOREST_STAFF, ArtifalityItems.FLORAL_STAFF, ArtifalityItems.HARVEST_STAFF,
-                ArtifalityItems.INCREMENTAL_CRYSTAL_WAND, ArtifalityItems.LUNAR_CRYSTAL_WAND, ArtifalityItems.LIFE_CRYSTAL_WAND,
-                ArtifalityItems.WRATH_CRYSTAL_WAND);
+                ArtifalityItems.FOREST_STAFF, ArtifalityItems.FLORAL_STAFF, ArtifalityItems.HARVEST_STAFF);
+//        TwoModelsItemRegistry.register(ArtifalityItems.INCREMENTAL_CRYSTAL_WAND, ArtifalityItems.LUNAR_CRYSTAL_WAND,
+//                ArtifalityItems.LIFE_CRYSTAL_WAND, ArtifalityItems.WRATH_CRYSTAL_WAND);
 
         ArtifalityItems.ITEMS.forEach((id, item) -> {
             if(item instanceof TrinketRenderer renderer) TrinketRendererRegistry.registerRenderer(item, renderer);

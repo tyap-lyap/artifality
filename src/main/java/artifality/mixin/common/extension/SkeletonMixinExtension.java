@@ -31,19 +31,19 @@ public abstract class SkeletonMixinExtension extends AbstractSkeletonEntity impl
     private static final TrackedData<Integer> artifality$CRYSTAL_ELEMENT = DataTracker.registerData(SkeletonEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
     @Inject(method = "initDataTracker", at = @At("TAIL"))
-    void initDataTracker(CallbackInfo ci){
+    void initDataTracker(CallbackInfo ci) {
         getDataTracker().startTracking(artifality$CRYSTAL_ELEMENT, 0);
         getDataTracker().startTracking(artifality$ELEMENTAL, false);
     }
 
     @Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))
-    void writeCustomDataToNbt(NbtCompound nbt, CallbackInfo ci){
+    void writeCustomDataToNbt(NbtCompound nbt, CallbackInfo ci) {
         nbt.putBoolean("ArtifalityIsElemental", artifality$isElemental());
         nbt.putInt("ArtifalityCrystalElement", this.getDataTracker().get(artifality$CRYSTAL_ELEMENT));
     }
 
     @Inject(method = "readCustomDataFromNbt", at = @At("TAIL"))
-    void readCustomDataFromNbt(NbtCompound nbt, CallbackInfo ci){
+    void readCustomDataFromNbt(NbtCompound nbt, CallbackInfo ci) {
         this.getDataTracker().set(artifality$ELEMENTAL, nbt.getBoolean("ArtifalityIsElemental"));
         this.getDataTracker().set(artifality$CRYSTAL_ELEMENT, nbt.getInt("ArtifalityCrystalElement"));
     }
@@ -57,7 +57,7 @@ public abstract class SkeletonMixinExtension extends AbstractSkeletonEntity impl
     public CrystalElement artifality$getElement() {
         try {
             return CrystalElements.ELEMENTS.get(this.getDataTracker().get(artifality$CRYSTAL_ELEMENT));
-        }catch (IndexOutOfBoundsException e){
+        }catch (IndexOutOfBoundsException e) {
             return CrystalElements.ELEMENTS.get(0);
         }
     }
@@ -69,9 +69,9 @@ public abstract class SkeletonMixinExtension extends AbstractSkeletonEntity impl
     }
 
     @Inject(method = "tick", at = @At("TAIL"))
-    void tick(CallbackInfo ci){
-        if(!getEntityWorld().isClient()){
-            if(artifality$isElemental()){
+    void tick(CallbackInfo ci) {
+        if(!getEntityWorld().isClient()) {
+            if(artifality$isElemental()) {
                 artifality$getElement().tick(this, this.getEntityWorld());
             }
         }
@@ -80,10 +80,10 @@ public abstract class SkeletonMixinExtension extends AbstractSkeletonEntity impl
     @Nullable
     @Override
     public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {
-        if(!spawnReason.equals(SpawnReason.SPAWNER) && !spawnReason.equals(SpawnReason.CHUNK_GENERATION)){
-            if(this.world.random.nextFloat() > 0.7F){
+        if(!spawnReason.equals(SpawnReason.SPAWNER) && !spawnReason.equals(SpawnReason.CHUNK_GENERATION)) {
+            if(this.world.random.nextFloat() > 0.8F) {
                 getDataTracker().set(artifality$ELEMENTAL, true);
-                getDataTracker().set(artifality$CRYSTAL_ELEMENT, this.world.random.nextInt(4));
+                getDataTracker().set(artifality$CRYSTAL_ELEMENT, this.world.random.nextInt(3));
                 artifality$getElement().onInit(this, this.world);
             }
         }
@@ -93,8 +93,8 @@ public abstract class SkeletonMixinExtension extends AbstractSkeletonEntity impl
     @Override
     protected PersistentProjectileEntity createArrowProjectile(ItemStack arrow, float damageModifier) {
         PersistentProjectileEntity proj = super.createArrowProjectile(arrow, damageModifier);
-        if(artifality$isElemental()){
-            if(proj instanceof ElementalExtension extension){
+        if(artifality$isElemental()) {
+            if(proj instanceof ElementalExtension extension) {
                 extension.artifality$setElement(getDataTracker().get(artifality$CRYSTAL_ELEMENT));
             }
         }

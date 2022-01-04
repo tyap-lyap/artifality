@@ -21,9 +21,9 @@ public abstract class CreeperMixin extends HostileEntity implements SkinOverlayO
     }
 
     @Inject(method = "onStruckByLightning", at = @At("HEAD"), cancellable = true)
-    void onStruckByLightning(ServerWorld world, LightningEntity lightning, CallbackInfo ci){
-        if(lightning instanceof LightningExtension extension){
-            if(!extension.artifality$canChargeCreeper()){
+    void onStruckByLightning(ServerWorld world, LightningEntity lightning, CallbackInfo ci) {
+        if(lightning instanceof LightningExtension extension) {
+            if(!extension.artifality$canChargeCreeper()) {
                 super.onStruckByLightning(world, lightning);
                 ci.cancel();
             }

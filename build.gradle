@@ -1,9 +1,10 @@
 plugins {
 	id 'fabric-loom' version '0.10-SNAPSHOT'
 	id 'maven-publish'
+	id 'io.github.juuxel.loom-quiltflower-mini' version '1.2.1'
 }
 
-sourceCompatibility = targetCompatibility = JavaVersion.VERSION_16
+sourceCompatibility = targetCompatibility = JavaVersion.VERSION_17
 
 archivesBaseName = project.archives_base_name
 version = project.mod_version + "-" + project.minecraft_version + "-fabric"
@@ -15,35 +16,33 @@ repositories {
 	maven { url "https://ladysnake.jfrog.io/artifactory/mods" } //CCA
 	maven { url "https://maven.terraformersmc.com" } //modmenu, trinkets
 	maven { url "https://maven.pinkgoosik.ru" } //cosmetica
-    maven { url 'https://maven.wispforest.io' } //owo lib
 }
 
 dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	modImplementation "dev.emi:trinkets:${project.trinkets_version}"
-    modImplementation "com.glisco:owo-lib:${project.owo_version}"
-
-	modImplementation "ru.pinkgoosik:cosmetica:0.3.2-1.17.1-fabric"
-	include "ru.pinkgoosik:cosmetica:0.3.2-1.17.1-fabric"
 	
-	modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:6.2.335"
-	modRuntimeOnly "com.terraformersmc:modmenu:2.0.14"
-	modRuntimeOnly "supercoder79:databreaker:0.2.7"
+	include modImplementation("ru.pinkgoosik:cosmetica:0.3.2-1.17.1-fabric")
+	
+	modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:7.1.357"
+	modRuntimeOnly "com.terraformersmc:modmenu:3.0.1"
+	modRuntimeOnly "supercoder79:databreaker:0.2.8"
 }
 
 processResources {
 	inputs.property "version", project.mod_version
+
 	filesMatching("fabric.mod.json") {
 		expand "version": project.mod_version
 	}
 }
 
 tasks.withType(JavaCompile).configureEach {
-	it.options.encoding = "UTF-8"
-	it.options.release = 16
+	it.options.release = 17
 }
 
 java {

@@ -47,13 +47,13 @@ public abstract class LightningMixinExtension extends Entity implements Lightnin
     }
 
     @Override
-    public boolean artifality$canChargeCreeper(){
+    public boolean artifality$canChargeCreeper() {
         return artifality$canChargeCreeper;
     }
 
     @Inject(method = "spawnFire", at = @At("HEAD"), cancellable = true)
-    void badLightningDoNotCreateFire(int spreadAttempts, CallbackInfo ci){
-        if(!artifality$canSpawnFire()){
+    void badLightningDoNotCreateFire(int spreadAttempts, CallbackInfo ci) {
+        if(!artifality$canSpawnFire()) {
             ci.cancel();
         }
     }

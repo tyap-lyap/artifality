@@ -29,19 +29,19 @@ public class PlayerMixin {
     PlayerEntity self = (PlayerEntity)(Object)this;
 
     @Inject(method = "getAttackCooldownProgressPerTick", at = @At("HEAD"), cancellable = true)
-    void getAttackCooldownProgressPerTick(CallbackInfoReturnable<Float> cir){
-        if(EnchantmentHelper.get(self.getStackInHand(Hand.MAIN_HAND)).containsKey(ArtifalityEnchants.LUNAR_DAMAGE)){
+    void getAttackCooldownProgressPerTick(CallbackInfoReturnable<Float> cir) {
+        if(EnchantmentHelper.get(self.getStackInHand(Hand.MAIN_HAND)).containsKey(ArtifalityEnchants.LUNAR_DAMAGE)) {
             int level = EnchantmentHelper.getLevel(ArtifalityEnchants.LUNAR_DAMAGE, self.getStackInHand(Hand.MAIN_HAND));
             cir.setReturnValue((float)(1.0D / self.getAttributeValue(EntityAttributes.GENERIC_ATTACK_SPEED) * 20.0D) + level + 2);
         }
     }
 
     @Inject(method = "damage", at = @At("HEAD"))
-    void damage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir){
-        if(!self.world.isClient){{
-            if(source.getAttacker() != null && source.getAttacker() instanceof LivingEntity attacker){
-                if(TrinketsUtils.containsTrinket(self, ArtifalityItems.UKULELE)){
-                    if(!self.getItemCooldownManager().isCoolingDown(ArtifalityItems.UKULELE)){
+    void damage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
+        if(!self.world.isClient) {
+            if(source.getAttacker() != null && source.getAttacker() instanceof LivingEntity attacker) {
+                if(TrinketsUtils.containsTrinket(self, ArtifalityItems.UKULELE)) {
+                    if(!self.getItemCooldownManager().isCoolingDown(ArtifalityItems.UKULELE)) {
                         UkuleleItem.createCloudEffect(attacker.world, attacker,
                                 EffectsUtils.getRandomNegative(),
                                 10, 1.5F, 1);
@@ -49,16 +49,16 @@ public class PlayerMixin {
                     }
                 }
             }
-        }}
+        }
     }
 
     @Inject(method = "damage", at = @At("HEAD"))
-    void volatileCurse(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir){
-        if(!self.world.isClient){
+    void volatileCurse(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
+        if(!self.world.isClient) {
             if(!self.isInvulnerableTo(source) && source.getAttacker() != null){
                 for (ItemStack stack : self.getItemsEquipped()){
-                    if (EnchantmentHelper.get(stack).containsKey(ArtifalityEnchants.VOLATILE_CURSE)){
-                        if(!self.getItemCooldownManager().isCoolingDown(stack.getItem())){
+                    if (EnchantmentHelper.get(stack).containsKey(ArtifalityEnchants.VOLATILE_CURSE)) {
+                        if(!self.getItemCooldownManager().isCoolingDown(stack.getItem())) {
                             self.world.createExplosion(self, self.getX(), self.getY(), self.getZ(), 1F, Explosion.DestructionType.NONE);
                             self.getItemCooldownManager().set(stack.getItem(), 20 * 20);
                             break;
@@ -70,30 +70,30 @@ public class PlayerMixin {
     }
 
     @Inject(method = "jump", at = @At("TAIL"))
-    void jump(CallbackInfo ci){
-        if(!self.world.isClient){
+    void jump(CallbackInfo ci) {
+        if(!self.world.isClient) {
             if(self.getStackInHand(Hand.MAIN_HAND).isOf(ArtifalityItems.BALLOON)||
-                    self.getStackInHand(Hand.OFF_HAND).isOf(ArtifalityItems.BALLOON) || BalloonItem.hasBalloonOnHead(self)){
+                    self.getStackInHand(Hand.OFF_HAND).isOf(ArtifalityItems.BALLOON) || BalloonItem.hasBalloonOnHead(self)) {
                 self.addStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION, 14, 2, false, false));
             }
         }
     }
 
     @Inject(method = "tick", at = @At("TAIL"))
-    void tick(CallbackInfo ci){
-        if(!self.world.isClient){
-            if(!self.isOnGround() && !self.isFallFlying() && !self.isTouchingWater() && !self.hasStatusEffect(StatusEffects.LEVITATION)){
+    void tick(CallbackInfo ci) {
+        if(!self.world.isClient) {
+            if(!self.isOnGround() && !self.isFallFlying() && !self.isTouchingWater() && !self.hasStatusEffect(StatusEffects.LEVITATION)) {
                 useBalloon();
             }
         }
     }
 
     @Unique
-    void useBalloon(){
+    void useBalloon() {
         TrinketsUtils.getTrinketsAsArray(self).forEach(stack -> {
-            if(stack.isOf(ArtifalityItems.BALLOON) && stack.getDamage() != stack.getMaxDamage()){
+            if(stack.isOf(ArtifalityItems.BALLOON) && stack.getDamage() != stack.getMaxDamage()) {
                 EffectsUtils.ticking(self, StatusEffects.SLOW_FALLING);
-                if(self.getRandom().nextInt(30 * TieredItem.getCurrentTier(stack)) == 0){
+                if(self.getRandom().nextInt(30 * TieredItem.getCurrentTier(stack)) == 0) {
                     stack.setDamage(stack.getDamage() + 1);
                 }
             }

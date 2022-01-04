@@ -48,9 +48,9 @@
     "block.artifality.budding_wrath_crystal": "Budding Wrath Crystal",
 
     "block.artifality.incremental_crystal_lens": "Incremental Crystal Lens",
-    "description.incremental_crystal_lens.0": "Increases the level of effect",
-    "description.incremental_crystal_lens.1": "given by the beacon if placed",
-    "description.incremental_crystal_lens.2": "on top of the beacon.",
+    "tip.incremental_crystal_lens.0": "Increases the level of effect",
+    "tip.incremental_crystal_lens.1": "given by the beacon if placed",
+    "tip.incremental_crystal_lens.2": "on top of the beacon.",
 
     "block.artifality.lunar_crystal_lens": "Lunar Crystal Lens",
     "tip.lunar_crystal_lens.0": "Gives a &frandom&r positive effect",
@@ -66,6 +66,7 @@
     "tip.wrath_crystal_lens.0": "Work In Progress.",
 
     "block.artifality.empty_lens": "Empty Lens",
+    "tip.empty_lens.0": "Yes empty.",
 
     "item.artifality.incremental_crystal": "Incremental Crystal",
     "item.artifality.lunar_crystal": "Lunar Crystal",

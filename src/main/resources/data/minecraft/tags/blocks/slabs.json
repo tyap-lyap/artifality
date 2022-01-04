@@ -3,7 +3,6 @@
   "values": [
     "artifality:incremental_crystal_slab",
     "artifality:lunar_crystal_slab",
-    "artifality:life_crystal_slab",
-    "artifality:wrath_crystal_slab"
+    "artifality:life_crystal_slab"
   ]
 }

@@ -73,8 +73,8 @@ public abstract class StrayMixinExtension extends AbstractSkeletonEntity impleme
     @Override
     public void tick() {
         super.tick();
-        if(!getEntityWorld().isClient()){
-            if(artifality$isElemental()){
+        if(!getEntityWorld().isClient()) {
+            if(artifality$isElemental()) {
                 artifality$getElement().tick(this, this.getEntityWorld());
             }
         }
@@ -83,10 +83,10 @@ public abstract class StrayMixinExtension extends AbstractSkeletonEntity impleme
     @Nullable
     @Override
     public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {
-        if(!spawnReason.equals(SpawnReason.SPAWNER) && !spawnReason.equals(SpawnReason.CHUNK_GENERATION)){
-            if(this.world.random.nextFloat() > 0.7F){
+        if(!spawnReason.equals(SpawnReason.SPAWNER) && !spawnReason.equals(SpawnReason.CHUNK_GENERATION)) {
+            if(this.world.random.nextFloat() > 0.8F) {
                 getDataTracker().set(artifality$ELEMENTAL, true);
-                getDataTracker().set(artifality$CRYSTAL_ELEMENT, this.world.random.nextInt(4));
+                getDataTracker().set(artifality$CRYSTAL_ELEMENT, this.world.random.nextInt(3));
                 artifality$getElement().onInit(this, this.world);
             }
         }
@@ -94,10 +94,10 @@ public abstract class StrayMixinExtension extends AbstractSkeletonEntity impleme
     }
 
     @Redirect(method = "createArrowProjectile", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/mob/AbstractSkeletonEntity;createArrowProjectile(Lnet/minecraft/item/ItemStack;F)Lnet/minecraft/entity/projectile/PersistentProjectileEntity;"))
-    PersistentProjectileEntity createArrowProjectile(AbstractSkeletonEntity instance, ItemStack arrow, float damageModifier){
+    PersistentProjectileEntity createArrowProjectile(AbstractSkeletonEntity instance, ItemStack arrow, float damageModifier) {
         PersistentProjectileEntity proj = super.createArrowProjectile(arrow, damageModifier);
-        if(artifality$isElemental()){
-            if(proj instanceof ElementalExtension extension){
+        if(artifality$isElemental()) {
+            if(proj instanceof ElementalExtension extension) {
                 extension.artifality$setElement(getDataTracker().get(artifality$CRYSTAL_ELEMENT));
             }
         }

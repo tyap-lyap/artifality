@@ -11,11 +11,6 @@ import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.util.Identifier;
 
-/**
- * @deprecated Crates are now a thing
- * @see artifality.block.base.CrateBlock
- */
-@Deprecated
 public class ArtifalityLootTables {
     private static FabricLootSupplierBuilder supplier;
     private static Identifier id;
@@ -25,7 +20,7 @@ public class ArtifalityLootTables {
     private static final String[] BLACKLIST = new String[]{"jungle_temple_dispenser", "end_city_treasure",
             "village", "spawn_bonus_chest", "woodland_mansion"};
 
-    public static void register(){
+    public static void init() {
         LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, supplier, setter) -> {
             if(!id.toString().contains("minecraft:chests/")) return;
             ArtifalityLootTables.id = id;
@@ -33,9 +28,9 @@ public class ArtifalityLootTables {
 
             overworldChest(ArtifalityItems.CRYSTAL_HEART, 0.03F);
             overworldChest(ArtifalityBlocks.INCREMENTAL_ORB.asItem(), 0.03F);
-            overworldChest(ArtifalityItems.INVISIBILITY_CAPE, 0.05F);
+            overworldChest(ArtifalityItems.INVISIBILITY_CAPE, 0.04F);
             overworldChest(ArtifalityItems.UKULELE, 0.03F);
-            overworldChest(ArtifalityItems.ZEUS_STAFF, 0.03F);
+            overworldChest(ArtifalityItems.ZEUS_STAFF, 0.02F);
             overworldChest(ArtifalityItems.FOREST_STAFF, 0.03F);
             overworldChest(ArtifalityItems.HARVEST_STAFF, 0.03F);
             overworldChest(ArtifalityItems.FLORAL_STAFF, 0.03F);
