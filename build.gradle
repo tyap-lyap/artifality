@@ -2,6 +2,8 @@ plugins {
 	id 'fabric-loom' version '0.10-SNAPSHOT'
 	id 'maven-publish'
 	id 'io.github.juuxel.loom-quiltflower-mini' version '1.2.1'
+	id 'com.modrinth.minotaur' version '1.2.1'
+	id 'com.matthewprenger.cursegradle' version '1.4.0'
 }
 
 sourceCompatibility = targetCompatibility = JavaVersion.VERSION_17
@@ -27,6 +29,7 @@ dependencies {
 	modImplementation "dev.emi:trinkets:${project.trinkets_version}"
 	
 	include modImplementation("ru.pinkgoosik:cosmetica:0.3.2-1.17.1-fabric")
+	include modImplementation("ru.pinkgoosik:goosik-config:0.2.0-1.17.1-fabric")
 	
 	modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:7.1.357"
 	modRuntimeOnly "com.terraformersmc:modmenu:3.0.1"
@@ -35,7 +38,6 @@ dependencies {
 
 processResources {
 	inputs.property "version", project.mod_version
-
 	filesMatching("fabric.mod.json") {
 		expand "version": project.mod_version
 	}
@@ -71,3 +73,40 @@ publishing {
 		}
 	}
 }
+
+curseforge {
+	apiKey System.getenv('CURSEFORGE_TOKEN') ?: ''
+
+	project {
+		id = '490812'
+		releaseType = 'beta'
+		changelog = project.mod_changelog
+		addGameVersion '1.18.1'
+		addGameVersion "Fabric"
+		mainArtifact(remapJar) { displayName = "[${project.minecraft_version}] Artifality ${project.mod_version}" }
+		afterEvaluate {
+			uploadTask.dependsOn("remapJar")
+		}
+	}
+	options {
+		forgeGradleIntegration = false
+	}
+}
+
+import com.modrinth.minotaur.TaskModrinthUpload
+import com.modrinth.minotaur.request.VersionType
+task modrinth(type: TaskModrinthUpload) {
+	token = System.getenv('MODRINTH_TOKEN') ?: ''
+	onlyIf { !token.isEmpty() }
+
+	projectId = 'IsKsViE2'
+	versionName = "[${project.minecraft_version}] Artifality ${project.mod_version}"
+	versionType = VersionType.BETA
+	versionNumber = project.version
+	changelog = project.mod_changelog
+	addLoader 'fabric'
+	addGameVersion '1.18.1'
+	uploadFile = remapJar
+}
+
+publish.finalizedBy tasks.curseforge, tasks.modrinth

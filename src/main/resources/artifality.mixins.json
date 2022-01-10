@@ -10,13 +10,7 @@
     "common.LivingEntityMixin",
     "common.PlayerMixin",
     "common.VillagerMixin",
-    "common.access.BeaconAccess",
-    "common.extension.ArrowMixinExtension",
-    "common.extension.LightningMixinExtension",
-    "common.extension.SkeletonMixinExtension",
-    "common.extension.StrayMixinExtension",
-    "common.extension.WitherSkeletonMixinExtension",
-    "common.extension.ZombieMixinExtension"
+    "common.access.BeaconAccess"
   ],
   "client": [
     "client.ArmorFeatureRendererMixin",

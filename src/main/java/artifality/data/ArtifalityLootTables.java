@@ -1,6 +1,6 @@
 package artifality.data;
 
-import artifality.registry.ArtifalityBlocks;
+import artifality.ArtifalityMod;
 import artifality.registry.ArtifalityItems;
 import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
 import net.fabricmc.fabric.api.loot.v1.FabricLootSupplierBuilder;
@@ -10,6 +10,7 @@ import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.util.Identifier;
+import ru.pinkgoosik.goosikconfig.api.Config;
 
 public class ArtifalityLootTables {
     private static FabricLootSupplierBuilder supplier;
@@ -25,16 +26,15 @@ public class ArtifalityLootTables {
             if(!id.toString().contains("minecraft:chests/")) return;
             ArtifalityLootTables.id = id;
             ArtifalityLootTables.supplier = supplier;
+            Config config = ArtifalityMod.CONFIG;
 
-            overworldChest(ArtifalityItems.CRYSTAL_HEART, 0.03F);
-            overworldChest(ArtifalityBlocks.INCREMENTAL_ORB.asItem(), 0.03F);
-            overworldChest(ArtifalityItems.INVISIBILITY_CAPE, 0.04F);
-            overworldChest(ArtifalityItems.UKULELE, 0.03F);
-            overworldChest(ArtifalityItems.ZEUS_STAFF, 0.02F);
-            overworldChest(ArtifalityItems.FOREST_STAFF, 0.03F);
-            overworldChest(ArtifalityItems.HARVEST_STAFF, 0.03F);
-            overworldChest(ArtifalityItems.FLORAL_STAFF, 0.03F);
-            overworldChest(ArtifalityItems.BALLOON, 0.04F);
+            overworldChest(ArtifalityItems.INVISIBILITY_CAPE, (float)config.getInteger("invisibility_cape", "chance") / 100);
+            overworldChest(ArtifalityItems.UKULELE, (float)config.getInteger("ukulele", "chance") / 100);
+            overworldChest(ArtifalityItems.ZEUS_STAFF, (float)config.getInteger("zeus_staff", "chance") / 100);
+            overworldChest(ArtifalityItems.FOREST_STAFF, (float)config.getInteger("forest_staff", "chance") / 100);
+            overworldChest(ArtifalityItems.HARVEST_STAFF, (float)config.getInteger("harvest_staff", "chance") / 100);
+            overworldChest(ArtifalityItems.FLORAL_STAFF, (float)config.getInteger("floral_staff", "chance") / 100);
+            overworldChest(ArtifalityItems.BALLOON, (float)config.getInteger("balloon", "chance") / 100);
         });
     }
 

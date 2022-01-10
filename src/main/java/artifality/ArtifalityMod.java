@@ -1,5 +1,6 @@
 package artifality;
 
+import artifality.config.ArtifalityConfig;
 import artifality.data.ArtifalityLootTables;
 import artifality.registry.*;
 import net.fabricmc.api.ModInitializer;
@@ -12,12 +13,14 @@ import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import ru.pinkgoosik.goosikconfig.api.Config;
 
 @SuppressWarnings("unused")
 public class ArtifalityMod implements ModInitializer {
     public static final Logger LOGGER = LogManager.getLogger("Artifality");
     public static final String MOD_ID = "artifality";
     public static final ItemGroup ITEM_GROUP = createItemGroup();
+    public static final Config CONFIG = new ArtifalityConfig(MOD_ID);
 
     @Override
     public void onInitialize() {
