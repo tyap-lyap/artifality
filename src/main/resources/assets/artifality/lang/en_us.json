@@ -152,14 +152,17 @@
     "enchantment.artifality.lunar_damage": "Lunar Damage",
     "tip.lunar_damage.0": "&aIncreases&r melee damage, but",
     "tip.lunar_damage.1": "&cdecreases&r attack speed.",
+    "enchantment.artifality.lunar_damage.desc": "Increases melee damage, but decreases attack speed.",
 
     "enchantment.artifality.sliding_curse": "Curse of Sliding",
     "tip.sliding_curse.0": "Makes you &fslide on all",
     "tip.sliding_curse.1": "&fblocks &7like on ice.",
+    "enchantment.artifality.sliding_curse.desc": "Makes you slide on all blocks like on ice.",
 
     "enchantment.artifality.volatile_curse": "Curse of Volatile",
     "tip.volatile_curse.0": "&fCreates a little explosion",
     "tip.volatile_curse.1": "upon a hit.",
+    "enchantment.artifality.volatile_curse.desc": "Creates a little explosion upon a hit.",
 
     "advancements.artifality.root.name": "Artifality",
     "advancements.artifality.root.desc": "Welcome to the world of Artifality!",

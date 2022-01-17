@@ -50,15 +50,15 @@ public class ArtifalityClient implements ClientModInitializer {
         });
         BlockRenderLayerMap.INSTANCE.putBlock(ArtifalityBlocks.EMPTY_LENS, RenderLayer.getCutout());
 
-//        ModelLoadingRegistry.INSTANCE.registerModelProvider((manager, out) -> {
+        ModelLoadingRegistry.INSTANCE.registerModelProvider((manager, out) -> {
 //            CrystalElements.ELEMENTS.forEach(element -> {
 //                out.accept(new ModelIdentifier("artifality:" + element.getName() + "_head_overlay#inventory"));
 //                out.accept(new ModelIdentifier("artifality:" + element.getName() + "_body_overlay#inventory"));
 //            });
-//            TwoModelsItemRegistry.ENTRIES.forEach((id, item) ->
-//                    out.accept(new ModelIdentifier(id + "_in_hand#inventory"))
-//            );
-//        });
+            TwoModelsItemRegistry.ENTRIES.forEach((id, item) ->
+                    out.accept(new ModelIdentifier(id + "_in_hand#inventory"))
+            );
+        });
 
 //        LivingEntityFeatureRendererRegistrationCallback.EVENT.register((entityType, entityRenderer, registrationHelper, context) -> {
 //            if(entityRenderer instanceof ZombieEntityRenderer renderer){

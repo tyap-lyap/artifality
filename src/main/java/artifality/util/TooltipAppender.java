@@ -4,6 +4,7 @@ import artifality.extension.Artifact;
 import artifality.item.base.TieredItem;
 import artifality.list.ArtifactRarity;
 import dev.emi.trinkets.api.Trinket;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.item.EnchantedBookItem;
 import net.minecraft.item.Item;
@@ -22,31 +23,38 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * What a shitass code, if you read this close it IMMEDIATELY
+ */
 public class TooltipAppender {
 
-    protected TooltipAppender(){}
+    protected TooltipAppender() {}
 
-    public static void append(ItemStack stack, List<Text> tooltip){
+    public static void append(ItemStack stack, List<Text> tooltip) {
         Item item = stack.getItem();
 
-        if(!getTooltip(Registry.ITEM.getId(item).getPath()).isEmpty() && shiftPressed(tooltip, item)){
-            if(item instanceof TieredItem){
+        if(!getTooltip(Registry.ITEM.getId(item).getPath()).isEmpty() && shiftPressed(tooltip, item)) {
+            if(item instanceof TieredItem) {
                 appendTier(stack, tooltip);
             }
             appendItemTooltip(stack, tooltip);
-        }else if(item instanceof EnchantedBookItem){
-            appendEnchantmentTooltip(stack, tooltip);
+        }else if(item instanceof EnchantedBookItem) {
+            if(!FabricLoader.getInstance().isModLoaded("enchdesc")) {
+                appendEnchantmentTooltip(stack, tooltip);
+            }
         }
     }
 
-    private static boolean shiftPressed(List<Text> tooltip, Item item){
-        if(!Screen.hasShiftDown()){
-            if(item instanceof Artifact artifact){
+    private static boolean shiftPressed(List<Text> tooltip, Item item) {
+        if(!Screen.hasShiftDown()) {
+            if(item instanceof Artifact artifact) {
                 ArtifactRarity rarity = artifact.getSettings().getRarity();
                 tooltip.add(new LiteralText(ofKey(rarity.getName())).setStyle(Style.EMPTY.withColor(rarity.getColor().getRGB())));
             }
-            tooltip.add(new LiteralText(""));
-            tooltip.add(new LiteralText(ofKey("press_shift")).formatted(Formatting.GRAY));
+            if(!(item instanceof EnchantedBookItem) && !FabricLoader.getInstance().isModLoaded("enchdesc")) {
+                tooltip.add(new LiteralText(""));
+                tooltip.add(new LiteralText(ofKey("press_shift")).formatted(Formatting.GRAY));
+            }
             if(item instanceof Trinket) tooltip.add(new LiteralText(""));
             return false;
         }else{

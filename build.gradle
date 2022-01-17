@@ -80,7 +80,7 @@ curseforge {
 	project {
 		id = '490812'
 		releaseType = 'beta'
-		changelog = project.mod_changelog
+		changelog = 'changelog'
 		addGameVersion '1.18.1'
 		addGameVersion "Fabric"
 		mainArtifact(remapJar) { displayName = "[${project.minecraft_version}] Artifality ${project.mod_version}" }
@@ -103,7 +103,7 @@ task modrinth(type: TaskModrinthUpload) {
 	versionName = "[${project.minecraft_version}] Artifality ${project.mod_version}"
 	versionType = VersionType.BETA
 	versionNumber = project.version
-	changelog = project.mod_changelog
+	changelog = 'changelog'
 	addLoader 'fabric'
 	addGameVersion '1.18.1'
 	uploadFile = remapJar

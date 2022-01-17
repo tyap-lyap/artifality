@@ -28,7 +28,7 @@ public class ZeusStaffItem extends TieredArtifactItem {
     }
 
     @Override
-    public void appendTooltipInfo(ItemStack stack, List<Text> tooltip){
+    public void appendTooltipInfo(ItemStack stack, List<Text> tooltip) {
         tooltip.add(new LiteralText(""));
         tooltip.add(new LiteralText(TooltipAppender.ofKey("cooldown").replaceAll("%", Integer.toString((250 - getCurrentTier(stack) * 50) / 20))).formatted(Formatting.DARK_GREEN));
         tooltip.add(new LiteralText(TooltipAppender.ofKey("damage").replaceAll("%", Integer.toString(6 + getCurrentTier(stack)))).formatted(Formatting.DARK_GREEN));
