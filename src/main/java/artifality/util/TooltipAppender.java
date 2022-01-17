@@ -51,7 +51,7 @@ public class TooltipAppender {
                 ArtifactRarity rarity = artifact.getSettings().getRarity();
                 tooltip.add(new LiteralText(ofKey(rarity.getName())).setStyle(Style.EMPTY.withColor(rarity.getColor().getRGB())));
             }
-            if(!(item instanceof EnchantedBookItem) && !FabricLoader.getInstance().isModLoaded("enchdesc")) {
+            if(!(item instanceof EnchantedBookItem && FabricLoader.getInstance().isModLoaded("enchdesc"))) {
                 tooltip.add(new LiteralText(""));
                 tooltip.add(new LiteralText(ofKey("press_shift")).formatted(Formatting.GRAY));
             }

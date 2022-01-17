@@ -1,4 +1,4 @@
-name: release-artifacts
+name: publish-modrinth
 
 on:
   release:
@@ -17,27 +17,24 @@ jobs:
           java-version: 17
       - name: Build artifacts
         run: ./gradlew build
-      - name: Upload assets
+      - name: publish artifacts
         uses: Kir-Antipov/mc-publish@v2.1
         with:
           modrinth-id: IsKsViE2
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
 
-          curseforge-id: 490812
-          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
-
           files-primary: build/libs/!(*-@(dev|sources)).jar
-          files-secondary: build/libs/*-@(dev|sources).jar
 
-          name: Artifality 0.5.3
-          version: 0.5.3-1.18.1-fabric
           version-type: beta
-          changelog-file: CHANGELOG.md
-
           loaders: |
             fabric
           game-versions: |
             1.18.1
+            1.18
+          dependencies: |
+            fabric-api | depends | *
+            trinkets | depends | *
+
           java: |
             17
 

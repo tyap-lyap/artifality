@@ -2,8 +2,6 @@ plugins {
 	id 'fabric-loom' version '0.10-SNAPSHOT'
 	id 'maven-publish'
 	id 'io.github.juuxel.loom-quiltflower-mini' version '1.2.1'
-	id 'com.modrinth.minotaur' version '1.2.1'
-	id 'com.matthewprenger.cursegradle' version '1.4.0'
 }
 
 sourceCompatibility = targetCompatibility = JavaVersion.VERSION_17
@@ -67,46 +65,9 @@ publishing {
 		maven {
 			url "https://maven.pinkgoosik.ru/"
 			credentials {
-				username System.getenv("MAVEN_REPO_USER")
-				password System.getenv("MAVEN_REPO_PASS")
+				username System.getenv("MAVEN_USER")
+				password System.getenv("MAVEN_PASS")
 			}
 		}
 	}
 }
-
-curseforge {
-	apiKey System.getenv('CURSEFORGE_TOKEN') ?: ''
-
-	project {
-		id = '490812'
-		releaseType = 'beta'
-		changelog = 'changelog'
-		addGameVersion '1.18.1'
-		addGameVersion "Fabric"
-		mainArtifact(remapJar) { displayName = "[${project.minecraft_version}] Artifality ${project.mod_version}" }
-		afterEvaluate {
-			uploadTask.dependsOn("remapJar")
-		}
-	}
-	options {
-		forgeGradleIntegration = false
-	}
-}
-
-import com.modrinth.minotaur.TaskModrinthUpload
-import com.modrinth.minotaur.request.VersionType
-task modrinth(type: TaskModrinthUpload) {
-	token = System.getenv('MODRINTH_TOKEN') ?: ''
-	onlyIf { !token.isEmpty() }
-
-	projectId = 'IsKsViE2'
-	versionName = "[${project.minecraft_version}] Artifality ${project.mod_version}"
-	versionType = VersionType.BETA
-	versionNumber = project.version
-	changelog = 'changelog'
-	addLoader 'fabric'
-	addGameVersion '1.18.1'
-	uploadFile = remapJar
-}
-
-publish.finalizedBy tasks.curseforge, tasks.modrinth
