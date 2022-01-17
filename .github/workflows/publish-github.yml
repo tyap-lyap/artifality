@@ -1,4 +1,4 @@
-name: release-artifacts
+name: publish-github
 
 on:
   release:
@@ -20,5 +20,5 @@ jobs:
       - name: Upload assets to GitHub
         uses: AButler/upload-release-assets@v2.0
         with:
-          files: 'build/libs/*;LICENSE'
+          files: 'build/libs/*'
           repo-token: ${{ secrets.GH_TOKEN }}
