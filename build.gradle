@@ -1,18 +1,18 @@
 plugins {
-	id 'fabric-loom' version '0.10-SNAPSHOT'
+	id 'fabric-loom' version '0.11-SNAPSHOT'
 	id 'maven-publish'
-	id 'io.github.juuxel.loom-quiltflower-mini' version '1.2.1'
+	id 'io.github.juuxel.loom-quiltflower' version '1.6.0'
 }
 
 sourceCompatibility = targetCompatibility = JavaVersion.VERSION_17
 
 archivesBaseName = project.archives_base_name
-version = project.mod_version + "-" + project.minecraft_version + "-fabric"
+version = project.mod_version
 group = project.maven_group
 
 repositories {
 	maven { url "https://maven.shedaniel.me" } //rei
-	maven { url "https://maven.gegy.dev" } //databreaker
+	maven { url "https://cursemaven.com" } //lazyDFU
 	maven { url "https://ladysnake.jfrog.io/artifactory/mods" } //CCA
 	maven { url "https://maven.terraformersmc.com" } //modmenu, trinkets
 	maven { url "https://maven.pinkgoosik.ru" } //cosmetica
@@ -26,12 +26,10 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	modImplementation "dev.emi:trinkets:${project.trinkets_version}"
 	
-	include modImplementation("ru.pinkgoosik:cosmetica:0.3.2-1.17.1-fabric")
-	include modImplementation("ru.pinkgoosik:goosik-config:0.2.0-1.17.1-fabric")
-	
-	modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:7.1.357"
+	modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:7.2.425"
 	modRuntimeOnly "com.terraformersmc:modmenu:3.0.1"
-	modRuntimeOnly "supercoder79:databreaker:0.2.8"
+	modRuntimeOnly "curse.maven:lazydfu-433518:3209972"
+	modRuntimeOnly "curse.maven:ferritecore-fabric-459857:3550048"
 }
 
 processResources {

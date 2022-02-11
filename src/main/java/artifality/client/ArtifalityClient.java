@@ -2,8 +2,6 @@ package artifality.client;
 
 import artifality.ArtifalityMod;
 import artifality.block.base.*;
-import artifality.client.render.ElementalFeatureRenderer;
-import artifality.list.CrystalElements;
 import artifality.registry.ArtifalityBlocks;
 import artifality.api.TwoModelsItemRegistry;
 import artifality.registry.ArtifalityItems;
@@ -13,17 +11,12 @@ import dev.emi.trinkets.api.client.TrinketRendererRegistry;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.model.ModelLoadingRegistry;
-import net.fabricmc.fabric.api.client.rendering.v1.LivingEntityFeatureRendererRegistrationCallback;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.render.RenderLayer;
-import net.minecraft.client.render.entity.DrownedEntityRenderer;
-import net.minecraft.client.render.entity.SkeletonEntityRenderer;
-import net.minecraft.client.render.entity.ZombieEntityRenderer;
 import net.minecraft.client.util.ModelIdentifier;
 
-@SuppressWarnings("OptionalGetWithoutIsPresent")
 public class ArtifalityClient implements ClientModInitializer {
 
     @Override
@@ -50,15 +43,9 @@ public class ArtifalityClient implements ClientModInitializer {
         });
         BlockRenderLayerMap.INSTANCE.putBlock(ArtifalityBlocks.EMPTY_LENS, RenderLayer.getCutout());
 
-        ModelLoadingRegistry.INSTANCE.registerModelProvider((manager, out) -> {
-//            CrystalElements.ELEMENTS.forEach(element -> {
-//                out.accept(new ModelIdentifier("artifality:" + element.getName() + "_head_overlay#inventory"));
-//                out.accept(new ModelIdentifier("artifality:" + element.getName() + "_body_overlay#inventory"));
-//            });
-            TwoModelsItemRegistry.ENTRIES.forEach((id, item) ->
-                    out.accept(new ModelIdentifier(id + "_in_hand#inventory"))
-            );
-        });
+        ModelLoadingRegistry.INSTANCE.registerModelProvider((manager, out) -> TwoModelsItemRegistry.ENTRIES.forEach((id, item) ->
+                out.accept(new ModelIdentifier(id + "_in_hand#inventory"))
+        ));
 
 //        LivingEntityFeatureRendererRegistrationCallback.EVENT.register((entityType, entityRenderer, registrationHelper, context) -> {
 //            if(entityRenderer instanceof ZombieEntityRenderer renderer){
@@ -73,6 +60,7 @@ public class ArtifalityClient implements ClientModInitializer {
 //        });
 
         // Thanks Juce! :)
-        ResourceManagerHelper.registerBuiltinResourcePack(ArtifalityMod.newId("fancyclusters"), FabricLoader.getInstance().getModContainer("artifality").get(), ResourcePackActivationType.NORMAL);
+        FabricLoader.getInstance().getModContainer(ArtifalityMod.MOD_ID).ifPresent(artifality ->
+                ResourceManagerHelper.registerBuiltinResourcePack(ArtifalityMod.newId("fancyclusters"), artifality, ResourcePackActivationType.NORMAL));
     }
 }
