@@ -36,13 +36,10 @@ public class HarvestStaffItem extends NatureStaffItem {
                 return ActionResult.SUCCESS;
             }
         }
-        if(state.getBlock() instanceof CropBlock crop){
-            int age = state.get(crop.getAgeProperty());
-            if(age == 7){
-                Block.dropStacks(state, world, pos);
-                world.setBlockState(pos, crop.withAge(0));
-                return ActionResult.SUCCESS;
-            }
+        if(state.getBlock() instanceof CropBlock crop && crop.isMature(state)) {
+            Block.dropStacks(state, world, pos);
+            world.setBlockState(pos, crop.withAge(0));
+            return ActionResult.SUCCESS;
         }
         return ActionResult.PASS;
     }
