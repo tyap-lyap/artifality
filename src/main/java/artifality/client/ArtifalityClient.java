@@ -1,6 +1,7 @@
 package artifality.client;
 
 import artifality.ArtifalityMod;
+import artifality.block.CrateBlock;
 import artifality.block.base.*;
 import artifality.registry.ArtifalityBlocks;
 import artifality.api.TwoModelsItemRegistry;

@@ -1,7 +1,8 @@
-package artifality.block.base;
+package artifality.block;
 
 import static artifality.registry.ArtifalityItems.*;
 
+import artifality.block.base.BaseBlock;
 import artifality.extension.Artifact;
 import artifality.extension.ArtifactChances;
 import artifality.list.ArtifactRarity;
@@ -82,7 +83,7 @@ public class CrateBlock extends BaseBlock implements Waterloggable {
         if(Math.random() < 0.5){
             dropStack(world, pos, new ItemStack(CRYSTALS.get(world.random.nextInt(CRYSTALS.size())), world.random.nextInt(5) + 1));
         }
-        if (player instanceof ArtifactChances extension){
+        if (player instanceof ArtifactChances extension) {
             dropArtifact(extension, world, pos);
             incrementAmplifiers(player, extension);
         }

@@ -1,12 +1,12 @@
-package artifality.list.element;
+package artifality.list.crystallization;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.world.World;
 
-public abstract class CrystalElement {
+public abstract class Crystallization {
     String name;
 
-    public CrystalElement(String name){
+    public Crystallization(String name){
         this.name = name;
     }
 

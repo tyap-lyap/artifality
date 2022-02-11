@@ -1,6 +1,7 @@
 package artifality.registry.base;
 
 import artifality.ArtifalityMod;
+import artifality.block.CrystalGeodeBlock;
 import artifality.block.base.*;
 import artifality.list.LensEffects;
 import artifality.item.base.BaseBlockItem;
@@ -14,7 +15,7 @@ import net.minecraft.util.Identifier;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class BlockRegistry {
+public class BlockRegistryBase {
     public static final Map<Identifier, BaseBlockItem> ITEMS = new LinkedHashMap<>();
     public static final Map<Identifier, Block> BLOCKS = new LinkedHashMap<>();
 
@@ -22,8 +23,8 @@ public class BlockRegistry {
         return add(name, new LensBlock(effect));
     }
 
-    public static Block budding(String name, Block small, Block medium, Block large){
-        return add(name, new BuddingCrystalBlock(small, medium, large));
+    public static Block geode(String name, Block small, Block medium, Block large){
+        return add(name, new CrystalGeodeBlock(small, medium, large));
     }
 
     public static Block cluster(String name, String type){

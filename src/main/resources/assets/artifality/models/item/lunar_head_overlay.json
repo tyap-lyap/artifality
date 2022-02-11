@@ -1,6 +1,0 @@
-{
-  "parent": "artifality:item/head_overlay",
-  "textures": {
-    "crystal": "artifality:entity/lunar_head_overlay"
-  }
-}

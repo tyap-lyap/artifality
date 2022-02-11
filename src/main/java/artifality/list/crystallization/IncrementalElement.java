@@ -1,4 +1,4 @@
-package artifality.list.element;
+package artifality.list.crystallization;
 
 import artifality.util.EffectsUtils;
 import com.google.common.collect.ImmutableMultimap;
@@ -10,16 +10,16 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.world.World;
 
-public class WrathElement extends CrystalElement {
+public class IncrementalElement extends Crystallization {
 
-    public WrathElement(String name) {
+    public IncrementalElement(String name) {
         super(name);
     }
 
     @Override
     public void tick(LivingEntity entity, World world) {
-        EffectsUtils.ticking(entity, StatusEffects.STRENGTH, 0);
-        EffectsUtils.ticking(entity, StatusEffects.SPEED, 0);
+        EffectsUtils.ticking(entity, StatusEffects.SPEED, 1);
+        EffectsUtils.ticking(entity, StatusEffects.JUMP_BOOST, 1);
     }
 
     @Override

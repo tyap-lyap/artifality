@@ -1,4 +1,4 @@
-package artifality.list.element;
+package artifality.list.crystallization;
 
 import artifality.util.EffectsUtils;
 import com.google.common.collect.ImmutableMultimap;
@@ -7,25 +7,24 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.world.World;
 
-public class LunarElement extends CrystalElement {
+public class WrathElement extends Crystallization {
 
-    public LunarElement(String name) {
+    public WrathElement(String name) {
         super(name);
     }
 
     @Override
     public void tick(LivingEntity entity, World world) {
-        if (world.getTime() % 100L == 0L) {
-            entity.addStatusEffect(new StatusEffectInstance(EffectsUtils.getRandomPositive(), 100, 0, true, true));
-        }
+        EffectsUtils.ticking(entity, StatusEffects.STRENGTH, 0);
+        EffectsUtils.ticking(entity, StatusEffects.SPEED, 0);
     }
 
     @Override
     public void onAttack(LivingEntity target, World world) {
-        target.addStatusEffect(new StatusEffectInstance(EffectsUtils.getRandomNegative(), 100, 0, true, true));
+
     }
 
     @Override

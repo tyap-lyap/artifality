@@ -1,5 +1,7 @@
-package artifality.block.base;
+package artifality.block;
 
+import artifality.block.base.BaseBlock;
+import artifality.block.base.CrystalClusterBlock;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -21,12 +23,12 @@ import java.util.List;
 import java.util.Random;
 
 @SuppressWarnings("deprecation")
-public class BuddingCrystalBlock extends BaseBlock {
+public class CrystalGeodeBlock extends BaseBlock {
     private final Block small;
     private final Block medium;
     private final Block large;
 
-    public BuddingCrystalBlock(Block small, Block medium, Block large) {
+    public CrystalGeodeBlock(Block small, Block medium, Block large) {
         super(FabricBlockSettings.copyOf(Blocks.STONE).ticksRandomly());
         this.small = small;
         this.medium = medium;

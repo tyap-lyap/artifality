@@ -24,6 +24,7 @@ public class ArtifalityMod implements ModInitializer {
         ArtifalityFeatures.init();
         ArtifalityEvents.init();
         ArtifalityLootTables.init();
+        ArtifalityEffects.init();
     }
 
     private static ItemGroup createItemGroup() {

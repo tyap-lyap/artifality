@@ -1,6 +1,0 @@
-{
-  "parent": "artifality:item/body_overlay",
-  "textures": {
-    "crystal": "artifality:entity/wrath_body_overlay"
-  }
-}

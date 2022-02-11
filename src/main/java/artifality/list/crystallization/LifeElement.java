@@ -1,4 +1,4 @@
-package artifality.list.element;
+package artifality.list.crystallization;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
@@ -8,7 +8,7 @@ import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.world.World;
 
-public class LifeElement extends CrystalElement {
+public class LifeElement extends Crystallization {
 
     public LifeElement(String name) {
         super(name);

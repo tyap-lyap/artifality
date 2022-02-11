@@ -1,4 +1,4 @@
-package artifality.list.element;
+package artifality.list.crystallization;
 
 import artifality.util.EffectsUtils;
 import com.google.common.collect.ImmutableMultimap;
@@ -7,24 +7,25 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.world.World;
 
-public class IncrementalElement extends CrystalElement {
+public class LunarElement extends Crystallization {
 
-    public IncrementalElement(String name) {
+    public LunarElement(String name) {
         super(name);
     }
 
     @Override
     public void tick(LivingEntity entity, World world) {
-        EffectsUtils.ticking(entity, StatusEffects.SPEED, 1);
-        EffectsUtils.ticking(entity, StatusEffects.JUMP_BOOST, 1);
+        if (world.getTime() % 100L == 0L) {
+            entity.addStatusEffect(new StatusEffectInstance(EffectsUtils.getRandomPositive(), 100, 0, true, true));
+        }
     }
 
     @Override
     public void onAttack(LivingEntity target, World world) {
-
+        target.addStatusEffect(new StatusEffectInstance(EffectsUtils.getRandomNegative(), 100, 0, true, true));
     }
 
     @Override

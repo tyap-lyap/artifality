@@ -1,15 +1,5 @@
 package artifality.registry;
 
-import artifality.extension.ElementalExtension;
-import artifality.list.CrystalElements;
-import artifality.list.element.CrystalElement;
-import net.fabricmc.fabric.api.entity.event.v1.ServerEntityCombatEvents;
-import net.minecraft.entity.ExperienceOrbEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.GameRules;
-
 public class ArtifalityEvents {
 
     public static void init() {

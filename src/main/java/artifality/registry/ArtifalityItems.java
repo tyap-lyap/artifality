@@ -52,8 +52,6 @@ public class ArtifalityItems {
     }
 
     public static void init() {
-        for (Identifier id : ITEMS.keySet()) {
-            Registry.register(Registry.ITEM, id, ITEMS.get(id));
-        }
+        ITEMS.forEach((id, item) -> Registry.register(Registry.ITEM, id, ITEMS.get(id)));
     }
 }

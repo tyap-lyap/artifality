@@ -13,7 +13,7 @@ import java.util.Map;
 public class TwoModelsItemRegistry {
     public static final Map<Identifier, Item> ENTRIES = new LinkedHashMap<>();
 
-    public static void register(Item... items){
+    public static void register(Item... items) {
         for(Item item : items){
             Identifier id = Registry.ITEM.getId(item);
             ENTRIES.put(id, item);
