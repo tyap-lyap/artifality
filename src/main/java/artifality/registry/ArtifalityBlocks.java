@@ -68,7 +68,7 @@ public class ArtifalityBlocks extends BlockRegistryBase {
     public static final Block EMPTY_LENS = lens("empty_lens", LensEffects.EMPTY);
 
     public static final Block UPGRADING_PEDESTAL = add("upgrading_pedestal", new UpgradingPedestalBlock(copyOf(COBBLESTONE).luminance(state -> state.get(UpgradingPedestalBlock.CHARGES) * 3)));
-    public static final Block LUNAR_PEDESTAL = add("lunar_pedestal", new BaseBlock(copyOf(COBBLESTONE)));
+//    public static final Block LUNAR_PEDESTAL = add("lunar_pedestal", new BaseBlock(copyOf(COBBLESTONE)));
 
     //TODO remove in 1.19
     public static final Block BUDDING_INCREMENTAL_CRYSTAL = geode("budding_incremental_crystal", SMALL_INCREMENTAL_CRYSTAL_CLUSTER, MEDIUM_INCREMENTAL_CRYSTAL_CLUSTER, INCREMENTAL_CRYSTAL_CLUSTER);

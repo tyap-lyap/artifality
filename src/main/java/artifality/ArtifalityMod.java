@@ -28,7 +28,7 @@ public class ArtifalityMod implements ModInitializer {
     }
 
     private static ItemGroup createItemGroup() {
-        return FabricItemGroupBuilder.create(newId("items"))
+        return FabricItemGroupBuilder.create(locate("items"))
                 .appendItems(stacks -> {
                     ArtifalityItems.ITEMS.forEach((id, item) -> stacks.add(item.getDefaultStack()));
                     ArtifalityBlocks.ITEMS.forEach((id, item) -> stacks.add(item.getDefaultStack()));
@@ -41,7 +41,7 @@ public class ArtifalityMod implements ModInitializer {
                 .icon(ArtifalityItems.CRYSTAL_HEART::getDefaultStack).build();
     }
 
-    public static Identifier newId(String path) {
+    public static Identifier locate(String path) {
         return new Identifier(MOD_ID, path);
     }
 }

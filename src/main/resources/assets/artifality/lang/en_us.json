@@ -42,10 +42,10 @@
     "block.artifality.life_crystal_cluster": "Life Crystal Cluster",
     "block.artifality.wrath_crystal_cluster": "Wrath Crystal Cluster",
 
-    "block.artifality.budding_incremental_crystal": "Budding Incremental Crystal",
-    "block.artifality.budding_lunar_crystal": "Budding Lunar Crystal",
-    "block.artifality.budding_life_crystal": "Budding Life Crystal",
-    "block.artifality.budding_wrath_crystal": "Budding Wrath Crystal",
+    "block.artifality.incremental_crystal_geode": "Incremental Crystal Geode",
+    "block.artifality.lunar_crystal_geode": "Lunar Crystal Geode",
+    "block.artifality.life_crystal_geode": "Life Crystal Geode",
+    "block.artifality.wrath_crystal_geode": "Wrath Crystal Geode",
 
     "block.artifality.incremental_crystal_lens": "Incremental Crystal Lens",
     "tip.incremental_crystal_lens.0": "Increases the level of effect",

@@ -12,7 +12,7 @@ public class ArtifalityEffects {
     public static final Map<Identifier, StatusEffect> EFFECTS = new LinkedHashMap<>();
 
     private static StatusEffect add(String name, StatusEffect effect) {
-        EFFECTS.put(ArtifalityMod.newId(name), effect);
+        EFFECTS.put(ArtifalityMod.locate(name), effect);
         return effect;
     }
 

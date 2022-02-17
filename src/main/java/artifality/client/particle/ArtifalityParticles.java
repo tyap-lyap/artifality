@@ -11,6 +11,6 @@ public class ArtifalityParticles {
     }
 
     private static DefaultParticleType add(String name) {
-        return Registry.register(Registry.PARTICLE_TYPE, ArtifalityMod.newId(name), FabricParticleTypes.simple());
+        return Registry.register(Registry.PARTICLE_TYPE, ArtifalityMod.locate(name), FabricParticleTypes.simple());
     }
 }

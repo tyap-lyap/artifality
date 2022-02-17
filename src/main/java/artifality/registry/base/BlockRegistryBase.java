@@ -56,13 +56,13 @@ public class BlockRegistryBase {
         addBlock(name, block);
         if (item != null) {
             item.appendBlocks(Item.BLOCK_ITEMS, item);
-            ITEMS.put(ArtifalityMod.newId(name), item);
+            ITEMS.put(ArtifalityMod.locate(name), item);
         }
         return block;
     }
 
     public static Block addBlock(String name, Block block) {
-        BLOCKS.put(ArtifalityMod.newId(name), block);
+        BLOCKS.put(ArtifalityMod.locate(name), block);
         return block;
     }
 }

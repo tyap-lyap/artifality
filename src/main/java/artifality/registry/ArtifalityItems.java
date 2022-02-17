@@ -39,7 +39,7 @@ public class ArtifalityItems {
     public static final Item CRYSTAL_HEART = add("crystal_heart", new CrystalHeartItem(settings()));
 
     private static Item add(String name, Item item) {
-        ITEMS.put(ArtifalityMod.newId(name), item);
+        ITEMS.put(ArtifalityMod.locate(name), item);
         return item;
     }
 

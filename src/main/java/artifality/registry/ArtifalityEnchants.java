@@ -22,7 +22,7 @@ public class ArtifalityEnchants {
 //    public static final Enchantment LUNAR_MINER = add("lunar_miner", new LunarDamageEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON, new EquipmentSlot[]{EquipmentSlot.MAINHAND}));
 
     private static Enchantment add(String id, Enchantment enchantment) {
-        ENCHANTMENTS.put(ArtifalityMod.newId(id), enchantment);
+        ENCHANTMENTS.put(ArtifalityMod.locate(id), enchantment);
         return enchantment;
     }
 

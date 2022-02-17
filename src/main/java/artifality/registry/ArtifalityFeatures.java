@@ -1,6 +1,6 @@
 package artifality.registry;
 
-import static artifality.ArtifalityMod.newId;
+import static artifality.ArtifalityMod.locate;
 
 import artifality.worldgen.feature.CrystalFeature;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
@@ -19,9 +19,9 @@ public class ArtifalityFeatures {
     public static final PlacedFeature CRYSTAL_FEATURE_PLACED = new PlacedFeature(() -> CRYSTAL_FEATURE_CONFIG, List.of(PlacedFeatures.BOTTOM_TO_120_RANGE));
 
     public static void init() {
-        Registry.register(Registry.FEATURE, newId("crystal_feature"), CRYSTAL_FEATURE);
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, newId("crystal_feature"), CRYSTAL_FEATURE_CONFIG);
-        Registry.register(BuiltinRegistries.PLACED_FEATURE, newId("crystal_feature"), CRYSTAL_FEATURE_PLACED);
+        Registry.register(Registry.FEATURE, locate("crystal_feature"), CRYSTAL_FEATURE);
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, locate("crystal_feature"), CRYSTAL_FEATURE_CONFIG);
+        Registry.register(BuiltinRegistries.PLACED_FEATURE, locate("crystal_feature"), CRYSTAL_FEATURE_PLACED);
 
         BiomeModifications.addFeature(ctx -> {
                     Biome.Category category = ctx.getBiome().getCategory();

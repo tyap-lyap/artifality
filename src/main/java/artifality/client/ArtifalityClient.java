@@ -62,6 +62,6 @@ public class ArtifalityClient implements ClientModInitializer {
 
         // Thanks Juce! :)
         FabricLoader.getInstance().getModContainer(ArtifalityMod.MOD_ID).ifPresent(artifality ->
-                ResourceManagerHelper.registerBuiltinResourcePack(ArtifalityMod.newId("fancyclusters"), artifality, ResourcePackActivationType.NORMAL));
+                ResourceManagerHelper.registerBuiltinResourcePack(ArtifalityMod.locate("fancyclusters"), artifality, ResourcePackActivationType.NORMAL));
     }
 }

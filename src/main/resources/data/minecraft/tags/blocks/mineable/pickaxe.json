@@ -2,7 +2,6 @@
   "replace": false,
   "values": [
     "artifality:upgrading_pedestal",
-    "artifality:lunar_pedestal",
     "artifality:empty_lens",
 
     "artifality:incremental_crystal_cluster",
@@ -10,7 +9,7 @@
     "artifality:medium_incremental_crystal_cluster",
     "artifality:incremental_crystal_block",
     "artifality:incremental_crystal_lens",
-    "artifality:budding_incremental_crystal",
+    "artifality:incremental_crystal_geode",
     "artifality:incremental_crystal_stairs",
     "artifality:incremental_crystal_slab",
 
@@ -19,7 +18,7 @@
     "artifality:medium_lunar_crystal_cluster",
     "artifality:lunar_crystal_block",
     "artifality:lunar_crystal_lens",
-    "artifality:budding_lunar_crystal",
+    "artifality:lunar_crystal_geode",
     "artifality:lunar_crystal_stairs",
     "artifality:lunar_crystal_slab",
 
@@ -28,7 +27,7 @@
     "artifality:medium_life_crystal_cluster",
     "artifality:life_crystal_block",
     "artifality:life_crystal_lens",
-    "artifality:budding_life_crystal",
+    "artifality:life_crystal_geode",
     "artifality:life_crystal_stairs",
     "artifality:life_crystal_slab"
   ]
