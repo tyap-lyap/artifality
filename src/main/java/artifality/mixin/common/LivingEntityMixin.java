@@ -18,7 +18,8 @@ public class LivingEntityMixin {
     float getSlipperiness(Block block) {
         if (hasSlidingCurse()) {
             return 1;
-        }else return block.getSlipperiness();
+        }
+        else return block.getSlipperiness();
     }
 
     @Unique

@@ -6,6 +6,7 @@ import artifality.block.base.BaseBlock;
 import artifality.extension.Artifact;
 import artifality.extension.ArtifactChances;
 import artifality.list.ArtifactRarity;
+import artifality.registry.ArtifalityItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
@@ -13,6 +14,8 @@ import net.minecraft.block.Waterloggable;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
@@ -24,6 +27,7 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.tag.FluidTags;
+import net.minecraft.text.LiteralText;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -41,7 +45,8 @@ public class CrateBlock extends BaseBlock implements Waterloggable {
     public static final VoxelShape SHAPE = createCuboidShape(2, 0, 2, 14, 12, 14);
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
 
-    public static final ArrayList<Item> CRYSTALS = new ArrayList<>(List.of(INCREMENTAL_CRYSTAL, LUNAR_CRYSTAL, LIFE_CRYSTAL));
+    public static final ArrayList<Item> CRYSTALS = new ArrayList<>(List.of(INCREMENTAL_CRYSTAL, LUNAR_CRYSTAL, LIFE_CRYSTAL, WRATH_CRYSTAL));
+
     private final ArrayList<Item> commonArtifacts = new ArrayList<>();
     private final ArrayList<Item> rareArtifacts = new ArrayList<>();
     private final ArrayList<Item> legendaryArtifacts = new ArrayList<>();
@@ -51,10 +56,10 @@ public class CrateBlock extends BaseBlock implements Waterloggable {
     public CrateBlock(Settings settings, ArtifactRarity rarity) {
         super(settings);
         this.rarity = rarity;
-        ITEMS.forEach((id, item) -> {
-            if(item instanceof Artifact artifact){
+        ArtifalityItems.ITEMS.forEach((id, item) -> {
+            if(item instanceof Artifact artifact) {
                 ArtifactRarity artifactRarity = artifact.getSettings().getRarity();
-                switch (artifactRarity){
+                switch (artifactRarity) {
                     case COMMON -> commonArtifacts.add(item);
                     case RARE -> rareArtifacts.add(item);
                     case LEGENDARY -> legendaryArtifacts.add(item);
@@ -68,19 +73,20 @@ public class CrateBlock extends BaseBlock implements Waterloggable {
     public void afterBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack stack) {
         super.afterBreak(world, player, pos, state, blockEntity, stack);
 
-        if(!EnchantmentHelper.get(player.getStackInHand(Hand.MAIN_HAND)).containsKey(Enchantments.SILK_TOUCH)){
+        if(!EnchantmentHelper.get(player.getStackInHand(Hand.MAIN_HAND)).containsKey(Enchantments.SILK_TOUCH)) {
             dropCrateLoot(world, player, pos);
         }
         else dropStack(world, pos, this.asItem().getDefaultStack());
     }
 
-    public void dropCrateLoot(World world, PlayerEntity player, BlockPos pos){
-        if(world instanceof ServerWorld serverWorld){
+    public void dropCrateLoot(World world, PlayerEntity player, BlockPos pos) {
+        if(world instanceof ServerWorld serverWorld) {
             dropExperience(serverWorld, pos, 5);
             dropExperience(serverWorld, pos, 5 + world.random.nextInt(6));
             dropExperience(serverWorld, pos, 5 + world.random.nextInt(11));
+            dropEntity(pos, serverWorld);
         }
-        if(Math.random() < 0.5){
+        if(Math.random() < 0.5) {
             dropStack(world, pos, new ItemStack(CRYSTALS.get(world.random.nextInt(CRYSTALS.size())), world.random.nextInt(5) + 1));
         }
         if (player instanceof ArtifactChances extension) {
@@ -89,7 +95,7 @@ public class CrateBlock extends BaseBlock implements Waterloggable {
         }
     }
 
-    public void incrementAmplifiers(PlayerEntity player, ArtifactChances extension){
+    public void incrementAmplifiers(PlayerEntity player, ArtifactChances extension) {
         int common, rare, legendary;
         common = extension.artifality$getCommonAmplifier();
         rare = extension.artifality$getRareAmplifier();
@@ -109,30 +115,41 @@ public class CrateBlock extends BaseBlock implements Waterloggable {
         extension.artifality$setRareAmplifier(rare);
         extension.artifality$setLegendaryAmplifier(legendary);
 
-//        int debugcommon = extension.artifality$getCommonAmplifier();
-//        int debugrare = extension.artifality$getRareAmplifier();
-//        int debuglegendary = extension.artifality$getLegendaryAmplifier();
-//
-//        player.sendMessage(new LiteralText("[DEBUG] amplifiers: " + debugcommon + "% " + debugrare + "% " + debuglegendary + "%"), false);
+        int debugcommon = extension.artifality$getCommonAmplifier();
+        int debugrare = extension.artifality$getRareAmplifier();
+        int debuglegendary = extension.artifality$getLegendaryAmplifier();
+
+        player.sendMessage(new LiteralText("[DEBUG] amplifiers: " + debugcommon + "% " + debugrare + "% " + debuglegendary + "%"), false);
     }
 
-    public void dropArtifact(ArtifactChances extension, World world, BlockPos pos){
+    public void dropArtifact(ArtifactChances extension, World world, BlockPos pos) {
         int common, rare, legendary;
         common = extension.artifality$getCommonAmplifier();
         rare = extension.artifality$getRareAmplifier();
         legendary = extension.artifality$getLegendaryAmplifier();
 
-        if (Math.random() < (double)legendary / 100){
+        if (Math.random() < (double)legendary / 100) {
             dropStack(world, pos, new ItemStack(legendaryArtifacts.get(world.random.nextInt(legendaryArtifacts.size()))));
             extension.artifality$setLegendaryAmplifier(0);
+            return;
         }
-        if (Math.random() < (double)rare / 100){
+        if (Math.random() < (double)rare / 100) {
             dropStack(world, pos, new ItemStack(rareArtifacts.get(world.random.nextInt(rareArtifacts.size()))));
             extension.artifality$setRareAmplifier(0);
+            return;
         }
-        if (Math.random() < (double)common / 100){
+        if (Math.random() < (double)common / 100) {
             dropStack(world, pos, new ItemStack(commonArtifacts.get(world.random.nextInt(commonArtifacts.size()))));
             extension.artifality$setCommonAmplifier(0);
+        }
+    }
+
+    public void dropEntity(BlockPos pos, ServerWorld world) {
+        if(world.random.nextInt(5) == 0) {
+            EntityType.SILVERFISH.spawn(world, null, null, null, pos, SpawnReason.NATURAL, true, false);
+        }
+        else if(world.random.nextInt(10) == 0) {
+            EntityType.CAVE_SPIDER.spawn(world, null, null, null, pos, SpawnReason.NATURAL, true, false);
         }
     }
 

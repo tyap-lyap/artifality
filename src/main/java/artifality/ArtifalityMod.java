@@ -1,6 +1,7 @@
 package artifality;
 
 import artifality.data.ArtifalityLootTables;
+import artifality.list.CrystalClusterPacks;
 import artifality.registry.*;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
@@ -25,6 +26,7 @@ public class ArtifalityMod implements ModInitializer {
         ArtifalityEvents.init();
         ArtifalityLootTables.init();
         ArtifalityEffects.init();
+        CrystalClusterPacks.init();
     }
 
     private static ItemGroup createItemGroup() {

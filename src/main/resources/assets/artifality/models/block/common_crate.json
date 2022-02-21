@@ -1,6 +1,7 @@
 {
   "parent": "artifality:block/crate_model",
   "textures": {
-    "crate": "artifality:block/common_crate_model"
+    "crate": "artifality:block/common_crate_model",
+	"particle": "artifality:block/common_crate_particle"
    }
 }

@@ -12,7 +12,7 @@ group = project.maven_group
 
 repositories {
 	maven { url "https://maven.shedaniel.me" } //rei
-	maven { url "https://cursemaven.com" } //lazyDFU
+	maven { url "https://api.modrinth.com/maven" } //lazyDFU
 	maven { url "https://ladysnake.jfrog.io/artifactory/mods" } //CCA
 	maven { url "https://maven.terraformersmc.com" } //modmenu, trinkets
 	maven { url "https://maven.pinkgoosik.ru" } //cosmetica
@@ -25,11 +25,13 @@ dependencies {
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	modImplementation "dev.emi:trinkets:${project.trinkets_version}"
-	
-	modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:7.2.425"
-	modRuntimeOnly "com.terraformersmc:modmenu:3.0.1"
-	modRuntimeOnly "curse.maven:lazydfu-433518:3209972"
-	modRuntimeOnly "curse.maven:ferritecore-fabric-459857:3550048"
+
+	include modImplementation("ru.pinkgoosik:cosmetica:0.4.0")
+
+	modLocalRuntime "me.shedaniel:RoughlyEnoughItems-fabric:7.2.425"
+	modLocalRuntime "com.terraformersmc:modmenu:3.0.1"
+	modLocalRuntime "maven.modrinth:lazydfu:0.1.2"
+	modLocalRuntime "maven.modrinth:ferrite-core:4.1.2"
 }
 
 processResources {

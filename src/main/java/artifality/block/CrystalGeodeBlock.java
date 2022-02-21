@@ -2,6 +2,7 @@ package artifality.block;
 
 import artifality.block.base.BaseBlock;
 import artifality.block.base.CrystalClusterBlock;
+import artifality.list.CrystalClusterPacks;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -28,41 +29,43 @@ public class CrystalGeodeBlock extends BaseBlock {
     private final Block medium;
     private final Block large;
 
-    public CrystalGeodeBlock(Block small, Block medium, Block large) {
+    public CrystalGeodeBlock(CrystalClusterPacks.Pack pack) {
         super(FabricBlockSettings.copyOf(Blocks.STONE).ticksRandomly());
-        this.small = small;
-        this.medium = medium;
-        this.large = large;
+        this.small = pack.clusters()[0];
+        this.medium = pack.clusters()[1];
+        this.large = pack.clusters()[2];
     }
 
     @Override
     public List<ItemStack> getDroppedStacks(BlockState state, LootContext.Builder builder) {
-        Identifier identifier = Blocks.STONE.getLootTableId();
-        if (identifier == LootTables.EMPTY) {
+        Identifier lootTableId = Blocks.STONE.getLootTableId();
+        if (lootTableId == LootTables.EMPTY) {
             return Collections.emptyList();
         } else {
             LootContext lootContext = builder.parameter(LootContextParameters.BLOCK_STATE, state).build(LootContextTypes.BLOCK);
             ServerWorld world = lootContext.getWorld();
-            LootTable lootTable = world.getServer().getLootManager().getTable(identifier);
+            LootTable lootTable = world.getServer().getLootManager().getTable(lootTableId);
             return lootTable.generateLoot(lootContext);
         }
     }
 
     @Override
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if (random.nextInt(4) == 0) {
+        if (random.nextInt(10) == 0) {
             Direction direction = DIRECTIONS[random.nextInt(DIRECTIONS.length)];
             BlockPos blockPos = pos.offset(direction);
             BlockState blockState = world.getBlockState(blockPos);
             Block block = null;
+
             if (blockState.isAir()) {
                 block = small;
-            } else if (blockState.isOf(small) && blockState.get(CrystalClusterBlock.FACING) == direction) {
+            }
+            else if (blockState.isOf(small) && blockState.get(CrystalClusterBlock.FACING) == direction) {
                 block = medium;
-            } else if (blockState.isOf(medium) && blockState.get(CrystalClusterBlock.FACING) == direction) {
+            }
+            else if (blockState.isOf(medium) && blockState.get(CrystalClusterBlock.FACING) == direction) {
                 block = large;
             }
-
             if (block != null) {
                 BlockState crystal = block.getDefaultState().with(CrystalClusterBlock.FACING, direction);
                 world.setBlockState(blockPos, crystal);
