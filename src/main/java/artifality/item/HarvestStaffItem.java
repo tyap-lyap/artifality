@@ -1,6 +1,7 @@
 package artifality.item;
 
 import artifality.item.base.NatureStaffItem;
+import artifality.util.TiersUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CropBlock;
@@ -19,6 +20,7 @@ public class HarvestStaffItem extends NatureStaffItem {
     public HarvestStaffItem(ArtifactSettings settings) {
         super(settings);
     }
+
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
         if(context.getWorld().isClient || context.getPlayer() == null) return super.useOnBlock(context);
@@ -28,11 +30,11 @@ public class HarvestStaffItem extends NatureStaffItem {
         PlayerEntity player = context.getPlayer();
         World world = context.getWorld();
 
-        if(player.getInventory().contains(Items.BONE_MEAL.getDefaultStack())){
+        if(player.getInventory().contains(Items.BONE_MEAL.getDefaultStack())) {
             ItemStack boneMeal = player.getInventory().getStack(player.getInventory().getSlotWithStack(Items.BONE_MEAL.getDefaultStack()));
-            if(BoneMealItem.useOnFertilizable(boneMeal, world, pos)){
+            if(BoneMealItem.useOnFertilizable(boneMeal, world, pos)) {
                 world.syncWorldEvent(WorldEvents.BONE_MEAL_USED, pos, 0);
-                dropExperience(world, pos, world.getRandom().nextInt(2) + getCurrentTier(context.getStack()));
+                dropExperience(world, pos, world.getRandom().nextInt(2) + TiersUtils.getTier(context.getStack()));
                 return ActionResult.SUCCESS;
             }
         }

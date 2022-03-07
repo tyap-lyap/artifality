@@ -4,7 +4,7 @@
   "version": "${version}",
 
   "name": "Artifality",
-  "description": "Artifality is a Minecraft Mod that adds some new Items, Blocks, Enchantments, and Other Stuff to your Minecraft world.",
+  "description": "Collection of new unique artifacts, blocks, enchantments, and other stuff.",
   "authors": [
     "PinkGoosik",
     "DoctorNight",
@@ -19,7 +19,7 @@
     "VanillaTweaks team"
   ],
   "contact": {
-    "homepage": "https://curseforge.com/minecraft/mc-mods/artifality",
+    "homepage": "https://modrinth.com/mod/artifality",
     "sources": "https://github.com/PinkGoosik/artifality",
     "issues": "https://github.com/PinkGoosik/artifality/issues"
   },
@@ -29,8 +29,14 @@
 
   "environment": "*",
   "entrypoints": {
-    "main": ["artifality.ArtifalityMod"],
-    "client": ["artifality.client.ArtifalityClient"]
+    "main": [
+      "artifality.ArtifalityMod",
+      "artifality.api.ArtifalityAPI"
+    ],
+    "client": [
+      "artifality.client.ArtifalityClient",
+      "artifality.api.ArtifalityAPI"
+    ]
   },
 
   "mixins": [
@@ -40,8 +46,10 @@
   "custom": {
     "modmenu": {
       "links": {
-        "misc.artifality.discord": "https://discord.gg/DcemWeskeZ",
-        "misc.artifality.wiki": "https://pinkgoosik.github.io/artifality"
+        "modmenu.discord": "https://discord.gg/DcemWeskeZ",
+        "modmenu.curseforge": "https://curseforge.com/minecraft/mc-mods/artifality",
+        "modmenu.modrinth": "https://modrinth.com/mod/artifality",
+        "modmenu.wiki": "https://pinkgoosik.github.io/artifality"
       }
     }
   },

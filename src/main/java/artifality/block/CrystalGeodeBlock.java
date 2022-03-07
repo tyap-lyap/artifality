@@ -2,7 +2,6 @@ package artifality.block;
 
 import artifality.block.base.BaseBlock;
 import artifality.block.base.CrystalClusterBlock;
-import artifality.list.CrystalClusterPacks;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -29,11 +28,11 @@ public class CrystalGeodeBlock extends BaseBlock {
     private final Block medium;
     private final Block large;
 
-    public CrystalGeodeBlock(CrystalClusterPacks.Pack pack) {
+    public CrystalGeodeBlock(Block small, Block medium, Block large) {
         super(FabricBlockSettings.copyOf(Blocks.STONE).ticksRandomly());
-        this.small = pack.clusters()[0];
-        this.medium = pack.clusters()[1];
-        this.large = pack.clusters()[2];
+        this.small = small;
+        this.medium = medium;
+        this.large = large;
     }
 
     @Override

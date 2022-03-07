@@ -1,9 +1,7 @@
 package artifality.util;
 
-import artifality.extension.Artifact;
-import artifality.item.base.TieredItem;
+import artifality.item.base.ArtifactItem;
 import artifality.list.ArtifactRarity;
-import dev.emi.trinkets.api.Trinket;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.item.EnchantedBookItem;
@@ -28,14 +26,12 @@ import java.util.Objects;
  */
 public class TooltipAppender {
 
-    protected TooltipAppender() {}
-
     public static void append(ItemStack stack, List<Text> tooltip) {
         Item item = stack.getItem();
 
         if(!getTooltip(Registry.ITEM.getId(item).getPath()).isEmpty() && shiftPressed(tooltip, item)) {
-            if(item instanceof TieredItem) {
-                appendTier(stack, tooltip);
+            if(item instanceof ArtifactItem artifact) {
+                if(artifact.config.hasTiers) appendTier(stack, tooltip);
             }
             appendItemTooltip(stack, tooltip);
         }else if(item instanceof EnchantedBookItem) {
@@ -47,41 +43,45 @@ public class TooltipAppender {
 
     private static boolean shiftPressed(List<Text> tooltip, Item item) {
         if(!Screen.hasShiftDown()) {
-            if(item instanceof Artifact artifact) {
-                ArtifactRarity rarity = artifact.getSettings().getRarity();
+            if(item instanceof ArtifactItem artifact) {
+                ArtifactRarity rarity = artifact.config.rarity;
                 tooltip.add(new LiteralText(ofKey(rarity.getName())).setStyle(Style.EMPTY.withColor(rarity.getColor().getRGB())));
             }
             if(!(item instanceof EnchantedBookItem && FabricLoader.getInstance().isModLoaded("enchdesc"))) {
                 tooltip.add(new LiteralText(""));
                 tooltip.add(new LiteralText(ofKey("press_shift")).formatted(Formatting.GRAY));
             }
-            if(item instanceof Trinket) tooltip.add(new LiteralText(""));
+            if(item instanceof ArtifactItem artifact) {
+                if(artifact.config.isTrinket) tooltip.add(new LiteralText(""));
+            }
             return false;
         }else{
             return true;
         }
     }
 
-    private static void appendTier(ItemStack stack, List<Text> tooltip){
-        LiteralText tierString = new LiteralText(ofKey("tier").replaceAll("%", Integer.toString(TieredItem.getCurrentTier(stack))));
+    private static void appendTier(ItemStack stack, List<Text> tooltip) {
+        LiteralText tierString = new LiteralText(ofKey("tier").replaceAll("%", Integer.toString(TiersUtils.getTier(stack))));
 
-        switch (TieredItem.getCurrentTier(stack)) {
+        switch (TiersUtils.getTier(stack)) {
             default -> tooltip.add(tierString);
             case 2 -> tooltip.add(tierString.formatted(Formatting.GREEN));
             case 3 -> tooltip.add(tierString.formatted(Formatting.LIGHT_PURPLE));
         }
     }
 
-    private static void appendItemTooltip(ItemStack stack, List<Text> tooltip){
+    private static void appendItemTooltip(ItemStack stack, List<Text> tooltip) {
         tooltip.add(new LiteralText(""));
         for(String line : getTooltip(Registry.ITEM.getId(stack.getItem()).getPath())) {
             tooltip.add(new LiteralText(line.trim().replaceAll("&", "§")).formatted(Formatting.GRAY));
         }
-        if(stack.getItem() instanceof Artifact item) item.appendTooltipInfo(stack, tooltip);
-        if(stack.getItem() instanceof Trinket) tooltip.add(new LiteralText(""));
+        if(stack.getItem() instanceof ArtifactItem artifact) {
+            artifact.appendTooltipInfo(stack, tooltip);
+            if(artifact.config.isTrinket) tooltip.add(new LiteralText(""));
+        }
     }
 
-    private static void appendEnchantmentTooltip(ItemStack stack, List<Text> tooltip){
+    private static void appendEnchantmentTooltip(ItemStack stack, List<Text> tooltip) {
         NbtList enchantments = EnchantedBookItem.getEnchantmentNbt(stack);
 
         for(int i = 0; i < enchantments.size(); ++i) {
@@ -102,9 +102,9 @@ public class TooltipAppender {
         }
     }
 
-    public static ArrayList<String> getTooltip(String id){
+    public static ArrayList<String> getTooltip(String id) {
         ArrayList<String> strings = new ArrayList<>();
-        for(int i = 0; i <= 10; i++){
+        for(int i = 0; i <= 10; i++) {
             if(Language.getInstance().hasTranslation("tip." + id + "." + i)){
                 strings.add(Language.getInstance().get("tip." + id + "." + i));
             }
@@ -112,7 +112,7 @@ public class TooltipAppender {
         return strings;
     }
 
-    public static String ofKey(String name){
+    public static String ofKey(String name) {
         return Language.getInstance().get("misc.artifality." + name).replaceAll("&", "§");
     }
 }

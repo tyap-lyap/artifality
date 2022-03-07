@@ -1,7 +1,6 @@
 package artifality;
 
 import artifality.data.ArtifalityLootTables;
-import artifality.list.CrystalClusterPacks;
 import artifality.registry.*;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
@@ -26,7 +25,6 @@ public class ArtifalityMod implements ModInitializer {
         ArtifalityEvents.init();
         ArtifalityLootTables.init();
         ArtifalityEffects.init();
-        CrystalClusterPacks.init();
     }
 
     private static ItemGroup createItemGroup() {
@@ -35,12 +33,14 @@ public class ArtifalityMod implements ModInitializer {
                     ArtifalityItems.ITEMS.forEach((id, item) -> stacks.add(item.getDefaultStack()));
                     ArtifalityBlocks.ITEMS.forEach((id, item) -> stacks.add(item.getDefaultStack()));
                     ArtifalityEnchants.ENCHANTMENTS.forEach((id, enchantment) -> {
-                        ItemStack book = new ItemStack(Items.ENCHANTED_BOOK);
-                        EnchantedBookItem.addEnchantment(book, new EnchantmentLevelEntry(enchantment, enchantment.getMaxLevel()));
-                        stacks.add(book);
+                        for(int i = 1; i <= enchantment.getMaxLevel(); i++) {
+                            ItemStack book = new ItemStack(Items.ENCHANTED_BOOK);
+                            EnchantedBookItem.addEnchantment(book, new EnchantmentLevelEntry(enchantment, i));
+                            stacks.add(book);
+                        }
                     });
                 })
-                .icon(ArtifalityItems.CRYSTAL_HEART::getDefaultStack).build();
+                .icon(ArtifalityItems.LUNAR_CRYSTAL_WAND::getDefaultStack).build();
     }
 
     public static Identifier locate(String path) {

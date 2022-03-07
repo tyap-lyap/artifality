@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "nWn",
+    "WWW",
+    "nWn"
+  ],
+  "key": {
+    "n": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "W": {
+      "item": "artifality:wrath_crystal_block"
+    }
+  },
+  "result": {
+    "item": "artifality:wrath_crystal_lens",
+    "count": 1
+  }
+}

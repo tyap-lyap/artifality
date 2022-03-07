@@ -1,8 +1,9 @@
 package artifality.block;
 
 import artifality.block.base.BaseBlock;
+import artifality.item.base.ArtifactItem;
 import artifality.registry.ArtifalityBlocks;
-import artifality.item.base.TieredItem;
+import artifality.util.TiersUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
@@ -33,28 +34,30 @@ public class UpgradingPedestalBlock extends BaseBlock {
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if(world.isClient) return ActionResult.PASS;
         ItemStack stack = player.getStackInHand(hand);
-        if(hand == Hand.MAIN_HAND && stack.isOf(ArtifalityBlocks.INCREMENTAL_ORB.asItem())){
-            if(getCharges(state) < 3){
+        if(hand == Hand.MAIN_HAND && stack.isOf(ArtifalityBlocks.INCREMENTAL_ORB.asItem())) {
+            if(getCharges(state) < 3) {
                 chargeWithIncremental(world, pos, state);
                 stack.decrement(1);
                 return ActionResult.SUCCESS;
             }
-        }else if(hand == Hand.MAIN_HAND && stack.isOf(Items.NETHER_STAR)){
-            if(getCharges(state) != 4){
+        }
+        else if(hand == Hand.MAIN_HAND && stack.isOf(Items.NETHER_STAR)) {
+            if(getCharges(state) != 4) {
                 chargeWithNetherStar(world, pos, state);
                 stack.decrement(1);
                 return ActionResult.SUCCESS;
             }
-        }else if(hand == Hand.MAIN_HAND && stack.getItem() instanceof TieredItem){
-            if(getCharges(state) == 3 && TieredItem.getCurrentTier(stack) == 1){
+        }
+        else if(hand == Hand.MAIN_HAND && stack.getItem() instanceof ArtifactItem artifact && artifact.config.hasTiers) {
+            if(getCharges(state) == 3 && TiersUtils.getTier(stack) == 1) {
                 world.playSound(null, pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, SoundEvents.BLOCK_RESPAWN_ANCHOR_DEPLETE, SoundCategory.BLOCKS, 1.0F, 1.0F);
-                player.setStackInHand(Hand.MAIN_HAND, TieredItem.withTier(stack.getItem(), 2));
+                player.setStackInHand(Hand.MAIN_HAND, TiersUtils.withTier(stack.getItem(), 2));
                 world.setBlockState(pos, this.getDefaultState());
                 return ActionResult.SUCCESS;
-
-            }else if(getCharges(state) == 4 && TieredItem.getCurrentTier(stack) == 2){
+            }
+            else if(getCharges(state) == 4 && TiersUtils.getTier(stack) == 2) {
                 world.playSound(null, pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, SoundEvents.BLOCK_RESPAWN_ANCHOR_DEPLETE, SoundCategory.BLOCKS, 1.0F, 1.0F);
-                player.setStackInHand(Hand.MAIN_HAND, TieredItem.withTier(stack.getItem(), 3));
+                player.setStackInHand(Hand.MAIN_HAND, TiersUtils.withTier(stack.getItem(), 3));
                 world.setBlockState(pos, this.getDefaultState());
                 return ActionResult.SUCCESS;
             }

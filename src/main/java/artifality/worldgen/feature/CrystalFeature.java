@@ -31,37 +31,37 @@ public class CrystalFeature extends Feature<DefaultFeatureConfig> {
                 if (isStone(world.getBlockState(pos.down()))) {
                     BlockState cluster = pack.getRandomCluster().getDefaultState();
                     setBlockState(world, pos, cluster);
-                    setBlockState(world, pos.down(), pack.geode().getDefaultState());
+                    setBlockState(world, pos.down(), pack.geode.getDefaultState());
                     generated = true;
 
                 }else if(isStone(world.getBlockState(pos.add(0, 0, -1)))) {
                     BlockState cluster = pack.getRandomCluster().getDefaultState().with(Properties.FACING, Direction.SOUTH);
                     setBlockState(world, pos, cluster);
-                    setBlockState(world, pos.add(0, 0, -1), pack.geode().getDefaultState());
+                    setBlockState(world, pos.add(0, 0, -1), pack.geode.getDefaultState());
                     generated = true;
 
                 }else if(isStone(world.getBlockState(pos.add(0, 0, 1)))) {
                     BlockState cluster = pack.getRandomCluster().getDefaultState().with(Properties.FACING, Direction.NORTH);
                     setBlockState(world, pos, cluster);
-                    setBlockState(world, pos.add(0, 0, 1), pack.geode().getDefaultState());
+                    setBlockState(world, pos.add(0, 0, 1), pack.geode.getDefaultState());
                     generated = true;
 
                 }else if(isStone(world.getBlockState(pos.add(-1, 0, 0)))) {
                     BlockState cluster = pack.getRandomCluster().getDefaultState().with(Properties.FACING, Direction.EAST);
                     setBlockState(world, pos, cluster);
-                    setBlockState(world, pos.add(-1, 0, 0), pack.geode().getDefaultState());
+                    setBlockState(world, pos.add(-1, 0, 0), pack.geode.getDefaultState());
                     generated = true;
 
                 }else if(isStone(world.getBlockState(pos.add(1, 0, 0)))) {
                     BlockState cluster = pack.getRandomCluster().getDefaultState().with(Properties.FACING, Direction.WEST);
                     setBlockState(world, pos, cluster);
-                    setBlockState(world, pos.add(1, 0, 0), pack.geode().getDefaultState());
+                    setBlockState(world, pos.add(1, 0, 0), pack.geode.getDefaultState());
                     generated = true;
 
                 }else if(isStone(world.getBlockState(pos.up()))) {
                     BlockState cluster = pack.getRandomCluster().getDefaultState().with(Properties.FACING, Direction.DOWN);
                     setBlockState(world, pos, cluster);
-                    setBlockState(world, pos.up(), pack.geode().getDefaultState());
+                    setBlockState(world, pos.up(), pack.geode.getDefaultState());
                     generated = true;
                 }
             }

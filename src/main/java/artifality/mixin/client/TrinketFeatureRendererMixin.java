@@ -22,7 +22,7 @@ public abstract class TrinketFeatureRendererMixin<T extends LivingEntity, M exte
     @Inject(method = "render*", at = @At("HEAD"), cancellable = true)
     public void render(MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, T entity, float limbAngle, float limbDistance, float tickDelta, float animationProgress, float headYaw, float headPitch, CallbackInfo ci) {
         if(entity instanceof PlayerEntity player) {
-            if(player.isSneaking() && TrinketsUtils.containsTrinket(player, ArtifalityItems.INVISIBILITY_CAPE)) {
+            if(player.isSneaking() && TrinketsUtils.hasTrinket(player, ArtifalityItems.INVISIBILITY_CAPE)) {
                 ci.cancel();
             }
         }

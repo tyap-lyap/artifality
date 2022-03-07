@@ -1,17 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "# #",
+    " # ",
     "###",
     " # "
   ],
   "key": {
     "#": {
-      "item": "artifality:life_crystal"
+      "item": "artifality:wrath_crystal"
     }
   },
   "result": {
-    "item": "artifality:crystal_heart",
+    "item": "artifality:wrath_orb",
     "count": 1
   }
 }

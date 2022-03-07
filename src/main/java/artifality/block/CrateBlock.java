@@ -3,8 +3,8 @@ package artifality.block;
 import static artifality.registry.ArtifalityItems.*;
 
 import artifality.block.base.BaseBlock;
-import artifality.extension.Artifact;
 import artifality.extension.ArtifactChances;
+import artifality.item.base.ArtifactItem;
 import artifality.list.ArtifactRarity;
 import artifality.registry.ArtifalityItems;
 import net.minecraft.block.Block;
@@ -57,8 +57,8 @@ public class CrateBlock extends BaseBlock implements Waterloggable {
         super(settings);
         this.rarity = rarity;
         ArtifalityItems.ITEMS.forEach((id, item) -> {
-            if(item instanceof Artifact artifact) {
-                ArtifactRarity artifactRarity = artifact.getSettings().getRarity();
+            if(item instanceof ArtifactItem artifact) {
+                ArtifactRarity artifactRarity = artifact.config.rarity;
                 switch (artifactRarity) {
                     case COMMON -> commonArtifacts.add(item);
                     case RARE -> rareArtifacts.add(item);

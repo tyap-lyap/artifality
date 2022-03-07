@@ -7,7 +7,7 @@
             "translate": "advancements.artifality.rethink_life.desc"
         },
         "icon": {
-            "item": "artifality:midas_touch"
+            "item": "artifality:hand_fan"
         },
         "frame": "challenge",
         "show_toast": true,
@@ -21,7 +21,7 @@
                 "items": [
                     {
                         "items": [
-                            "artifality:ukulele"
+                            "artifality:lunar_crystal_wand"
                         ],
                         "nbt": "{artifactTier:3}"
                     }
@@ -87,6 +87,19 @@
                     {
                         "items": [
                             "artifality:balloon"
+                        ],
+                        "nbt": "{artifactTier:3}"
+                    }
+                ]
+            }
+        },
+        "hand_fan": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "artifality:hand_fan"
                         ],
                         "nbt": "{artifactTier:3}"
                     }

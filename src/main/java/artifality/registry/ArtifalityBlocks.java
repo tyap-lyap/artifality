@@ -7,7 +7,6 @@ import artifality.block.UpgradingPedestalBlock;
 import artifality.block.base.*;
 import artifality.item.base.BaseBlockItem;
 import artifality.list.ArtifactRarity;
-import artifality.list.CrystalClusterPacks;
 import artifality.list.LensEffects;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
@@ -41,7 +40,10 @@ public class ArtifalityBlocks {
     public static final Block MEDIUM_INCREMENTAL_CRYSTAL_CLUSTER = cluster("medium_incremental_crystal_cluster", "medium");
     public static final Block INCREMENTAL_CRYSTAL_CLUSTER = cluster("incremental_crystal_cluster", "large");
 
-    public static final Block INCREMENTAL_CRYSTAL_GEODE = geode("incremental_crystal_geode", CrystalClusterPacks.INCREMENTAL);
+    public static final Block INCREMENTAL_CRYSTAL_GEODE = geode("incremental_crystal_geode",
+            SMALL_INCREMENTAL_CRYSTAL_CLUSTER,
+            MEDIUM_INCREMENTAL_CRYSTAL_CLUSTER,
+            INCREMENTAL_CRYSTAL_CLUSTER);
 
     public static final Block INCREMENTAL_CRYSTAL_BLOCK = crystalBlock("incremental_crystal_block");
     public static final Block INCREMENTAL_CRYSTAL_SLAB = crystalSlab("incremental_crystal_slab");
@@ -51,7 +53,10 @@ public class ArtifalityBlocks {
     public static final Block MEDIUM_LUNAR_CRYSTAL_CLUSTER = cluster("medium_lunar_crystal_cluster", "medium");
     public static final Block LUNAR_CRYSTAL_CLUSTER = cluster("lunar_crystal_cluster", "large");
 
-    public static final Block LUNAR_CRYSTAL_GEODE = geode("lunar_crystal_geode", CrystalClusterPacks.LUNAR);
+    public static final Block LUNAR_CRYSTAL_GEODE = geode("lunar_crystal_geode",
+            SMALL_LUNAR_CRYSTAL_CLUSTER,
+            MEDIUM_LUNAR_CRYSTAL_CLUSTER,
+            LUNAR_CRYSTAL_CLUSTER);
 
     public static final Block LUNAR_CRYSTAL_BLOCK = crystalBlock("lunar_crystal_block");
     public static final Block LUNAR_CRYSTAL_SLAB = crystalSlab("lunar_crystal_slab");
@@ -61,7 +66,10 @@ public class ArtifalityBlocks {
     public static final Block MEDIUM_LIFE_CRYSTAL_CLUSTER = cluster("medium_life_crystal_cluster", "medium");
     public static final Block LIFE_CRYSTAL_CLUSTER = cluster("life_crystal_cluster", "large");
 
-    public static final Block LIFE_CRYSTAL_GEODE = geode("life_crystal_geode", CrystalClusterPacks.LIFE);
+    public static final Block LIFE_CRYSTAL_GEODE = geode("life_crystal_geode",
+            SMALL_LIFE_CRYSTAL_CLUSTER,
+            MEDIUM_LIFE_CRYSTAL_CLUSTER,
+            LIFE_CRYSTAL_CLUSTER);
 
     public static final Block LIFE_CRYSTAL_BLOCK = crystalBlock("life_crystal_block");
     public static final Block LIFE_CRYSTAL_SLAB = crystalSlab("life_crystal_slab");
@@ -71,7 +79,10 @@ public class ArtifalityBlocks {
     public static final Block MEDIUM_WRATH_CRYSTAL_CLUSTER = cluster("medium_wrath_crystal_cluster", "medium");
     public static final Block WRATH_CRYSTAL_CLUSTER = cluster("wrath_crystal_cluster", "large");
 
-    public static final Block WRATH_CRYSTAL_GEODE = geode("wrath_crystal_geode", CrystalClusterPacks.WRATH);
+    public static final Block WRATH_CRYSTAL_GEODE = geode("wrath_crystal_geode",
+            SMALL_WRATH_CRYSTAL_CLUSTER,
+            MEDIUM_WRATH_CRYSTAL_CLUSTER,
+            WRATH_CRYSTAL_CLUSTER);
 
     public static final Block WRATH_CRYSTAL_BLOCK = crystalBlock("wrath_crystal_block");
     public static final Block WRATH_CRYSTAL_SLAB = crystalSlab("wrath_crystal_slab");
@@ -87,9 +98,20 @@ public class ArtifalityBlocks {
 //    public static final Block LUNAR_PEDESTAL = add("lunar_pedestal", new BaseBlock(copyOf(COBBLESTONE)));
 
     //TODO remove in 1.19
-    public static final Block BUDDING_INCREMENTAL_CRYSTAL = geode("budding_incremental_crystal", CrystalClusterPacks.INCREMENTAL);
-    public static final Block BUDDING_LUNAR_CRYSTAL = geode("budding_lunar_crystal", CrystalClusterPacks.LUNAR);
-    public static final Block BUDDING_LIFE_CRYSTAL = geode("budding_life_crystal", CrystalClusterPacks.LIFE);
+    public static final Block BUDDING_INCREMENTAL_CRYSTAL = geode("budding_incremental_crystal",
+            SMALL_INCREMENTAL_CRYSTAL_CLUSTER,
+            MEDIUM_INCREMENTAL_CRYSTAL_CLUSTER,
+            INCREMENTAL_CRYSTAL_CLUSTER);
+
+    public static final Block BUDDING_LUNAR_CRYSTAL = geode("budding_lunar_crystal",
+            SMALL_LUNAR_CRYSTAL_CLUSTER,
+            MEDIUM_LUNAR_CRYSTAL_CLUSTER,
+            LUNAR_CRYSTAL_CLUSTER);
+
+    public static final Block BUDDING_LIFE_CRYSTAL = geode("budding_life_crystal",
+            SMALL_LIFE_CRYSTAL_CLUSTER,
+            MEDIUM_LIFE_CRYSTAL_CLUSTER,
+            LIFE_CRYSTAL_CLUSTER);
 
     public static void init() {
         ITEMS.forEach((id, item) -> Registry.register(Registry.ITEM, id, ITEMS.get(id)));
@@ -100,8 +122,8 @@ public class ArtifalityBlocks {
         return add(name, new LensBlock(effect));
     }
 
-    public static Block geode(String name, CrystalClusterPacks.Pack pack) {
-        return add(name, new CrystalGeodeBlock(pack));
+    public static Block geode(String name, Block small, Block medium, Block large) {
+        return add(name, new CrystalGeodeBlock(small, medium, large));
     }
 
     public static Block cluster(String name, String type) {

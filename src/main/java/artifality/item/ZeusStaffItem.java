@@ -1,7 +1,8 @@
 package artifality.item;
 
 import artifality.extension.LightningExtension;
-import artifality.item.base.TieredArtifactItem;
+import artifality.item.base.ArtifactItem;
+import artifality.util.TiersUtils;
 import artifality.util.TooltipAppender;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LightningEntity;
@@ -21,7 +22,7 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class ZeusStaffItem extends TieredArtifactItem {
+public class ZeusStaffItem extends ArtifactItem {
 
     public ZeusStaffItem(ArtifactSettings settings) {
         super(settings);
@@ -30,14 +31,14 @@ public class ZeusStaffItem extends TieredArtifactItem {
     @Override
     public void appendTooltipInfo(ItemStack stack, List<Text> tooltip) {
         tooltip.add(new LiteralText(""));
-        tooltip.add(new LiteralText(TooltipAppender.ofKey("cooldown").replaceAll("%", Integer.toString((250 - getCurrentTier(stack) * 50) / 20))).formatted(Formatting.DARK_GREEN));
-        tooltip.add(new LiteralText(TooltipAppender.ofKey("damage").replaceAll("%", Integer.toString(6 + getCurrentTier(stack)))).formatted(Formatting.DARK_GREEN));
+        tooltip.add(new LiteralText(TooltipAppender.ofKey("cooldown").replaceAll("%", Integer.toString((250 - TiersUtils.getTier(stack) * 50) / 20))).formatted(Formatting.DARK_GREEN));
+        tooltip.add(new LiteralText(TooltipAppender.ofKey("damage").replaceAll("%", Integer.toString(6 + TiersUtils.getTier(stack)))).formatted(Formatting.DARK_GREEN));
     }
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if(world.isClient) return super.use(world, user, hand);
-        int tier = getCurrentTier(user.getStackInHand(hand));
+        int tier = TiersUtils.getTier(user.getStackInHand(hand));
 
         BlockHitResult blockHitResult = longRaycast(world, user);
         createLighting(world, blockHitResult.getBlockPos(), new LightningEntity(EntityType.LIGHTNING_BOLT, world), tier);

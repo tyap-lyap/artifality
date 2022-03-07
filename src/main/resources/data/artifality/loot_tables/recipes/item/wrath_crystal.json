@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "artifality:wrath_crystal_block"
+    }
+  ],
+  "result": {
+    "item": "artifality:wrath_crystal",
+    "count": 4
+  }
+}

@@ -1,27 +1,32 @@
 package artifality.util;
 
+import dev.emi.trinkets.api.SlotReference;
+import dev.emi.trinkets.api.TrinketComponent;
 import dev.emi.trinkets.api.TrinketsApi;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.Pair;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class TrinketsUtils {
 
-    protected TrinketsUtils(){}
-
-    public static boolean containsTrinket(PlayerEntity player, Item item){
-        for(ItemStack stack : getTrinketsAsArray(player)){
+    public static boolean hasTrinket(PlayerEntity player, Item item) {
+        for(ItemStack stack : getTrinketsArray(player)) {
             if(stack.isOf(item)) return true;
         }
         return false;
     }
 
-    public static ArrayList<ItemStack> getTrinketsAsArray(PlayerEntity player) {
+    public static ArrayList<ItemStack> getTrinketsArray(PlayerEntity player) {
         ArrayList<ItemStack> stacks = new ArrayList<>();
-        if (TrinketsApi.getTrinketComponent(player).isPresent()){
-            TrinketsApi.getTrinketComponent(player).get().forEach((slotReference, itemStack) -> stacks.add(itemStack));
+        Optional<TrinketComponent> component = TrinketsApi.getTrinketComponent(player);
+        if(component.isPresent()) {
+            for(Pair<SlotReference, ItemStack> pair : component.get().getAllEquipped()) {
+                stacks.add(pair.getRight());
+            }
         }
         return stacks;
     }

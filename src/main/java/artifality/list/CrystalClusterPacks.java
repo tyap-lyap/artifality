@@ -10,37 +10,35 @@ import static artifality.registry.ArtifalityBlocks.*;
 public class CrystalClusterPacks {
     public static final ArrayList<Pack> LIST = new ArrayList<>();
 
-    public static final Pack INCREMENTAL = add(new Pack(
+    static {
+        add(
             INCREMENTAL_CRYSTAL_GEODE,
             SMALL_INCREMENTAL_CRYSTAL_CLUSTER,
             MEDIUM_INCREMENTAL_CRYSTAL_CLUSTER,
-            INCREMENTAL_CRYSTAL_CLUSTER));
-
-    public static final Pack LUNAR = add(new Pack(
+            INCREMENTAL_CRYSTAL_CLUSTER
+        );
+        add(
             LUNAR_CRYSTAL_GEODE,
             SMALL_LUNAR_CRYSTAL_CLUSTER,
             MEDIUM_LUNAR_CRYSTAL_CLUSTER,
-            LUNAR_CRYSTAL_CLUSTER));
-
-    public static final Pack LIFE = add(new Pack(
+            LUNAR_CRYSTAL_CLUSTER
+        );
+        add(
             LIFE_CRYSTAL_GEODE,
             SMALL_LIFE_CRYSTAL_CLUSTER,
             MEDIUM_LIFE_CRYSTAL_CLUSTER,
-            LIFE_CRYSTAL_CLUSTER));
-
-    public static final Pack WRATH = add(new Pack(
+            LIFE_CRYSTAL_CLUSTER
+        );
+        add(
             WRATH_CRYSTAL_GEODE,
             SMALL_WRATH_CRYSTAL_CLUSTER,
             MEDIUM_WRATH_CRYSTAL_CLUSTER,
-            WRATH_CRYSTAL_CLUSTER));
-
-    public static Pack add(Pack pack) {
-        LIST.add(pack);
-        return pack;
+            WRATH_CRYSTAL_CLUSTER
+        );
     }
 
-    public static void init() {
-
+    public static void add(Block geode, Block... clusters) {
+        LIST.add(new Pack(geode, clusters));
     }
 
     public static Pack getRandomPack() {
@@ -48,10 +46,18 @@ public class CrystalClusterPacks {
         return CrystalClusterPacks.LIST.get(random);
     }
 
-    public record Pack(Block geode, Block... clusters) {
+    public static class Pack {
+        public Block geode;
+        public Block[] clusters;
+
+        public Pack(Block geode, Block... clusters) {
+            this.geode = geode;
+            this.clusters = clusters;
+        }
+
         public Block getRandomCluster() {
-            int random = new Random().nextInt(clusters.length);
-            return clusters[random];
+            int random = new Random().nextInt(this.clusters.length);
+            return this.clusters[random];
         }
     }
 }

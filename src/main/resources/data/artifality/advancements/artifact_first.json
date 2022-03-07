@@ -7,7 +7,7 @@
             "translate": "advancements.artifality.artifact_first.desc"
         },
         "icon": {
-            "item": "artifality:ukulele"
+            "item": "artifality:lunar_crystal_wand"
         },
         "frame": "task",
         "show_toast": true,

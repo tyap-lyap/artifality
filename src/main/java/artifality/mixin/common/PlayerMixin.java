@@ -3,9 +3,8 @@ package artifality.mixin.common;
 import artifality.registry.ArtifalityEnchants;
 import artifality.registry.ArtifalityItems;
 import artifality.item.BalloonItem;
-import artifality.item.UkuleleItem;
-import artifality.item.base.TieredItem;
 import artifality.util.EffectsUtils;
+import artifality.util.TiersUtils;
 import artifality.util.TrinketsUtils;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
@@ -40,14 +39,14 @@ public class PlayerMixin {
     void damage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
         if(!self.world.isClient) {
             if(source.getAttacker() != null && source.getAttacker() instanceof LivingEntity attacker) {
-                if(TrinketsUtils.containsTrinket(self, ArtifalityItems.UKULELE)) {
-                    if(!self.getItemCooldownManager().isCoolingDown(ArtifalityItems.UKULELE)) {
-                        UkuleleItem.createCloudEffect(attacker.world, attacker,
-                                EffectsUtils.getRandomNegative(),
-                                10, 1.5F, 1);
-                        self.getItemCooldownManager().set(ArtifalityItems.UKULELE, 20 * 20);
-                    }
-                }
+//                if(TrinketsUtils.containsTrinket(self, ArtifalityItems.UKULELE)) {
+//                    if(!self.getItemCooldownManager().isCoolingDown(ArtifalityItems.UKULELE)) {
+//                        UkuleleItem.createCloudEffect(attacker.world, attacker,
+//                                EffectsUtils.getRandomNegative(),
+//                                10, 1.5F, 1);
+//                        self.getItemCooldownManager().set(ArtifalityItems.UKULELE, 20 * 20);
+//                    }
+//                }
             }
         }
     }
@@ -90,10 +89,10 @@ public class PlayerMixin {
 
     @Unique
     void useBalloon() {
-        TrinketsUtils.getTrinketsAsArray(self).forEach(stack -> {
+        TrinketsUtils.getTrinketsArray(self).forEach(stack -> {
             if(stack.isOf(ArtifalityItems.BALLOON) && stack.getDamage() != stack.getMaxDamage()) {
                 EffectsUtils.ticking(self, StatusEffects.SLOW_FALLING);
-                if(self.getRandom().nextInt(30 * TieredItem.getCurrentTier(stack)) == 0) {
+                if(self.getRandom().nextInt(30 * TiersUtils.getTier(stack)) == 0) {
                     stack.setDamage(stack.getDamage() + 1);
                 }
             }

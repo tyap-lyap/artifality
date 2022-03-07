@@ -1,16 +1,14 @@
 {
-    "modmenu.descriptionTranslation.artifality": "Artifality is a Minecraft Mod that adds some new Items, Blocks, Enchantments, and Other Stuff to your Minecraft world.",
+    "modmenu.descriptionTranslation.artifality": "Collection of new unique artifacts, blocks, enchantments, and other stuff.",
 
     "itemGroup.artifality.items": "Artifality",
 
     "block.artifality.upgrading_pedestal": "Pedestal of Upgrading",
-    "tip.upgrading_pedestal.0": "Allows you to upgrade artifacts,",
-    "tip.upgrading_pedestal.1": "fill with &f3 Incremental Orbs &7to",
-    "tip.upgrading_pedestal.2": "upgrade to &ftier 2&7, or with",
-    "tip.upgrading_pedestal.3": "a &fNether Star&7for &ftier 3&7.",
-
-    "block.artifality.lunar_pedestal": "Lunar Pedestal [WIP]",
-    "tip.lunar_pedestal.0": "Work In Progress.",
+    "tip.upgrading_pedestal.0": "Allows you to upgrade your",
+    "tip.upgrading_pedestal.1": "artifacts, right click with &f3",
+    "tip.upgrading_pedestal.2": "&fIncremental Orbs &7to upgrade",
+    "tip.upgrading_pedestal.3": "to &ftier 2&7, or with &fNether",
+    "tip.upgrading_pedestal.4": "Star&7for &ftier 3&7.",
 
     "block.artifality.incremental_orb": "Incremental Orb",
     "block.artifality.lunar_orb": "Lunar Orb",
@@ -72,7 +70,6 @@
     "item.artifality.lunar_crystal": "Lunar Crystal",
     "item.artifality.life_crystal": "Life Crystal",
     "item.artifality.wrath_crystal": "Wrath Crystal",
-    "item.artifality.crystal_heart": "Crystal Heart",
 
     "item.artifality.balloon": "Balloon",
     "tip.balloon.0": "While in hand &fincreases jump",
@@ -82,66 +79,48 @@
     "tip.balloon.4": "&fRight Click in hand &7to",
     "tip.balloon.5": "fill with &fDragon Breath&7.",
 
-    "item.artifality.forest_staff": "Forest Staff",
-    "tip.forest_staff.0": "Allows you to easily &fplant a",
-    "tip.forest_staff.1": "&fsaplings &7and &ffertilize it&7,",
-    "tip.forest_staff.2": "takes the necessary items from",
-    "tip.forest_staff.3": "the player's inventory, and",
-    "tip.forest_staff.4": "also &frewards with experience&7.",
-
     "item.artifality.invisibility_cape": "Invisibility Cape",
     "tip.invisibility_cape.0": "&fMakes the wearer invisible",
     "tip.invisibility_cape.1": "&7while sneaking, also",
     "tip.invisibility_cape.2": "&fhides the worn armor&7.",
 
-    "item.artifality.ukulele": "Ukulele",
-    "tip.ukulele.0": "When used, creates a cloud with",
-    "tip.ukulele.1": "a &frandom positive effect &7under the",
-    "tip.ukulele.2": "player, and if equipped on the",
-    "tip.ukulele.3": "back, creates a cloud with a &frandom",
-    "tip.ukulele.4": "&fnegative effect &7under the attacker.",
-
     "item.artifality.zeus_staff": "Zeus Staff",
-    "tip.zeus_staff.0": "&fSummons lightning &7at the target point,",
-    "tip.zeus_staff.1": "also neutralizes lightning damage",
-    "tip.zeus_staff.2": "while in the main hand.",
-    "tip.zeus_staff.3": "",
-    "tip.zeus_staff.4": "On &fTier 2 &7can charge &fCreepers&7.",
+    "tip.zeus_staff.0": "&fSummons lightning &7at the target",
+    "tip.zeus_staff.1": "point, also neutralizes lightning",
+    "tip.zeus_staff.2": "damage while in the hand.",
+    "tip.zeus_staff.3": "On &fTier 2 &7can charge",
+    "tip.zeus_staff.4": "&fCreepers&7.",
+
+    "item.artifality.forest_staff": "Forest Staff",
+    "tip.forest_staff.0": "Allows you to easily &fplant a",
+    "tip.forest_staff.1": "&fsaplings &7and &ffertilize it&7,",
+    "tip.forest_staff.2": "takes the necessary items from",
+    "tip.forest_staff.3": "the player's inventory.",
 
     "item.artifality.harvest_staff": "Harvest Staff",
     "tip.harvest_staff.0": "Allows you to easily &fcollect",
     "tip.harvest_staff.1": "&fcrops &7and &ffertilize them&7,",
     "tip.harvest_staff.2": "takes the necessary items from",
-    "tip.harvest_staff.3": "the player's inventory, and",
-    "tip.harvest_staff.4": "also &frewards with experience&7.",
+    "tip.harvest_staff.3": "the player's inventory.",
 
     "item.artifality.floral_staff": "Floral Staff",
     "tip.floral_staff.0": "Allows you to easily &fgrow",
     "tip.floral_staff.1": "&fflowers &7and &fcollect them&7,",
-    "tip.floral_staff.2": "takes a necessary bone meal from",
-    "tip.floral_staff.3": "the player's inventory, and",
-    "tip.floral_staff.4": "also &frewards with experience&7.",
+    "tip.floral_staff.2": "takes a necessary bone meal",
+    "tip.floral_staff.3": "from the player's inventory.",
 
-    "item.artifality.midas_touch": "Midas' Touch [WIP]",
-    "tip.midas_touch.0": "Work In Progress.",
-
-    "item.artifality.evolution_charm": "Charm of Evolution [WIP]",
-    "tip.evolution_charm.0": "Work In Progress.",
-
-    "item.artifality.speed_injection": "Speed Injection",
-    "tip.speed_injection.0": "",
-
-    "item.artifality.strength_injection": "Strength Injection",
-    "tip.strength_injection.0": "",
-
-    "item.artifality.regeneration_injection": "Regeneration Injection",
-    "tip.regeneration_injection.0": "",
+    "item.artifality.hand_fan": "Hand Fan",
+    "tip.hand_fan.0": "After usage raises you up to",
+    "tip.hand_fan.1": "the sky and knock offs",
+    "tip.hand_fan.2": "entities around you.",
 
     "item.artifality.incremental_crystal_wand": "Incremental Crystal Wand",
     "tip.incremental_crystal_wand.0": "",
 
     "item.artifality.lunar_crystal_wand": "Lunar Crystal Wand",
-    "tip.lunar_crystal_wand.0": "",
+    "tip.lunar_crystal_wand.0": "When used, creates a cloud",
+    "tip.lunar_crystal_wand.1": "with a &frandom positive",
+    "tip.lunar_crystal_wand.2": "effect under the player.",
 
     "item.artifality.life_crystal_wand": "Life Crystal Wand",
     "tip.life_crystal_wand.0": "",
@@ -163,6 +142,8 @@
     "tip.volatile_curse.0": "&fCreates a little explosion",
     "tip.volatile_curse.1": "upon a hit.",
     "enchantment.artifality.volatile_curse.desc": "Creates a little explosion upon a hit.",
+
+    "effect.artifality.fall_damage_immunity": "Fall Damage Immunity",
 
     "advancements.artifality.root.name": "Artifality",
     "advancements.artifality.root.desc": "Welcome to the world of Artifality!",
@@ -218,9 +199,5 @@
     "misc.artifality.damage": " Damage: %",
     "misc.artifality.press_shift": "<Press Shift>",
     "misc.artifality.tier": "Tier %",
-    "misc.artifality.placeable": "Placeable",
-
-    "misc.artifality.discord": "<Join Our Discord Server>",
-    "misc.artifality.wiki": "<Check Out the Wiki for More Info>",
-    "itemGroup.artifality.items.button.discord": "Join Our Discord"
+    "misc.artifality.placeable": "Placeable"
 }

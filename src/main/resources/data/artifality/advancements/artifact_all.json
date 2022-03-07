@@ -15,13 +15,13 @@
         "hidden": false
     },
     "criteria": {
-        "ukulele": {
+        "lunar_crystal_wand": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
                     {
                         "items": [
-                            "artifality:ukulele"
+                            "artifality:lunar_crystal_wand"
                         ]
                     }
                 ]

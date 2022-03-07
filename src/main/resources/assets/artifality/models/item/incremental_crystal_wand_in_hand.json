@@ -1,6 +1,0 @@
-{
-  "parent": "artifality:item/crystal_wand_model",
-  "textures": {
-    "model": "artifality:item/incremental_crystal_wand_model"
-  }
-}

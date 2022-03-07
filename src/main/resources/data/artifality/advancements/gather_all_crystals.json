@@ -50,6 +50,18 @@
                     }
                 ]
             }
+        },
+        "wrath_crystal": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "artifality:wrath_crystal"
+                        ]
+                    }
+                ]
+            }
         }
     },
     "parent": "artifality:gather_crystal"

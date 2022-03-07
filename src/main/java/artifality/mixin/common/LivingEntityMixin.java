@@ -1,5 +1,6 @@
 package artifality.mixin.common;
 
+import artifality.registry.ArtifalityEffects;
 import artifality.registry.ArtifalityEnchants;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -8,7 +9,9 @@ import net.minecraft.entity.LivingEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LivingEntity.class)
 public class LivingEntityMixin {
@@ -24,9 +27,16 @@ public class LivingEntityMixin {
 
     @Unique
     boolean hasSlidingCurse() {
-        return (EnchantmentHelper.get(self.getEquippedStack(EquipmentSlot.FEET)).containsKey(ArtifalityEnchants.SLIDING_CURSE) ||
-                EnchantmentHelper.get(self.getEquippedStack(EquipmentSlot.LEGS)).containsKey(ArtifalityEnchants.SLIDING_CURSE) ||
-                EnchantmentHelper.get(self.getEquippedStack(EquipmentSlot.CHEST)).containsKey(ArtifalityEnchants.SLIDING_CURSE) ||
-                EnchantmentHelper.get(self.getEquippedStack(EquipmentSlot.HEAD)).containsKey(ArtifalityEnchants.SLIDING_CURSE));
+        return (
+            EnchantmentHelper.get(self.getEquippedStack(EquipmentSlot.FEET)).containsKey(ArtifalityEnchants.SLIDING_CURSE) ||
+            EnchantmentHelper.get(self.getEquippedStack(EquipmentSlot.LEGS)).containsKey(ArtifalityEnchants.SLIDING_CURSE) ||
+            EnchantmentHelper.get(self.getEquippedStack(EquipmentSlot.CHEST)).containsKey(ArtifalityEnchants.SLIDING_CURSE) ||
+            EnchantmentHelper.get(self.getEquippedStack(EquipmentSlot.HEAD)).containsKey(ArtifalityEnchants.SLIDING_CURSE)
+        );
+    }
+
+    @Inject(method = "computeFallDamage", at = @At("HEAD"), cancellable = true)
+    void computeFallDamage(float fallDistance, float damageMultiplier, CallbackInfoReturnable<Integer> cir) {
+        if(self.hasStatusEffect(ArtifalityEffects.FALL_DAMAGE_IMMUNITY)) cir.setReturnValue(0);
     }
 }

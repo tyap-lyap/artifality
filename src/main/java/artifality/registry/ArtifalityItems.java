@@ -1,7 +1,6 @@
 package artifality.registry;
 
 import artifality.ArtifalityMod;
-import artifality.list.ArtifactRarity;
 import artifality.item.*;
 import artifality.item.base.BaseItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -16,27 +15,21 @@ import java.util.Map;
 public class ArtifalityItems {
     public static final Map<Identifier, Item> ITEMS = new LinkedHashMap<>();
 
-    //напоминание: новые артефакты не забудь внести в достижения и тэги
-//    public static final Item INCREMENTAL_CRYSTAL_WAND = add("incremental_crystal_wand", new ArtifactItem(artifact().setMaxCount(1).setRarity(ArtifactRarity.LEGENDARY)));
-//    public static final Item LUNAR_CRYSTAL_WAND = add("lunar_crystal_wand", new ArtifactItem(artifact().setMaxCount(1).setRarity(ArtifactRarity.LEGENDARY)));
-//    public static final Item LIFE_CRYSTAL_WAND = add("life_crystal_wand", new ArtifactItem(artifact().setMaxCount(1).setRarity(ArtifactRarity.LEGENDARY)));
-//    public static final Item WRATH_CRYSTAL_WAND = add("wrath_crystal_wand", new ArtifactItem(artifact().setMaxCount(1).setRarity(ArtifactRarity.LEGENDARY)));
+    public static final Item FLORAL_STAFF = add("floral_staff", new FloralStaffItem(ArtifactConfigs.NATURE_STAFF));
+    public static final Item FOREST_STAFF = add("forest_staff", new ForestStaffItem(ArtifactConfigs.NATURE_STAFF));
+    public static final Item HARVEST_STAFF = add("harvest_staff", new HarvestStaffItem(ArtifactConfigs.NATURE_STAFF));
 
-    public static final Item FLORAL_STAFF = add("floral_staff", new FloralStaffItem(artifact().setMaxCount(1).setRarity(ArtifactRarity.COMMON)));
-    public static final Item FOREST_STAFF = add("forest_staff", new ForestStaffItem(artifact().setMaxCount(1).setRarity(ArtifactRarity.COMMON)));
-    public static final Item HARVEST_STAFF = add("harvest_staff", new HarvestStaffItem(artifact().setMaxCount(1).setRarity(ArtifactRarity.COMMON)));
+    public static final Item ZEUS_STAFF = add("zeus_staff", new ZeusStaffItem(ArtifactConfigs.ZEUS_STAFF));
+    public static final Item INVISIBILITY_CAPE = add("invisibility_cape", new InvisibilityCapeItem(ArtifactConfigs.INVISIBILITY_CAPE));
+    public static final Item BALLOON = add("balloon", new BalloonItem(ArtifactConfigs.BALLOON));
+    public static final Item HAND_FAN = add("hand_fan", new HandFanItem(ArtifactConfigs.HAND_FAN));
 
-    public static final Item UKULELE = add("ukulele", new UkuleleItem(artifact().setMaxCount(1).setRarity(ArtifactRarity.RARE)));
-    public static final Item ZEUS_STAFF = add("zeus_staff", new ZeusStaffItem(artifact().setMaxCount(1).setRarity(ArtifactRarity.LEGENDARY)));
-    public static final Item INVISIBILITY_CAPE = add("invisibility_cape", new InvisibilityCapeItem(artifact().setMaxCount(1).setRarity(ArtifactRarity.COMMON)));
-    public static final Item BALLOON = add("balloon", new BalloonItem(artifact().setMaxDamage(128).setRarity(ArtifactRarity.RARE)));
-    public static final Item MIDAS_TOUCH = add("midas_touch", new BaseItem(settings().maxCount(1)));
+    public static final Item LUNAR_CRYSTAL_WAND = add("lunar_crystal_wand", new LunarWandItem(ArtifactConfigs.LUNAR_CRYSTAL_WAND));
 
     public static final Item INCREMENTAL_CRYSTAL = add("incremental_crystal", new BaseItem(settings()));
     public static final Item LUNAR_CRYSTAL = add("lunar_crystal", new BaseItem(settings()));
     public static final Item LIFE_CRYSTAL = add("life_crystal", new BaseItem(settings()));
     public static final Item WRATH_CRYSTAL = add("wrath_crystal", new BaseItem(settings()));
-    public static final Item CRYSTAL_HEART = add("crystal_heart", new CrystalHeartItem(settings()));
 
     private static Item add(String name, Item item) {
         ITEMS.put(ArtifalityMod.locate(name), item);
@@ -45,10 +38,6 @@ public class ArtifalityItems {
 
     private static FabricItemSettings settings() {
         return new FabricItemSettings();
-    }
-
-    private static ArtifactSettings artifact() {
-        return new ArtifactSettings();
     }
 
     public static void init() {
