@@ -5,40 +5,24 @@ on:
     types:
       - published
 
+permissions:
+  contents: write
+
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
+    container:
+      image: eclipse-temurin:17-jdk
+      options: --user root
     steps:
-      - name: Checkout sources
-        uses: actions/checkout@v2
-      - name: Set up JDK 17
-        uses: actions/setup-java@v1
+      - run: apt update && apt install git -y && git --version
+      - uses: actions/checkout@v2
         with:
-          java-version: 17
+          fetch-depth: 0
       - name: Change wrapper permissions
         run: chmod +x ./gradlew
-      - name: Build artifacts
-        run: ./gradlew build
-      - name: publish artifacts
-        uses: Kir-Antipov/mc-publish@v2.1
-        with:
-          modrinth-id: IsKsViE2
-          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
-
-          files-primary: build/libs/!(*-@(dev|sources)).jar
-
-          version-type: beta
-          loaders: |
-            fabric
-          game-versions: |
-            1.18.1
-            1.18
-          dependencies: |
-            fabric-api | depends | *
-            trinkets | depends | *
-
-          java: |
-            17
-
-          retry-attempts: 2
-          retry-delay: 10000
+      - uses: gradle/wrapper-validation-action@v1
+      - run: ./gradlew build modrinth --stacktrace
+        env:
+          CHANGELOG: ${{ github.event.release.body }}
+          MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}

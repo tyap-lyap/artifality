@@ -2,6 +2,7 @@ plugins {
 	id 'fabric-loom' version '0.11-SNAPSHOT'
 	id 'maven-publish'
 	id 'io.github.juuxel.loom-quiltflower' version '1.6.0'
+	id "com.modrinth.minotaur" version "2.+"
 }
 
 sourceCompatibility = targetCompatibility = JavaVersion.VERSION_17
@@ -53,6 +54,22 @@ jar {
 	from("LICENSE") {
 		rename { "${it}_${project.archivesBaseName}"}
 	}
+}
+
+import com.modrinth.minotaur.dependencies.ModDependency
+modrinth {
+	projectId = "IsKsViE2"
+	versionName = "Artifality " + project.mod_version
+	changelog = System.getenv("CHANGELOG")
+	versionNumber = project.mod_version
+	versionType = "beta"
+	uploadFile = remapJar
+	additionalFiles = [remapSourcesJar]
+	gameVersions = ["1.18", "1.18.1"]
+	dependencies = [
+		new ModDependency("P7dR8mSH", "required"), //Fabric API
+		new ModDependency("5aaWibi9", "required") //Trinkets
+	]
 }
 
 publishing {
