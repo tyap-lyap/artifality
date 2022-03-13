@@ -27,12 +27,11 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	modImplementation "dev.emi:trinkets:${project.trinkets_version}"
 
-	include modImplementation("ru.pinkgoosik:cosmetica:0.4.0")
-
-	modLocalRuntime "me.shedaniel:RoughlyEnoughItems-fabric:7.2.425"
-	modLocalRuntime "com.terraformersmc:modmenu:3.0.1"
+	include modLocalRuntime("ru.pinkgoosik:cosmetica:0.4.0")
+	modLocalRuntime "me.shedaniel:RoughlyEnoughItems-fabric:8.0.442"
+	modLocalRuntime "com.terraformersmc:modmenu:3.1.0"
 	modLocalRuntime "maven.modrinth:lazydfu:0.1.2"
-	modLocalRuntime "maven.modrinth:ferrite-core:4.1.2"
+	modLocalRuntime "maven.modrinth:ferrite-core:4.2.0"
 }
 
 processResources {
@@ -65,10 +64,10 @@ modrinth {
 	versionType = "beta"
 	uploadFile = remapJar
 	additionalFiles = [remapSourcesJar]
-	gameVersions = ["1.18", "1.18.1"]
+	gameVersions = ["1.18.2"]
 	dependencies = [
 		new ModDependency("P7dR8mSH", "required"), //Fabric API
-		new ModDependency("5aaWibi9", "required") //Trinkets
+		new ModDependency("5aaWibi9", "required")  //Trinkets
 	]
 }
 
