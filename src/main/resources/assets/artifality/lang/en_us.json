@@ -143,6 +143,11 @@
     "tip.volatile_curse.1": "upon a hit.",
     "enchantment.artifality.volatile_curse.desc": "Creates a little explosion upon a hit.",
 
+    "enchantment.artifality.invisible_armor": "Invisible Armor",
+    "tip.invisible_armor.0": "Makes your element of",
+    "tip.invisible_armor.1": "equipment invisible.",
+    "enchantment.artifality.invisible_armor.desc": "Makes your element of equipment invisible.",
+
     "effect.artifality.fall_damage_immunity": "Fall Damage Immunity",
 
     "advancements.artifality.root.name": "Artifality",

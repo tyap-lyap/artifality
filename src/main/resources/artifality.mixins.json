@@ -8,7 +8,9 @@
     "common.CreeperMixin",
     "common.EntityMixin",
     "common.LivingEntityMixin",
+    "common.LookAtEntityGoalMixin",
     "common.PlayerMixin",
+    "common.TrackTargetGoalMixin",
     "common.VillagerMixin",
     "common.access.BeaconAccess",
     "common.extension.LightningMixinExtension",
@@ -16,6 +18,7 @@
   ],
   "client": [
     "client.ArmorFeatureRendererMixin",
+    "client.ElytraFeatureRendererMixin",
     "client.EnchantedBookItemMixin",
     "client.ItemRendererMixin",
     "client.ItemStackMixin",
