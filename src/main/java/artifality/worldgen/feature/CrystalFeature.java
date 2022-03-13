@@ -21,7 +21,7 @@ public class CrystalFeature extends Feature<DefaultFeatureConfig> {
     public boolean generate(FeatureContext<DefaultFeatureConfig> context) {
         boolean generated = false;
         var pack = CrystalClusterPacks.getRandomPack();
-        for (int i = 0; i < 12; i++) {
+        for (int i = 0; i < 16; i++) {
             int x = context.getOrigin().getX() + context.getRandom().nextInt(6);
             int z = context.getOrigin().getZ() + context.getRandom().nextInt(6);
             int y = context.getRandom().nextInt(8) + 16;

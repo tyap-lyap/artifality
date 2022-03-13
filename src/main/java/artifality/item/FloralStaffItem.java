@@ -1,6 +1,7 @@
 package artifality.item;
 
-import artifality.item.base.NatureStaffItem;
+import artifality.item.base.ArtifactItem;
+import artifality.util.ExpUtils;
 import artifality.util.TiersUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -23,7 +24,7 @@ import java.util.Arrays;
 
 import static net.minecraft.block.Blocks.*;
 
-public class FloralStaffItem extends NatureStaffItem {
+public class FloralStaffItem extends ArtifactItem {
     public static final ArrayList<Block> FLOWERS = new ArrayList<>(Arrays.asList(
             CORNFLOWER, ALLIUM, DANDELION, POPPY, BLUE_ORCHID, AZURE_BLUET,
             RED_TULIP, ORANGE_TULIP, WHITE_TULIP, PINK_TULIP, OXEYE_DAISY,
@@ -47,14 +48,14 @@ public class FloralStaffItem extends NatureStaffItem {
 
         if(FLOWERS.contains(state.getBlock())) {
             boneMeal.decrement(1);
-            dropExperience(world, pos, world.getRandom().nextInt(2) + TiersUtils.getTier(context.getStack()));
+            ExpUtils.drop(world, pos, world.getRandom().nextInt(2) + TiersUtils.getTier(context.getStack()));
             Block.dropStacks(state, world, pos);
             world.playSound(null, pos, SoundEvents.ITEM_BONE_MEAL_USE, SoundCategory.BLOCKS, 1.0F, 1.0F);
             return ActionResult.SUCCESS;
         }
         else if(Feature.isSoil(state) && context.getSide().equals(Direction.UP) && world.getBlockState(pos.up()).isAir()) {
             boneMeal.decrement(1);
-            dropExperience(world, pos, world.getRandom().nextInt(2) + TiersUtils.getTier(context.getStack()));
+            ExpUtils.drop(world, pos, world.getRandom().nextInt(2) + TiersUtils.getTier(context.getStack()));
             BlockSoundGroup blockSoundGroup = Blocks.AZALEA.getSoundGroup(Blocks.AZALEA.getDefaultState());
             world.playSound(null, pos, blockSoundGroup.getPlaceSound(), SoundCategory.BLOCKS, (blockSoundGroup.getVolume() + 1.0F) / 2.0F, blockSoundGroup.getPitch() * 0.8F);
             world.setBlockState(pos.up(), FLOWERS.get(world.getRandom().nextInt(FLOWERS.size())).getDefaultState());

@@ -101,23 +101,6 @@ public class ArtifalityBlocks {
     public static final Block UPGRADING_PEDESTAL = add("upgrading_pedestal", new UpgradingPedestalBlock(copyOf(COBBLESTONE).luminance(state -> state.get(UpgradingPedestalBlock.CHARGES) * 3)));
 //    public static final Block LUNAR_PEDESTAL = add("lunar_pedestal", new BaseBlock(copyOf(COBBLESTONE)));
 
-    //TODO remove in 1.19
-    public static final Block BUDDING_INCREMENTAL_CRYSTAL = geode("budding_incremental_crystal",
-            SMALL_INCREMENTAL_CRYSTAL_CLUSTER,
-            MEDIUM_INCREMENTAL_CRYSTAL_CLUSTER,
-            INCREMENTAL_CRYSTAL_CLUSTER
-    );
-    public static final Block BUDDING_LUNAR_CRYSTAL = geode("budding_lunar_crystal",
-            SMALL_LUNAR_CRYSTAL_CLUSTER,
-            MEDIUM_LUNAR_CRYSTAL_CLUSTER,
-            LUNAR_CRYSTAL_CLUSTER
-    );
-    public static final Block BUDDING_LIFE_CRYSTAL = geode("budding_life_crystal",
-            SMALL_LIFE_CRYSTAL_CLUSTER,
-            MEDIUM_LIFE_CRYSTAL_CLUSTER,
-            LIFE_CRYSTAL_CLUSTER
-    );
-
     public static void init() {
         ITEMS.forEach((id, item) -> Registry.register(Registry.ITEM, id, ITEMS.get(id)));
         BLOCKS.forEach((id, block) -> Registry.register(Registry.BLOCK, id, BLOCKS.get(id)));

@@ -31,13 +31,13 @@ public class HandFanItem extends ArtifactItem {
     @Override
     public void appendTooltipInfo(ItemStack stack, List<Text> tooltip) {
         tooltip.add(new LiteralText(""));
-        tooltip.add(new LiteralText(TooltipAppender.ofKey("cooldown").replaceAll("%", Integer.toString(20 - 4 * TiersUtils.getTier(stack)))).formatted(Formatting.DARK_GREEN));
+        tooltip.add(new LiteralText(TooltipAppender.ofKey("cooldown").replaceAll("%", Integer.toString(14 - 3 * TiersUtils.getTier(stack)))).formatted(Formatting.DARK_GREEN));
     }
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         int tier = TiersUtils.getTier(user.getStackInHand(hand));
-        user.getItemCooldownManager().set(this, (20 - 4 * tier) * 20);
+        user.getItemCooldownManager().set(this, (14 - 3 * tier) * 20);
 
         double radius = 6.0 + (2.0 * tier);
         int x1 = MathHelper.floor(user.getPos().x - radius);
@@ -71,8 +71,8 @@ public class HandFanItem extends ArtifactItem {
         }
         user.fallDistance = 0.0F;
         Vec3d userVec = user.getVelocity();
-        user.setVelocity(userVec.x, 0.75 + (0.25 * tier), userVec.z);
-        user.addStatusEffect(new StatusEffectInstance(ArtifalityEffects.FALL_DAMAGE_IMMUNITY, 100));
+        user.setVelocity(userVec.x, 1 + (0.25 * tier), userVec.z);
+        user.addStatusEffect(new StatusEffectInstance(ArtifalityEffects.FALL_DAMAGE_IMMUNITY, 80 + (20 * tier), 0, false, false));
 
         return TypedActionResult.success(user.getStackInHand(hand));
     }

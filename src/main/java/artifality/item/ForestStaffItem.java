@@ -1,6 +1,7 @@
 package artifality.item;
 
-import artifality.item.base.NatureStaffItem;
+import artifality.item.base.ArtifactItem;
+import artifality.util.ExpUtils;
 import artifality.util.TiersUtils;
 import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
@@ -18,7 +19,7 @@ import net.minecraft.world.gen.feature.Feature;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class ForestStaffItem extends NatureStaffItem {
+public class ForestStaffItem extends ArtifactItem {
     private static final Map<Item, Block> SAPLINGS = new LinkedHashMap<>();
 
     public ForestStaffItem(ArtifactSettings settings) {
@@ -45,7 +46,7 @@ public class ForestStaffItem extends NatureStaffItem {
         if(state.getBlock() instanceof SaplingBlock && player.getInventory().contains(Items.BONE_MEAL.getDefaultStack())) {
             if(BoneMealItem.useOnFertilizable(player.getInventory().getStack(player.getInventory().getSlotWithStack(Items.BONE_MEAL.getDefaultStack())), world, pos)) {
                 world.syncWorldEvent(WorldEvents.BONE_MEAL_USED, pos, 0);
-                dropExperience(world, pos, world.getRandom().nextInt(2) + TiersUtils.getTier(context.getStack()));
+                ExpUtils.drop(world, pos, world.getRandom().nextInt(2) + TiersUtils.getTier(context.getStack()));
                 return ActionResult.SUCCESS;
             }
         }else if(Feature.isSoil(state) && context.getSide().equals(Direction.UP)) {

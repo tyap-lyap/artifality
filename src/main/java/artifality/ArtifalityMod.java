@@ -40,7 +40,7 @@ public class ArtifalityMod implements ModInitializer {
                         }
                     });
                 })
-                .icon(ArtifalityItems.LUNAR_CRYSTAL_WAND::getDefaultStack).build();
+                .icon(ArtifalityItems.FOREST_STAFF::getDefaultStack).build();
     }
 
     public static Identifier locate(String path) {
