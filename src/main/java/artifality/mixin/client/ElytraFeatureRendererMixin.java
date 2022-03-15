@@ -31,7 +31,7 @@ public abstract class ElytraFeatureRendererMixin<T extends LivingEntity, M exten
     void render(MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, T entity, float f, float g, float h, float j, float k, float l, CallbackInfo ci) {
         ItemStack stack = entity.getEquippedStack(EquipmentSlot.CHEST);
         if (stack.isOf(Items.ELYTRA)) {
-            if(EnchantmentHelper.get(stack).containsKey(ArtifalityEnchants.INVISIBLE_ARMOR)) {
+            if(EnchantmentHelper.get(stack).containsKey(ArtifalityEnchants.REFRACTION)) {
                 ci.cancel();
             }
             if(entity instanceof PlayerEntity player) {
@@ -41,4 +41,5 @@ public abstract class ElytraFeatureRendererMixin<T extends LivingEntity, M exten
             }
         }
     }
+
 }

@@ -27,4 +27,5 @@ public abstract class TrinketFeatureRendererMixin<T extends LivingEntity, M exte
             }
         }
     }
+
 }

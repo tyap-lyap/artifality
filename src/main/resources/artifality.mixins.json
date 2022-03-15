@@ -6,6 +6,7 @@
   "mixins": [
     "common.BeaconMixin",
     "common.CreeperMixin",
+    "common.EnchantmentHelperMixin",
     "common.EntityMixin",
     "common.LivingEntityMixin",
     "common.LookAtEntityGoalMixin",

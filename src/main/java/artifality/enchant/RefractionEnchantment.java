@@ -6,9 +6,9 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ElytraItem;
 import net.minecraft.item.ItemStack;
 
-public class InvisibleArmorEnchantment extends Enchantment {
+public class RefractionEnchantment extends Enchantment {
 
-    public InvisibleArmorEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
+    public RefractionEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
     }
 

@@ -143,10 +143,15 @@
     "tip.volatile_curse.1": "upon a hit.",
     "enchantment.artifality.volatile_curse.desc": "Creates a little explosion upon a hit.",
 
-    "enchantment.artifality.invisible_armor": "Invisible Armor",
-    "tip.invisible_armor.0": "Makes your element of",
-    "tip.invisible_armor.1": "equipment invisible.",
-    "enchantment.artifality.invisible_armor.desc": "Makes your element of equipment invisible.",
+    "enchantment.artifality.refraction": "Refraction",
+    "tip.refraction.0": "Makes your element of",
+    "tip.refraction.1": "equipment invisible.",
+    "enchantment.artifality.refraction.desc": "Makes your element of equipment invisible.",
+
+    "enchantment.artifality.lunar_miner": "Lunar Miner",
+    "tip.lunar_miner.0": "The deeper you are, the",
+    "tip.lunar_miner.1": "more effective the tool.",
+    "enchantment.artifality.lunar_miner.desc": "The deeper you are, the more effective the tool.",
 
     "effect.artifality.fall_damage_immunity": "Fall Damage Immunity",
 

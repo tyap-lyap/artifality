@@ -25,4 +25,5 @@ public class ItemStackMixin {
         }
         return attributeModifier.getValue();
     }
+
 }

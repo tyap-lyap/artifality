@@ -35,6 +35,7 @@ public abstract class ArmorFeatureRendererMixin<T extends LivingEntity, M extend
     @Inject(method = "renderArmor", at = @At("HEAD"), cancellable = true)
     void renderArmor(MatrixStack matrices, VertexConsumerProvider vertexConsumers, T entity, EquipmentSlot armorSlot, int light, A model, CallbackInfo ci) {
         ItemStack stack = entity.getEquippedStack(armorSlot);
-        if(EnchantmentHelper.get(stack).containsKey(ArtifalityEnchants.INVISIBLE_ARMOR)) ci.cancel();
+        if(EnchantmentHelper.get(stack).containsKey(ArtifalityEnchants.REFRACTION)) ci.cancel();
     }
+
 }

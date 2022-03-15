@@ -46,6 +46,14 @@ public class ArtifalityClient implements ClientModInitializer {
         });
         map.putBlock(ArtifalityBlocks.EMPTY_LENS, RenderLayer.getCutout());
 
+        /*
+        registers the lunar enchanted book model
+        to be used to replace the default enchanted
+        book model if a book has a lunar enchantment
+        see artifality.mixin.client.ItemRendererMixin
+        */
+//        ModelLoadingRegistry.INSTANCE.registerModelProvider((manager, out) -> out.accept(new ModelIdentifier("artifality:lunar_enchanted_book#inventory")));
+
 //        LivingEntityFeatureRendererRegistrationCallback.EVENT.register((entityType, entityRenderer, registrationHelper, context) -> {
 //            if(entityRenderer instanceof ZombieEntityRenderer renderer){
 //                registrationHelper.register(new ElementalFeatureRenderer<>(renderer));

@@ -7,12 +7,8 @@ import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.text.MutableText;
-import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
-import net.minecraft.util.Formatting;
 
-public class LunarDamageEnchantment extends Enchantment {
+public class LunarDamageEnchantment extends LunarEnchantment {
 
     public LunarDamageEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
@@ -38,23 +34,4 @@ public class LunarDamageEnchantment extends Enchantment {
         return stack.getItem() instanceof AxeItem || super.isAcceptableItem(stack);
     }
 
-    @Override
-    public boolean isAvailableForEnchantedBookOffer() {
-        return false;
-    }
-
-    @Override
-    public boolean isTreasure() {
-        return true;
-    }
-
-    @Override
-    public Text getName(int level) {
-        MutableText text = new TranslatableText(this.getTranslationKey());
-        text.formatted(Formatting.BLUE);
-        if (level != 1 || this.getMaxLevel() != 1) {
-            text.append(" ").append(new TranslatableText("enchantment.level." + level));
-        }
-        return text;
-    }
 }
