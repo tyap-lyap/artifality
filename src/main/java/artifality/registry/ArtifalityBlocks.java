@@ -31,11 +31,6 @@ public class ArtifalityBlocks {
     public static final Block LEGENDARY_CRATE = add("legendary_crate", new CrateBlock(copyOf(WHITE_WOOL).sounds(BlockSoundGroup.STONE).luminance(7), ArtifactRarity.LEGENDARY));
     public static final Block LUNAR_CRATE = add("lunar_crate", new CrateBlock(copyOf(WHITE_WOOL).sounds(BlockSoundGroup.STONE).luminance(7), ArtifactRarity.RARE));
 
-    public static final Block INCREMENTAL_ORB = add("incremental_orb", new OrbBlock(copyOf(WHITE_WOOL).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(15).nonOpaque()));
-    public static final Block LUNAR_ORB = add("lunar_orb", new OrbBlock(copyOf(WHITE_WOOL).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(15).nonOpaque()));
-    public static final Block LIFE_ORB = add("life_orb", new OrbBlock(copyOf(WHITE_WOOL).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(15).nonOpaque()));
-    public static final Block WRATH_ORB = add("wrath_orb", new OrbBlock(copyOf(WHITE_WOOL).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(15).nonOpaque()));
-
     public static final Block SMALL_INCREMENTAL_CRYSTAL_CLUSTER = cluster("small_incremental_crystal_cluster", "small");
     public static final Block MEDIUM_INCREMENTAL_CRYSTAL_CLUSTER = cluster("medium_incremental_crystal_cluster", "medium");
     public static final Block INCREMENTAL_CRYSTAL_CLUSTER = cluster("incremental_crystal_cluster", "large");

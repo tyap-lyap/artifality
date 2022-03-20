@@ -2,7 +2,7 @@ package artifality.block;
 
 import artifality.block.base.BaseBlock;
 import artifality.item.base.ArtifactItem;
-import artifality.registry.ArtifalityBlocks;
+import artifality.registry.ArtifalityItems;
 import artifality.util.TiersUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -38,7 +38,7 @@ public class UpgradingPedestalBlock extends BaseBlock {
         ItemStack stack = player.getStackInHand(hand);
         Item item = stack.getItem();
 
-        if(stack.isOf(ArtifalityBlocks.INCREMENTAL_ORB.asItem()) && getCharges(state) < 3) {
+        if(stack.isOf(ArtifalityItems.INCREMENTAL_ORB) && getCharges(state) < 3) {
             charge(world, pos, state, getCharges(state) + 1);
             stack.decrement(1);
             return ActionResult.SUCCESS;
@@ -79,9 +79,9 @@ public class UpgradingPedestalBlock extends BaseBlock {
         super.onBroken(worldAccess, pos, state);
         if(worldAccess instanceof World world) {
             switch (getCharges(state)) {
-                case 1 -> dropStack(world, pos, new ItemStack(ArtifalityBlocks.INCREMENTAL_ORB));
-                case 2 -> dropStack(world, pos, new ItemStack(ArtifalityBlocks.INCREMENTAL_ORB, 2));
-                case 3 -> dropStack(world, pos, new ItemStack(ArtifalityBlocks.INCREMENTAL_ORB, 3));
+                case 1 -> dropStack(world, pos, new ItemStack(ArtifalityItems.INCREMENTAL_ORB));
+                case 2 -> dropStack(world, pos, new ItemStack(ArtifalityItems.INCREMENTAL_ORB, 2));
+                case 3 -> dropStack(world, pos, new ItemStack(ArtifalityItems.INCREMENTAL_ORB, 3));
                 case 4 -> dropStack(world, pos, new ItemStack(Items.NETHER_STAR));
             }
         }

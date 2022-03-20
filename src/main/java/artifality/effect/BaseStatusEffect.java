@@ -1,11 +1,11 @@
 package artifality.effect;
 
 import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.entity.effect.StatusEffectType;
 
 public class BaseStatusEffect extends StatusEffect {
 
-    public BaseStatusEffect(StatusEffectCategory category, int color) {
-        super(category, color);
+    public BaseStatusEffect(StatusEffectType type, int color) {
+        super(type, color);
     }
 }

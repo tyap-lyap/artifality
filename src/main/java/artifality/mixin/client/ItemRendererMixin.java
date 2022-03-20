@@ -9,6 +9,7 @@ import net.minecraft.client.render.model.BakedModel;
 import net.minecraft.client.render.model.json.ModelTransformation;
 import net.minecraft.client.util.ModelIdentifier;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.EnchantedBookItem;
 import net.minecraft.item.ItemStack;
@@ -25,6 +26,8 @@ import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 
+import java.util.Optional;
+
 @Mixin(ItemRenderer.class)
 public abstract class ItemRendererMixin {
     @Shadow @Final private ItemModels models;
@@ -32,7 +35,7 @@ public abstract class ItemRendererMixin {
 
     @Inject(method = "renderItem(Lnet/minecraft/entity/LivingEntity;Lnet/minecraft/item/ItemStack;Lnet/minecraft/client/render/model/json/ModelTransformation$Mode;ZLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;Lnet/minecraft/world/World;III)V",
             at = @At("HEAD"))
-    void twoModelsItemImplementation(LivingEntity entity, ItemStack stack, ModelTransformation.Mode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, World world, int light, int overlay, int seed, CallbackInfo ci) {
+    private void twoModelsItemImplementation(LivingEntity entity, ItemStack stack, ModelTransformation.Mode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, World world, int light, int overlay, int seed, CallbackInfo ci) {
 
         if(!stack.isEmpty() && entity != null) {
             TwoModelsItemRegistry.ENTRIES.forEach((id, item) -> {
@@ -49,22 +52,11 @@ public abstract class ItemRendererMixin {
         with the custom one if a book has a lunar
         enchantment
         */
-//        if(!stack.isEmpty() && stack.isOf(Items.ENCHANTED_BOOK)) {
-//            NbtList enchantments = EnchantedBookItem.getEnchantmentNbt(stack);
-//
-//            for(int i = 0; i < enchantments.size(); ++i) {
-//                NbtCompound nbtCompound = enchantments.getCompound(i);
-//
-//                Registry.ENCHANTMENT.getOrEmpty(Identifier.tryParse(nbtCompound.getString("id"))).ifPresent((enchantment) -> {
-//                    if(enchantment instanceof LunarEnchantment) {
-//                        BakedModel model = models.getModelManager().getModel(new ModelIdentifier("artifality:lunar_enchanted_book#inventory"));
-//                        renderItem(stack, renderMode, leftHanded, matrices, vertexConsumers, light, overlay, model);
-//                        matrices.scale(0, 0, 0);
-//                    }
-//                });
-//            }
-//        }
-
+        if(artifality$isLunar(stack)) {
+            BakedModel model = models.getModelManager().getModel(new ModelIdentifier("artifality:lunar_enchanted_book#inventory"));
+            renderItem(stack, renderMode, leftHanded, matrices, vertexConsumers, light, overlay, model);
+            matrices.scale(0, 0, 0);
+        }
     }
 
     /*
@@ -72,24 +64,29 @@ public abstract class ItemRendererMixin {
     with the custom one if a book has a lunar
     enchantment
     */
-//    @ModifyArgs(method = "renderGuiItemModel", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/item/ItemRenderer;renderItem(Lnet/minecraft/item/ItemStack;Lnet/minecraft/client/render/model/json/ModelTransformation$Mode;ZLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;IILnet/minecraft/client/render/model/BakedModel;)V"))
-//    void modifyArgs(Args args) {
-//        ItemStack stack = args.get(0);
-//
-//        if(!stack.isEmpty() && stack.isOf(Items.ENCHANTED_BOOK)) {
-//            NbtList enchantments = EnchantedBookItem.getEnchantmentNbt(stack);
-//
-//            for(int i = 0; i < enchantments.size(); ++i) {
-//                NbtCompound nbtCompound = enchantments.getCompound(i);
-//
-//                Registry.ENCHANTMENT.getOrEmpty(Identifier.tryParse(nbtCompound.getString("id"))).ifPresent((enchantment) -> {
-//                    if(enchantment instanceof LunarEnchantment) {
-//                        BakedModel model = models.getModelManager().getModel(new ModelIdentifier("artifality:lunar_crystal#inventory"));
-//                        args.set(7, model);
-//                    }
-//                });
-//            }
-//        }
-//    }
+    @ModifyArgs(method = "renderGuiItemModel", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/item/ItemRenderer;renderItem(Lnet/minecraft/item/ItemStack;Lnet/minecraft/client/render/model/json/ModelTransformation$Mode;ZLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;IILnet/minecraft/client/render/model/BakedModel;)V"))
+    private void modifyArgs(Args args) {
+        ItemStack stack = args.get(0);
+
+        if(artifality$isLunar(stack)) {
+            BakedModel model = models.getModelManager().getModel(new ModelIdentifier("artifality:lunar_enchanted_book#inventory"));
+            args.set(7, model);
+        }
+    }
+
+
+    private boolean artifality$isLunar(ItemStack stack) {
+        if(!stack.isEmpty() && stack.isOf(Items.ENCHANTED_BOOK)) {
+            NbtList list = EnchantedBookItem.getEnchantmentNbt(stack);
+            for(int i = 0; i < list.size(); ++i) {
+                NbtCompound nbt = list.getCompound(i);
+                Optional<Enchantment> enchantment = Registry.ENCHANTMENT.getOrEmpty(Identifier.tryParse(nbt.getString("id")));
+                if(enchantment.isPresent()) {
+                    if(enchantment.get() instanceof LunarEnchantment) return true;
+                }
+            }
+        }
+        return false;
+    }
 
 }

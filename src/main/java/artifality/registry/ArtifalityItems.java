@@ -31,6 +31,8 @@ public class ArtifalityItems {
     public static final Item LIFE_CRYSTAL = add("life_crystal", new BaseItem(settings()));
     public static final Item WRATH_CRYSTAL = add("wrath_crystal", new BaseItem(settings()));
 
+    public static final Item INCREMENTAL_ORB = add("incremental_orb", new BaseItem(settings()));
+
     private static Item add(String name, Item item) {
         ITEMS.put(ArtifalityMod.locate(name), item);
         return item;

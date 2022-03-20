@@ -4,12 +4,13 @@ import static artifality.ArtifalityMod.locate;
 
 import artifality.worldgen.feature.CrystalFeature;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
+import net.minecraft.util.Holder;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.util.PlacedFeatureUtil;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ import java.util.List;
 public class ArtifalityFeatures {
     public static final Feature<DefaultFeatureConfig> CRYSTAL_FEATURE = new CrystalFeature();
     public static final ConfiguredFeature<?, ?> CRYSTAL_FEATURE_CONFIG = new ConfiguredFeature<>(CRYSTAL_FEATURE, new DefaultFeatureConfig());
-    public static final PlacedFeature CRYSTAL_FEATURE_PLACED = new PlacedFeature(RegistryEntry.of(CRYSTAL_FEATURE_CONFIG), List.of(PlacedFeatures.BOTTOM_TO_120_RANGE));
+    public static final PlacedFeature CRYSTAL_FEATURE_PLACED = new PlacedFeature(Holder.createDirect(CRYSTAL_FEATURE_CONFIG), List.of(PlacedFeatureUtil.BOTTOM_TO_MAX_TERRAIN_HEIGHT_RANGE));
 
     public static void init() {
         Registry.register(Registry.FEATURE, locate("crystal_feature"), CRYSTAL_FEATURE);

@@ -3,6 +3,7 @@ plugins {
 	id 'maven-publish'
 	id 'io.github.juuxel.loom-quiltflower' version '1.6.0'
 	id "com.modrinth.minotaur" version "2.+"
+	id 'org.quiltmc.quilt-mappings-on-loom' version '4.0.0'
 }
 
 sourceCompatibility = targetCompatibility = JavaVersion.VERSION_17
@@ -12,26 +13,28 @@ version = project.mod_version
 group = project.maven_group
 
 repositories {
-	maven { url "https://maven.shedaniel.me" } //rei
-	maven { url "https://api.modrinth.com/maven" } //lazyDFU
-	maven { url "https://ladysnake.jfrog.io/artifactory/mods" } //CCA
-	maven { url "https://maven.terraformersmc.com" } //modmenu, trinkets
-	maven { url "https://maven.pinkgoosik.ru" } //cosmetica
+	maven { url "https://api.modrinth.com/maven" }              // lazyDFU
+	maven { url "https://ladysnake.jfrog.io/artifactory/mods" } // CCA
+	maven { url "https://maven.terraformersmc.com" }            // modmenu, trinkets
+	maven { url "https://maven.pinkgoosik.ru" }                 // cosmetica
+	maven { url "https://pkgs.dev.azure.com/djtheredstoner/DevAuth/_packaging/public/maven/v1" }
 }
 
 dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+	mappings(loom.layered {
+		addLayer(quiltMappings.mappings("org.quiltmc:quilt-mappings:${minecraft_version}+build.${quilt_mappings}:v2"))
+	})
 
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	modImplementation "dev.emi:trinkets:${project.trinkets_version}"
 
 	include modLocalRuntime("ru.pinkgoosik:cosmetica:0.4.0")
-	modLocalRuntime "me.shedaniel:RoughlyEnoughItems-fabric:8.0.442"
 	modLocalRuntime "com.terraformersmc:modmenu:3.1.0"
 	modLocalRuntime "maven.modrinth:lazydfu:0.1.2"
 	modLocalRuntime "maven.modrinth:ferrite-core:4.2.0"
+	modLocalRuntime "me.djtheredstoner:DevAuth-fabric:1.0.0-beta.2"
 }
 
 processResources {

@@ -11,10 +11,12 @@ import artifality.client.particle.ArtifalityParticles;
 import dev.emi.trinkets.api.client.TrinketRendererRegistry;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.model.ModelLoadingRegistry;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.util.ModelIdentifier;
 
 public class ArtifalityClient implements ClientModInitializer {
 
@@ -52,7 +54,7 @@ public class ArtifalityClient implements ClientModInitializer {
         book model if a book has a lunar enchantment
         see artifality.mixin.client.ItemRendererMixin
         */
-//        ModelLoadingRegistry.INSTANCE.registerModelProvider((manager, out) -> out.accept(new ModelIdentifier("artifality:lunar_enchanted_book#inventory")));
+        ModelLoadingRegistry.INSTANCE.registerModelProvider((manager, out) -> out.accept(new ModelIdentifier("artifality:lunar_enchanted_book#inventory")));
 
 //        LivingEntityFeatureRendererRegistrationCallback.EVENT.register((entityType, entityRenderer, registrationHelper, context) -> {
 //            if(entityRenderer instanceof ZombieEntityRenderer renderer){

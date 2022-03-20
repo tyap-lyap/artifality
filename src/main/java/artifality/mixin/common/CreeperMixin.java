@@ -1,7 +1,7 @@
 package artifality.mixin.common;
 
 import artifality.extension.LightningExtension;
-import net.minecraft.client.render.entity.feature.SkinOverlayOwner;
+import net.minecraft.client.render.entity.feature.ConditionalOverlayOwner;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.mob.CreeperEntity;
@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(CreeperEntity.class)
-public abstract class CreeperMixin extends HostileEntity implements SkinOverlayOwner {
+public abstract class CreeperMixin extends HostileEntity implements ConditionalOverlayOwner {
 
     protected CreeperMixin(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
@@ -29,4 +29,5 @@ public abstract class CreeperMixin extends HostileEntity implements SkinOverlayO
             }
         }
     }
+
 }
