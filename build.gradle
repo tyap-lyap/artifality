@@ -1,6 +1,5 @@
 plugins {
 	id 'fabric-loom' version '0.11-SNAPSHOT'
-	id 'maven-publish'
 	id 'io.github.juuxel.loom-quiltflower' version '1.6.0'
 	id "com.modrinth.minotaur" version "2.+"
 	id 'org.quiltmc.quilt-mappings-on-loom' version '4.0.0'
@@ -16,7 +15,6 @@ repositories {
 	maven { url "https://api.modrinth.com/maven" }              // lazyDFU
 	maven { url "https://ladysnake.jfrog.io/artifactory/mods" } // CCA
 	maven { url "https://maven.terraformersmc.com" }            // modmenu, trinkets
-	maven { url "https://maven.pinkgoosik.ru" }                 // cosmetica
 	maven { url "https://pkgs.dev.azure.com/djtheredstoner/DevAuth/_packaging/public/maven/v1" }
 }
 
@@ -30,7 +28,6 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	modImplementation "dev.emi:trinkets:${project.trinkets_version}"
 
-	include modLocalRuntime("ru.pinkgoosik:cosmetica:0.4.0")
 	modLocalRuntime "com.terraformersmc:modmenu:3.1.0"
 	modLocalRuntime "maven.modrinth:lazydfu:0.1.2"
 	modLocalRuntime "maven.modrinth:ferrite-core:4.2.0"
@@ -72,21 +69,4 @@ modrinth {
 		new ModDependency("P7dR8mSH", "required"), //Fabric API
 		new ModDependency("5aaWibi9", "required")  //Trinkets
 	]
-}
-
-publishing {
-	publications {
-		mavenJava(MavenPublication) {
-			from components.java
-		}
-	}
-	repositories {
-		maven {
-			url "https://maven.pinkgoosik.ru/"
-			credentials {
-				username System.getenv("MAVEN_USER")
-				password System.getenv("MAVEN_PASS")
-			}
-		}
-	}
 }
