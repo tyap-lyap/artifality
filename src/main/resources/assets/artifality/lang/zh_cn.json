@@ -1,0 +1,226 @@
+{
+    "modmenu.descriptionTranslation.artifality": "Artifality是一个向你的世界加入了一些新物品、新方块、新附魔的模组",
+
+    "itemGroup.artifality.items": "Artifality",
+
+    "block.artifality.upgrading_pedestal": "升级基座",
+    "tip.upgrading_pedestal.0": "允许你升级神器，",
+    "tip.upgrading_pedestal.1": "放入&f3个增长宝珠&7来",
+    "tip.upgrading_pedestal.2": "升到&f2级&7，或者使用",
+    "tip.upgrading_pedestal.3": "一个&f下界之星&7升到&f3级&7.",
+
+    "block.artifality.lunar_pedestal": "月球基座[未完成]",
+    "tip.lunar_pedestal.0": "进展中。",
+
+    "block.artifality.incremental_orb": "增长宝珠",
+    "block.artifality.lunar_orb": "月亮宝珠",
+    "block.artifality.life_orb": "生命宝珠",
+    "block.artifality.wrath_orb": "愤怒宝珠",
+
+    "block.artifality.common_crate": "普通板条箱",
+    "block.artifality.rare_crate": "稀有板条箱",
+    "block.artifality.legendary_crate": "传奇板条箱",
+    "block.artifality.lunar_crate": "月亮板条箱",
+
+    "block.artifality.incremental_crystal_block": "增长水晶块",
+    "block.artifality.lunar_crystal_block": "月亮水晶块",
+    "block.artifality.life_crystal_block": "生命水晶块",
+    "block.artifality.wrath_crystal_block": "愤怒水晶块",
+
+    "block.artifality.incremental_crystal_slab": "增长水晶台阶",
+    "block.artifality.lunar_crystal_slab": "月亮水晶台阶",
+    "block.artifality.life_crystal_slab": "生命水晶台阶",
+    "block.artifality.wrath_crystal_slab": "愤怒水晶台阶",
+
+    "block.artifality.incremental_crystal_stairs": "增长水晶楼梯",
+    "block.artifality.lunar_crystal_stairs": "月亮水晶楼梯",
+    "block.artifality.life_crystal_stairs": "生命水晶楼梯",
+    "block.artifality.wrath_crystal_stairs": "愤怒水晶楼梯",
+
+    "block.artifality.incremental_crystal_cluster": "增长水晶簇",
+    "block.artifality.lunar_crystal_cluster": "月亮水晶簇",
+    "block.artifality.life_crystal_cluster": "生命水晶簇",
+    "block.artifality.wrath_crystal_cluster": "愤怒水晶簇",
+
+    "block.artifality.incremental_crystal_geode": "增长水晶矿石",
+    "block.artifality.lunar_crystal_geode": "月亮水晶矿石",
+    "block.artifality.life_crystal_geode": "生命水晶矿石",
+    "block.artifality.wrath_crystal_geode": "愤怒水晶矿石",
+
+    "block.artifality.incremental_crystal_lens": "增长水晶透镜",
+    "tip.incremental_crystal_lens.0": "如果放置在信标顶端，",
+    "tip.incremental_crystal_lens.1": "则增加信标所给予",
+    "tip.incremental_crystal_lens.2": "的效果等级。",
+
+    "block.artifality.lunar_crystal_lens": "月亮水晶透镜",
+    "tip.lunar_crystal_lens.0": "如果放置在信标顶端，",
+    "tip.lunar_crystal_lens.1": "则给予在信标范围内的",
+    "tip.lunar_crystal_lens.2": "玩家随机增益效果。",
+
+    "block.artifality.life_crystal_lens": "生命水晶透镜",
+    "tip.life_crystal_lens.0": "如果放置在信标顶端，",
+    "tip.life_crystal_lens.1": "则给予在信标范围内的",
+    "tip.life_crystal_lens.2": "玩家额外20点生命值。",
+
+    "block.artifality.wrath_crystal_lens": "愤怒水晶透镜 [未完成]",
+    "tip.wrath_crystal_lens.0": "进展中。",
+
+    "block.artifality.empty_lens": "空透镜",
+    "tip.empty_lens.0": "是的，空的。",
+
+    "item.artifality.incremental_crystal": "增长水晶",
+    "item.artifality.lunar_crystal": "月亮水晶",
+    "item.artifality.life_crystal": "生命水晶",
+    "item.artifality.wrath_crystal": "愤怒水晶",
+    "item.artifality.crystal_heart": "水晶之心",
+
+    "item.artifality.balloon": "气球",
+    "tip.balloon.0": "在主手时&f增强跳跃高度",
+    "tip.balloon.1": "&7，并且在装备时",
+    "tip.balloon.2": "&f给予缓降效果&7。",
+    "tip.balloon.3": "",
+    "tip.balloon.4": "&f在主手时右键&7以",
+    "tip.balloon.5": "集满&f龙息&7。",
+
+    "item.artifality.forest_staff": "森林法杖",
+    "tip.forest_staff.0": "允许你简单地&f种植一株",
+    "tip.forest_staff.1": "&f树苗&7并&f给它施肥&7，",
+    "tip.forest_staff.2": "从玩家的物品栏获取",
+    "tip.forest_staff.3": "必要想物品，并且",
+    "tip.forest_staff.4": "还会&f返还经验&7。",
+
+    "item.artifality.invisibility_cape": "隐形披风",
+    "tip.invisibility_cape.0": "&f在下蹲时，",
+    "tip.invisibility_cape.1": "&7让穿戴者隐身，",
+    "tip.invisibility_cape.2": "&f并隐藏盔甲&7。",
+
+    "item.artifality.ukulele": "尤克里里",
+    "tip.ukulele.0": "使用时，在玩家身下创造",
+    "tip.ukulele.1": "一片&f增益效果云&7，",
+    "tip.ukulele.2": "而当装备在背部时，",
+    "tip.ukulele.3": "在攻击者身下创造一片",
+    "tip.ukulele.4": "&f随机的负面效果云&7。",
+
+    "item.artifality.zeus_staff": "宙斯法杖",
+    "tip.zeus_staff.0": "对指向的目标所在&f召唤闪电&7，",
+    "tip.zeus_staff.1": "在主手时，",
+    "tip.zeus_staff.2": "还能中和雷电伤害。",
+    "tip.zeus_staff.3": "",
+    "tip.zeus_staff.4": "&f二级&7时，能够为&f苦力怕&7充能。",
+
+    "item.artifality.harvest_staff": "丰收法杖",
+    "tip.harvest_staff.0": "允许你简单地&f采集",
+    "tip.harvest_staff.1": "&f作物&7并&f给它们施肥&7，",
+    "tip.harvest_staff.2": "会从玩家物品栏拿取",
+    "tip.harvest_staff.3": "必要物品，并且",
+    "tip.harvest_staff.4": "还会&f返还经验&7。",
+
+    "item.artifality.floral_staff": "花卉法杖",
+    "tip.floral_staff.0": "允许你简单地&f生长",
+    "tip.floral_staff.1": "&f花朵&7并&f采集它们&7，",
+    "tip.floral_staff.2": "会从玩家物品栏拿取",
+    "tip.floral_staff.3": "必要的骨粉，并且",
+    "tip.floral_staff.4": "还会&f返还经验&7。",
+
+    "item.artifality.midas_touch": "迈达斯之触[未完成]",
+    "tip.midas_touch.0": "进展中。",
+
+    "item.artifality.evolution_charm": "进化符咒[未完成]",
+    "tip.evolution_charm.0": "进展中。",
+
+    "item.artifality.speed_injection": "速度注入",
+    "tip.speed_injection.0": "",
+
+    "item.artifality.strength_injection": "力量注入",
+    "tip.strength_injection.0": "",
+
+    "item.artifality.regeneration_injection": "再生注入",
+    "tip.regeneration_injection.0": "",
+
+    "item.artifality.incremental_crystal_wand": "增长水晶法杖",
+    "tip.incremental_crystal_wand.0": "",
+
+    "item.artifality.lunar_crystal_wand": "月亮水晶法杖",
+    "tip.lunar_crystal_wand.0": "",
+
+    "item.artifality.life_crystal_wand": "生命水晶法杖",
+    "tip.life_crystal_wand.0": "",
+
+    "item.artifality.wrath_crystal_wand": "愤怒水晶法杖",
+    "tip.wrath_crystal_wand.0": "",
+
+    "enchantment.artifality.lunar_damage": "月球伤害",
+    "tip.lunar_damage.0": "&a增加&r近战伤害，但会",
+    "tip.lunar_damage.1": "&c降低&r攻速。",
+    "enchantment.artifality.lunar_damage.desc": "增加&近战伤害，但会降低&攻速。",
+
+    "enchantment.artifality.sliding_curse": "滑行诅咒",
+    "tip.sliding_curse.0": "让你像在冰上一样",
+    "tip.sliding_curse.1": "&f在任何方块上滑行&7。",
+    "enchantment.artifality.sliding_curse.desc": "让你像在冰上一样在任何方块上滑行。",
+
+    "enchantment.artifality.volatile_curse": "挥发诅咒",
+    "tip.volatile_curse.0": "击中后，",
+    "tip.volatile_curse.1": "&f产生一个小爆炸&7。",
+    "enchantment.artifality.volatile_curse.desc": "击中后产生一个小爆炸。",
+
+    "advancements.artifality.root.name": "Artifality",
+    "advancements.artifality.root.desc": "欢迎来到Artifality的世界！",
+
+    "advancements.artifality.artifact_first.name": "这是什么？",
+    "advancements.artifality.artifact_first.desc": "找到你的第一个神器",
+
+    "advancements.artifality.nature_staffs.name": "自然魔法师",
+    "advancements.artifality.nature_staffs.desc": "获得所有自然法杖。",
+
+    "advancements.artifality.artifact_all.name": "收藏家版本",
+    "advancements.artifality.artifact_all.desc": "获得一切！",
+
+    "advancements.artifality.artifact_upgrade.name": "高档物品",
+    "advancements.artifality.artifact_upgrade.desc": "将一个神器升到2级",
+
+    "advancements.artifality.gather_crystal.name": "亮闪闪！",
+    "advancements.artifality.gather_crystal.desc": "收集你的第一个水晶",
+
+    "advancements.artifality.gather_all_crystals.name": "把所有闪亮的东西都给我！",
+    "advancements.artifality.gather_all_crystals.desc": "为什么你又对这些东西如此痴迷？",
+
+    "advancements.artifality.negative_vision.name": "为了更好地看到你",
+    "advancements.artifality.negative_vision.desc": "合成出3个信标透镜中的任意一个，§m并将其应用于激活的信标上。",
+
+    "advancements.artifality.positive_vision.name": "无限的力量！",
+    "advancements.artifality.positive_vision.desc": "合成出所有3个信标透镜……§m并将它们应用于3种满级的不同信标上！",
+
+    "advancements.artifality.upgrader_first.name": "升级？",
+    "advancements.artifality.upgrader_first.desc": "合成出升级基座",
+
+    "advancements.artifality.upgrader_second.name": "升级！",
+    "advancements.artifality.upgrader_second.desc": "将升级基座升到2级",
+
+    "advancements.artifality.upgrader_third.name": "我爱升级！",
+    "advancements.artifality.upgrader_third.desc": "将升级基座升到3级",
+
+    "advancements.artifality.rethink_life.name": "为什么？",
+    "advancements.artifality.rethink_life.desc": "触摸一些草",
+
+    "misc.artifality.common": "普通",
+    "misc.artifality.rare": "稀有",
+    "misc.artifality.legendary": "传奇",
+    "misc.artifality.lunar": "月亮",
+
+    "misc.artifality.small": "小",
+    "misc.artifality.medium": "中",
+    "misc.artifality.large": "大",
+
+    "misc.artifality.max_level": "最大等级：%",
+    "misc.artifality.cooldown": "冷却：%秒",
+    "misc.artifality.effect_level": "效果等级：%",
+    "misc.artifality.damage": " 伤害：%",
+    "misc.artifality.press_shift": "<按住Shift>",
+    "misc.artifality.tier": "等级%",
+    "misc.artifality.placeable": "可放置",
+
+    "misc.artifality.discord": "<加入我们的Discord服务器>",
+    "misc.artifality.wiki": "<查看wiki获取更多信息>",
+    "itemGroup.artifality.items.button.discord": "加入我们的Discord"
+}
