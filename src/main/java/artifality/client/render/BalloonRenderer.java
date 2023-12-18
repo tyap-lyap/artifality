@@ -1,5 +1,6 @@
 package artifality.client.render;
 
+import artifality.ArtifalityMod;
 import dev.emi.trinkets.api.SlotReference;
 import dev.emi.trinkets.api.client.TrinketRenderer;
 import net.minecraft.client.MinecraftClient;
@@ -7,12 +8,12 @@ import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.item.ItemRenderer;
-import net.minecraft.client.render.model.json.ModelTransformation;
+import net.minecraft.client.render.model.json.ModelTransformationMode;
 import net.minecraft.client.util.ModelIdentifier;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.Vec3f;
+import net.minecraft.util.math.RotationAxis;
 
 public class BalloonRenderer implements TrinketRenderer {
 
@@ -26,12 +27,12 @@ public class BalloonRenderer implements TrinketRenderer {
         else matrices.translate(0D, -1.5D, 0D);
 
         matrices.scale(0.8F, 0.8F, 0.8F);
-        matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion(180.0F));
+        matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(180.0F));
 
-        String modelId = "artifality:balloon_in_hand#inventory";
+        ModelIdentifier modelId = new ModelIdentifier(ArtifalityMod.id("balloon_in_hand"), "inventory");
 
-        itemRenderer.renderItem(stack, ModelTransformation.Mode.FIXED, false, matrices, vertexConsumers, light, OverlayTexture.DEFAULT_UV,
-                itemRenderer.getModels().getModelManager().getModel(new ModelIdentifier(modelId)));
+        itemRenderer.renderItem(stack, ModelTransformationMode.FIXED, false, matrices, vertexConsumers, light, OverlayTexture.DEFAULT_UV,
+                itemRenderer.getModels().getModelManager().getModel(modelId));
         matrices.pop();
     }
 }

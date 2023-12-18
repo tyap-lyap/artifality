@@ -5,8 +5,9 @@ import artifality.item.*;
 import artifality.item.base.BaseItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -34,7 +35,7 @@ public class ArtifalityItems {
     public static final Item INCREMENTAL_ORB = add("incremental_orb", new BaseItem(settings()));
 
     private static Item add(String name, Item item) {
-        ITEMS.put(ArtifalityMod.locate(name), item);
+        ITEMS.put(ArtifalityMod.id(name), item);
         return item;
     }
 
@@ -43,6 +44,6 @@ public class ArtifalityItems {
     }
 
     public static void init() {
-        ITEMS.forEach((id, item) -> Registry.register(Registry.ITEM, id, ITEMS.get(id)));
+        ITEMS.forEach((id, item) -> Registry.register(Registries.ITEM, id, ITEMS.get(id)));
     }
 }

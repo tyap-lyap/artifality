@@ -15,7 +15,7 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
-import net.minecraft.world.explosion.Explosion;
+import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -37,7 +37,7 @@ public class PlayerMixin {
 
     @Inject(method = "damage", at = @At("HEAD"))
     void damage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
-        if(!self.world.isClient) {
+        if(!self.getWorld().isClient()) {
             if(source.getAttacker() != null && source.getAttacker() instanceof LivingEntity attacker) {
 //                if(TrinketsUtils.containsTrinket(self, ArtifalityItems.UKULELE)) {
 //                    if(!self.getItemCooldownManager().isCoolingDown(ArtifalityItems.UKULELE)) {
@@ -53,12 +53,12 @@ public class PlayerMixin {
 
     @Inject(method = "damage", at = @At("HEAD"))
     void volatileCurse(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
-        if(!self.world.isClient) {
+        if(!self.getWorld().isClient()) {
             if(!self.isInvulnerableTo(source) && source.getAttacker() != null){
                 for (ItemStack stack : self.getItemsEquipped()){
                     if (EnchantmentHelper.get(stack).containsKey(ArtifalityEnchants.VOLATILE_CURSE)) {
                         if(!self.getItemCooldownManager().isCoolingDown(stack.getItem())) {
-                            self.world.createExplosion(self, self.getX(), self.getY(), self.getZ(), 1F, Explosion.DestructionType.NONE);
+                            self.getWorld().createExplosion(self, self.getX(), self.getY(), self.getZ(), 1F, World.ExplosionSourceType.NONE);
                             self.getItemCooldownManager().set(stack.getItem(), 20 * 20);
                             break;
                         }
@@ -70,7 +70,7 @@ public class PlayerMixin {
 
     @Inject(method = "jump", at = @At("TAIL"))
     void jump(CallbackInfo ci) {
-        if(!self.world.isClient) {
+        if(!self.getWorld().isClient()) {
             if(self.getStackInHand(Hand.MAIN_HAND).isOf(ArtifalityItems.BALLOON)||
                     self.getStackInHand(Hand.OFF_HAND).isOf(ArtifalityItems.BALLOON) || BalloonItem.hasBalloonOnHead(self)) {
                 self.addStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION, 14, 2, false, false));
@@ -80,7 +80,7 @@ public class PlayerMixin {
 
     @Inject(method = "tick", at = @At("TAIL"))
     void tick(CallbackInfo ci) {
-        if(!self.world.isClient) {
+        if(!self.getWorld().isClient()) {
             if(!self.isOnGround() && !self.isFallFlying() && !self.isTouchingWater() && !self.hasStatusEffect(StatusEffects.LEVITATION)) {
                 useBalloon();
             }

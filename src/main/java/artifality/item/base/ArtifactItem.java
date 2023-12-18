@@ -9,7 +9,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 
 import java.awt.*;
@@ -53,6 +52,6 @@ public class ArtifactItem extends BaseItem {
     @Override
     public Text getName(ItemStack stack) {
         Color color = config.rarity.getColor();
-        return new TranslatableText(this.getTranslationKey(stack)).setStyle(Style.EMPTY.withColor(color.getRGB()));
+        return Text.translatable(this.getTranslationKey(stack)).setStyle(Style.EMPTY.withColor(color.getRGB()));
     }
 }

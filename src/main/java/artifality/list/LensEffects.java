@@ -11,7 +11,7 @@ public class LensEffects {
     public static final LensEffect INCREMENTAL = (effect, player) -> player.addStatusEffect(new StatusEffectInstance(effect.getEffectType(), effect.getDuration(), effect.getAmplifier() + 1, true, true));
 
     public static final LensEffect LUNAR = (effect, player) -> player.addStatusEffect(new StatusEffectInstance(
-            EffectsUtils.getRandomPositive(), effect.getDuration(), player.world.random.nextInt(2), true, true));
+            EffectsUtils.getRandomPositive(), effect.getDuration(), player.getWorld().getRandom().nextInt(2), true, true));
 
     public static final LensEffect LIFE = (effect, player) -> {
         float health = player.getHealth();

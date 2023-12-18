@@ -18,7 +18,7 @@ public class CrystalFeature extends Feature<DefaultFeatureConfig> {
     }
 
     @Override
-    public boolean place(FeatureContext<DefaultFeatureConfig> context) {
+    public boolean generate(FeatureContext<DefaultFeatureConfig> context) {
         boolean generated = false;
         var pack = CrystalClusterPacks.getRandomPack();
         for (int i = 0; i < 16; i++) {

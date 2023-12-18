@@ -50,13 +50,13 @@ public class UpgradingPedestalBlock extends BaseBlock {
         }
         else if(item instanceof ArtifactItem artifact && artifact.config.hasTiers) {
             if(getCharges(state) == 3 && TiersUtils.getTier(stack) == 1) {
-                world.playSound(null, pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, SoundEvents.BLOCK_RESPAWN_ANCHOR_DEPLETE, SoundCategory.BLOCKS, 1.0F, 1.0F);
+                world.playSound(null, pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, SoundEvents.BLOCK_RESPAWN_ANCHOR_DEPLETE.value(), SoundCategory.BLOCKS, 1.0F, 1.0F);
                 player.setStackInHand(Hand.MAIN_HAND, TiersUtils.withTier(item, 2));
                 world.setBlockState(pos, this.getDefaultState());
                 return ActionResult.SUCCESS;
             }
             else if(getCharges(state) == 4 && TiersUtils.getTier(stack) == 2) {
-                world.playSound(null, pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, SoundEvents.BLOCK_RESPAWN_ANCHOR_DEPLETE, SoundCategory.BLOCKS, 1.0F, 1.0F);
+                world.playSound(null, pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, SoundEvents.BLOCK_RESPAWN_ANCHOR_DEPLETE.value(), SoundCategory.BLOCKS, 1.0F, 1.0F);
                 player.setStackInHand(Hand.MAIN_HAND, TiersUtils.withTier(item, 3));
                 world.setBlockState(pos, this.getDefaultState());
                 return ActionResult.SUCCESS;

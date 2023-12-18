@@ -5,7 +5,6 @@ import net.minecraft.block.BlockState;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.BlockMirror;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.math.BlockPos;
@@ -24,7 +23,7 @@ public class CrystalClusterBlock extends AmethystClusterBlock {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
-        tooltip.add(new TranslatableText("misc.artifality." + size).formatted(Formatting.GRAY));
+        tooltip.add(Text.translatable("misc.artifality." + size).formatted(Formatting.GRAY));
         super.appendTooltip(stack, world, tooltip, options);
     }
 

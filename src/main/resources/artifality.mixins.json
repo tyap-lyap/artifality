@@ -19,6 +19,7 @@
   ],
   "client": [
     "client.ArmorFeatureRendererMixin",
+    "client.DrawContextMixin",
     "client.ElytraFeatureRendererMixin",
     "client.EnchantedBookItemMixin",
     "client.ItemRendererMixin",

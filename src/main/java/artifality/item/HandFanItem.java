@@ -9,7 +9,6 @@ import net.minecraft.entity.TntEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
@@ -30,8 +29,8 @@ public class HandFanItem extends ArtifactItem {
 
     @Override
     public void appendTooltipInfo(ItemStack stack, List<Text> tooltip) {
-        tooltip.add(new LiteralText(""));
-        tooltip.add(new LiteralText(TooltipAppender.ofKey("cooldown").replaceAll("%", Integer.toString(14 - 3 * TiersUtils.getTier(stack)))).formatted(Formatting.DARK_GREEN));
+        tooltip.add(Text.empty());
+        tooltip.add(Text.translatable(TooltipAppender.ofKey("cooldown").replaceAll("%", Integer.toString(14 - 3 * TiersUtils.getTier(stack)))).formatted(Formatting.DARK_GREEN));
     }
 
     @Override

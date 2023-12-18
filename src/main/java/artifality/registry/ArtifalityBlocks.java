@@ -14,9 +14,10 @@ import static net.minecraft.block.Blocks.*;
 
 import net.minecraft.block.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -97,8 +98,8 @@ public class ArtifalityBlocks {
 //    public static final Block LUNAR_PEDESTAL = add("lunar_pedestal", new BaseBlock(copyOf(COBBLESTONE)));
 
     public static void init() {
-        ITEMS.forEach((id, item) -> Registry.register(Registry.ITEM, id, ITEMS.get(id)));
-        BLOCKS.forEach((id, block) -> Registry.register(Registry.BLOCK, id, BLOCKS.get(id)));
+        ITEMS.forEach((id, item) -> Registry.register(Registries.ITEM, id, ITEMS.get(id)));
+        BLOCKS.forEach((id, block) -> Registry.register(Registries.BLOCK, id, BLOCKS.get(id)));
     }
 
     public static Block lens(String name, LensEffects.LensEffect effect) {
@@ -138,13 +139,13 @@ public class ArtifalityBlocks {
         addBlock(name, block);
         if (item != null) {
             item.appendBlocks(Item.BLOCK_ITEMS, item);
-            ITEMS.put(ArtifalityMod.locate(name), item);
+            ITEMS.put(ArtifalityMod.id(name), item);
         }
         return block;
     }
 
     public static Block addBlock(String name, Block block) {
-        BLOCKS.put(ArtifalityMod.locate(name), block);
+        BLOCKS.put(ArtifalityMod.id(name), block);
         return block;
     }
 }

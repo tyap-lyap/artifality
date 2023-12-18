@@ -22,12 +22,12 @@ import net.minecraft.fluid.Fluids;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.registry.tag.FluidTags;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
-import net.minecraft.tag.FluidTags;
-import net.minecraft.text.LiteralText;
+import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -119,7 +119,7 @@ public class CrateBlock extends BaseBlock implements Waterloggable {
         int debugrare = extension.artifality$getRareAmplifier();
         int debuglegendary = extension.artifality$getLegendaryAmplifier();
 
-        player.sendMessage(new LiteralText("[DEBUG] amplifiers: " + debugcommon + "% " + debugrare + "% " + debuglegendary + "%"), false);
+        player.sendMessage(Text.literal("[DEBUG] amplifiers: " + debugcommon + "% " + debugrare + "% " + debuglegendary + "%"), false);
     }
 
     public void dropArtifact(ArtifactChances extension, World world, BlockPos pos) {
@@ -146,10 +146,10 @@ public class CrateBlock extends BaseBlock implements Waterloggable {
 
     public void dropEntity(BlockPos pos, ServerWorld world) {
         if(world.random.nextInt(5) == 0) {
-            EntityType.SILVERFISH.spawn(world, null, null, null, pos, SpawnReason.NATURAL, true, false);
+            EntityType.SILVERFISH.spawn(world, pos, SpawnReason.NATURAL);
         }
         else if(world.random.nextInt(10) == 0) {
-            EntityType.CAVE_SPIDER.spawn(world, null, null, null, pos, SpawnReason.NATURAL, true, false);
+            EntityType.CAVE_SPIDER.spawn(world, pos, SpawnReason.NATURAL);
         }
     }
 

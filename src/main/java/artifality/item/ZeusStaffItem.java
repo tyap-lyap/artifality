@@ -8,7 +8,6 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
@@ -30,9 +29,9 @@ public class ZeusStaffItem extends ArtifactItem {
 
     @Override
     public void appendTooltipInfo(ItemStack stack, List<Text> tooltip) {
-        tooltip.add(new LiteralText(""));
-        tooltip.add(new LiteralText(TooltipAppender.ofKey("cooldown").replaceAll("%", Integer.toString((250 - TiersUtils.getTier(stack) * 50) / 20))).formatted(Formatting.DARK_GREEN));
-        tooltip.add(new LiteralText(TooltipAppender.ofKey("damage").replaceAll("%", Integer.toString(6 + TiersUtils.getTier(stack)))).formatted(Formatting.DARK_GREEN));
+        tooltip.add(Text.empty());
+        tooltip.add(Text.literal(TooltipAppender.ofKey("cooldown").replaceAll("%", Integer.toString((250 - TiersUtils.getTier(stack) * 50) / 20))).formatted(Formatting.DARK_GREEN));
+        tooltip.add(Text.literal(TooltipAppender.ofKey("damage").replaceAll("%", Integer.toString(6 + TiersUtils.getTier(stack)))).formatted(Formatting.DARK_GREEN));
     }
 
     @Override

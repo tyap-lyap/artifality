@@ -26,7 +26,7 @@ public abstract class EntityMixin {
             if(!extension.artifality$canSpawnFire()) {
                 if(self instanceof LivingEntity) {
                     if(!((LivingEntity) self).getStackInHand(Hand.MAIN_HAND).getItem().equals(ArtifalityItems.ZEUS_STAFF)) {
-                        damage(DamageSource.LIGHTNING_BOLT, extension.artifality$getDamage());
+                        damage(world.getDamageSources().lightningBolt(), extension.artifality$getDamage());
                     }
                 }
                 ci.cancel();

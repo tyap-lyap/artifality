@@ -8,8 +8,9 @@ import artifality.enchant.CurseEnchantment;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -26,11 +27,11 @@ public class ArtifalityEnchants {
     public static final Enchantment REFRACTION = add("refraction", new RefractionEnchantment(Enchantment.Rarity.RARE, EnchantmentTarget.ARMOR, new EquipmentSlot[]{EquipmentSlot.FEET, EquipmentSlot.LEGS, EquipmentSlot.CHEST, EquipmentSlot.HEAD}));
 
     private static Enchantment add(String id, Enchantment enchantment) {
-        ENCHANTMENTS.put(ArtifalityMod.locate(id), enchantment);
+        ENCHANTMENTS.put(ArtifalityMod.id(id), enchantment);
         return enchantment;
     }
 
     public static void init() {
-        ENCHANTMENTS.forEach((id, enchantment) -> Registry.register(Registry.ENCHANTMENT, id, ENCHANTMENTS.get(id)));
+        ENCHANTMENTS.forEach((id, enchantment) -> Registry.register(Registries.ENCHANTMENT, id, ENCHANTMENTS.get(id)));
     }
 }

@@ -11,7 +11,7 @@ import artifality.client.particle.ArtifalityParticles;
 import dev.emi.trinkets.api.client.TrinketRendererRegistry;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.fabricmc.fabric.api.client.model.ModelLoadingRegistry;
+import net.fabricmc.fabric.api.client.model.loading.v1.ModelLoadingPlugin;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
@@ -54,7 +54,9 @@ public class ArtifalityClient implements ClientModInitializer {
         book model if a book has a lunar enchantment
         see artifality.mixin.client.ItemRendererMixin
         */
-        ModelLoadingRegistry.INSTANCE.registerModelProvider((manager, out) -> out.accept(new ModelIdentifier("artifality:lunar_enchanted_book#inventory")));
+        ModelLoadingPlugin.register(pluginContext -> {
+            pluginContext.addModels(new ModelIdentifier(ArtifalityMod.id("lunar_enchanted_book"), "inventory"));
+        });
 
 //        LivingEntityFeatureRendererRegistrationCallback.EVENT.register((entityType, entityRenderer, registrationHelper, context) -> {
 //            if(entityRenderer instanceof ZombieEntityRenderer renderer){
@@ -70,6 +72,6 @@ public class ArtifalityClient implements ClientModInitializer {
 
         // Thanks Juce! :)
         FabricLoader.getInstance().getModContainer(ArtifalityMod.MOD_ID).ifPresent(artifality ->
-                ResourceManagerHelper.registerBuiltinResourcePack(ArtifalityMod.locate("fancyclusters"), artifality, ResourcePackActivationType.NORMAL));
+                ResourceManagerHelper.registerBuiltinResourcePack(ArtifalityMod.id("fancyclusters"), artifality, ResourcePackActivationType.NORMAL));
     }
 }

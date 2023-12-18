@@ -1,72 +1,56 @@
 plugins {
-	id 'fabric-loom' version '0.11-SNAPSHOT'
-	id 'io.github.juuxel.loom-quiltflower' version '1.6.0'
-	id "com.modrinth.minotaur" version "2.+"
-	id 'org.quiltmc.quilt-mappings-on-loom' version '4.0.0'
+	id "fabric-loom" version "1.4-SNAPSHOT"
 }
 
-sourceCompatibility = targetCompatibility = JavaVersion.VERSION_17
-
-archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group
 
 repositories {
-	maven { url "https://api.modrinth.com/maven" }              // lazyDFU
-	maven { url "https://ladysnake.jfrog.io/artifactory/mods" } // CCA
-	maven { url "https://maven.terraformersmc.com" }            // modmenu, trinkets
-	maven { url "https://pkgs.dev.azure.com/djtheredstoner/DevAuth/_packaging/public/maven/v1" }
+	maven {
+        url "https://api.modrinth.com/maven"
+        content { includeGroup "maven.modrinth" }
+    }
+	maven { url "https://maven.ladysnake.org/releases" } //CCA
+	maven { url "https://maven.terraformersmc.com" } //trinkets
 }
 
 dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	mappings(loom.layered {
-		addLayer(quiltMappings.mappings("org.quiltmc:quilt-mappings:${minecraft_version}+build.${quilt_mappings}:v2"))
-	})
+	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 
-	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+	modImplementation "net.fabricmc:fabric-loader:${project.fabric_loader}"
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api}"
 	modImplementation "dev.emi:trinkets:${project.trinkets_version}"
 
-	modLocalRuntime "com.terraformersmc:modmenu:3.1.0"
-	modLocalRuntime "maven.modrinth:lazydfu:0.1.2"
-	modLocalRuntime "maven.modrinth:ferrite-core:4.2.0"
-	modLocalRuntime "me.djtheredstoner:DevAuth-fabric:1.0.0-beta.2"
+//	modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-api:${project.cca_version}"
+	modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-base:${project.cca_version}"
+	modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${project.cca_version}"
+}
+
+base {
+	archivesName = project.archives_base_name
 }
 
 processResources {
-	inputs.property "version", project.mod_version
+	inputs.property "version", project.version
 	filesMatching("fabric.mod.json") {
-		expand "version": project.mod_version
+		expand "version": project.version
 	}
 }
 
 tasks.withType(JavaCompile).configureEach {
+	it.options.encoding = "UTF-8"
 	it.options.release = 17
 }
 
 java {
+	sourceCompatibility = JavaVersion.VERSION_17
+	targetCompatibility = JavaVersion.VERSION_17
 	withSourcesJar()
 }
 
 jar {
 	from("LICENSE") {
-		rename { "${it}_${project.archivesBaseName}"}
+		rename { "${it}_${project.base.archivesName.get()}"}
 	}
-}
-
-import com.modrinth.minotaur.dependencies.ModDependency
-modrinth {
-	projectId = "IsKsViE2"
-	versionName = "Artifality " + project.mod_version
-	changelog = System.getenv("CHANGELOG")
-	versionNumber = project.mod_version
-	versionType = "beta"
-	uploadFile = remapJar
-	additionalFiles = [remapSourcesJar]
-	gameVersions = ["1.18.2"]
-	dependencies = [
-		new ModDependency("P7dR8mSH", "required"), //Fabric API
-		new ModDependency("5aaWibi9", "required")  //Trinkets
-	]
 }

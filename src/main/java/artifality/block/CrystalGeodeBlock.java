@@ -10,17 +10,17 @@ import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.ItemStack;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.LootTables;
-import net.minecraft.loot.context.LootContext;
+import net.minecraft.loot.context.LootContextParameterSet;
 import net.minecraft.loot.context.LootContextParameters;
 import net.minecraft.loot.context.LootContextTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.random.Random;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 
 @SuppressWarnings("deprecation")
 public class CrystalGeodeBlock extends BaseBlock {
@@ -29,21 +29,21 @@ public class CrystalGeodeBlock extends BaseBlock {
     private final Block large;
 
     public CrystalGeodeBlock(Block small, Block medium, Block large) {
-        super(FabricBlockSettings.copyOf(Blocks.STONE).ticksRandomly());
+        super(FabricBlockSettings.copyOf(Blocks.STONE).ticksRandomly().pistonBehavior(PistonBehavior.DESTROY));
         this.small = small;
         this.medium = medium;
         this.large = large;
     }
 
     @Override
-    public List<ItemStack> getDroppedStacks(BlockState state, LootContext.Builder builder) {
+    public List<ItemStack> getDroppedStacks(BlockState state, LootContextParameterSet.Builder builder) {
         Identifier lootTableId = Blocks.STONE.getLootTableId();
         if (lootTableId == LootTables.EMPTY) {
             return Collections.emptyList();
         } else {
-            LootContext lootContext = builder.parameter(LootContextParameters.BLOCK_STATE, state).build(LootContextTypes.BLOCK);
+            var lootContext = builder.add(LootContextParameters.BLOCK_STATE, state).build(LootContextTypes.BLOCK);
             ServerWorld world = lootContext.getWorld();
-            LootTable lootTable = world.getServer().getLootManager().getTable(lootTableId);
+            LootTable lootTable = world.getServer().getLootManager().getLootTable(lootTableId);
             return lootTable.generateLoot(lootContext);
         }
     }
@@ -70,10 +70,5 @@ public class CrystalGeodeBlock extends BaseBlock {
                 world.setBlockState(blockPos, crystal);
             }
         }
-    }
-
-    @Override
-    public PistonBehavior getPistonBehavior(BlockState state) {
-        return PistonBehavior.DESTROY;
     }
 }

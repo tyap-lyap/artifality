@@ -3,7 +3,7 @@ package artifality.util;
 import artifality.registry.ArtifalityBlocks;
 import artifality.block.base.CrystalClusterBlock;
 import artifality.block.base.LensBlock;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registries;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -20,7 +20,7 @@ public class ModelGen {
             String model = "cube_all";
             if (block instanceof CrystalClusterBlock) model = "minecraft:block/cross";
             if (block instanceof LensBlock) model = "artifality:block/lens";
-            blocks.put(Registry.BLOCK.getId(block).getPath(), model);
+            blocks.put(Registries.BLOCK.getId(block).getPath(), model);
         });
         ModelGen.generateBlocks("artifality", blocks);
     }

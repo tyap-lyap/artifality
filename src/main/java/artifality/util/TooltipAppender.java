@@ -9,13 +9,13 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtList;
-import net.minecraft.text.LiteralText;
+import net.minecraft.registry.Registries;
+import net.minecraft.text.MutableText;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Language;
-import net.minecraft.util.registry.Registry;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +29,7 @@ public class TooltipAppender {
     public static void append(ItemStack stack, List<Text> tooltip) {
         Item item = stack.getItem();
 
-        if(!getTooltip(Registry.ITEM.getId(item).getPath()).isEmpty() && shiftPressed(tooltip, item)) {
+        if(!getTooltip(Registries.ITEM.getId(item).getPath()).isEmpty() && shiftPressed(tooltip, item)) {
             if(item instanceof ArtifactItem artifact) {
                 if(artifact.config.hasTiers) appendTier(stack, tooltip);
             }
@@ -45,14 +45,14 @@ public class TooltipAppender {
         if(!Screen.hasShiftDown()) {
             if(item instanceof ArtifactItem artifact) {
                 ArtifactRarity rarity = artifact.config.rarity;
-                tooltip.add(new LiteralText(ofKey(rarity.getName())).setStyle(Style.EMPTY.withColor(rarity.getColor().getRGB())));
+                tooltip.add(Text.literal(ofKey(rarity.getName())).setStyle(Style.EMPTY.withColor(rarity.getColor().getRGB())));
             }
             if(!(item instanceof EnchantedBookItem && FabricLoader.getInstance().isModLoaded("enchdesc"))) {
-                tooltip.add(new LiteralText(""));
-                tooltip.add(new LiteralText(ofKey("press_shift")).formatted(Formatting.GRAY));
+                tooltip.add(Text.literal(""));
+                tooltip.add(Text.literal(ofKey("press_shift")).formatted(Formatting.GRAY));
             }
             if(item instanceof ArtifactItem artifact) {
-                if(artifact.config.isTrinket) tooltip.add(new LiteralText(""));
+                if(artifact.config.isTrinket) tooltip.add(Text.literal(""));
             }
             return false;
         }else{
@@ -61,7 +61,7 @@ public class TooltipAppender {
     }
 
     private static void appendTier(ItemStack stack, List<Text> tooltip) {
-        LiteralText tierString = new LiteralText(ofKey("tier").replaceAll("%", Integer.toString(TiersUtils.getTier(stack))));
+        MutableText tierString = Text.literal(ofKey("tier").replaceAll("%", Integer.toString(TiersUtils.getTier(stack))));
 
         switch (TiersUtils.getTier(stack)) {
             default -> tooltip.add(tierString);
@@ -71,13 +71,13 @@ public class TooltipAppender {
     }
 
     private static void appendItemTooltip(ItemStack stack, List<Text> tooltip) {
-        tooltip.add(new LiteralText(""));
-        for(String line : getTooltip(Registry.ITEM.getId(stack.getItem()).getPath())) {
-            tooltip.add(new LiteralText(line.trim().replaceAll("&", "§")).formatted(Formatting.GRAY));
+        tooltip.add(Text.literal(""));
+        for(String line : getTooltip(Registries.ITEM.getId(stack.getItem()).getPath())) {
+            tooltip.add(Text.literal(line.trim().replaceAll("&", "§")).formatted(Formatting.GRAY));
         }
         if(stack.getItem() instanceof ArtifactItem artifact) {
             artifact.appendTooltipInfo(stack, tooltip);
-            if(artifact.config.isTrinket) tooltip.add(new LiteralText(""));
+            if(artifact.config.isTrinket) tooltip.add(Text.literal(""));
         }
     }
 
@@ -87,16 +87,16 @@ public class TooltipAppender {
         for(int i = 0; i < enchantments.size(); ++i) {
             NbtCompound nbtCompound = enchantments.getCompound(i);
 
-            Registry.ENCHANTMENT.getOrEmpty(Identifier.tryParse(nbtCompound.getString("id"))).ifPresent((enchantment) -> {
+            Registries.ENCHANTMENT.getOrEmpty(Identifier.tryParse(nbtCompound.getString("id"))).ifPresent((enchantment) -> {
                 if(!enchantment.getTranslationKey().contains("artifality")) return;
                 if(!shiftPressed(tooltip, stack.getItem())) return;
-                tooltip.add(new LiteralText(""));
-                for(String line : getTooltip(Objects.requireNonNull(Registry.ENCHANTMENT.getId(enchantment)).getPath())) {
-                    tooltip.add(new LiteralText(line.trim().replaceAll("&", "§")).formatted(Formatting.GRAY));
+                tooltip.add(Text.literal(""));
+                for(String line : getTooltip(Objects.requireNonNull(Registries.ENCHANTMENT.getId(enchantment)).getPath())) {
+                    tooltip.add(Text.literal(line.trim().replaceAll("&", "§")).formatted(Formatting.GRAY));
                 }
                 if(enchantment.getMaxLevel() > 1){
-                    tooltip.add(new LiteralText(""));
-                    tooltip.add(new LiteralText(ofKey("max_level").replaceAll("%", Integer.toString(enchantment.getMaxLevel()))).formatted(Formatting.DARK_GREEN));
+                    tooltip.add(Text.literal(""));
+                    tooltip.add(Text.literal(ofKey("max_level").replaceAll("%", Integer.toString(enchantment.getMaxLevel()))).formatted(Formatting.DARK_GREEN));
                 }
             });
         }

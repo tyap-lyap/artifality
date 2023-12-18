@@ -10,7 +10,6 @@ import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
@@ -27,14 +26,14 @@ public class LunarWandItem extends ArtifactItem {
 
     @Override
     public void appendTooltipInfo(ItemStack stack, List<Text> tooltip) {
-        tooltip.add(new LiteralText(""));
+        tooltip.add(Text.empty());
         if(TiersUtils.getTier(stack) == 1) {
-            tooltip.add(new LiteralText(TooltipAppender.ofKey("effect_level").replaceAll("%", "1-2")).formatted(Formatting.DARK_GREEN));
+            tooltip.add(Text.literal(TooltipAppender.ofKey("effect_level").replaceAll("%", "1-2")).formatted(Formatting.DARK_GREEN));
         }
         else {
-            tooltip.add(new LiteralText(TooltipAppender.ofKey("effect_level").replaceAll("%", Integer.toString(TiersUtils.getTier(stack)))).formatted(Formatting.DARK_GREEN));
+            tooltip.add(Text.literal(TooltipAppender.ofKey("effect_level").replaceAll("%", Integer.toString(TiersUtils.getTier(stack)))).formatted(Formatting.DARK_GREEN));
         }
-        tooltip.add(new LiteralText(TooltipAppender.ofKey("cooldown").replaceAll("%", Integer.toString(20))).formatted(Formatting.DARK_GREEN));
+        tooltip.add(Text.literal(TooltipAppender.ofKey("cooldown").replaceAll("%", Integer.toString(20))).formatted(Formatting.DARK_GREEN));
     }
 
     @Override

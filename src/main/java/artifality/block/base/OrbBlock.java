@@ -5,7 +5,6 @@ import net.minecraft.block.ShapeContext;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
@@ -34,7 +33,7 @@ public class OrbBlock extends BaseBlock {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
-        tooltip.add(new TranslatableText("misc.artifality.placeable").formatted(Formatting.GRAY));
+        tooltip.add(Text.literal("misc.artifality.placeable").formatted(Formatting.GRAY));
         super.appendTooltip(stack, world, tooltip, options);
     }
 }
