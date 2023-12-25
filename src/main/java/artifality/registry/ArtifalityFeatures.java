@@ -1,32 +1,26 @@
 package artifality.registry;
 
-import static artifality.ArtifalityMod.id;
-
+import artifality.ArtifalityMod;
 import artifality.worldgen.feature.CrystalFeature;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
+import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
+import net.minecraft.registry.*;
+import net.minecraft.registry.tag.BiomeTags;
+import net.minecraft.world.gen.GenerationStep;
+import net.minecraft.world.gen.feature.*;
 
-import java.util.List;
-
-@SuppressWarnings("deprecation")
 public class ArtifalityFeatures {
-//    public static final Feature<DefaultFeatureConfig> CRYSTAL_FEATURE = new CrystalFeature();
-//    public static final ConfiguredFeature<?, ?> CRYSTAL_FEATURE_CONFIG = new ConfiguredFeature<>(CRYSTAL_FEATURE, new DefaultFeatureConfig());
-//    public static final PlacedFeature CRYSTAL_FEATURE_PLACED = new PlacedFeature(Holder.createDirect(CRYSTAL_FEATURE_CONFIG), List.of(PlacedFeatureUtil.BOTTOM_TO_MAX_TERRAIN_HEIGHT_RANGE));
+    public static final Feature<DefaultFeatureConfig> CRYSTAL_FEATURE = new CrystalFeature();
+    public static final RegistryKey<ConfiguredFeature<?,?>> CRYSTAL_FEATURE_CONFIG = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, ArtifalityMod.id("crystals"));
+    public static final RegistryKey<PlacedFeature> CRYSTAL_FEATURE_PLACED = RegistryKey.of(RegistryKeys.PLACED_FEATURE, ArtifalityMod.id("crystals"));
 
     public static void init() {
-//        Registry.register(Registries.FEATURE, id("crystal_feature"), CRYSTAL_FEATURE);
-//        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, id("crystal_feature"), CRYSTAL_FEATURE_CONFIG);
-//        Registry.register(BuiltinRegistries.PLACED_FEATURE, id("crystal_feature"), CRYSTAL_FEATURE_PLACED);
-//
-//        BiomeModifications.addFeature(
-//                ctx -> {
-//                    Biome.Category category = Biome.getCategory(ctx.getBiomeRegistryEntry());
-//                    return !category.equals(Biome.Category.NETHER) && !category.equals(Biome.Category.THEEND);
-//                },
-//                GenerationStep.Feature.UNDERGROUND_DECORATION,
-//                BuiltinRegistries.PLACED_FEATURE.getKey(CRYSTAL_FEATURE_PLACED).orElseThrow()
-//        );
+        Registry.register(Registries.FEATURE, ArtifalityMod.id("crystals"), CRYSTAL_FEATURE);
+
+        BiomeModifications.create(ArtifalityMod.id("features"))
+                .add(ModificationPhase.ADDITIONS, ctx -> {
+                    var entry = ctx.getBiomeRegistryEntry();
+                    return !entry.isIn(BiomeTags.IS_NETHER) && !entry.isIn(BiomeTags.IS_END);
+                }, ctx -> ctx.getGenerationSettings().addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, CRYSTAL_FEATURE_PLACED));
     }
 }
