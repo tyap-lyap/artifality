@@ -6,34 +6,40 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 
 public class ArtifactSettings {
     public final FabricItemSettings fabricItemSettings;
-    public final Parameters parameters = new Parameters();
+    public ArtifactRarity rarity = ArtifactRarity.COMMON;
+    public TrinketRenderer renderer;
+    public boolean isCrateLoot = true;
+    public boolean isTrinket = false;
+    public boolean hasTiers = false;
+    public boolean hasTwoModels = false;
+
 
     public ArtifactSettings() {
         fabricItemSettings = new FabricItemSettings();
     }
 
     public ArtifactSettings rarity(ArtifactRarity rarity) {
-        this.parameters.rarity = rarity;
+        this.rarity = rarity;
         return this;
     }
 
     public ArtifactSettings nonCrateItem() {
-        this.parameters.isCrateLoot = false;
+        this.isCrateLoot = false;
         return this;
     }
 
     public ArtifactSettings twoModeled() {
-        this.parameters.hasTwoModels = true;
+        this.hasTwoModels = true;
         return this;
     }
 
     public ArtifactSettings trinket() {
-        this.parameters.isTrinket = true;
+        this.isTrinket = true;
         return this;
     }
 
     public ArtifactSettings tiered() {
-        this.parameters.hasTiers = true;
+        this.hasTiers = true;
         return this;
     }
 
@@ -48,16 +54,7 @@ public class ArtifactSettings {
     }
 
     public ArtifactSettings renderer(TrinketRenderer renderer) {
-        this.parameters.renderer = renderer;
+        this.renderer = renderer;
         return this;
-    }
-
-    public static class Parameters {
-        public ArtifactRarity rarity = ArtifactRarity.COMMON;
-        public TrinketRenderer renderer;
-        public boolean isCrateLoot = true;
-        public boolean isTrinket = false;
-        public boolean hasTiers = false;
-        public boolean hasTwoModels = false;
     }
 }

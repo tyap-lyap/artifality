@@ -1,5 +1,6 @@
 package artifality;
 
+import artifality.command.ArtifalityCommands;
 import artifality.data.ArtifalityLootTables;
 import artifality.registry.*;
 import net.fabricmc.api.ModInitializer;
@@ -36,11 +37,13 @@ public class ArtifalityMod implements ModInitializer {
     public void onInitialize() {
         ArtifalityItems.init();
         ArtifalityBlocks.init();
+        ArtifalityBlockEntities.init();
         ArtifalityEnchants.init();
         ArtifalityFeatures.init();
         ArtifalityEvents.init();
         ArtifalityLootTables.init();
         ArtifalityEffects.init();
+        ArtifalityCommands.init();
 
         Registry.register(Registries.ITEM_GROUP, id("items"), ITEM_GROUP);
     }

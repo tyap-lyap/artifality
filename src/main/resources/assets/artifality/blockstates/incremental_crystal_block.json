@@ -1,6 +1,5 @@
 {
   "variants": {
-    "": {      "model": "artifality:block/incremental_crystal_block"
-    }
+    "": { "model": "artifality:block/incremental_crystal_block" }
   }
 }

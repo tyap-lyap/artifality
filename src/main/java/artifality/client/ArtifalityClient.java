@@ -3,7 +3,10 @@ package artifality.client;
 import artifality.ArtifalityMod;
 import artifality.block.CrateBlock;
 import artifality.block.base.*;
+import artifality.client.render.TradingPedestalHud;
+import artifality.client.render.TradingPedestalRenderer;
 import artifality.item.base.ArtifactItem;
+import artifality.registry.ArtifalityBlockEntities;
 import artifality.registry.ArtifalityBlocks;
 import artifality.api.TwoModelsItemRegistry;
 import artifality.registry.ArtifalityItems;
@@ -12,24 +15,25 @@ import dev.emi.trinkets.api.client.TrinketRendererRegistry;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.model.loading.v1.ModelLoadingPlugin;
-import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
-import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.minecraft.client.util.ModelIdentifier;
 
 public class ArtifalityClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
+        BlockEntityRendererFactories.register(ArtifalityBlockEntities.TRADING_PEDESTAL, ctx -> new TradingPedestalRenderer<>());
+
+        TradingPedestalHud.register();
         ArtifalityParticles.register();
 
         ArtifalityItems.ITEMS.forEach((id, item) -> {
             if(item instanceof ArtifactItem artifact) {
-                if (artifact.config.renderer != null) {
-                    TrinketRendererRegistry.registerRenderer(item, artifact.config.renderer);
+                if (artifact.artifactSettings.renderer != null) {
+                    TrinketRendererRegistry.registerRenderer(item, artifact.artifactSettings.renderer);
                 }
-                if(artifact.config.hasTwoModels) {
+                if(artifact.artifactSettings.hasTwoModels) {
                     TwoModelsItemRegistry.register(item);
                 }
             }
@@ -71,7 +75,7 @@ public class ArtifalityClient implements ClientModInitializer {
 //        });
 
         // Thanks Juce! :)
-        FabricLoader.getInstance().getModContainer(ArtifalityMod.MOD_ID).ifPresent(artifality ->
-                ResourceManagerHelper.registerBuiltinResourcePack(ArtifalityMod.id("fancyclusters"), artifality, ResourcePackActivationType.NORMAL));
+//        FabricLoader.getInstance().getModContainer(ArtifalityMod.MOD_ID).ifPresent(artifality ->
+//                ResourceManagerHelper.registerBuiltinResourcePack(ArtifalityMod.id("fancyclusters"), artifality, ResourcePackActivationType.NORMAL));
     }
 }

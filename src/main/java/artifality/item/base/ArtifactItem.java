@@ -15,15 +15,13 @@ import java.awt.*;
 import java.util.List;
 
 public class ArtifactItem extends BaseItem {
-    public final ArtifactSettings.Parameters config;
-    public final ArtifactSettings settings;
+    public final ArtifactSettings artifactSettings;
 
     public ArtifactItem(ArtifactSettings settings) {
         super(settings.fabricItemSettings);
-        this.settings = settings;
-        this.config = settings.parameters;
+        this.artifactSettings = settings;
 
-        if(config.isTrinket) {
+        if(artifactSettings.isTrinket) {
             TrinketsApi.registerTrinket(this, (Trinket)this);
         }
     }
@@ -33,7 +31,7 @@ public class ArtifactItem extends BaseItem {
 
     @Override
     public boolean hasGlint(ItemStack stack) {
-        if(config.hasTiers) {
+        if(artifactSettings.hasTiers) {
             return TiersUtils.getTier(stack) == 3;
         }
         return false;
@@ -41,7 +39,7 @@ public class ArtifactItem extends BaseItem {
 
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
-        if (config.hasTiers) {
+        if (artifactSettings.hasTiers) {
             if(context.getWorld().getBlockState(context.getBlockPos()).isOf(ArtifalityBlocks.UPGRADING_PEDESTAL)) {
                 return ActionResult.FAIL;
             }
@@ -49,9 +47,9 @@ public class ArtifactItem extends BaseItem {
         return super.useOnBlock(context);
     }
 
-    @Override
-    public Text getName(ItemStack stack) {
-        Color color = config.rarity.getColor();
-        return Text.translatable(this.getTranslationKey(stack)).setStyle(Style.EMPTY.withColor(color.getRGB()));
-    }
+//    @Override
+//    public Text getName(ItemStack stack) {
+//        Color color = artifactSettings.rarity.getColor();
+//        return Text.translatable(this.getTranslationKey(stack)).setStyle(Style.EMPTY.withColor(color.getRGB()));
+//    }
 }

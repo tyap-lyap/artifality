@@ -1,5 +1,6 @@
 package artifality.mixin.common;
 
+import artifality.extension.PlayerExtension;
 import artifality.registry.ArtifalityEnchants;
 import artifality.registry.ArtifalityItems;
 import artifality.item.BalloonItem;
@@ -7,6 +8,7 @@ import artifality.util.EffectsUtils;
 import artifality.util.TiersUtils;
 import artifality.util.TrinketsUtils;
 import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
@@ -14,7 +16,10 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.Hand;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -23,9 +28,17 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import java.util.Set;
+
 @Mixin(PlayerEntity.class)
-public class PlayerMixin {
+abstract class PlayerMixin extends LivingEntity implements PlayerExtension {
     PlayerEntity self = (PlayerEntity)(Object)this;
+
+    public PlayerExtension.PlayerPosition prevPosition = null;
+
+    protected PlayerMixin(EntityType<? extends LivingEntity> entityType, World world) {
+        super(entityType, world);
+    }
 
     @Inject(method = "getAttackCooldownProgressPerTick", at = @At("HEAD"), cancellable = true)
     void getAttackCooldownProgressPerTick(CallbackInfoReturnable<Float> cir) {
@@ -97,5 +110,72 @@ public class PlayerMixin {
                 }
             }
         });
+    }
+
+    @Inject(method = "writeCustomDataToNbt", at = @At("HEAD"))
+    void writeCustomDataToNbt(NbtCompound nbt, CallbackInfo ci) {
+
+        if(prevPosition != null) {
+            NbtCompound compound = new NbtCompound();
+            compound.putDouble("x", prevPosition.pos.x);
+            compound.putDouble("y", prevPosition.pos.y);
+            compound.putDouble("z", prevPosition.pos.z);
+            compound.putFloat("yaw", prevPosition.yaw);
+            compound.putFloat("pitch", prevPosition.pitch);
+            compound.putString("dimension", prevPosition.dimension.toString());
+
+            nbt.put("PrevPositionBeforeBazaar", compound);
+        }
+    }
+
+    @Inject(method = "readCustomDataFromNbt", at = @At("HEAD"))
+    void readCustomDataFromNbt(NbtCompound nbt, CallbackInfo ci) {
+        if(nbt.contains("PrevPositionBeforeBazaar")) {
+            NbtCompound compound = nbt.getCompound("PrevPositionBeforeBazaar");
+            prevPosition = new PlayerPosition(
+                    new Vec3d(compound.getDouble("x"), compound.getDouble("y"), compound.getDouble("z")),
+                    compound.getFloat("yaw"),
+                    compound.getFloat("pitch"),
+                    new Identifier(compound.getString("dimension"))
+            );
+        }
+    }
+
+    @Override
+    public void savePrevPosition() {
+        prevPosition = new PlayerPosition(
+                getPos(),
+                getYaw(),
+                getPitch(),
+                getWorld().getDimensionKey().getValue()
+        );
+    }
+
+    @Override
+    public void teleportToPrevPosition() {
+        if(prevPosition != null) {
+            for(var world : getServer().getWorlds()) {
+                if(world.getDimensionKey().getValue().equals(prevPosition.dimension)) {
+                    teleport(world, prevPosition.pos.x, prevPosition.pos.y + 0.5, prevPosition.pos.z, Set.of(), prevPosition.yaw, prevPosition.pitch);
+                    resetPrevPosition();
+                    break;
+                }
+            }
+        }
+    }
+
+    @Override
+    public void resetPrevPosition() {
+        prevPosition = null;
+    }
+
+    @Override
+    public void setPrevPosition(PlayerPosition pos) {
+        this.prevPosition = pos;
+    }
+
+    @Override
+    public PlayerPosition getPrevPosition() {
+        return this.prevPosition;
     }
 }

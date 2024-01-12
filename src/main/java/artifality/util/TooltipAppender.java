@@ -31,10 +31,11 @@ public class TooltipAppender {
 
         if(!getTooltip(Registries.ITEM.getId(item).getPath()).isEmpty() && shiftPressed(tooltip, item)) {
             if(item instanceof ArtifactItem artifact) {
-                if(artifact.config.hasTiers) appendTier(stack, tooltip);
+                if(artifact.artifactSettings.hasTiers) appendTier(stack, tooltip);
             }
             appendItemTooltip(stack, tooltip);
-        }else if(item instanceof EnchantedBookItem) {
+        }
+        else if(item instanceof EnchantedBookItem) {
             if(!FabricLoader.getInstance().isModLoaded("enchdesc")) {
                 appendEnchantmentTooltip(stack, tooltip);
             }
@@ -44,18 +45,19 @@ public class TooltipAppender {
     private static boolean shiftPressed(List<Text> tooltip, Item item) {
         if(!Screen.hasShiftDown()) {
             if(item instanceof ArtifactItem artifact) {
-                ArtifactRarity rarity = artifact.config.rarity;
-                tooltip.add(Text.literal(ofKey(rarity.getName())).setStyle(Style.EMPTY.withColor(rarity.getColor().getRGB())));
+//                ArtifactRarity rarity = artifact.artifactSettings.rarity;
+//                tooltip.add(Text.literal(ofKey(rarity.getName())).setStyle(Style.EMPTY.withColor(rarity.getColor().getRGB())));
             }
             if(!(item instanceof EnchantedBookItem && FabricLoader.getInstance().isModLoaded("enchdesc"))) {
                 tooltip.add(Text.literal(""));
                 tooltip.add(Text.literal(ofKey("press_shift")).formatted(Formatting.GRAY));
             }
             if(item instanceof ArtifactItem artifact) {
-                if(artifact.config.isTrinket) tooltip.add(Text.literal(""));
+                if(artifact.artifactSettings.isTrinket) tooltip.add(Text.literal(""));
             }
             return false;
-        }else{
+        }
+        else {
             return true;
         }
     }
@@ -77,7 +79,7 @@ public class TooltipAppender {
         }
         if(stack.getItem() instanceof ArtifactItem artifact) {
             artifact.appendTooltipInfo(stack, tooltip);
-            if(artifact.config.isTrinket) tooltip.add(Text.literal(""));
+            if(artifact.artifactSettings.isTrinket) tooltip.add(Text.literal(""));
         }
     }
 

@@ -29,12 +29,12 @@ public class CrystalClusterPacks {
             MEDIUM_LIFE_CRYSTAL_CLUSTER,
             LIFE_CRYSTAL_CLUSTER
         );
-        add(
-            WRATH_CRYSTAL_GEODE,
-            SMALL_WRATH_CRYSTAL_CLUSTER,
-            MEDIUM_WRATH_CRYSTAL_CLUSTER,
-            WRATH_CRYSTAL_CLUSTER
-        );
+//        add(
+//            WRATH_CRYSTAL_GEODE,
+//            SMALL_WRATH_CRYSTAL_CLUSTER,
+//            MEDIUM_WRATH_CRYSTAL_CLUSTER,
+//            WRATH_CRYSTAL_CLUSTER
+//        );
     }
 
     public static void add(Block geode, Block... clusters) {

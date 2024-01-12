@@ -48,7 +48,7 @@ public class UpgradingPedestalBlock extends BaseBlock {
             stack.decrement(1);
             return ActionResult.SUCCESS;
         }
-        else if(item instanceof ArtifactItem artifact && artifact.config.hasTiers) {
+        else if(item instanceof ArtifactItem artifact && artifact.artifactSettings.hasTiers) {
             if(getCharges(state) == 3 && TiersUtils.getTier(stack) == 1) {
                 world.playSound(null, pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, SoundEvents.BLOCK_RESPAWN_ANCHOR_DEPLETE.value(), SoundCategory.BLOCKS, 1.0F, 1.0F);
                 player.setStackInHand(Hand.MAIN_HAND, TiersUtils.withTier(item, 2));

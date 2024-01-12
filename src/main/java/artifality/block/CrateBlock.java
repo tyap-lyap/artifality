@@ -45,7 +45,7 @@ public class CrateBlock extends BaseBlock implements Waterloggable {
     public static final VoxelShape SHAPE = createCuboidShape(2, 0, 2, 14, 12, 14);
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
 
-    public static final ArrayList<Item> CRYSTALS = new ArrayList<>(List.of(INCREMENTAL_CRYSTAL, LUNAR_CRYSTAL, LIFE_CRYSTAL, WRATH_CRYSTAL));
+    public static final ArrayList<Item> CRYSTALS = new ArrayList<>(List.of(INCREMENTAL_CRYSTAL, LUNAR_CRYSTAL, LIFE_CRYSTAL));
 
     private final ArrayList<Item> commonArtifacts = new ArrayList<>();
     private final ArrayList<Item> rareArtifacts = new ArrayList<>();
@@ -58,7 +58,7 @@ public class CrateBlock extends BaseBlock implements Waterloggable {
         this.rarity = rarity;
         ArtifalityItems.ITEMS.forEach((id, item) -> {
             if(item instanceof ArtifactItem artifact) {
-                ArtifactRarity artifactRarity = artifact.config.rarity;
+                ArtifactRarity artifactRarity = artifact.artifactSettings.rarity;
                 switch (artifactRarity) {
                     case COMMON -> commonArtifacts.add(item);
                     case RARE -> rareArtifacts.add(item);

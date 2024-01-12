@@ -25,6 +25,14 @@ dependencies {
 //	modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-api:${project.cca_version}"
 	modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-base:${project.cca_version}"
 	modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${project.cca_version}"
+
+	modLocalRuntime "maven.modrinth:here-be-no-dragons:1.0.0"
+	modLocalRuntime "maven.modrinth:limitless-structure-block:1.0"
+	modLocalRuntime "dev.emi:emi-fabric:1.0.29+1.20.1"
+}
+
+loom {
+	accessWidenerPath = file("src/main/resources/artifality.accesswidener")
 }
 
 base {

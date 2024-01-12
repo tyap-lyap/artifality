@@ -50,18 +50,6 @@
                     }
                 ]
             }
-        },
-        "wrath_crystal_lens": {
-            "trigger": "minecraft:inventory_changed",
-            "conditions": {
-                "items": [
-                    {
-                        "items": [
-                            "artifality:wrath_crystal_lens"
-                        ]
-                    }
-                ]
-            }
         }
     },
     "parent": "artifality:negative_vision"

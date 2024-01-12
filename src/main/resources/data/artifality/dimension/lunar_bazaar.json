@@ -1,0 +1,23 @@
+{
+  "type": "artifality:lunar_bazaar",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+       "layers": [
+         {
+           "height": 64,
+           "block": "minecraft:air"
+         },
+         {
+           "height": 1,
+           "block": "minecraft:bedrock"
+         }
+       ],
+      "biome": "artifality:lunar_void"
+    },
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "artifality:lunar_void"
+    }
+  }
+}

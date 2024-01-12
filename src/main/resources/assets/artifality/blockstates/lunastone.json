@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "": [
+      { "model": "artifality:block/lunastone" },
+      { "model": "artifality:block/lunastone_2" }
+    ]
+  }
+}
