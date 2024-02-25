@@ -33,6 +33,7 @@ public class ArtifalityItems {
 //    public static final Item WRATH_CRYSTAL = add("wrath_crystal", new BaseItem(settings()));
 
     public static final Item INCREMENTAL_ORB = add("incremental_orb", new BaseItem(settings()));
+    public static final Item HAUNTING_SOUL = add("haunting_soul", new BaseItem(settings()));
 
     private static Item add(String name, Item item) {
         ITEMS.put(ArtifalityMod.id(name), item);

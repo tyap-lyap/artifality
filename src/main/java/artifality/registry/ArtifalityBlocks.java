@@ -4,7 +4,6 @@ import artifality.ArtifalityMod;
 import artifality.block.*;
 import artifality.block.base.*;
 import artifality.item.base.BaseBlockItem;
-import artifality.list.ArtifactRarity;
 import artifality.list.LensEffects;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
@@ -93,6 +92,7 @@ public class ArtifalityBlocks {
     public static final Block EMPTY_LENS = lens("empty_lens", LensEffects.EMPTY);
 
     public static final Block LUNASTONE = add("lunastone", new BaseBlock(copyOf(Blocks.STONE)));
+    public static final Block LUNALIGHT = add("lunalight", new BaseBlock(copyOf(GLOWSTONE)));
     public static final Block LUNAR_PORTAL = add("lunar_portal", new LunarPortalBlock(copyOf(Blocks.STONE)));
     public static final Block LUNAR_TRADING_PEDESTAL = add("lunar_trading_pedestal", new TradingPedestalBlock(copyOf(Blocks.STONE).nonOpaque().notSolid()));
 

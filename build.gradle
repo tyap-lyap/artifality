@@ -1,9 +1,13 @@
 plugins {
-	id "fabric-loom" version "1.4-SNAPSHOT"
+	id "fabric-loom" version "1.5-SNAPSHOT"
 }
 
 version = project.mod_version
 group = project.maven_group
+
+base {
+	archivesName = project.archives_base_name
+}
 
 repositories {
 	maven {
@@ -12,6 +16,7 @@ repositories {
     }
 	maven { url "https://maven.ladysnake.org/releases" } //CCA
 	maven { url "https://maven.terraformersmc.com" } //trinkets
+	maven { url "https://maven.wispforest.io" } //owo-lib
 }
 
 dependencies {
@@ -21,6 +26,7 @@ dependencies {
 	modImplementation "net.fabricmc:fabric-loader:${project.fabric_loader}"
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api}"
 	modImplementation "dev.emi:trinkets:${project.trinkets_version}"
+	modImplementation "io.wispforest:owo-lib:${project.owo_lib}"
 
 //	modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-api:${project.cca_version}"
 	modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-base:${project.cca_version}"
@@ -29,14 +35,12 @@ dependencies {
 	modLocalRuntime "maven.modrinth:here-be-no-dragons:1.0.0"
 	modLocalRuntime "maven.modrinth:limitless-structure-block:1.0"
 	modLocalRuntime "dev.emi:emi-fabric:1.0.29+1.20.1"
+	modLocalRuntime "com.terraformersmc:modmenu:7.2.2"
+	modLocalRuntime "io.wispforest:gadget:0.2.2+1.20"
 }
 
 loom {
 	accessWidenerPath = file("src/main/resources/artifality.accesswidener")
-}
-
-base {
-	archivesName = project.archives_base_name
 }
 
 processResources {

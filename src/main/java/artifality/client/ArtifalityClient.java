@@ -26,7 +26,6 @@ public class ArtifalityClient implements ClientModInitializer {
         BlockEntityRendererFactories.register(ArtifalityBlockEntities.TRADING_PEDESTAL, ctx -> new TradingPedestalRenderer<>());
 
         TradingPedestalHud.register();
-        ArtifalityParticles.register();
 
         ArtifalityItems.ITEMS.forEach((id, item) -> {
             if(item instanceof ArtifactItem artifact) {

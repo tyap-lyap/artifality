@@ -2,6 +2,7 @@
     "modmenu.descriptionTranslation.artifality": "Collection of new unique artifacts, blocks, enchantments, and other stuff.",
 
     "itemGroup.artifality.items": "Artifality",
+    "itemGroup.artifality.items.button.discord": "Join our Discord server!",
 
     "block.artifality.upgrading_pedestal": "Pedestal of Upgrading",
     "tip.upgrading_pedestal.0": "Allows you to upgrade your",

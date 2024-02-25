@@ -1,6 +1,8 @@
 package artifality.mixin.common;
 
+import artifality.client.particle.ArtifalityParticles;
 import artifality.extension.PlayerExtension;
+import artifality.registry.ArtifalityDimensions;
 import artifality.registry.ArtifalityEnchants;
 import artifality.registry.ArtifalityItems;
 import artifality.item.BalloonItem;
@@ -17,6 +19,7 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
@@ -96,6 +99,13 @@ abstract class PlayerMixin extends LivingEntity implements PlayerExtension {
         if(!self.getWorld().isClient()) {
             if(!self.isOnGround() && !self.isFallFlying() && !self.isTouchingWater() && !self.hasStatusEffect(StatusEffects.LEVITATION)) {
                 useBalloon();
+            }
+
+            if (!self.isCreative() && self.getWorld().getDimensionKey().getValue().equals(ArtifalityDimensions.LUNAR_BAZAAR.getValue())) {
+
+                if(self.isOnGround() && (self.age % 40) == 0) {
+                    ((ServerWorld)self.getWorld()).spawnParticles(ArtifalityParticles.LUNAR_CHAIN, self.getX(), self.getY() + 0.05D, self.getZ(), 0, 0, 0, 0, 0);
+                }
             }
         }
     }
