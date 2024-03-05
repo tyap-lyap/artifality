@@ -32,4 +32,11 @@ public class TiersUtils {
         return itemStack;
     }
 
+    public static ItemStack withTier(ItemStack item, int tier) {
+        if (tier >= 2) {
+            item.getOrCreateNbt().putInt("artifactTier", tier);
+        }
+        return item;
+    }
+
 }

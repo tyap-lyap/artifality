@@ -2,6 +2,7 @@ package artifality.mixin.common;
 
 import artifality.client.particle.ArtifalityParticles;
 import artifality.extension.PlayerExtension;
+import artifality.item.HauntingSoul;
 import artifality.registry.ArtifalityDimensions;
 import artifality.registry.ArtifalityEnchants;
 import artifality.registry.ArtifalityItems;
@@ -28,6 +29,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
@@ -51,27 +53,22 @@ abstract class PlayerMixin extends LivingEntity implements PlayerExtension {
         }
     }
 
-    @Inject(method = "damage", at = @At("HEAD"))
-    void damage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
-        if(!self.getWorld().isClient()) {
-            if(source.getAttacker() != null && source.getAttacker() instanceof LivingEntity attacker) {
-//                if(TrinketsUtils.containsTrinket(self, ArtifalityItems.UKULELE)) {
-//                    if(!self.getItemCooldownManager().isCoolingDown(ArtifalityItems.UKULELE)) {
-//                        UkuleleItem.createCloudEffect(attacker.world, attacker,
-//                                EffectsUtils.getRandomNegative(),
-//                                10, 1.5F, 1);
-//                        self.getItemCooldownManager().set(ArtifalityItems.UKULELE, 20 * 20);
-//                    }
-//                }
-            }
+    @SuppressWarnings("all")
+    @ModifyVariable(method = "attack", at = @At(value = "STORE", ordinal = 0))
+    private float modifyDamage(float original) {
+        ItemStack artifact = TrinketsUtils.getTrinket(self, ArtifalityItems.HAUNTING_SOUL);
+        if(!artifact.isEmpty()) {
+            return original + HauntingSoul.getDamageModifier(artifact);
         }
+
+        return original;
     }
 
     @Inject(method = "damage", at = @At("HEAD"))
     void volatileCurse(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
         if(!self.getWorld().isClient()) {
-            if(!self.isInvulnerableTo(source) && source.getAttacker() != null){
-                for (ItemStack stack : self.getItemsEquipped()){
+            if(!self.isInvulnerableTo(source) && source.getAttacker() != null) {
+                for (ItemStack stack : self.getItemsEquipped()) {
                     if (EnchantmentHelper.get(stack).containsKey(ArtifalityEnchants.VOLATILE_CURSE)) {
                         if(!self.getItemCooldownManager().isCoolingDown(stack.getItem())) {
                             self.getWorld().createExplosion(self, self.getX(), self.getY(), self.getZ(), 1F, World.ExplosionSourceType.NONE);

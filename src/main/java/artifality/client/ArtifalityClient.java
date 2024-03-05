@@ -8,9 +8,8 @@ import artifality.client.render.TradingPedestalRenderer;
 import artifality.item.base.ArtifactItem;
 import artifality.registry.ArtifalityBlockEntities;
 import artifality.registry.ArtifalityBlocks;
-import artifality.api.TwoModelsItemRegistry;
+import artifality.api.TwoModeledItems;
 import artifality.registry.ArtifalityItems;
-import artifality.client.particle.ArtifalityParticles;
 import dev.emi.trinkets.api.client.TrinketRendererRegistry;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
@@ -33,7 +32,7 @@ public class ArtifalityClient implements ClientModInitializer {
                     TrinketRendererRegistry.registerRenderer(item, artifact.artifactSettings.renderer);
                 }
                 if(artifact.artifactSettings.hasTwoModels) {
-                    TwoModelsItemRegistry.register(item);
+                    TwoModeledItems.register(item);
                 }
             }
         });

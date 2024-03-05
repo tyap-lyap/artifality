@@ -24,6 +24,7 @@ public class ArtifactConfigs {
     public static final ArtifactSettings INVISIBILITY_CAPE = new ArtifactSettings()
             .maxCount(1)
             .trinket()
+            .tiered()
             .rarity(ArtifactRarity.COMMON);
 
     public static final ArtifactSettings BALLOON = new ArtifactSettings()
@@ -37,5 +38,11 @@ public class ArtifactConfigs {
     public static final ArtifactSettings HAND_FAN = new ArtifactSettings()
             .maxCount(1)
             .tiered()
+            .rarity(ArtifactRarity.RARE);
+
+    public static final ArtifactSettings HAUNTING_SOUL = new ArtifactSettings()
+            .maxCount(1)
+            .tiered()
+            .trinket()
             .rarity(ArtifactRarity.RARE);
 }

@@ -1,7 +1,7 @@
 package artifality.mixin.client;
 
 import artifality.ArtifalityMod;
-import artifality.api.TwoModelsItemRegistry;
+import artifality.api.TwoModeledItems;
 import artifality.enchant.LunarEnchantment;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.item.ItemModels;
@@ -38,7 +38,7 @@ public abstract class ItemRendererMixin {
     private void twoModelsItemImplementation(LivingEntity entity, ItemStack stack, ModelTransformationMode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, World world, int light, int overlay, int seed, CallbackInfo ci) {
 
         if(!stack.isEmpty() && entity != null) {
-            TwoModelsItemRegistry.ENTRIES.forEach((id, item) -> {
+            TwoModeledItems.ENTRIES.forEach((id, item) -> {
                 if(stack.isOf(item)) {
                     BakedModel modelInHand = models.getModelManager().getModel(new ModelIdentifier(new Identifier(id + "_in_hand"), "inventory"));
 

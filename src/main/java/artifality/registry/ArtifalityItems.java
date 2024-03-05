@@ -26,14 +26,13 @@ public class ArtifalityItems {
     public static final Item HAND_FAN = add("hand_fan", new HandFanItem(ArtifactConfigs.HAND_FAN));
 
     public static final Item LUNAR_CRYSTAL_WAND = add("lunar_crystal_wand", new LunarWandItem(ArtifactConfigs.LUNAR_CRYSTAL_WAND));
+    public static final Item HAUNTING_SOUL = add("haunting_soul", new HauntingSoul(ArtifactConfigs.HAUNTING_SOUL));
 
     public static final Item INCREMENTAL_CRYSTAL = add("incremental_crystal", new BaseItem(settings()));
     public static final Item LUNAR_CRYSTAL = add("lunar_crystal", new BaseItem(settings()));
     public static final Item LIFE_CRYSTAL = add("life_crystal", new BaseItem(settings()));
-//    public static final Item WRATH_CRYSTAL = add("wrath_crystal", new BaseItem(settings()));
 
     public static final Item INCREMENTAL_ORB = add("incremental_orb", new BaseItem(settings()));
-    public static final Item HAUNTING_SOUL = add("haunting_soul", new BaseItem(settings()));
 
     private static Item add(String name, Item item) {
         ITEMS.put(ArtifalityMod.id(name), item);

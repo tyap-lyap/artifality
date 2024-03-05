@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "artifality:balloon"
+    "artifality:balloon",
+    "#artifality:trinkets"
   ]
 }

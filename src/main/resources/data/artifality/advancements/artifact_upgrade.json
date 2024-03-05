@@ -15,17 +15,25 @@
         "hidden": false
     },
     "criteria": {
-        "name": {
+        "upgrade": {
             "trigger": "minecraft:item_used_on_block",
             "conditions": {
-                "item": {
-                    "tag": "artifality:artifacts"
-                },
-                "location": {
-                    "block": {
-                        "block": "artifality:upgrading_pedestal"
+                "location": [
+                    {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                            "tag": "artifality:artifacts"
+                        }
+                    },
+                    {
+                        "condition": "minecraft:location_check",
+                        "predicate": {
+                            "block": {
+                                "blocks": ["artifality:upgrading_pedestal"]
+                            }
+                        }
                     }
-                }
+                ]
             }
         }
     },

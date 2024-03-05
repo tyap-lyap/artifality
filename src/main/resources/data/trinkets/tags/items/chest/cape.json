@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "artifality:invisibility_cape"
+    "artifality:invisibility_cape",
+    "#artifality:trinkets"
   ]
 }

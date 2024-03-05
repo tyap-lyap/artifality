@@ -15,6 +15,30 @@
         "hidden": false
     },
     "criteria": {
+        "haunting_soul": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "artifality:haunting_soul"
+                        ]
+                    }
+                ]
+            }
+        },
+        "hand_fan": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "artifality:hand_fan"
+                        ]
+                    }
+                ]
+            }
+        },
         "lunar_crystal_wand": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {

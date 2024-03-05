@@ -7,7 +7,6 @@ import artifality.util.TiersUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.sound.SoundCategory;
@@ -36,7 +35,6 @@ public class UpgradingPedestalBlock extends BaseBlock {
         if(world.isClient || hand != Hand.MAIN_HAND) return ActionResult.PASS;
 
         ItemStack stack = player.getStackInHand(hand);
-        Item item = stack.getItem();
 
         if(stack.isOf(ArtifalityItems.INCREMENTAL_ORB) && getCharges(state) < 3) {
             charge(world, pos, state, getCharges(state) + 1);
@@ -48,16 +46,16 @@ public class UpgradingPedestalBlock extends BaseBlock {
             stack.decrement(1);
             return ActionResult.SUCCESS;
         }
-        else if(item instanceof ArtifactItem artifact && artifact.artifactSettings.hasTiers) {
+        else if(stack.getItem() instanceof ArtifactItem artifact && artifact.artifactSettings.hasTiers) {
             if(getCharges(state) == 3 && TiersUtils.getTier(stack) == 1) {
                 world.playSound(null, pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, SoundEvents.BLOCK_RESPAWN_ANCHOR_DEPLETE.value(), SoundCategory.BLOCKS, 1.0F, 1.0F);
-                player.setStackInHand(Hand.MAIN_HAND, TiersUtils.withTier(item, 2));
+                player.setStackInHand(Hand.MAIN_HAND, TiersUtils.withTier(stack, 2));
                 world.setBlockState(pos, this.getDefaultState());
                 return ActionResult.SUCCESS;
             }
             else if(getCharges(state) == 4 && TiersUtils.getTier(stack) == 2) {
                 world.playSound(null, pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, SoundEvents.BLOCK_RESPAWN_ANCHOR_DEPLETE.value(), SoundCategory.BLOCKS, 1.0F, 1.0F);
-                player.setStackInHand(Hand.MAIN_HAND, TiersUtils.withTier(item, 3));
+                player.setStackInHand(Hand.MAIN_HAND, TiersUtils.withTier(stack, 3));
                 world.setBlockState(pos, this.getDefaultState());
                 return ActionResult.SUCCESS;
             }

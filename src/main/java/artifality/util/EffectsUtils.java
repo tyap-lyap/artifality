@@ -20,15 +20,15 @@ public class EffectsUtils {
             POISON, WEAKNESS, WITHER
     );
 
-    public static StatusEffect getRandomPositive(){
+    public static StatusEffect getRandomPositive() {
         return POSITIVE_EFFECTS.get(new Random().nextInt(POSITIVE_EFFECTS.size()));
     }
 
-    public static StatusEffect getRandomNegative(){
+    public static StatusEffect getRandomNegative() {
         return NEGATIVE_EFFECTS.get(new Random().nextInt(NEGATIVE_EFFECTS.size()));
     }
 
-    public static void ticking(LivingEntity entity, StatusEffect effect){
+    public static void ticking(LivingEntity entity, StatusEffect effect) {
         if (!entity.hasStatusEffect(effect)) {
             entity.addStatusEffect(new StatusEffectInstance(effect, 10, 0, false, false));
         } else if (entity.getActiveStatusEffects().get(effect).getDuration() == 1) {
@@ -36,11 +36,11 @@ public class EffectsUtils {
         }
     }
 
-    public static void ticking(LivingEntity entity, StatusEffect effect, int amplifier){
+    public static void ticking(LivingEntity entity, StatusEffect effect, int amplifier) {
         if (!entity.hasStatusEffect(effect)) {
-            entity.addStatusEffect(new StatusEffectInstance(effect, 10, amplifier, true, true));
+            entity.addStatusEffect(new StatusEffectInstance(effect, 10, amplifier, false, false));
         } else if (entity.getActiveStatusEffects().get(effect).getDuration() == 1) {
-            entity.addStatusEffect(new StatusEffectInstance(effect, 10, amplifier, true, true));
+            entity.addStatusEffect(new StatusEffectInstance(effect, 10, amplifier, false, false));
         }
     }
 }

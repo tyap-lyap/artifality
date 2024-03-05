@@ -5,6 +5,7 @@ import artifality.registry.ArtifalityBlocks;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.command.CommandRegistryAccess;
 import net.minecraft.command.argument.ItemStackArgumentType;
 import net.minecraft.item.ItemStack;
@@ -18,7 +19,10 @@ import static net.minecraft.server.command.CommandManager.argument;
 public class ArtifalityCommands {
 
     public static void init() {
-        CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> ArtifalityCommands.register(dispatcher, registryAccess));
+        if(FabricLoader.getInstance().isDevelopmentEnvironment()) {
+            CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> ArtifalityCommands.register(dispatcher, registryAccess));
+        }
+
     }
 
     private static void register(CommandDispatcher<ServerCommandSource> dispatcher, CommandRegistryAccess commandRegistryAccess) {

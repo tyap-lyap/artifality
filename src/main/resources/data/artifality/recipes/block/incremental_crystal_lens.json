@@ -1,7 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "NCN",
     "CCC",
     "NCN"
   ],
@@ -10,11 +9,11 @@
       "item": "minecraft:netherite_ingot"
     },
     "C": {
-      "item": "artifality:lunar_crystal_block"
+      "item": "artifality:incremental_crystal_block"
     }
   },
   "result": {
-    "item": "artifality:lunar_crystal_lens",
+    "item": "artifality:incremental_crystal_lens",
     "count": 1
   }
 }

@@ -2,12 +2,16 @@ package artifality.registry;
 
 import artifality.ArtifalityMod;
 import artifality.extension.PlayerExtension;
+import artifality.item.HauntingSoul;
+import artifality.util.TrinketsUtils;
 import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.fabricmc.fabric.api.event.player.UseItemCallback;
 import net.minecraft.block.Block;
+import net.minecraft.entity.mob.HostileEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.structure.StructurePlacementData;
@@ -55,6 +59,11 @@ public class ArtifalityEvents {
 
         ServerLivingEntityEvents.ALLOW_DEATH.register((entity, damageSource, damageAmount) -> {
             if(entity instanceof ServerPlayerEntity player && player instanceof PlayerExtension ex) {
+                ItemStack artifact = TrinketsUtils.getTrinket(player, ArtifalityItems.HAUNTING_SOUL);
+                if(!artifact.isEmpty()) {
+                    HauntingSoul.setSouls(artifact, 0);
+                }
+                
                 if (player.getWorld().getDimensionKey().getValue().equals(ArtifalityDimensions.LUNAR_BAZAAR.getValue())) {
                     player.setHealth(20F);
                     ex.teleportToPrevPosition();
@@ -65,24 +74,15 @@ public class ArtifalityEvents {
             return true;
         });
 
-//        ServerEntityCombatEvents.AFTER_KILLED_OTHER_ENTITY.register((world, entity, killedEntity) -> {
-//            if (killedEntity instanceof ElementalExtension extension) {
-//                if (world.getGameRules().getBoolean(GameRules.DO_MOB_LOOT) && extension.artifality$isElemental()) {
-//                    CrystalElement element = extension.artifality$getElement();
-//                    ItemStack stack;
-//                    int count = world.random.nextInt(4) + 1;
-//                    if (element.equals(CrystalElements.LIFE)) stack = new ItemStack(ArtifalityItems.LIFE_CRYSTAL, count);
-//                    else if (element.equals(CrystalElements.LUNAR)) stack = new ItemStack(ArtifalityItems.LUNAR_CRYSTAL, count);
-////                    else if (element.equals(CrystalElements.WRATH)) stack = new ItemStack(ArtifalityItems.WRATH_CRYSTAL, count);
-//                    else stack = new ItemStack(ArtifalityItems.INCREMENTAL_CRYSTAL, count);
-//                    killedEntity.dropStack(stack);
-//
-//                    BlockPos pos = killedEntity.getBlockPos();
-//                    ExperienceOrbEntity.spawn(world, Vec3d.ofCenter(pos), 5);
-//                    ExperienceOrbEntity.spawn(world, Vec3d.ofCenter(pos), 5 + world.random.nextInt(6));
-//                    ExperienceOrbEntity.spawn(world, Vec3d.ofCenter(pos), 5 + world.random.nextInt(11));
-//                }
-//            }
-//        });
+        ServerLivingEntityEvents.AFTER_DEATH.register((entity, damageSource) -> {
+            if(entity instanceof HostileEntity) {
+                if(damageSource.getAttacker() instanceof PlayerEntity player) {
+                    ItemStack artifact = TrinketsUtils.getTrinket(player, ArtifalityItems.HAUNTING_SOUL);
+                    if(!artifact.isEmpty()) {
+                        HauntingSoul.addSoul(artifact);
+                    }
+                }
+            }
+        });
     }
 }

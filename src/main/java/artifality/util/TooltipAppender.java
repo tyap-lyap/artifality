@@ -1,7 +1,6 @@
 package artifality.util;
 
 import artifality.item.base.ArtifactItem;
-import artifality.list.ArtifactRarity;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.item.EnchantedBookItem;
@@ -11,7 +10,6 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtList;
 import net.minecraft.registry.Registries;
 import net.minecraft.text.MutableText;
-import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
@@ -21,18 +19,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * What a shitass code, if you read this close it IMMEDIATELY
- */
 public class TooltipAppender {
 
     public static void append(ItemStack stack, List<Text> tooltip) {
         Item item = stack.getItem();
 
+        if(item instanceof ArtifactItem artifact) {
+            if(artifact.artifactSettings.hasTiers) appendTier(stack, tooltip);
+        }
         if(!getTooltip(Registries.ITEM.getId(item).getPath()).isEmpty() && shiftPressed(tooltip, item)) {
-            if(item instanceof ArtifactItem artifact) {
-                if(artifact.artifactSettings.hasTiers) appendTier(stack, tooltip);
-            }
             appendItemTooltip(stack, tooltip);
         }
         else if(item instanceof EnchantedBookItem) {
@@ -44,10 +39,6 @@ public class TooltipAppender {
 
     private static boolean shiftPressed(List<Text> tooltip, Item item) {
         if(!Screen.hasShiftDown()) {
-            if(item instanceof ArtifactItem artifact) {
-//                ArtifactRarity rarity = artifact.artifactSettings.rarity;
-//                tooltip.add(Text.literal(ofKey(rarity.getName())).setStyle(Style.EMPTY.withColor(rarity.getColor().getRGB())));
-            }
             if(!(item instanceof EnchantedBookItem && FabricLoader.getInstance().isModLoaded("enchdesc"))) {
                 tooltip.add(Text.literal(""));
                 tooltip.add(Text.literal(ofKey("press_shift")).formatted(Formatting.GRAY));
@@ -107,8 +98,8 @@ public class TooltipAppender {
     public static ArrayList<String> getTooltip(String id) {
         ArrayList<String> strings = new ArrayList<>();
         for(int i = 0; i <= 10; i++) {
-            if(Language.getInstance().hasTranslation("tip." + id + "." + i)){
-                strings.add(Language.getInstance().get("tip." + id + "." + i));
+            if(Language.getInstance().hasTranslation("tooltip.artifality." + id + "." + i)){
+                strings.add(Language.getInstance().get("tooltip.artifality." + id + "." + i));
             }
         }
         return strings;

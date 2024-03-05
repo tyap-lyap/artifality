@@ -20,6 +20,13 @@ public class TrinketsUtils {
         return false;
     }
 
+    public static ItemStack getTrinket(PlayerEntity player, Item item) {
+        for(ItemStack stack : getTrinketsArray(player)) {
+            if(stack.isOf(item)) return stack;
+        }
+        return ItemStack.EMPTY;
+    }
+
     public static ArrayList<ItemStack> getTrinketsArray(PlayerEntity player) {
         ArrayList<ItemStack> stacks = new ArrayList<>();
         Optional<TrinketComponent> component = TrinketsApi.getTrinketComponent(player);

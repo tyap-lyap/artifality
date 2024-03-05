@@ -16,7 +16,7 @@ import net.minecraft.util.math.BlockPos;
 import org.jetbrains.annotations.Nullable;
 
 public class TradingPedestalBlockEntity extends BlockEntity {
-    public ItemStack sellingItem = ItemStack.EMPTY;
+    public ItemStack sellingItem = ArtifalityItems.BALLOON.getDefaultStack();
     public ItemStack chargeItem = new ItemStack(ArtifalityItems.LUNAR_CRYSTAL, 10);
 
     public TradingPedestalBlockEntity(BlockPos pos, BlockState state) {
@@ -27,17 +27,22 @@ public class TradingPedestalBlockEntity extends BlockEntity {
     public void writeNbt(NbtCompound nbt) {
         super.writeNbt(nbt);
 
-        NbtCompound sellingItemNbt = new NbtCompound();
-        sellingItemNbt.putString("item", Registries.ITEM.getId(sellingItem.getItem()).toString());
-        sellingItemNbt.put("nbt", sellingItem.getOrCreateNbt());
-        sellingItemNbt.putInt("count", sellingItem.getCount());
-        nbt.put("sellingItem", sellingItemNbt);
+        if(!sellingItem.isEmpty()) {
+            NbtCompound sellingItemNbt = new NbtCompound();
+            sellingItemNbt.putString("item", Registries.ITEM.getId(sellingItem.getItem()).toString());
+            sellingItemNbt.put("nbt", sellingItem.getOrCreateNbt());
+            sellingItemNbt.putInt("count", sellingItem.getCount());
+            nbt.put("sellingItem", sellingItemNbt);
+        }
 
-        NbtCompound chargeItemNbt = new NbtCompound();
-        chargeItemNbt.putString("item", Registries.ITEM.getId(chargeItem.getItem()).toString());
-        chargeItemNbt.put("nbt", chargeItem.getOrCreateNbt());
-        chargeItemNbt.putInt("count", chargeItem.getCount());
-        nbt.put("chargeItem", chargeItemNbt);
+        if(!chargeItem.isEmpty()) {
+            NbtCompound chargeItemNbt = new NbtCompound();
+            chargeItemNbt.putString("item", Registries.ITEM.getId(chargeItem.getItem()).toString());
+            chargeItemNbt.put("nbt", chargeItem.getOrCreateNbt());
+            chargeItemNbt.putInt("count", chargeItem.getCount());
+            nbt.put("chargeItem", chargeItemNbt);
+        }
+
     }
 
     @Override
@@ -53,6 +58,9 @@ public class TradingPedestalBlockEntity extends BlockEntity {
                 this.sellingItem.setNbt((NbtCompound)sellingItemNbt.get("nbt"));
             }
         }
+        else {
+            this.sellingItem = ItemStack.EMPTY;
+        }
 
         if(nbt.contains("chargeItem")) {
             NbtCompound chargeItemNbt = nbt.getCompound("chargeItem");
@@ -62,6 +70,9 @@ public class TradingPedestalBlockEntity extends BlockEntity {
                 this.chargeItem = new ItemStack(item.get(), chargeItemNbt.getInt("count"));
                 this.chargeItem.setNbt((NbtCompound)chargeItemNbt.get("nbt"));
             }
+        }
+        else {
+            this.chargeItem = ItemStack.EMPTY;
         }
     }
 

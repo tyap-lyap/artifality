@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "artifality:block/lunastone",
+    "top": "artifality:block/lunastone",
+    "side": "artifality:block/lunar_trading_pedestal"
+  }
+}

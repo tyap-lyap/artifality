@@ -1,11 +1,13 @@
 package artifality.mixin.common;
 
 import artifality.registry.ArtifalityItems;
+import artifality.util.TiersUtils;
 import artifality.util.TrinketsUtils;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ai.goal.Goal;
 import net.minecraft.entity.ai.goal.LookAtEntityGoal;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -22,7 +24,8 @@ public abstract class LookAtEntityGoalMixin extends Goal {
     public void canStart(CallbackInfoReturnable<Boolean> cir) {
         if(target != null) {
             if(target instanceof PlayerEntity player) {
-                if(player.isSneaking() && TrinketsUtils.hasTrinket(player, ArtifalityItems.INVISIBILITY_CAPE)) cir.setReturnValue(false);
+                ItemStack cape = TrinketsUtils.getTrinket(player, ArtifalityItems.INVISIBILITY_CAPE);
+                if(player.isSneaking() && !cape.isEmpty() && TiersUtils.getTier(cape) >= 2) cir.setReturnValue(false);
             }
         }
     }
@@ -31,7 +34,8 @@ public abstract class LookAtEntityGoalMixin extends Goal {
     public void shouldContinue(CallbackInfoReturnable<Boolean> cir) {
         if(target != null) {
             if(target instanceof PlayerEntity player) {
-                if(player.isSneaking() && TrinketsUtils.hasTrinket(player, ArtifalityItems.INVISIBILITY_CAPE)) cir.setReturnValue(false);
+                ItemStack cape = TrinketsUtils.getTrinket(player, ArtifalityItems.INVISIBILITY_CAPE);
+                if(player.isSneaking() && !cape.isEmpty() && TiersUtils.getTier(cape) >= 2) cir.setReturnValue(false);
             }
         }
     }

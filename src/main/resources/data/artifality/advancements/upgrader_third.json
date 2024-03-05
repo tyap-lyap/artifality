@@ -15,19 +15,27 @@
         "hidden": false
     },
     "criteria": {
-        "name": {
+        "upgrade": {
             "trigger": "minecraft:item_used_on_block",
             "conditions": {
-                "item": {
-                    "items": [
-                        "minecraft:nether_star"
-                    ]
-                },
-                "location": {
-                    "block": {
-                        "block": "artifality:upgrading_pedestal"
+                "location": [
+                    {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                            "items": [
+                                "minecraft:nether_star"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "minecraft:location_check",
+                        "predicate": {
+                            "block": {
+                                "blocks": ["artifality:upgrading_pedestal"]
+                            }
+                        }
                     }
-                }
+                ]
             }
         }
     },

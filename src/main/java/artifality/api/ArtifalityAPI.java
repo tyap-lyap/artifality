@@ -15,7 +15,7 @@ public class ArtifalityAPI implements ModInitializer, ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        ModelLoadingRegistry.INSTANCE.registerModelProvider((manager, out) -> TwoModelsItemRegistry.ENTRIES.forEach((id, item) ->
+        ModelLoadingRegistry.INSTANCE.registerModelProvider((manager, out) -> TwoModeledItems.ENTRIES.forEach((id, item) ->
                 out.accept(new ModelIdentifier(new Identifier(id + "_in_hand"), "inventory"))
         ));
     }

@@ -10,7 +10,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 @Environment(EnvType.CLIENT)
-public class TwoModelsItemRegistry {
+public class TwoModeledItems {
     public static final Map<Identifier, Item> ENTRIES = new LinkedHashMap<>();
 
     /**

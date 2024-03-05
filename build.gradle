@@ -17,6 +17,7 @@ repositories {
 	maven { url "https://maven.ladysnake.org/releases" } //CCA
 	maven { url "https://maven.terraformersmc.com" } //trinkets
 	maven { url "https://maven.wispforest.io" } //owo-lib
+	maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
 }
 
 dependencies {

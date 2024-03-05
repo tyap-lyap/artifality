@@ -35,6 +35,13 @@ public abstract class LivingEntityMixin extends Entity {
         return value;
     }
 
+//    @Inject(method = "damage", at = @At("HEAD"))
+//    void damage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
+//        if(!getWorld().isClient() && amount > 0 && source.getAttacker() instanceof ServerPlayerEntity player) {
+//            player.sendMessage(Text.literal("Damage: " + amount));
+//        }
+//    }
+
     private boolean artifality$hasSlidingCurse() {
         return (
             EnchantmentHelper.get(getEquippedStack(EquipmentSlot.FEET)).containsKey(ArtifalityEnchants.SLIDING_CURSE) ||
