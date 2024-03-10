@@ -4,7 +4,7 @@
             "translate": "advancements.artifality.gather_crystal.name"
         },
         "description": {
-            "translate": "advancements.artifality.gather_crystal.desc"
+            "translate": "advancements.artifality.gather_crystal.description"
         },
         "icon": {
             "item": "artifality:incremental_crystal"

@@ -47,7 +47,7 @@ public class ArtifalityMod implements ModInitializer {
         ArtifalityLootTables.init();
         ArtifalityEffects.init();
         ArtifalityCommands.init();
-        ArtifalityParticles.register();
+        ArtifalityParticles.init();
         itemGroup = createItemGroup();
         if(FabricLoader.getInstance().isModLoaded("owo")) {
             ArtifalityOwoLibIntegration.initItemGroup();

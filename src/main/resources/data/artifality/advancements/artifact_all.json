@@ -4,7 +4,7 @@
             "translate": "advancements.artifality.artifact_all.name"
         },
         "description": {
-            "translate": "advancements.artifality.artifact_all.desc"
+            "translate": "advancements.artifality.artifact_all.description"
         },
         "icon": {
             "item": "artifality:zeus_staff"

@@ -5,6 +5,7 @@ import artifality.item.*;
 import artifality.item.base.BaseItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -32,7 +33,14 @@ public class ArtifalityItems {
     public static final Item LUNAR_CRYSTAL = add("lunar_crystal", new BaseItem(settings()));
     public static final Item LIFE_CRYSTAL = add("life_crystal", new BaseItem(settings()));
 
-    public static final Item INCREMENTAL_ORB = add("incremental_orb", new BaseItem(settings()));
+    public static final Item INCREMENTAL_ORB = add("incremental_orb", new BaseItem(settings()) {
+        @Override
+        public boolean hasGlint(ItemStack stack) {
+            return true;
+        }
+    });
+
+    public static final Item LUNAR_KNOWLEDGE = add("lunar_knowledge", new LunarKnowledge(settings()));
 
     private static Item add(String name, Item item) {
         ITEMS.put(ArtifalityMod.id(name), item);

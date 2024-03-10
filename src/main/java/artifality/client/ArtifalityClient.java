@@ -59,21 +59,5 @@ public class ArtifalityClient implements ClientModInitializer {
         ModelLoadingPlugin.register(pluginContext -> {
             pluginContext.addModels(new ModelIdentifier(ArtifalityMod.id("lunar_enchanted_book"), "inventory"));
         });
-
-//        LivingEntityFeatureRendererRegistrationCallback.EVENT.register((entityType, entityRenderer, registrationHelper, context) -> {
-//            if(entityRenderer instanceof ZombieEntityRenderer renderer){
-//                registrationHelper.register(new ElementalFeatureRenderer<>(renderer));
-//            }
-//            if(entityRenderer instanceof DrownedEntityRenderer renderer){
-//                registrationHelper.register(new ElementalFeatureRenderer<>(renderer));
-//            }
-//            if(entityRenderer instanceof SkeletonEntityRenderer renderer){
-//                registrationHelper.register(new ElementalFeatureRenderer<>(renderer));
-//            }
-//        });
-
-        // Thanks Juce! :)
-//        FabricLoader.getInstance().getModContainer(ArtifalityMod.MOD_ID).ifPresent(artifality ->
-//                ResourceManagerHelper.registerBuiltinResourcePack(ArtifalityMod.id("fancyclusters"), artifality, ResourcePackActivationType.NORMAL));
     }
 }

@@ -7,11 +7,9 @@ import dev.emi.trinkets.api.Trinket;
 import dev.emi.trinkets.api.TrinketsApi;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
-import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 
-import java.awt.*;
 import java.util.List;
 
 public class ArtifactItem extends BaseItem {
@@ -34,7 +32,7 @@ public class ArtifactItem extends BaseItem {
         if(artifactSettings.hasTiers) {
             return TiersUtils.getTier(stack) == 3;
         }
-        return false;
+        return artifactSettings.hasGlint;
     }
 
     @Override

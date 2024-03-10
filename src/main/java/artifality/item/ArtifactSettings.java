@@ -12,6 +12,7 @@ public class ArtifactSettings {
     public boolean isTrinket = false;
     public boolean hasTiers = false;
     public boolean hasTwoModels = false;
+    public boolean hasGlint = false;
 
 
     public ArtifactSettings() {
@@ -30,6 +31,11 @@ public class ArtifactSettings {
 
     public ArtifactSettings twoModeled() {
         this.hasTwoModels = true;
+        return this;
+    }
+
+    public ArtifactSettings hasGlint() {
+        this.hasGlint = true;
         return this;
     }
 

@@ -10,7 +10,7 @@ import net.minecraft.registry.Registry;
 public class ArtifalityParticles {
     public static final DefaultParticleType LUNAR_CHAIN = add("lunar_chain");
 
-    public static void register() {
+    public static void init() {
         ParticleFactoryRegistry.getInstance().register(LUNAR_CHAIN, LunarChainParticle.Factory::new);
     }
 

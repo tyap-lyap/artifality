@@ -71,6 +71,12 @@
 
     "item.artifality.incremental_orb": "Incremental Orb",
 
+    "item.artifality.lunar_knowledge": "Lunar Knowledge",
+    "tooltip.artifality.lunar_knowledge.0": "Gives a random lunar",
+    "tooltip.artifality.lunar_knowledge.1": "enchantment which has",
+    "tooltip.artifality.lunar_knowledge.2": "negative and positive",
+    "tooltip.artifality.lunar_knowledge.3": "effects.",
+
     "item.artifality.balloon": "Balloon",
     "tooltip.artifality.balloon.0": "Increases the player's jump",
     "tooltip.artifality.balloon.1": "height and while equipped",
@@ -153,43 +159,43 @@
     "effect.artifality.fall_damage_immunity": "Fall Damage Immunity",
 
     "advancements.artifality.root.name": "Artifality",
-    "advancements.artifality.root.desc": "Welcome to the world of Artifality!",
+    "advancements.artifality.root.description": "Welcome to the world of Artifality!",
 
     "advancements.artifality.artifact_first.name": "What's this?",
-    "advancements.artifality.artifact_first.desc": "Find your first Artifact",
+    "advancements.artifality.artifact_first.description": "Find your first Artifact",
 
     "advancements.artifality.nature_staffs.name": "Nature Magician",
-    "advancements.artifality.nature_staffs.desc": "Obtain all of the Nature Staffs",
+    "advancements.artifality.nature_staffs.description": "Obtain all of the Nature Staffs",
 
     "advancements.artifality.artifact_all.name": "Collector's edition",
-    "advancements.artifality.artifact_all.desc": "Get 'em all!",
+    "advancements.artifality.artifact_all.description": "Get 'em all!",
 
     "advancements.artifality.artifact_upgrade.name": "Classy stuff",
-    "advancements.artifality.artifact_upgrade.desc": "Upgrade an Artifact to Tier 2",
+    "advancements.artifality.artifact_upgrade.description": "Upgrade an Artifact to Tier 2",
 
     "advancements.artifality.gather_crystal.name": "Shinies!",
-    "advancements.artifality.gather_crystal.desc": "Gather your first crystal",
+    "advancements.artifality.gather_crystal.description": "Gather your first crystal",
 
     "advancements.artifality.gather_all_crystals.name": "Give me all the shinies!",
-    "advancements.artifality.gather_all_crystals.desc": "Why are you so obsessed with these again?",
+    "advancements.artifality.gather_all_crystals.description": "Why are you so obsessed with these again?",
 
     "advancements.artifality.negative_vision.name": "To see you better",
-    "advancements.artifality.negative_vision.desc": "Craft any of the 3 beacon lenses §mand apply it to an active beacon",
+    "advancements.artifality.negative_vision.description": "Craft any of the 3 beacon lenses",
 
     "advancements.artifality.positive_vision.name": "UNLIMITED POWER!",
-    "advancements.artifality.positive_vision.desc": "Craft all 3 beacon lenses.. §mAnd apply them to 3 different max level beacons!",
+    "advancements.artifality.positive_vision.description": "Craft all 3 beacon lenses",
 
     "advancements.artifality.upgrader_first.name": "Upgrades?",
-    "advancements.artifality.upgrader_first.desc": "Craft the Pedestal of Upgrading",
+    "advancements.artifality.upgrader_first.description": "Craft the Pedestal of Upgrading",
 
     "advancements.artifality.upgrader_second.name": "Upgrades!",
-    "advancements.artifality.upgrader_second.desc": "Upgrade the Pedestal of Upgrading to Tier 2",
+    "advancements.artifality.upgrader_second.description": "Upgrade the Pedestal of Upgrading to Tier 2",
 
     "advancements.artifality.upgrader_third.name": "I love upgrades!",
-    "advancements.artifality.upgrader_third.desc": "Upgrade the Pedestal of Upgrading to Tier 3",
+    "advancements.artifality.upgrader_third.description": "Upgrade the Pedestal of Upgrading to Tier 3",
 
-    "advancements.artifality.rethink_life.name": "why?",
-    "advancements.artifality.rethink_life.desc": "Touch some grass",
+    "advancements.artifality.rethink_life.name": "Why?",
+    "advancements.artifality.rethink_life.description": "Upgrade all artifacts to tier 3",
 
     "misc.artifality.small": "Small",
     "misc.artifality.medium": "Medium",

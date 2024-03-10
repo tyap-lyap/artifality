@@ -4,7 +4,7 @@
             "translate": "advancements.artifality.upgrader_second.name"
         },
         "description": {
-            "translate": "advancements.artifality.upgrader_second.desc"
+            "translate": "advancements.artifality.upgrader_second.description"
         },
         "icon": {
             "item": "artifality:incremental_orb"

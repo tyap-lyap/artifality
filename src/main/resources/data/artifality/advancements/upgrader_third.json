@@ -4,7 +4,7 @@
             "translate": "advancements.artifality.upgrader_third.name"
         },
         "description": {
-            "translate": "advancements.artifality.upgrader_third.desc"
+            "translate": "advancements.artifality.upgrader_third.description"
         },
         "icon": {
             "item": "minecraft:nether_star"

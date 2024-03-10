@@ -32,6 +32,8 @@ public class ForestStaffItem extends ArtifactItem {
         SAPLINGS.put(Items.JUNGLE_SAPLING, Blocks.JUNGLE_SAPLING);
         SAPLINGS.put(Items.ACACIA_SAPLING, Blocks.ACACIA_SAPLING);
         SAPLINGS.put(Items.DARK_OAK_SAPLING, Blocks.DARK_OAK_SAPLING);
+        SAPLINGS.put(Items.CHERRY_SAPLING, Blocks.CHERRY_SAPLING);
+        SAPLINGS.put(Items.MANGROVE_PROPAGULE, Blocks.MANGROVE_PROPAGULE);
     }
 
     @Override

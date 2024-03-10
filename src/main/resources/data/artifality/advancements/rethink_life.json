@@ -4,7 +4,7 @@
             "translate": "advancements.artifality.rethink_life.name"
         },
         "description": {
-            "translate": "advancements.artifality.rethink_life.desc"
+            "translate": "advancements.artifality.rethink_life.description"
         },
         "icon": {
             "item": "artifality:hand_fan"
@@ -100,6 +100,32 @@
                     {
                         "items": [
                             "artifality:hand_fan"
+                        ],
+                        "nbt": "{artifactTier:3}"
+                    }
+                ]
+            }
+        },
+        "invisibility_cape": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "artifality:invisibility_cape"
+                        ],
+                        "nbt": "{artifactTier:3}"
+                    }
+                ]
+            }
+        },
+        "haunting_soul": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "artifality:haunting_soul"
                         ],
                         "nbt": "{artifactTier:3}"
                     }

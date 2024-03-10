@@ -4,7 +4,7 @@
             "translate": "advancements.artifality.negative_vision.name"
         },
         "description": {
-            "translate": "advancements.artifality.negative_vision.desc"
+            "translate": "advancements.artifality.negative_vision.description"
         },
         "icon": {
             "item": "artifality:life_crystal_lens"

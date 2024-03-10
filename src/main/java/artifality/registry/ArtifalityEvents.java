@@ -25,13 +25,13 @@ public class ArtifalityEvents {
 
     public static void init() {
 
-        ServerLifecycleEvents.SERVER_STARTED.register(server -> {
-            var bazaar = server.getWorld(ArtifalityDimensions.LUNAR_BAZAAR);
-
-            StructureTemplate structure = server.getStructureTemplateManager().getTemplateOrBlank(ArtifalityMod.id("lunar_bazaar"));
-            StructurePlacementData data = new StructurePlacementData().setMirror(BlockMirror.NONE).setIgnoreEntities(true);
-            structure.place(bazaar, new BlockPos(-32, 0, -32), new BlockPos(0, 0, 0), data, bazaar.getRandom(), Block.FORCE_STATE);
-        });
+//        ServerLifecycleEvents.SERVER_STARTED.register(server -> {
+//            var bazaar = server.getWorld(ArtifalityDimensions.LUNAR_BAZAAR);
+//
+//            StructureTemplate structure = server.getStructureTemplateManager().getTemplateOrBlank(ArtifalityMod.id("lunar_bazaar"));
+//            StructurePlacementData data = new StructurePlacementData().setMirror(BlockMirror.NONE).setIgnoreEntities(true);
+//            structure.place(bazaar, new BlockPos(-32, 0, -32), new BlockPos(0, 0, 0), data, bazaar.getRandom(), Block.FORCE_STATE);
+//        });
 
         UseItemCallback.EVENT.register((player, world, hand) -> {
             if (!player.isCreative() && world.getDimensionKey().getValue().equals(ArtifalityDimensions.LUNAR_BAZAAR.getValue())) {

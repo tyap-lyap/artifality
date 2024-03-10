@@ -13,11 +13,6 @@ public class RefractionEnchantment extends Enchantment {
     }
 
     @Override
-    public int getMaxLevel() {
-        return 1;
-    }
-
-    @Override
     public boolean isAcceptableItem(ItemStack stack) {
         return stack.getItem() instanceof ElytraItem || super.isAcceptableItem(stack);
     }
