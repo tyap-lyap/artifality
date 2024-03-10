@@ -1,7 +1,6 @@
-package artifality.client.particle;
+package artifality.registry;
 
 import artifality.ArtifalityMod;
-import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import net.minecraft.particle.DefaultParticleType;
 import net.minecraft.registry.Registries;
@@ -11,7 +10,7 @@ public class ArtifalityParticles {
     public static final DefaultParticleType LUNAR_CHAIN = add("lunar_chain");
 
     public static void init() {
-        ParticleFactoryRegistry.getInstance().register(LUNAR_CHAIN, LunarChainParticle.Factory::new);
+
     }
 
     private static DefaultParticleType add(String name) {

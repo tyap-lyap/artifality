@@ -25,7 +25,7 @@ public class HauntingSoul extends ArtifactItem implements Trinket {
         else if(TiersUtils.getTier(stack) == 3) max = 240;
 
         tooltip.add(Text.literal(TooltipAppender.ofKey("souls").replaceAll("%", getSouls(stack) + "/" + max)).formatted(Formatting.DARK_GREEN));
-        tooltip.add(Text.literal(TooltipAppender.ofKey("extra_damage").replaceAll("%", Integer.toString(getDamageModifier(stack)))).formatted(Formatting.DARK_GREEN));
+        tooltip.add(Text.literal(TooltipAppender.ofKey("extra_damage").replaceAll("%", Float.toString(getDamageModifier(stack)))).formatted(Formatting.DARK_GREEN));
     }
 
     public static int getSouls(ItemStack stack) {
@@ -38,15 +38,15 @@ public class HauntingSoul extends ArtifactItem implements Trinket {
         return 0;
     }
 
-    public static int getDamageModifier(ItemStack stack) {
+    public static float getDamageModifier(ItemStack stack) {
         int max = 120;
         if(TiersUtils.getTier(stack) == 2) max = 160;
         else if(TiersUtils.getTier(stack) == 3) max = 240;
 
         int souls = getSouls(stack);
 
-        if(souls >= max) return max / 40;
-        else return souls / 40;
+        if(souls >= max) return (float) max / 40;
+        else return (float)(souls / 20) * 0.5F;
     }
 
     public static void addSoul(ItemStack stack) {

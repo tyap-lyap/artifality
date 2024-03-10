@@ -3,6 +3,8 @@ package artifality.client;
 import artifality.ArtifalityMod;
 import artifality.block.CrateBlock;
 import artifality.block.base.*;
+import artifality.registry.ArtifalityParticles;
+import artifality.client.particle.LunarChainParticle;
 import artifality.client.render.TradingPedestalHud;
 import artifality.client.render.TradingPedestalRenderer;
 import artifality.item.base.ArtifactItem;
@@ -14,6 +16,7 @@ import dev.emi.trinkets.api.client.TrinketRendererRegistry;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.model.loading.v1.ModelLoadingPlugin;
+import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.minecraft.client.util.ModelIdentifier;
@@ -22,6 +25,8 @@ public class ArtifalityClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
+        ParticleFactoryRegistry.getInstance().register(ArtifalityParticles.LUNAR_CHAIN, LunarChainParticle.Factory::new);
+
         BlockEntityRendererFactories.register(ArtifalityBlockEntities.TRADING_PEDESTAL, ctx -> new TradingPedestalRenderer<>());
 
         TradingPedestalHud.register();

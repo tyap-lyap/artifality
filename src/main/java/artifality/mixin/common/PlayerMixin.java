@@ -1,6 +1,6 @@
 package artifality.mixin.common;
 
-import artifality.client.particle.ArtifalityParticles;
+import artifality.registry.ArtifalityParticles;
 import artifality.extension.PlayerExtension;
 import artifality.item.HauntingSoul;
 import artifality.registry.ArtifalityDimensions;

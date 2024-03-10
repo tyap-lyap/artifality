@@ -1,6 +1,6 @@
 package artifality;
 
-import artifality.client.particle.ArtifalityParticles;
+import artifality.registry.ArtifalityParticles;
 import artifality.command.ArtifalityCommands;
 import artifality.compat.ArtifalityOwoLibIntegration;
 import artifality.data.ArtifalityLootTables;

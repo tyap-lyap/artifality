@@ -3,6 +3,7 @@ package artifality.registry;
 import artifality.ArtifalityMod;
 import artifality.extension.PlayerExtension;
 import artifality.item.HauntingSoul;
+import artifality.util.TiersUtils;
 import artifality.util.TrinketsUtils;
 import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
@@ -60,7 +61,7 @@ public class ArtifalityEvents {
         ServerLivingEntityEvents.ALLOW_DEATH.register((entity, damageSource, damageAmount) -> {
             if(entity instanceof ServerPlayerEntity player && player instanceof PlayerExtension ex) {
                 ItemStack artifact = TrinketsUtils.getTrinket(player, ArtifalityItems.HAUNTING_SOUL);
-                if(!artifact.isEmpty()) {
+                if(!artifact.isEmpty() && TiersUtils.getTier(artifact) != 3) {
                     HauntingSoul.setSouls(artifact, 0);
                 }
                 
