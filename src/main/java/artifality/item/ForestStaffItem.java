@@ -55,7 +55,8 @@ public class ForestStaffItem extends ArtifactItem {
             if(hasSapling(player) && world.isAir(pos.up())) {
                 BlockSoundGroup blockSoundGroup = Blocks.AZALEA.getSoundGroup(Blocks.AZALEA.getDefaultState());
                 world.playSound(null, pos, blockSoundGroup.getPlaceSound(), SoundCategory.BLOCKS, (blockSoundGroup.getVolume() + 1.0F) / 2.0F, blockSoundGroup.getPitch() * 0.8F);
-                world.setBlockState(pos.up(), SAPLINGS.get(consumeSapling(player)).getDefaultState());
+                world.setBlockState(pos.up(), SAPLINGS.get(getSapling(player)).getDefaultState());
+                consumeSapling(player);
                 return ActionResult.SUCCESS;
             }
         }
@@ -71,15 +72,24 @@ public class ForestStaffItem extends ArtifactItem {
         return false;
     }
 
-    private static Item consumeSapling(PlayerEntity playerEntity) {
+    private static Item getSapling(PlayerEntity playerEntity) {
+        Inventory inventory = playerEntity.getInventory();
+        for (int i = 0; i <= inventory.size(); i++) {
+            ItemStack itemStack = inventory.getStack(i);
+            if(SAPLINGS.containsKey(itemStack.getItem())) {
+                return inventory.getStack(i).getItem();
+            }
+        }
+        return Items.AIR;
+    }
+
+    private static void consumeSapling(PlayerEntity playerEntity) {
         Inventory inventory = playerEntity.getInventory();
         for (int i = 0; i <= inventory.size(); i++) {
             ItemStack itemStack = inventory.getStack(i);
             if(SAPLINGS.containsKey(itemStack.getItem())) {
                 inventory.removeStack(i, 1);
-                return inventory.getStack(i).getItem();
             }
         }
-        return Items.AIR;
     }
 }
