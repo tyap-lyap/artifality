@@ -31,7 +31,7 @@ public class TooltipAppender {
             appendItemTooltip(stack, tooltip);
         }
         else if(item instanceof EnchantedBookItem) {
-            if(!FabricLoader.getInstance().isModLoaded("enchdesc")) {
+            if(!FabricLoader.getInstance().isModLoaded("enchdesc") && !FabricLoader.getInstance().isModLoaded("idwtialsimmoedm")) {
                 appendEnchantmentTooltip(stack, tooltip);
             }
         }

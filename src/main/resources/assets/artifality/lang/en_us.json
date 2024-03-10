@@ -144,7 +144,7 @@
     "enchantment.artifality.volatile_curse": "Curse of Volatile",
     "tooltip.artifality.volatile_curse.0": "Creates little explosion",
     "tooltip.artifality.volatile_curse.1": "upon getting damage.",
-    "enchantment.artifality.volatile_curse.desc": "Creates a little explosion upon a hit.",
+    "enchantment.artifality.volatile_curse.desc": "Creates little explosion upon getting damage.",
 
     "enchantment.artifality.refraction": "Refraction",
     "tooltip.artifality.refraction.0": "Makes your element of",
