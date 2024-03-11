@@ -19,25 +19,39 @@ jobs:
         run: chmod +x ./gradlew
       - name: Build artifacts
         run: ./gradlew build
-      - name: publish artifacts
-        uses: Kir-Antipov/mc-publish@v2.1
+      - uses: BrycensRanch/read-properties-action@v1
+        id: gradle_props
+        with:
+          file: gradle.properties
+          all: true
+      - name: Publish fabric artifacts
+        uses: Kir-Antipov/mc-publish@v3.3.0
         with:
           curseforge-id: 490812
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
 
-          files-primary: build/libs/!(*-@(dev|sources)).jar
+          files: |
+            build/libs/artifality-${{ github.event.release.tag_name }}.jar
+            build/libs/artifality-${{ github.event.release.tag_name }}-sources.jar
+            
+          name: ${{ github.event.release.tag_name }}+fabric
+          version: ${{ github.event.release.tag_name }}+fabric
 
           version-type: beta
           loaders: |
             fabric
-          game-versions: |
-            1.18.2
+            quilt
+          
+          game-versions: ${{ steps.gradle_props.outputs.minecraft_version_range_fabric }}
+          game-version-filter: releases
+          
           dependencies: |
-            fabric-api | depends | *
-            trinkets-fabric | depends | *
+            fabric-api
+            trinkets
 
           java: |
             17
 
           retry-attempts: 2
           retry-delay: 10000
+          fail-mode: skip

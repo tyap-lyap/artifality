@@ -20,7 +20,7 @@ jobs:
       - name: Build artifacts
         run: ./gradlew build
       - name: Upload assets to GitHub
-        uses: AButler/upload-release-assets@v2.0
+        uses: AButler/upload-release-assets@v3.0
         with:
-          files: 'build/libs/*'
+          files: "build/libs/*"
           repo-token: ${{ secrets.GH_TOKEN }}
