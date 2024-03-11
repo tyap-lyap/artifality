@@ -3,9 +3,7 @@ package artifality.block;
 import static artifality.registry.ArtifalityItems.*;
 
 import artifality.block.base.BaseBlock;
-import artifality.extension.ArtifactChances;
 import artifality.item.base.ArtifactItem;
-import artifality.list.ArtifactRarity;
 import artifality.registry.ArtifalityItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

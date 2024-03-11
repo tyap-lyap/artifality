@@ -39,7 +39,7 @@ public class TooltipAppender {
 
     private static boolean shiftPressed(List<Text> tooltip, Item item) {
         if(!Screen.hasShiftDown()) {
-            if(!(item instanceof EnchantedBookItem && FabricLoader.getInstance().isModLoaded("enchdesc"))) {
+            if(!(item instanceof EnchantedBookItem && (FabricLoader.getInstance().isModLoaded("enchdesc") || FabricLoader.getInstance().isModLoaded("idwtialsimmoedm")))) {
                 tooltip.add(Text.literal(""));
                 tooltip.add(Text.literal(ofKey("press_shift")).formatted(Formatting.GRAY));
             }

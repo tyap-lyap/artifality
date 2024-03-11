@@ -1,4 +1,4 @@
-package artifality.mixin.common.extension;
+package artifality.mixin.common;
 
 import artifality.extension.LightningExtension;
 import net.minecraft.entity.Entity;
@@ -11,13 +11,13 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(LightningEntity.class)
-public abstract class LightningMixinExtension extends Entity implements LightningExtension {
+public abstract class LightningMixin extends Entity implements LightningExtension {
 
     private boolean artifality$canSpawnFire = true;
     private boolean artifality$canChargeCreeper = true;
     private float artifality$damage = 0;
 
-    public LightningMixinExtension(EntityType<?> type, World world) {
+    public LightningMixin(EntityType<?> type, World world) {
         super(type, world);
     }
 

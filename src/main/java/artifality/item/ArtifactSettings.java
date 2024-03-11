@@ -1,12 +1,10 @@
 package artifality.item;
 
-import artifality.list.ArtifactRarity;
 import dev.emi.trinkets.api.client.TrinketRenderer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 
 public class ArtifactSettings {
     public final FabricItemSettings fabricItemSettings;
-    public ArtifactRarity rarity = ArtifactRarity.COMMON;
     public TrinketRenderer renderer;
     public boolean isCrateLoot = true;
     public boolean isTrinket = false;
@@ -17,11 +15,6 @@ public class ArtifactSettings {
 
     public ArtifactSettings() {
         fabricItemSettings = new FabricItemSettings();
-    }
-
-    public ArtifactSettings rarity(ArtifactRarity rarity) {
-        this.rarity = rarity;
-        return this;
     }
 
     public ArtifactSettings nonCrateItem() {
