@@ -42,7 +42,7 @@ jobs:
             fabric
             quilt
           
-          game-versions: ${{ steps.gradle_props.outputs.minecraft_version_range_fabric }}
+          game-versions: ${{ steps.gradle_props.outputs.minecraft_version_range }}
           game-version-filter: releases
           
           dependencies: |

@@ -34,7 +34,7 @@ jobs:
             fabric/build/libs/artifality-${{ github.event.release.tag_name }}.jar
             fabric/build/libs/artifality-${{ github.event.release.tag_name }}-sources.jar
             
-          name: ${{ github.event.release.tag_name }}+fabric
+          name: ${{ github.event.release.tag_name }}
           version: ${{ github.event.release.tag_name }}+fabric
 
           version-type: beta
@@ -42,7 +42,7 @@ jobs:
             fabric
             quilt
 
-          game-versions: ${{ steps.gradle_props.outputs.minecraft_version_range_fabric }}
+          game-versions: ${{ steps.gradle_props.outputs.minecraft_version_range }}
           game-version-filter: releases
           
           dependencies: |
