@@ -1,7 +1,6 @@
 package artifality.client;
 
 import artifality.ArtifalityMod;
-import artifality.block.CrateBlock;
 import artifality.block.base.*;
 import artifality.registry.ArtifalityParticles;
 import artifality.client.particle.LunarChainParticle;
@@ -46,7 +45,6 @@ public class ArtifalityClient implements ClientModInitializer {
 
         ArtifalityBlocks.BLOCKS.forEach((id, block) -> {
             if(block instanceof CrystalClusterBlock) map.putBlock(block, RenderLayer.getCutout());
-            if(block instanceof CrateBlock) map.putBlock(block, RenderLayer.getCutout());
             if(block instanceof CrystalBlock) map.putBlock(block, RenderLayer.getTranslucent());
             if(block instanceof CrystalSlabBlock) map.putBlock(block, RenderLayer.getTranslucent());
             if(block instanceof CrystalStairsBlock) map.putBlock(block, RenderLayer.getTranslucent());

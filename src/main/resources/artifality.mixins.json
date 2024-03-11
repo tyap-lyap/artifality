@@ -14,8 +14,7 @@
     "common.TrackTargetGoalMixin",
     "common.VillagerMixin",
     "common.access.BeaconAccess",
-    "common.LightningMixin",
-    "common.extension.PlayerMixinExtension"
+    "common.LightningMixin"
   ],
   "client": [
     "client.ArmorFeatureRendererMixin",
