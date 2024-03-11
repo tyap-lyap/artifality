@@ -11,3 +11,5 @@ enchantments, world features and structures, and other stuff.
 For example some of the features will help you grow a garden and some are gonna propose you a challenge.
 
 #### [Discord Server](https://discord.gg/DcemWeskeZ) | [Modrinth Page](https://modrinth.com/mod/artifality) | [CurseForge Page](https://curseforge.com/minecraft/mc-mods/artifality)
+
+![artifality artifacts](https://cdn.modrinth.com/data/cached_images/8046057e674997c27a503a7bf48582db81295fbf.png)

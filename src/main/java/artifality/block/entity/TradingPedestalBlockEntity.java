@@ -1,10 +1,12 @@
 package artifality.block.entity;
 
+import artifality.item.base.ArtifactItem;
 import artifality.registry.ArtifalityBlockEntities;
 import artifality.registry.ArtifalityItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.listener.ClientPlayPacketListener;
@@ -13,14 +15,24 @@ import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.random.Random;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
+
 public class TradingPedestalBlockEntity extends BlockEntity {
-    public ItemStack sellingItem = ArtifalityItems.BALLOON.getDefaultStack();
+    public ItemStack sellingItem;
     public ItemStack chargeItem = new ItemStack(ArtifalityItems.LUNAR_CRYSTAL, 10);
 
     public TradingPedestalBlockEntity(BlockPos pos, BlockState state) {
         super(ArtifalityBlockEntities.TRADING_PEDESTAL, pos, state);
+
+        ArrayList<Item> items = new ArrayList<>();
+
+        for(Item item : ArtifalityItems.ITEMS.values()) {
+            if(item instanceof ArtifactItem) items.add(item);
+        }
+        sellingItem = items.get(Random.create().nextInt(items.size())).getDefaultStack();
     }
 
     @Override
