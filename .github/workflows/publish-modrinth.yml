@@ -31,8 +31,8 @@ jobs:
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
 
           files: |
-            fabric/build/libs/artifality-${{ github.event.release.tag_name }}.jar
-            fabric/build/libs/artifality-${{ github.event.release.tag_name }}-sources.jar
+            build/libs/artifality-${{ github.event.release.tag_name }}.jar
+            build/libs/artifality-${{ github.event.release.tag_name }}-sources.jar
             
           name: ${{ github.event.release.tag_name }}
           version: ${{ github.event.release.tag_name }}+fabric
